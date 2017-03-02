@@ -1,0 +1,6 @@
+framework module Pods_OznerLibrarySwiftyDemo {
+  umbrella header "Pods-OznerLibrarySwiftyDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}

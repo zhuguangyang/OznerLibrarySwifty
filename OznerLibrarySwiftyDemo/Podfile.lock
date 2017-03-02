@@ -1,0 +1,15 @@
+PODS:
+  - DateTools (2.0.0)
+  - MQTTKit (0.1.0)
+
+DEPENDENCIES:
+  - DateTools
+  - MQTTKit
+
+SPEC CHECKSUMS:
+  DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
+  MQTTKit: a4e6b8aa92db1aeae917d2b773fd72a7749937c4
+
+PODFILE CHECKSUM: bd41c1cd878cc70b8a4a4823532681e9ad62ab5c
+
+COCOAPODS: 1.2.0

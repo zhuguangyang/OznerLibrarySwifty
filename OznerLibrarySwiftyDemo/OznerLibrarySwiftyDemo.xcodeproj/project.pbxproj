@@ -1,0 +1,1157 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F90702BB28E42715A9D5E03 /* Pods_OznerLibrarySwiftyDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */; };
+		8D183CE61E28723D002E4618 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D183CE51E28723D002E4618 /* ResultViewController.swift */; };
+		8D1ED41D1E12332F0081D2BB /* BabyBLEHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1ED41C1E12332F0081D2BB /* BabyBLEHelper.m */; };
+		8D1ED4201E1239230081D2BB /* BabyBLEIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1ED41F1E1239230081D2BB /* BabyBLEIO.m */; };
+		8D1FB6131E5314F70075C009 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */; };
+		8D1FB6151E5315010075C009 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6141E5315010075C009 /* CoreGraphics.framework */; };
+		8D1FB6171E5315290075C009 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6161E5315290075C009 /* Foundation.framework */; };
+		8D1FB6191E5315390075C009 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6181E5315390075C009 /* UIKit.framework */; };
+		8D1FB61B1E5315440075C009 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB61A1E5315440075C009 /* CFNetwork.framework */; };
+		8D1FB61D1E5315530075C009 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB61C1E5315530075C009 /* QuartzCore.framework */; };
+		8D1FB61F1E5315690075C009 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB61E1E5315690075C009 /* AudioToolbox.framework */; };
+		8D1FB6211E5315790075C009 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6201E5315790075C009 /* Security.framework */; };
+		8D1FB6361E531ACC0075C009 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1FB6261E531ACC0075C009 /* GCDAsyncSocket.m */; };
+		8D1FB6371E531ACC0075C009 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1FB6281E531ACC0075C009 /* GCDAsyncUdpSocket.m */; };
+		8D1FB6381E531ACC0075C009 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1FB62B1E531ACC0075C009 /* AsyncSocket.m */; };
+		8D1FB6391E531ACC0075C009 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1FB62D1E531ACC0075C009 /* AsyncUdpSocket.m */; };
+		8D1FB63B1E531ACC0075C009 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1FB6311E531ACC0075C009 /* Reachability.m */; };
+		8D1FB63D1E531ACC0075C009 /* libEasyLink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6351E531ACC0075C009 /* libEasyLink.a */; };
+		8D2055521E543AC9003E51A2 /* OznerMQTT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2055511E543AC9003E51A2 /* OznerMQTT.swift */; };
+		8D2055541E544A28003E51A2 /* OznerEasyLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2055531E544A28003E51A2 /* OznerEasyLink.swift */; };
+		8D2419BE1E11122200CF9B9C /* BabyBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419AD1E11122200CF9B9C /* BabyBluetooth.m */; };
+		8D2419BF1E11122200CF9B9C /* BabyCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419AF1E11122200CF9B9C /* BabyCallback.m */; };
+		8D2419C01E11122200CF9B9C /* BabyCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419B11E11122200CF9B9C /* BabyCentralManager.m */; };
+		8D2419C11E11122200CF9B9C /* BabyDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419B31E11122200CF9B9C /* BabyDefine.m */; };
+		8D2419C21E11122200CF9B9C /* BabyOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419B51E11122200CF9B9C /* BabyOptions.m */; };
+		8D2419C31E11122200CF9B9C /* BabyPeripheralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419B71E11122200CF9B9C /* BabyPeripheralManager.m */; };
+		8D2419C41E11122200CF9B9C /* BabyRhythm.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419B91E11122200CF9B9C /* BabyRhythm.m */; };
+		8D2419C51E11122200CF9B9C /* BabySpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419BB1E11122200CF9B9C /* BabySpeaker.m */; };
+		8D2419C61E11122200CF9B9C /* BabyToy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419BD1E11122200CF9B9C /* BabyToy.m */; };
+		8D2C8F8E1E1F840E002D83EF /* WaterReplenish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2C8F8D1E1F840E002D83EF /* WaterReplenish.swift */; };
+		8D2C8F901E1F9081002D83EF /* WaterReplenishStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2C8F8F1E1F9081002D83EF /* WaterReplenishStatus.swift */; };
+		8D441D7F1E0CF21100B895D4 /* OznerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D441D7E1E0CF21100B895D4 /* OznerDataManager.swift */; };
+		8D46A9641E13B6D90011FBAE /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D46A9631E13B6D90011FBAE /* CoreBluetooth.framework */; };
+		8D49848E1E10FE3000C28AAE /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D49848D1E10FE3000C28AAE /* SQLite.framework */; };
+		8D49848F1E10FE3000C28AAE /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D49848D1E10FE3000C28AAE /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8D54AC621E20B1EA00689790 /* WaterPurifier_Blue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D54AC611E20B1EA00689790 /* WaterPurifier_Blue.swift */; };
+		8D60675C1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D60675B1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift */; };
+		8D60675E1E27895E00C87CC0 /* AddDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D60675D1E27895E00C87CC0 /* AddDeviceTableViewController.swift */; };
+		8D6067601E27897A00C87CC0 /* DeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D60675F1E27897A00C87CC0 /* DeviceDetailViewController.swift */; };
+		8D7C9B9B1E55833700D29C5D /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7C9B9A1E55833700D29C5D /* Helper.m */; };
+		8DD349471E0BA62200C945A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349461E0BA62200C945A2 /* AppDelegate.swift */; };
+		8DD349491E0BA62200C945A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349481E0BA62200C945A2 /* ViewController.swift */; };
+		8DD3494C1E0BA62200C945A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DD3494A1E0BA62200C945A2 /* Main.storyboard */; };
+		8DD3494E1E0BA62200C945A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DD3494D1E0BA62200C945A2 /* Assets.xcassets */; };
+		8DD349511E0BA62200C945A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DD3494F1E0BA62200C945A2 /* LaunchScreen.storyboard */; };
+		8DD3495C1E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3495B1E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests.swift */; };
+		8DD349671E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349661E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.swift */; };
+		8DD349771E0BA7A100C945A2 /* OznerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349761E0BA7A100C945A2 /* OznerManager.swift */; };
+		8DD349791E0BA82900C945A2 /* OznerDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349781E0BA82900C945A2 /* OznerDeviceManager.swift */; };
+		8DD349821E0BA9C600C945A2 /* OznerBaseDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349811E0BA9C600C945A2 /* OznerBaseDevice.swift */; };
+		8DD349841E0BA9ED00C945A2 /* AirPurifier_Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349831E0BA9ED00C945A2 /* AirPurifier_Bluetooth.swift */; };
+		8DD349861E0BAA0500C945A2 /* AirPurifier_Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349851E0BAA0500C945A2 /* AirPurifier_Wifi.swift */; };
+		8DD349881E0BB57A00C945A2 /* BaseDeviceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349871E0BB57A00C945A2 /* BaseDeviceSetting.swift */; };
+		8DD3498B1E0BBF1D00C945A2 /* DeviceConfigInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DD3498A1E0BBF1D00C945A2 /* DeviceConfigInfo.plist */; };
+		8DD3498D1E0BBF5200C945A2 /* DeviceConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3498C1E0BBF5200C945A2 /* DeviceConfigManager.swift */; };
+		8DD349921E0BC6B100C945A2 /* OznerBaseIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349911E0BC6B100C945A2 /* OznerBaseIO.swift */; };
+		8DD349941E0BD2B400C945A2 /* OznerIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349931E0BD2B400C945A2 /* OznerIOManager.swift */; };
+		8DD349991E0BD33300C945A2 /* OZAylaIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349981E0BD33300C945A2 /* OZAylaIO.swift */; };
+		8DD3499B1E0BD34E00C945A2 /* OZBluetoothIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3499A1E0BD34E00C945A2 /* OZBluetoothIO.swift */; };
+		8DD3499D1E0BD36300C945A2 /* OZMxChipIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3499C1E0BD36300C945A2 /* OZMxChipIO.swift */; };
+		8DD3499F1E0BD99C00C945A2 /* OznerAylaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3499E1E0BD99C00C945A2 /* OznerAylaManager.swift */; };
+		8DD349A11E0BD9B100C945A2 /* OznerBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349A01E0BD9B100C945A2 /* OznerBluetoothManager.swift */; };
+		8DD349A31E0BD9C400C945A2 /* OznerMxChipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349A21E0BD9C400C945A2 /* OznerMxChipManager.swift */; };
+		8DE009541E5F0236009F740C /* OznerBonjourDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE009531E5F0236009F740C /* OznerBonjourDetail.m */; };
+		8DE0958A1E1B8B0A00D00679 /* Cup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE095891E1B8B0A00D00679 /* Cup.swift */; };
+		8DE0958C1E1B8B1A00D00679 /* Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE0958B1E1B8B1A00D00679 /* Tap.swift */; };
+		8DE0958E1E1C8E6A00D00679 /* OznerDeviceRecordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE0958D1E1C8E6A00D00679 /* OznerDeviceRecordHelper.swift */; };
+		8DE095901E1DEA2B00D00679 /* OznerCupRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE0958F1E1DEA2B00D00679 /* OznerCupRecords.swift */; };
+		8DE095931E1E513500D00679 /* OznerTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE095921E1E513500D00679 /* OznerTools.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8DD349581E0BA62200C945A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DD3493B1E0BA62200C945A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD349421E0BA62200C945A2;
+			remoteInfo = OznerLibrarySwiftyDemo;
+		};
+		8DD349631E0BA62200C945A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DD3493B1E0BA62200C945A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD349421E0BA62200C945A2;
+			remoteInfo = OznerLibrarySwiftyDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8D4984901E10FE3000C28AAE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8D49848F1E10FE3000C28AAE /* SQLite.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OznerLibrarySwiftyDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D183CE51E28723D002E4618 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		8D1ED41B1E12332F0081D2BB /* BabyBLEHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBLEHelper.h; sourceTree = "<group>"; };
+		8D1ED41C1E12332F0081D2BB /* BabyBLEHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBLEHelper.m; sourceTree = "<group>"; };
+		8D1ED41E1E1239230081D2BB /* BabyBLEIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBLEIO.h; sourceTree = "<group>"; };
+		8D1ED41F1E1239230081D2BB /* BabyBLEIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBLEIO.m; sourceTree = "<group>"; };
+		8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8D1FB6141E5315010075C009 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8D1FB6161E5315290075C009 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8D1FB6181E5315390075C009 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		8D1FB61A1E5315440075C009 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		8D1FB61C1E5315530075C009 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8D1FB61E1E5315690075C009 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8D1FB6201E5315790075C009 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8D1FB6251E531ACC0075C009 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		8D1FB6261E531ACC0075C009 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		8D1FB6271E531ACC0075C009 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		8D1FB6281E531ACC0075C009 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		8D1FB62A1E531ACC0075C009 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		8D1FB62B1E531ACC0075C009 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		8D1FB62C1E531ACC0075C009 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
+		8D1FB62D1E531ACC0075C009 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+		8D1FB6301E531ACC0075C009 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		8D1FB6311E531ACC0075C009 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		8D1FB6341E531ACC0075C009 /* EasyLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLink.h; sourceTree = "<group>"; };
+		8D1FB6351E531ACC0075C009 /* libEasyLink.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEasyLink.a; sourceTree = "<group>"; };
+		8D2055511E543AC9003E51A2 /* OznerMQTT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerMQTT.swift; sourceTree = "<group>"; };
+		8D2055531E544A28003E51A2 /* OznerEasyLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerEasyLink.swift; sourceTree = "<group>"; };
+		8D2419A61E1111D700CF9B9C /* OznerLibrarySwiftyDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OznerLibrarySwiftyDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		8D2419AC1E11122200CF9B9C /* BabyBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBluetooth.h; sourceTree = "<group>"; };
+		8D2419AD1E11122200CF9B9C /* BabyBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBluetooth.m; sourceTree = "<group>"; };
+		8D2419AE1E11122200CF9B9C /* BabyCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyCallback.h; sourceTree = "<group>"; };
+		8D2419AF1E11122200CF9B9C /* BabyCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyCallback.m; sourceTree = "<group>"; };
+		8D2419B01E11122200CF9B9C /* BabyCentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyCentralManager.h; sourceTree = "<group>"; };
+		8D2419B11E11122200CF9B9C /* BabyCentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyCentralManager.m; sourceTree = "<group>"; };
+		8D2419B21E11122200CF9B9C /* BabyDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyDefine.h; sourceTree = "<group>"; };
+		8D2419B31E11122200CF9B9C /* BabyDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyDefine.m; sourceTree = "<group>"; };
+		8D2419B41E11122200CF9B9C /* BabyOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyOptions.h; sourceTree = "<group>"; };
+		8D2419B51E11122200CF9B9C /* BabyOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyOptions.m; sourceTree = "<group>"; };
+		8D2419B61E11122200CF9B9C /* BabyPeripheralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyPeripheralManager.h; sourceTree = "<group>"; };
+		8D2419B71E11122200CF9B9C /* BabyPeripheralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyPeripheralManager.m; sourceTree = "<group>"; };
+		8D2419B81E11122200CF9B9C /* BabyRhythm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyRhythm.h; sourceTree = "<group>"; };
+		8D2419B91E11122200CF9B9C /* BabyRhythm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyRhythm.m; sourceTree = "<group>"; };
+		8D2419BA1E11122200CF9B9C /* BabySpeaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabySpeaker.h; sourceTree = "<group>"; };
+		8D2419BB1E11122200CF9B9C /* BabySpeaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabySpeaker.m; sourceTree = "<group>"; };
+		8D2419BC1E11122200CF9B9C /* BabyToy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyToy.h; sourceTree = "<group>"; };
+		8D2419BD1E11122200CF9B9C /* BabyToy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyToy.m; sourceTree = "<group>"; };
+		8D2C8F8D1E1F840E002D83EF /* WaterReplenish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterReplenish.swift; sourceTree = "<group>"; };
+		8D2C8F8F1E1F9081002D83EF /* WaterReplenishStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterReplenishStatus.swift; sourceTree = "<group>"; };
+		8D441D7E1E0CF21100B895D4 /* OznerDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDataManager.swift; sourceTree = "<group>"; };
+		8D441D811E0CFB9800B895D4 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
+		8D46A9631E13B6D90011FBAE /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		8D49848D1E10FE3000C28AAE /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
+		8D54AC611E20B1EA00689790 /* WaterPurifier_Blue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterPurifier_Blue.swift; sourceTree = "<group>"; };
+		8D60675B1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterPurifier_Wifi.swift; sourceTree = "<group>"; };
+		8D60675D1E27895E00C87CC0 /* AddDeviceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDeviceTableViewController.swift; sourceTree = "<group>"; };
+		8D60675F1E27897A00C87CC0 /* DeviceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetailViewController.swift; sourceTree = "<group>"; };
+		8D7C9B991E55833700D29C5D /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		8D7C9B9A1E55833700D29C5D /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		8DD349431E0BA62200C945A2 /* OznerLibrarySwiftyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OznerLibrarySwiftyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD349461E0BA62200C945A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8DD349481E0BA62200C945A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8DD3494B1E0BA62200C945A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8DD3494D1E0BA62200C945A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8DD349501E0BA62200C945A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8DD349521E0BA62200C945A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DD349571E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OznerLibrarySwiftyDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD3495B1E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OznerLibrarySwiftyDemoTests.swift; sourceTree = "<group>"; };
+		8DD3495D1E0BA62200C945A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DD349621E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OznerLibrarySwiftyDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD349661E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OznerLibrarySwiftyDemoUITests.swift; sourceTree = "<group>"; };
+		8DD349681E0BA62200C945A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DD349761E0BA7A100C945A2 /* OznerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerManager.swift; sourceTree = "<group>"; };
+		8DD349781E0BA82900C945A2 /* OznerDeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDeviceManager.swift; sourceTree = "<group>"; };
+		8DD349811E0BA9C600C945A2 /* OznerBaseDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerBaseDevice.swift; sourceTree = "<group>"; };
+		8DD349831E0BA9ED00C945A2 /* AirPurifier_Bluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirPurifier_Bluetooth.swift; sourceTree = "<group>"; };
+		8DD349851E0BAA0500C945A2 /* AirPurifier_Wifi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirPurifier_Wifi.swift; sourceTree = "<group>"; };
+		8DD349871E0BB57A00C945A2 /* BaseDeviceSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDeviceSetting.swift; sourceTree = "<group>"; };
+		8DD3498A1E0BBF1D00C945A2 /* DeviceConfigInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DeviceConfigInfo.plist; sourceTree = "<group>"; };
+		8DD3498C1E0BBF5200C945A2 /* DeviceConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceConfigManager.swift; sourceTree = "<group>"; };
+		8DD349911E0BC6B100C945A2 /* OznerBaseIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerBaseIO.swift; sourceTree = "<group>"; };
+		8DD349931E0BD2B400C945A2 /* OznerIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerIOManager.swift; sourceTree = "<group>"; };
+		8DD349981E0BD33300C945A2 /* OZAylaIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OZAylaIO.swift; sourceTree = "<group>"; };
+		8DD3499A1E0BD34E00C945A2 /* OZBluetoothIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OZBluetoothIO.swift; sourceTree = "<group>"; };
+		8DD3499C1E0BD36300C945A2 /* OZMxChipIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OZMxChipIO.swift; sourceTree = "<group>"; };
+		8DD3499E1E0BD99C00C945A2 /* OznerAylaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerAylaManager.swift; sourceTree = "<group>"; };
+		8DD349A01E0BD9B100C945A2 /* OznerBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerBluetoothManager.swift; sourceTree = "<group>"; };
+		8DD349A21E0BD9C400C945A2 /* OznerMxChipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerMxChipManager.swift; sourceTree = "<group>"; };
+		8DE009521E5F0236009F740C /* OznerBonjourDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OznerBonjourDetail.h; sourceTree = "<group>"; };
+		8DE009531E5F0236009F740C /* OznerBonjourDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OznerBonjourDetail.m; sourceTree = "<group>"; };
+		8DE095891E1B8B0A00D00679 /* Cup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cup.swift; sourceTree = "<group>"; };
+		8DE0958B1E1B8B1A00D00679 /* Tap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tap.swift; sourceTree = "<group>"; };
+		8DE0958D1E1C8E6A00D00679 /* OznerDeviceRecordHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDeviceRecordHelper.swift; sourceTree = "<group>"; };
+		8DE0958F1E1DEA2B00D00679 /* OznerCupRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerCupRecords.swift; sourceTree = "<group>"; };
+		8DE095921E1E513500D00679 /* OznerTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerTools.swift; sourceTree = "<group>"; };
+		8E143C6116DD8580096B13BA /* Pods-OznerLibrarySwiftyDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OznerLibrarySwiftyDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OznerLibrarySwiftyDemo/Pods-OznerLibrarySwiftyDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		ACBB721B282F5D7D14FDBB2A /* Pods-OznerLibrarySwiftyDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OznerLibrarySwiftyDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-OznerLibrarySwiftyDemo/Pods-OznerLibrarySwiftyDemo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD349401E0BA62200C945A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D1FB6211E5315790075C009 /* Security.framework in Frameworks */,
+				8D1FB61F1E5315690075C009 /* AudioToolbox.framework in Frameworks */,
+				8D1FB61D1E5315530075C009 /* QuartzCore.framework in Frameworks */,
+				8D1FB61B1E5315440075C009 /* CFNetwork.framework in Frameworks */,
+				8D1FB6191E5315390075C009 /* UIKit.framework in Frameworks */,
+				8D1FB6171E5315290075C009 /* Foundation.framework in Frameworks */,
+				8D1FB6151E5315010075C009 /* CoreGraphics.framework in Frameworks */,
+				8D1FB6131E5314F70075C009 /* SystemConfiguration.framework in Frameworks */,
+				8D46A9641E13B6D90011FBAE /* CoreBluetooth.framework in Frameworks */,
+				8D49848E1E10FE3000C28AAE /* SQLite.framework in Frameworks */,
+				1F90702BB28E42715A9D5E03 /* Pods_OznerLibrarySwiftyDemo.framework in Frameworks */,
+				8D1FB63D1E531ACC0075C009 /* libEasyLink.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD349541E0BA62200C945A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD3495F1E0BA62200C945A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8AED77541B4ACE227D3F2053 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8E143C6116DD8580096B13BA /* Pods-OznerLibrarySwiftyDemo.debug.xcconfig */,
+				ACBB721B282F5D7D14FDBB2A /* Pods-OznerLibrarySwiftyDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8D1FB6221E531ACC0075C009 /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				8D1FB6231E531ACC0075C009 /* Source */,
+			);
+			path = CocoaAsyncSocket;
+			sourceTree = "<group>";
+		};
+		8D1FB6231E531ACC0075C009 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				8D1FB6241E531ACC0075C009 /* GCD */,
+				8D1FB6291E531ACC0075C009 /* RunLoop */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		8D1FB6241E531ACC0075C009 /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				8D1FB6251E531ACC0075C009 /* GCDAsyncSocket.h */,
+				8D1FB6261E531ACC0075C009 /* GCDAsyncSocket.m */,
+				8D1FB6271E531ACC0075C009 /* GCDAsyncUdpSocket.h */,
+				8D1FB6281E531ACC0075C009 /* GCDAsyncUdpSocket.m */,
+			);
+			path = GCD;
+			sourceTree = "<group>";
+		};
+		8D1FB6291E531ACC0075C009 /* RunLoop */ = {
+			isa = PBXGroup;
+			children = (
+				8D1FB62A1E531ACC0075C009 /* AsyncSocket.h */,
+				8D1FB62B1E531ACC0075C009 /* AsyncSocket.m */,
+				8D1FB62C1E531ACC0075C009 /* AsyncUdpSocket.h */,
+				8D1FB62D1E531ACC0075C009 /* AsyncUdpSocket.m */,
+			);
+			path = RunLoop;
+			sourceTree = "<group>";
+		};
+		8D1FB62E1E531ACC0075C009 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				8D1FB6301E531ACC0075C009 /* Reachability.h */,
+				8D1FB6311E531ACC0075C009 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		8D1FB6331E531ACC0075C009 /* EasyLink */ = {
+			isa = PBXGroup;
+			children = (
+				8DE009521E5F0236009F740C /* OznerBonjourDetail.h */,
+				8DE009531E5F0236009F740C /* OznerBonjourDetail.m */,
+				8D1FB6341E531ACC0075C009 /* EasyLink.h */,
+				8D1FB6351E531ACC0075C009 /* libEasyLink.a */,
+			);
+			path = EasyLink;
+			sourceTree = "<group>";
+		};
+		8D2419851E11113B00CF9B9C /* BabyBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				8D2419AA1E11122200CF9B9C /* Classes */,
+			);
+			path = BabyBluetooth;
+			sourceTree = "<group>";
+		};
+		8D2419AA1E11122200CF9B9C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8D2419AB1E11122200CF9B9C /* objc */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8D2419AB1E11122200CF9B9C /* objc */ = {
+			isa = PBXGroup;
+			children = (
+				8D2419AC1E11122200CF9B9C /* BabyBluetooth.h */,
+				8D2419AD1E11122200CF9B9C /* BabyBluetooth.m */,
+				8D2419AE1E11122200CF9B9C /* BabyCallback.h */,
+				8D2419AF1E11122200CF9B9C /* BabyCallback.m */,
+				8D2419B01E11122200CF9B9C /* BabyCentralManager.h */,
+				8D2419B11E11122200CF9B9C /* BabyCentralManager.m */,
+				8D2419B21E11122200CF9B9C /* BabyDefine.h */,
+				8D2419B31E11122200CF9B9C /* BabyDefine.m */,
+				8D2419B41E11122200CF9B9C /* BabyOptions.h */,
+				8D2419B51E11122200CF9B9C /* BabyOptions.m */,
+				8D2419B61E11122200CF9B9C /* BabyPeripheralManager.h */,
+				8D2419B71E11122200CF9B9C /* BabyPeripheralManager.m */,
+				8D2419B81E11122200CF9B9C /* BabyRhythm.h */,
+				8D2419B91E11122200CF9B9C /* BabyRhythm.m */,
+				8D2419BA1E11122200CF9B9C /* BabySpeaker.h */,
+				8D2419BB1E11122200CF9B9C /* BabySpeaker.m */,
+				8D2419BC1E11122200CF9B9C /* BabyToy.h */,
+				8D2419BD1E11122200CF9B9C /* BabyToy.m */,
+			);
+			path = objc;
+			sourceTree = "<group>";
+		};
+		8D2C8F8C1E1F83F5002D83EF /* WaterReplenish */ = {
+			isa = PBXGroup;
+			children = (
+				8D2C8F8D1E1F840E002D83EF /* WaterReplenish.swift */,
+				8D2C8F8F1E1F9081002D83EF /* WaterReplenishStatus.swift */,
+			);
+			path = WaterReplenish;
+			sourceTree = "<group>";
+		};
+		8D441D7D1E0CF1F700B895D4 /* OznerDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				8D441D7E1E0CF21100B895D4 /* OznerDataManager.swift */,
+				8DE0958D1E1C8E6A00D00679 /* OznerDeviceRecordHelper.swift */,
+			);
+			path = OznerDataManager;
+			sourceTree = "<group>";
+		};
+		8D441D801E0CFB9700B895D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D1FB6201E5315790075C009 /* Security.framework */,
+				8D1FB61E1E5315690075C009 /* AudioToolbox.framework */,
+				8D1FB61C1E5315530075C009 /* QuartzCore.framework */,
+				8D1FB61A1E5315440075C009 /* CFNetwork.framework */,
+				8D1FB6181E5315390075C009 /* UIKit.framework */,
+				8D1FB6161E5315290075C009 /* Foundation.framework */,
+				8D1FB6141E5315010075C009 /* CoreGraphics.framework */,
+				8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */,
+				8D46A9631E13B6D90011FBAE /* CoreBluetooth.framework */,
+				8D441D811E0CFB9800B895D4 /* SQLite.framework */,
+				53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8D54AC5F1E20B14800689790 /* WaterPurifier_Wifi */ = {
+			isa = PBXGroup;
+			children = (
+				8D60675B1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift */,
+			);
+			path = WaterPurifier_Wifi;
+			sourceTree = "<group>";
+		};
+		8D54AC601E20B15500689790 /* WaterPurifier_Blue */ = {
+			isa = PBXGroup;
+			children = (
+				8D54AC611E20B1EA00689790 /* WaterPurifier_Blue.swift */,
+			);
+			path = WaterPurifier_Blue;
+			sourceTree = "<group>";
+		};
+		8DD3493A1E0BA62200C945A2 = {
+			isa = PBXGroup;
+			children = (
+				8D2419A61E1111D700CF9B9C /* OznerLibrarySwiftyDemo-Bridging-Header.h */,
+				8D49848D1E10FE3000C28AAE /* SQLite.framework */,
+				8DD349741E0BA66600C945A2 /* OznerLibrarySwifty */,
+				8DD349451E0BA62200C945A2 /* OznerLibrarySwiftyDemo */,
+				8DD3495A1E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests */,
+				8DD349651E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests */,
+				8DD349441E0BA62200C945A2 /* Products */,
+				8D441D801E0CFB9700B895D4 /* Frameworks */,
+				8AED77541B4ACE227D3F2053 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		8DD349441E0BA62200C945A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD349431E0BA62200C945A2 /* OznerLibrarySwiftyDemo.app */,
+				8DD349571E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests.xctest */,
+				8DD349621E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8DD349451E0BA62200C945A2 /* OznerLibrarySwiftyDemo */ = {
+			isa = PBXGroup;
+			children = (
+				8DD349461E0BA62200C945A2 /* AppDelegate.swift */,
+				8DD349481E0BA62200C945A2 /* ViewController.swift */,
+				8DD3494A1E0BA62200C945A2 /* Main.storyboard */,
+				8DD3494D1E0BA62200C945A2 /* Assets.xcassets */,
+				8DD3494F1E0BA62200C945A2 /* LaunchScreen.storyboard */,
+				8DD349521E0BA62200C945A2 /* Info.plist */,
+				8D60675D1E27895E00C87CC0 /* AddDeviceTableViewController.swift */,
+				8D60675F1E27897A00C87CC0 /* DeviceDetailViewController.swift */,
+				8D183CE51E28723D002E4618 /* ResultViewController.swift */,
+			);
+			path = OznerLibrarySwiftyDemo;
+			sourceTree = "<group>";
+		};
+		8DD3495A1E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				8DD3495B1E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests.swift */,
+				8DD3495D1E0BA62200C945A2 /* Info.plist */,
+			);
+			path = OznerLibrarySwiftyDemoTests;
+			sourceTree = "<group>";
+		};
+		8DD349651E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8DD349661E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.swift */,
+				8DD349681E0BA62200C945A2 /* Info.plist */,
+			);
+			path = OznerLibrarySwiftyDemoUITests;
+			sourceTree = "<group>";
+		};
+		8DD349741E0BA66600C945A2 /* OznerLibrarySwifty */ = {
+			isa = PBXGroup;
+			children = (
+				8DD349761E0BA7A100C945A2 /* OznerManager.swift */,
+				8D441D7D1E0CF1F700B895D4 /* OznerDataManager */,
+				8DD3498F1E0BC66400C945A2 /* OznerIOManager */,
+				8DD349751E0BA75F00C945A2 /* DeviceManager */,
+				8DE095911E1E512700D00679 /* OznerTools */,
+			);
+			path = OznerLibrarySwifty;
+			sourceTree = "<group>";
+		};
+		8DD349751E0BA75F00C945A2 /* DeviceManager */ = {
+			isa = PBXGroup;
+			children = (
+				8DD349781E0BA82900C945A2 /* OznerDeviceManager.swift */,
+				8DE095871E1B8A8900D00679 /* Cup */,
+				8DE095881E1B8AC500D00679 /* Tap */,
+				8DD3497A1E0BA8D300C945A2 /* AirPurifier_Bluetooth */,
+				8D2C8F8C1E1F83F5002D83EF /* WaterReplenish */,
+				8D54AC601E20B15500689790 /* WaterPurifier_Blue */,
+				8D54AC5F1E20B14800689790 /* WaterPurifier_Wifi */,
+				8DD3497B1E0BA8D300C945A2 /* AirPurifier_Wifi */,
+				8DD3497C1E0BA8D300C945A2 /* BaseDevice */,
+				8DD349891E0BBEE300C945A2 /* DeviceConfig */,
+			);
+			path = DeviceManager;
+			sourceTree = "<group>";
+		};
+		8DD3497A1E0BA8D300C945A2 /* AirPurifier_Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				8DD349831E0BA9ED00C945A2 /* AirPurifier_Bluetooth.swift */,
+			);
+			path = AirPurifier_Bluetooth;
+			sourceTree = "<group>";
+		};
+		8DD3497B1E0BA8D300C945A2 /* AirPurifier_Wifi */ = {
+			isa = PBXGroup;
+			children = (
+				8DD349851E0BAA0500C945A2 /* AirPurifier_Wifi.swift */,
+			);
+			path = AirPurifier_Wifi;
+			sourceTree = "<group>";
+		};
+		8DD3497C1E0BA8D300C945A2 /* BaseDevice */ = {
+			isa = PBXGroup;
+			children = (
+				8DD349811E0BA9C600C945A2 /* OznerBaseDevice.swift */,
+				8DD349871E0BB57A00C945A2 /* BaseDeviceSetting.swift */,
+			);
+			path = BaseDevice;
+			sourceTree = "<group>";
+		};
+		8DD349891E0BBEE300C945A2 /* DeviceConfig */ = {
+			isa = PBXGroup;
+			children = (
+				8DD3498A1E0BBF1D00C945A2 /* DeviceConfigInfo.plist */,
+				8DD3498C1E0BBF5200C945A2 /* DeviceConfigManager.swift */,
+			);
+			path = DeviceConfig;
+			sourceTree = "<group>";
+		};
+		8DD3498F1E0BC66400C945A2 /* OznerIOManager */ = {
+			isa = PBXGroup;
+			children = (
+				8DD349931E0BD2B400C945A2 /* OznerIOManager.swift */,
+				8DD349901E0BC69500C945A2 /* OznerBaseIO */,
+				8DD349961E0BD2EF00C945A2 /* Bluetooth */,
+				8DD349951E0BD2EF00C945A2 /* Ayla */,
+				8DD349971E0BD2EF00C945A2 /* MxChip */,
+			);
+			path = OznerIOManager;
+			sourceTree = "<group>";
+		};
+		8DD349901E0BC69500C945A2 /* OznerBaseIO */ = {
+			isa = PBXGroup;
+			children = (
+				8DD349911E0BC6B100C945A2 /* OznerBaseIO.swift */,
+			);
+			path = OznerBaseIO;
+			sourceTree = "<group>";
+		};
+		8DD349951E0BD2EF00C945A2 /* Ayla */ = {
+			isa = PBXGroup;
+			children = (
+				8DD349981E0BD33300C945A2 /* OZAylaIO.swift */,
+				8DD3499E1E0BD99C00C945A2 /* OznerAylaManager.swift */,
+			);
+			path = Ayla;
+			sourceTree = "<group>";
+		};
+		8DD349961E0BD2EF00C945A2 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				8D2419851E11113B00CF9B9C /* BabyBluetooth */,
+				8DD3499A1E0BD34E00C945A2 /* OZBluetoothIO.swift */,
+				8DD349A01E0BD9B100C945A2 /* OznerBluetoothManager.swift */,
+				8D1ED41B1E12332F0081D2BB /* BabyBLEHelper.h */,
+				8D1ED41C1E12332F0081D2BB /* BabyBLEHelper.m */,
+				8D1ED41E1E1239230081D2BB /* BabyBLEIO.h */,
+				8D1ED41F1E1239230081D2BB /* BabyBLEIO.m */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		8DD349971E0BD2EF00C945A2 /* MxChip */ = {
+			isa = PBXGroup;
+			children = (
+				8D1FB6221E531ACC0075C009 /* CocoaAsyncSocket */,
+				8D1FB62E1E531ACC0075C009 /* Reachability */,
+				8D1FB6331E531ACC0075C009 /* EasyLink */,
+				8DD3499C1E0BD36300C945A2 /* OZMxChipIO.swift */,
+				8DD349A21E0BD9C400C945A2 /* OznerMxChipManager.swift */,
+				8D2055511E543AC9003E51A2 /* OznerMQTT.swift */,
+				8D2055531E544A28003E51A2 /* OznerEasyLink.swift */,
+			);
+			path = MxChip;
+			sourceTree = "<group>";
+		};
+		8DE095871E1B8A8900D00679 /* Cup */ = {
+			isa = PBXGroup;
+			children = (
+				8DE095891E1B8B0A00D00679 /* Cup.swift */,
+				8DE0958F1E1DEA2B00D00679 /* OznerCupRecords.swift */,
+			);
+			path = Cup;
+			sourceTree = "<group>";
+		};
+		8DE095881E1B8AC500D00679 /* Tap */ = {
+			isa = PBXGroup;
+			children = (
+				8DE0958B1E1B8B1A00D00679 /* Tap.swift */,
+			);
+			path = Tap;
+			sourceTree = "<group>";
+		};
+		8DE095911E1E512700D00679 /* OznerTools */ = {
+			isa = PBXGroup;
+			children = (
+				8D7C9B991E55833700D29C5D /* Helper.h */,
+				8D7C9B9A1E55833700D29C5D /* Helper.m */,
+				8DE095921E1E513500D00679 /* OznerTools.swift */,
+			);
+			path = OznerTools;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD349421E0BA62200C945A2 /* OznerLibrarySwiftyDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DD3496B1E0BA62200C945A2 /* Build configuration list for PBXNativeTarget "OznerLibrarySwiftyDemo" */;
+			buildPhases = (
+				01FD9B58974B1F46A61BC76D /* [CP] Check Pods Manifest.lock */,
+				8DD3493F1E0BA62200C945A2 /* Sources */,
+				8DD349401E0BA62200C945A2 /* Frameworks */,
+				8DD349411E0BA62200C945A2 /* Resources */,
+				8D4984901E10FE3000C28AAE /* Embed Frameworks */,
+				866D5D1B1E92EDA22E4927C2 /* [CP] Embed Pods Frameworks */,
+				04EE88EA6FC72C78053F10C7 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OznerLibrarySwiftyDemo;
+			productName = OznerLibrarySwiftyDemo;
+			productReference = 8DD349431E0BA62200C945A2 /* OznerLibrarySwiftyDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8DD349561E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DD3496E1E0BA62200C945A2 /* Build configuration list for PBXNativeTarget "OznerLibrarySwiftyDemoTests" */;
+			buildPhases = (
+				8DD349531E0BA62200C945A2 /* Sources */,
+				8DD349541E0BA62200C945A2 /* Frameworks */,
+				8DD349551E0BA62200C945A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8DD349591E0BA62200C945A2 /* PBXTargetDependency */,
+			);
+			name = OznerLibrarySwiftyDemoTests;
+			productName = OznerLibrarySwiftyDemoTests;
+			productReference = 8DD349571E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8DD349611E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DD349711E0BA62200C945A2 /* Build configuration list for PBXNativeTarget "OznerLibrarySwiftyDemoUITests" */;
+			buildPhases = (
+				8DD3495E1E0BA62200C945A2 /* Sources */,
+				8DD3495F1E0BA62200C945A2 /* Frameworks */,
+				8DD349601E0BA62200C945A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8DD349641E0BA62200C945A2 /* PBXTargetDependency */,
+			);
+			name = OznerLibrarySwiftyDemoUITests;
+			productName = OznerLibrarySwiftyDemoUITests;
+			productReference = 8DD349621E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8DD3493B1E0BA62200C945A2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = net.ozner;
+				TargetAttributes = {
+					8DD349421E0BA62200C945A2 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = UZZG6NM74T;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+					8DD349561E0BA62200C945A2 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = UZZG6NM74T;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8DD349421E0BA62200C945A2;
+					};
+					8DD349611E0BA62200C945A2 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = UZZG6NM74T;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 8DD349421E0BA62200C945A2;
+					};
+				};
+			};
+			buildConfigurationList = 8DD3493E1E0BA62200C945A2 /* Build configuration list for PBXProject "OznerLibrarySwiftyDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8DD3493A1E0BA62200C945A2;
+			productRefGroup = 8DD349441E0BA62200C945A2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD349421E0BA62200C945A2 /* OznerLibrarySwiftyDemo */,
+				8DD349561E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests */,
+				8DD349611E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DD349411E0BA62200C945A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD349511E0BA62200C945A2 /* LaunchScreen.storyboard in Resources */,
+				8DD3494E1E0BA62200C945A2 /* Assets.xcassets in Resources */,
+				8DD3498B1E0BBF1D00C945A2 /* DeviceConfigInfo.plist in Resources */,
+				8DD3494C1E0BA62200C945A2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD349551E0BA62200C945A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD349601E0BA62200C945A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		01FD9B58974B1F46A61BC76D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		04EE88EA6FC72C78053F10C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OznerLibrarySwiftyDemo/Pods-OznerLibrarySwiftyDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		866D5D1B1E92EDA22E4927C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OznerLibrarySwiftyDemo/Pods-OznerLibrarySwiftyDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD3493F1E0BA62200C945A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD3498D1E0BBF5200C945A2 /* DeviceConfigManager.swift in Sources */,
+				8D2419C51E11122200CF9B9C /* BabySpeaker.m in Sources */,
+				8D183CE61E28723D002E4618 /* ResultViewController.swift in Sources */,
+				8DD349991E0BD33300C945A2 /* OZAylaIO.swift in Sources */,
+				8D2419C11E11122200CF9B9C /* BabyDefine.m in Sources */,
+				8D441D7F1E0CF21100B895D4 /* OznerDataManager.swift in Sources */,
+				8DE0958C1E1B8B1A00D00679 /* Tap.swift in Sources */,
+				8D1FB6381E531ACC0075C009 /* AsyncSocket.m in Sources */,
+				8D2419C21E11122200CF9B9C /* BabyOptions.m in Sources */,
+				8D2055521E543AC9003E51A2 /* OznerMQTT.swift in Sources */,
+				8DD3499F1E0BD99C00C945A2 /* OznerAylaManager.swift in Sources */,
+				8DD349791E0BA82900C945A2 /* OznerDeviceManager.swift in Sources */,
+				8D2055541E544A28003E51A2 /* OznerEasyLink.swift in Sources */,
+				8D2419C31E11122200CF9B9C /* BabyPeripheralManager.m in Sources */,
+				8D2C8F901E1F9081002D83EF /* WaterReplenishStatus.swift in Sources */,
+				8D1FB6361E531ACC0075C009 /* GCDAsyncSocket.m in Sources */,
+				8DD3499D1E0BD36300C945A2 /* OZMxChipIO.swift in Sources */,
+				8D1ED4201E1239230081D2BB /* BabyBLEIO.m in Sources */,
+				8DD349A11E0BD9B100C945A2 /* OznerBluetoothManager.swift in Sources */,
+				8D60675E1E27895E00C87CC0 /* AddDeviceTableViewController.swift in Sources */,
+				8D1ED41D1E12332F0081D2BB /* BabyBLEHelper.m in Sources */,
+				8DD349861E0BAA0500C945A2 /* AirPurifier_Wifi.swift in Sources */,
+				8D60675C1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift in Sources */,
+				8D1FB6391E531ACC0075C009 /* AsyncUdpSocket.m in Sources */,
+				8D2419BF1E11122200CF9B9C /* BabyCallback.m in Sources */,
+				8DD349841E0BA9ED00C945A2 /* AirPurifier_Bluetooth.swift in Sources */,
+				8DE0958A1E1B8B0A00D00679 /* Cup.swift in Sources */,
+				8D1FB6371E531ACC0075C009 /* GCDAsyncUdpSocket.m in Sources */,
+				8D54AC621E20B1EA00689790 /* WaterPurifier_Blue.swift in Sources */,
+				8DD349881E0BB57A00C945A2 /* BaseDeviceSetting.swift in Sources */,
+				8DD349921E0BC6B100C945A2 /* OznerBaseIO.swift in Sources */,
+				8D2419C01E11122200CF9B9C /* BabyCentralManager.m in Sources */,
+				8DE009541E5F0236009F740C /* OznerBonjourDetail.m in Sources */,
+				8DE0958E1E1C8E6A00D00679 /* OznerDeviceRecordHelper.swift in Sources */,
+				8D6067601E27897A00C87CC0 /* DeviceDetailViewController.swift in Sources */,
+				8DE095901E1DEA2B00D00679 /* OznerCupRecords.swift in Sources */,
+				8DD349491E0BA62200C945A2 /* ViewController.swift in Sources */,
+				8DD3499B1E0BD34E00C945A2 /* OZBluetoothIO.swift in Sources */,
+				8DD349471E0BA62200C945A2 /* AppDelegate.swift in Sources */,
+				8DD349821E0BA9C600C945A2 /* OznerBaseDevice.swift in Sources */,
+				8D7C9B9B1E55833700D29C5D /* Helper.m in Sources */,
+				8D2419BE1E11122200CF9B9C /* BabyBluetooth.m in Sources */,
+				8D2C8F8E1E1F840E002D83EF /* WaterReplenish.swift in Sources */,
+				8D2419C41E11122200CF9B9C /* BabyRhythm.m in Sources */,
+				8D1FB63B1E531ACC0075C009 /* Reachability.m in Sources */,
+				8DD349941E0BD2B400C945A2 /* OznerIOManager.swift in Sources */,
+				8DE095931E1E513500D00679 /* OznerTools.swift in Sources */,
+				8DD349A31E0BD9C400C945A2 /* OznerMxChipManager.swift in Sources */,
+				8D2419C61E11122200CF9B9C /* BabyToy.m in Sources */,
+				8DD349771E0BA7A100C945A2 /* OznerManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD349531E0BA62200C945A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD3495C1E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD3495E1E0BA62200C945A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD349671E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8DD349591E0BA62200C945A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DD349421E0BA62200C945A2 /* OznerLibrarySwiftyDemo */;
+			targetProxy = 8DD349581E0BA62200C945A2 /* PBXContainerItemProxy */;
+		};
+		8DD349641E0BA62200C945A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DD349421E0BA62200C945A2 /* OznerLibrarySwiftyDemo */;
+			targetProxy = 8DD349631E0BA62200C945A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8DD3494A1E0BA62200C945A2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DD3494B1E0BA62200C945A2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8DD3494F1E0BA62200C945A2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DD349501E0BA62200C945A2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8DD349691E0BA62200C945A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8DD3496A1E0BA62200C945A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8DD3496C1E0BA62200C945A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E143C6116DD8580096B13BA /* Pods-OznerLibrarySwiftyDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = UZZG6NM74T;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = OznerLibrarySwiftyDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OznerLibrarySwifty/OznerIOManager/MxChip/EasyLink",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ozner.OznerLibrarySwiftyDe123;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OznerLibrarySwiftyDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		8DD3496D1E0BA62200C945A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACBB721B282F5D7D14FDBB2A /* Pods-OznerLibrarySwiftyDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = UZZG6NM74T;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = OznerLibrarySwiftyDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OznerLibrarySwifty/OznerIOManager/MxChip/EasyLink",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ozner.OznerLibrarySwiftyDe123;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OznerLibrarySwiftyDemo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		8DD3496F1E0BA62200C945A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = UZZG6NM74T;
+				INFOPLIST_FILE = OznerLibrarySwiftyDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ozner.OznerLibrarySwiftyDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OznerLibrarySwiftyDemo.app/OznerLibrarySwiftyDemo";
+			};
+			name = Debug;
+		};
+		8DD349701E0BA62200C945A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = UZZG6NM74T;
+				INFOPLIST_FILE = OznerLibrarySwiftyDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ozner.OznerLibrarySwiftyDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OznerLibrarySwiftyDemo.app/OznerLibrarySwiftyDemo";
+			};
+			name = Release;
+		};
+		8DD349721E0BA62200C945A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = UZZG6NM74T;
+				INFOPLIST_FILE = OznerLibrarySwiftyDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ozner.OznerLibrarySwiftyDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = OznerLibrarySwiftyDemo;
+			};
+			name = Debug;
+		};
+		8DD349731E0BA62200C945A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = UZZG6NM74T;
+				INFOPLIST_FILE = OznerLibrarySwiftyDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ozner.OznerLibrarySwiftyDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = OznerLibrarySwiftyDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8DD3493E1E0BA62200C945A2 /* Build configuration list for PBXProject "OznerLibrarySwiftyDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DD349691E0BA62200C945A2 /* Debug */,
+				8DD3496A1E0BA62200C945A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DD3496B1E0BA62200C945A2 /* Build configuration list for PBXNativeTarget "OznerLibrarySwiftyDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DD3496C1E0BA62200C945A2 /* Debug */,
+				8DD3496D1E0BA62200C945A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DD3496E1E0BA62200C945A2 /* Build configuration list for PBXNativeTarget "OznerLibrarySwiftyDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DD3496F1E0BA62200C945A2 /* Debug */,
+				8DD349701E0BA62200C945A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DD349711E0BA62200C945A2 /* Build configuration list for PBXNativeTarget "OznerLibrarySwiftyDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DD349721E0BA62200C945A2 /* Debug */,
+				8DD349731E0BA62200C945A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8DD3493B1E0BA62200C945A2 /* Project object */;
+}
