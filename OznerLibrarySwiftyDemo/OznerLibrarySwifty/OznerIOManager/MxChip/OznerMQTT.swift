@@ -49,6 +49,7 @@ class OznerMQTT: NSObject {
 //            }
 //        }
         
+        
         mqttClient.connect(toHost: "api.easylink.io") { (code) in
             //MQTTConnectionReturnCode
             switch code {
