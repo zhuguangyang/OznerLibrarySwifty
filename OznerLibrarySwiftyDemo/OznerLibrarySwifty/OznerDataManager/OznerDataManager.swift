@@ -8,7 +8,6 @@
 
 import UIKit
 import SQLite
-
 class OznerDataManager: NSObject {
     private static var _instance: OznerDataManager! = nil
     static var instance: OznerDataManager! {
