@@ -99,7 +99,6 @@ class OznerDataManager: NSObject {
             tmpdev = Tap(Identifier: identifier, Type: type, Settings: setting)
         case .WaterPurifier_Wifi:
             tmpdev = WaterPurifier_Wifi(Identifier: identifier, Type: type, Settings: setting)
-            break
         case .WaterPurifier_Blue:
             tmpdev = WaterPurifier_Blue(Identifier: identifier, Type: type, Settings: setting)
         case .WaterReplenish:
