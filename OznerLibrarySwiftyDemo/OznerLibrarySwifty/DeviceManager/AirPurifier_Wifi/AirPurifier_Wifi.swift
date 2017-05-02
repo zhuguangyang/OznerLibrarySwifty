@@ -140,7 +140,6 @@ class AirPurifier_Wifi: OznerBaseDevice {
         self.reqesutProperty(data: data)
     }
     var requestCount = 0//请求三次没反应代表机器断网
-    
     override func repeatFunc() {
         
         if NSDate().second()%2==0 {
