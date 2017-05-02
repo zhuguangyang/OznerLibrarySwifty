@@ -40,12 +40,12 @@
 		8D2C8F901E1F9081002D83EF /* WaterReplenishStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2C8F8F1E1F9081002D83EF /* WaterReplenishStatus.swift */; };
 		8D441D7F1E0CF21100B895D4 /* OznerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D441D7E1E0CF21100B895D4 /* OznerDataManager.swift */; };
 		8D46A9641E13B6D90011FBAE /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D46A9631E13B6D90011FBAE /* CoreBluetooth.framework */; };
-		8D49848E1E10FE3000C28AAE /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D49848D1E10FE3000C28AAE /* SQLite.framework */; };
-		8D49848F1E10FE3000C28AAE /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D49848D1E10FE3000C28AAE /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8D54AC621E20B1EA00689790 /* WaterPurifier_Blue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D54AC611E20B1EA00689790 /* WaterPurifier_Blue.swift */; };
 		8D60675C1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D60675B1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift */; };
 		8D60675E1E27895E00C87CC0 /* AddDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D60675D1E27895E00C87CC0 /* AddDeviceTableViewController.swift */; };
 		8D6067601E27897A00C87CC0 /* DeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D60675F1E27897A00C87CC0 /* DeviceDetailViewController.swift */; };
+		8D6E7EC41EA8BE7400C20F59 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6E7EC31EA8BE7400C20F59 /* SQLite.framework */; };
+		8D6E7EC51EA8BE7400C20F59 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6E7EC31EA8BE7400C20F59 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8D7C9B9B1E55833700D29C5D /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7C9B9A1E55833700D29C5D /* Helper.m */; };
 		8DD349471E0BA62200C945A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349461E0BA62200C945A2 /* AppDelegate.swift */; };
 		8DD349491E0BA62200C945A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349481E0BA62200C945A2 /* ViewController.swift */; };
@@ -96,13 +96,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8D4984901E10FE3000C28AAE /* Embed Frameworks */ = {
+		8D6E7EC61EA8BE7400C20F59 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8D49848F1E10FE3000C28AAE /* SQLite.framework in Embed Frameworks */,
+				8D6E7EC51EA8BE7400C20F59 /* SQLite.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,11 +162,11 @@
 		8D441D7E1E0CF21100B895D4 /* OznerDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDataManager.swift; sourceTree = "<group>"; };
 		8D441D811E0CFB9800B895D4 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
 		8D46A9631E13B6D90011FBAE /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		8D49848D1E10FE3000C28AAE /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
 		8D54AC611E20B1EA00689790 /* WaterPurifier_Blue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterPurifier_Blue.swift; sourceTree = "<group>"; };
 		8D60675B1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterPurifier_Wifi.swift; sourceTree = "<group>"; };
 		8D60675D1E27895E00C87CC0 /* AddDeviceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDeviceTableViewController.swift; sourceTree = "<group>"; };
 		8D60675F1E27897A00C87CC0 /* DeviceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetailViewController.swift; sourceTree = "<group>"; };
+		8D6E7EC31EA8BE7400C20F59 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
 		8D7C9B991E55833700D29C5D /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		8D7C9B9A1E55833700D29C5D /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		8DD349431E0BA62200C945A2 /* OznerLibrarySwiftyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OznerLibrarySwiftyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +216,7 @@
 			files = (
 				8D1FB6211E5315790075C009 /* Security.framework in Frameworks */,
 				8D1FB61F1E5315690075C009 /* AudioToolbox.framework in Frameworks */,
+				8D6E7EC41EA8BE7400C20F59 /* SQLite.framework in Frameworks */,
 				8D1FB61D1E5315530075C009 /* QuartzCore.framework in Frameworks */,
 				8D1FB61B1E5315440075C009 /* CFNetwork.framework in Frameworks */,
 				8D1FB6191E5315390075C009 /* UIKit.framework in Frameworks */,
@@ -223,7 +224,6 @@
 				8D1FB6151E5315010075C009 /* CoreGraphics.framework in Frameworks */,
 				8D1FB6131E5314F70075C009 /* SystemConfiguration.framework in Frameworks */,
 				8D46A9641E13B6D90011FBAE /* CoreBluetooth.framework in Frameworks */,
-				8D49848E1E10FE3000C28AAE /* SQLite.framework in Frameworks */,
 				1F90702BB28E42715A9D5E03 /* Pods_OznerLibrarySwiftyDemo.framework in Frameworks */,
 				8D1FB63D1E531ACC0075C009 /* libEasyLink.a in Frameworks */,
 			);
@@ -410,8 +410,8 @@
 		8DD3493A1E0BA62200C945A2 = {
 			isa = PBXGroup;
 			children = (
+				8D6E7EC31EA8BE7400C20F59 /* SQLite.framework */,
 				8D2419A61E1111D700CF9B9C /* OznerLibrarySwiftyDemo-Bridging-Header.h */,
-				8D49848D1E10FE3000C28AAE /* SQLite.framework */,
 				8DD349741E0BA66600C945A2 /* OznerLibrarySwifty */,
 				8DD349451E0BA62200C945A2 /* OznerLibrarySwiftyDemo */,
 				8DD3495A1E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests */,
@@ -624,9 +624,9 @@
 				8DD3493F1E0BA62200C945A2 /* Sources */,
 				8DD349401E0BA62200C945A2 /* Frameworks */,
 				8DD349411E0BA62200C945A2 /* Resources */,
-				8D4984901E10FE3000C28AAE /* Embed Frameworks */,
 				866D5D1B1E92EDA22E4927C2 /* [CP] Embed Pods Frameworks */,
 				04EE88EA6FC72C78053F10C7 /* [CP] Copy Pods Resources */,
+				8D6E7EC61EA8BE7400C20F59 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1014,7 +1014,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = OznerLibrarySwiftyDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1041,7 +1041,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = OznerLibrarySwiftyDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
