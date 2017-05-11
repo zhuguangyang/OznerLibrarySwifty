@@ -44,8 +44,9 @@
 		8D60675C1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D60675B1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift */; };
 		8D60675E1E27895E00C87CC0 /* AddDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D60675D1E27895E00C87CC0 /* AddDeviceTableViewController.swift */; };
 		8D6067601E27897A00C87CC0 /* DeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D60675F1E27897A00C87CC0 /* DeviceDetailViewController.swift */; };
-		8D6E7EC41EA8BE7400C20F59 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6E7EC31EA8BE7400C20F59 /* SQLite.framework */; };
-		8D6E7EC51EA8BE7400C20F59 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6E7EC31EA8BE7400C20F59 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8D6266251EC455F000FB46C5 /* FogCloud.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6266241EC455F000FB46C5 /* FogCloud.framework */; };
+		8D6266261EC4566400FB46C5 /* FogCloud.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6266241EC455F000FB46C5 /* FogCloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8D6266281EC456B700FB46C5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6266271EC456B700FB46C5 /* MobileCoreServices.framework */; };
 		8D7C9B9B1E55833700D29C5D /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7C9B9A1E55833700D29C5D /* Helper.m */; };
 		8DD349471E0BA62200C945A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349461E0BA62200C945A2 /* AppDelegate.swift */; };
 		8DD349491E0BA62200C945A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349481E0BA62200C945A2 /* ViewController.swift */; };
@@ -98,14 +99,14 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		8D6E7EC61EA8BE7400C20F59 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8D6E7EC51EA8BE7400C20F59 /* SQLite.framework in Embed Frameworks */,
+				8D6266261EC4566400FB46C5 /* FogCloud.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -166,7 +167,8 @@
 		8D60675B1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterPurifier_Wifi.swift; sourceTree = "<group>"; };
 		8D60675D1E27895E00C87CC0 /* AddDeviceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDeviceTableViewController.swift; sourceTree = "<group>"; };
 		8D60675F1E27897A00C87CC0 /* DeviceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetailViewController.swift; sourceTree = "<group>"; };
-		8D6E7EC31EA8BE7400C20F59 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
+		8D6266241EC455F000FB46C5 /* FogCloud.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FogCloud.framework; sourceTree = "<group>"; };
+		8D6266271EC456B700FB46C5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8D7C9B991E55833700D29C5D /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		8D7C9B9A1E55833700D29C5D /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		8DD349431E0BA62200C945A2 /* OznerLibrarySwiftyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OznerLibrarySwiftyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,9 +216,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D6266281EC456B700FB46C5 /* MobileCoreServices.framework in Frameworks */,
 				8D1FB6211E5315790075C009 /* Security.framework in Frameworks */,
+				8D6266251EC455F000FB46C5 /* FogCloud.framework in Frameworks */,
 				8D1FB61F1E5315690075C009 /* AudioToolbox.framework in Frameworks */,
-				8D6E7EC41EA8BE7400C20F59 /* SQLite.framework in Frameworks */,
 				8D1FB61D1E5315530075C009 /* QuartzCore.framework in Frameworks */,
 				8D1FB61B1E5315440075C009 /* CFNetwork.framework in Frameworks */,
 				8D1FB6191E5315390075C009 /* UIKit.framework in Frameworks */,
@@ -376,6 +379,7 @@
 		8D441D801E0CFB9700B895D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8D6266271EC456B700FB46C5 /* MobileCoreServices.framework */,
 				8D1FB6201E5315790075C009 /* Security.framework */,
 				8D1FB61E1E5315690075C009 /* AudioToolbox.framework */,
 				8D1FB61C1E5315530075C009 /* QuartzCore.framework */,
@@ -410,7 +414,6 @@
 		8DD3493A1E0BA62200C945A2 = {
 			isa = PBXGroup;
 			children = (
-				8D6E7EC31EA8BE7400C20F59 /* SQLite.framework */,
 				8D2419A61E1111D700CF9B9C /* OznerLibrarySwiftyDemo-Bridging-Header.h */,
 				8DD349741E0BA66600C945A2 /* OznerLibrarySwifty */,
 				8DD349451E0BA62200C945A2 /* OznerLibrarySwiftyDemo */,
@@ -575,6 +578,7 @@
 		8DD349971E0BD2EF00C945A2 /* MxChip */ = {
 			isa = PBXGroup;
 			children = (
+				8D6266241EC455F000FB46C5 /* FogCloud.framework */,
 				8D1FB6221E531ACC0075C009 /* CocoaAsyncSocket */,
 				8D1FB62E1E531ACC0075C009 /* Reachability */,
 				8D1FB6331E531ACC0075C009 /* EasyLink */,
@@ -764,7 +768,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		04EE88EA6FC72C78053F10C7 /* [CP] Copy Pods Resources */ = {
@@ -1012,6 +1016,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/OznerLibrarySwifty/OznerIOManager/MxChip",
 				);
 				INFOPLIST_FILE = OznerLibrarySwiftyDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1020,6 +1025,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/OznerLibrarySwifty/OznerIOManager/MxChip/EasyLink",
 				);
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = ozner.OznerLibrarySwiftyDe123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OznerLibrarySwiftyDemo-Bridging-Header.h";
@@ -1039,6 +1045,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/OznerLibrarySwifty/OznerIOManager/MxChip",
 				);
 				INFOPLIST_FILE = OznerLibrarySwiftyDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1047,6 +1054,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/OznerLibrarySwifty/OznerIOManager/MxChip/EasyLink",
 				);
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = ozner.OznerLibrarySwiftyDe123;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OznerLibrarySwiftyDemo-Bridging-Header.h";

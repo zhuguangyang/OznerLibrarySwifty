@@ -1,9 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '8.0'
+platform :ios, ‘9.0’
 use_frameworks!
 
 target 'OznerLibrarySwiftyDemo' do
     pod 'DateTools'
     pod 'MQTTKit'
+    pod 'SQLite.swift', '~> 0.11.3'
 end
 

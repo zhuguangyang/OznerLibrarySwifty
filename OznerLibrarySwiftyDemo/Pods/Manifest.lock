@@ -1,15 +1,20 @@
 PODS:
   - DateTools (2.0.0)
   - MQTTKit (0.1.0)
+  - SQLite.swift (0.11.3):
+    - SQLite.swift/standard (= 0.11.3)
+  - SQLite.swift/standard (0.11.3)
 
 DEPENDENCIES:
   - DateTools
   - MQTTKit
+  - SQLite.swift (~> 0.11.3)
 
 SPEC CHECKSUMS:
   DateTools: 933ac9c490f21f92127cf690ccd8c397e0126caf
   MQTTKit: a4e6b8aa92db1aeae917d2b773fd72a7749937c4
+  SQLite.swift: 99b36c22084427f0abbeb957556ce1528cf10bb3
 
-PODFILE CHECKSUM: bd41c1cd878cc70b8a4a4823532681e9ad62ab5c
+PODFILE CHECKSUM: 6dc90220876ec9646a739d61e7740c62249f05cf
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1
