@@ -1026,7 +1026,7 @@
 					"$(PROJECT_DIR)/OznerLibrarySwifty/OznerIOManager/MxChip/EasyLink",
 				);
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = ozner.OznerLibrarySwiftyDe123;
+				PRODUCT_BUNDLE_IDENTIFIER = ozner.OznerLibrary.Swiftyff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OznerLibrarySwiftyDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1055,7 +1055,7 @@
 					"$(PROJECT_DIR)/OznerLibrarySwifty/OznerIOManager/MxChip/EasyLink",
 				);
 				NEW_SETTING = "";
-				PRODUCT_BUNDLE_IDENTIFIER = ozner.OznerLibrarySwiftyDe123;
+				PRODUCT_BUNDLE_IDENTIFIER = ozner.OznerLibrary.Swiftyff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "OznerLibrarySwiftyDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
