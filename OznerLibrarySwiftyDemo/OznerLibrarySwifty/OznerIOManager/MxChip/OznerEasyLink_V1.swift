@@ -8,15 +8,15 @@
 //
 import UIKit
 
-class OznerEasyLink: NSObject,EasyLinkFTCDelegate {
+class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
     private var easylink_config:EASYLINK!
     private var wifiReachability:Reachability!
-    private static var _instance: OznerEasyLink! = nil
-    static var instance: OznerEasyLink! {
+    private static var _instance: OznerEasyLink_V1! = nil
+    static var instance: OznerEasyLink_V1! {
         get {
             if _instance == nil {
                 
-                _instance = OznerEasyLink()
+                _instance = OznerEasyLink_V1()
             }
             return _instance
         }
@@ -32,21 +32,12 @@ class OznerEasyLink: NSObject,EasyLinkFTCDelegate {
         wifiReachability = Reachability.forLocalWiFi()  //监测Wi-Fi连接状态
     }
     //自定义方法
-    //获取当前设备连接的无线网名称
-    func getSsid() -> String {
-        let netStatus = wifiReachability.currentReachabilityStatus()
-        if ( netStatus != NetworkStatus.NotReachable ){
-            return EASYLINK.ssidForConnectedNetwork()
-        }
-        else{
-            return ""
-        }
-        
-    }
     private var pairTimer:Timer?
     private var PairDelegate:OznerPairDelegate?
     private var deviceType=OZDeviceClass.AirPurifier_Wifi
-    func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?,ssid:String?,password:String?) {//开始配对
+    private var pairOutTime=0
+    func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?,ssid:String?,password:String?,timeOut:Int) {//开始配对
+        pairOutTime=timeOut
         deviceType=deviceClass
         PairDelegate=nil
         PairDelegate=pairDelegate
@@ -68,7 +59,7 @@ class OznerEasyLink: NSObject,EasyLinkFTCDelegate {
             print(wlanConfig)
             pairTimer?.invalidate()
             pairTimer = nil
-            pairTimer=Timer.scheduledTimer(timeInterval: 90, target: self, selector: #selector(pairFailed), userInfo: nil, repeats: false)
+            pairTimer=Timer.scheduledTimer(timeInterval: TimeInterval(timeOut), target: self, selector: #selector(pairFailed), userInfo: nil, repeats: false)
         }else{
             PairDelegate?.OznerPairFailured(error: NSError(domain: "手机wifi未连接", code: 1, userInfo: nil))
         }
@@ -106,7 +97,6 @@ class OznerEasyLink: NSObject,EasyLinkFTCDelegate {
                 identifier=identifier+":"+tmpstr.substring(to: 2)
             }
             let type = strArr[0]
-            
             deviceInfoArr[identifier]=(type,0)
             pairTimer?.invalidate()
             pairTimer = nil
@@ -145,38 +135,42 @@ class OznerEasyLink: NSObject,EasyLinkFTCDelegate {
     //EasyLinkFTCDelegate 代理方法
     func onFound(_ client: NSNumber!, withName name: String!, mataData mataDataDict: [AnyHashable : Any]!) {
         print("=====onFoundwithName=====")
-        let tmptype =  mataDataDict["FW"] as! String
-       
-        switch deviceType {
-        case OZDeviceClass.AirPurifier_Wifi:
-            if tmptype=="FOG_HAOZE_AIR@" {
-                self.pairSuccessed(configDict: mataDataDict)
+        if let tmptype =  mataDataDict["FW"] as? String
+        {
+            switch deviceType {
+            case OZDeviceClass.AirPurifier_Wifi:
+                if tmptype=="FOG_HAOZE_AIR@" {
+                    self.pairSuccessed(configDict: mataDataDict)
+                }
+            case OZDeviceClass.WaterPurifier_Wifi:
+                if tmptype=="MXCHIP_HAOZE_Water@" {
+                    self.pairSuccessed(configDict: mataDataDict)
+                }
+            default:
+                break
             }
-        case OZDeviceClass.WaterPurifier_Wifi:
-            if tmptype=="MXCHIP_HAOZE_Water@" {
-                self.pairSuccessed(configDict: mataDataDict)
-            }
-        default:
-            break
         }
+        
         
     }
     func onFound(byFTC client: NSNumber!, withConfiguration configDict: [AnyHashable : Any]!) {
         print("=====onFoundwithConfiguration=====")
-        let tmptype =  configDict["FW"] as! String
-        
-        switch deviceType {
-        case OZDeviceClass.AirPurifier_Wifi:
-            if tmptype=="FOG_HAOZE_AIR@" {
-                self.pairSuccessed(configDict: configDict)
+        if let tmptype =  configDict["FW"] as? String
+        {
+            switch deviceType {
+            case OZDeviceClass.AirPurifier_Wifi:
+                if tmptype=="FOG_HAOZE_AIR@" {
+                    self.pairSuccessed(configDict: configDict)
+                }
+            case OZDeviceClass.WaterPurifier_Wifi:
+                if tmptype=="MXCHIP_HAOZE_Water@" {
+                    self.pairSuccessed(configDict: configDict)
+                }
+            default:
+                break
             }
-        case OZDeviceClass.WaterPurifier_Wifi:
-            if tmptype=="MXCHIP_HAOZE_Water@" {
-                self.pairSuccessed(configDict: configDict)
-            }
-        default:
-            break
         }
+        
     }
     func onDisconnect(fromFTC client: NSNumber!, withError err: Bool) {
         print("=====onDisconnect fromFTC=====")

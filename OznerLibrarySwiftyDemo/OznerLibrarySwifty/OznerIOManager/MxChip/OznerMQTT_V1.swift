@@ -9,14 +9,14 @@
 import UIKit
 import MQTTKit
 
-class OznerMQTT: NSObject {
+class OznerMQTT_V1: NSObject {
     private var mqttClient:MQTTClient!
-    private static var _instance: OznerMQTT! = nil
-    static var instance: OznerMQTT! {
+    private static var _instance: OznerMQTT_V1! = nil
+    static var instance: OznerMQTT_V1! {
         get {
             if _instance == nil {
                 
-                _instance = OznerMQTT()
+                _instance = OznerMQTT_V1()
             }
             return _instance
         }
@@ -35,20 +35,6 @@ class OznerMQTT: NSObject {
         mqttClient.keepAlive=60
         
         mqttClient.cleanSession=false
-//        mqttClient.disconnect { (code) in
-//            print("disconnect")
-//            for item in self.SubscribeTopics {
-//                item.value.statusCallBack(OznerConnectStatus.Disconnect)
-//            }
-//        }
-        
-//        mqttClient.connect { (code) in
-//            print("connect")
-//            for item in self.SubscribeTopics {
-//                item.value.statusCallBack(OznerConnectStatus.Connected)
-//            }
-//        }
-        
         
         mqttClient.connect(toHost: "api.easylink.io") { (code) in
             //MQTTConnectionReturnCode

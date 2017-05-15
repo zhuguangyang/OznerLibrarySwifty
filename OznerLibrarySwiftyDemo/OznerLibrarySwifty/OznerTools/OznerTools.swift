@@ -62,11 +62,14 @@ class OznerTools: NSObject {
         let paramsdata=params.data(using: String.Encoding.utf8)
         request.httpBody=paramsdata
         //第三步，连接服务器
-        
         do{
             let str1 = try NSURLConnection.sendSynchronousRequest(request as URLRequest, returning: nil)
             print(String.init(data: str1, encoding: String.Encoding.utf8) ?? "失败")
         }catch{}
         
+        //let deviceid=OznerTools.getWifiDeviceID(Topic: toTopic)
+        //“username=bing.zhao@cftcn.com&password=l5201314&deviceid=ashjk1l2kasd&payload=1cabe2” https://v2.fogcloud.io/enduser/sendCommandHz/
+        
     }
+    
 }

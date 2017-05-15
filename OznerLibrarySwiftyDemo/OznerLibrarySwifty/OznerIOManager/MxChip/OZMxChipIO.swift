@@ -18,7 +18,7 @@ class OZMxChipIO: OznerBaseIO {
     }
     //发送数据
     override func SendDataToDevice(sendData:Data,CallBack callback:((Error?)->Void)?) {
-        OznerMQTT.instance.sendData(data: sendData, toTopic: Channel) { (code) in
+        OznerMQTT_V1.instance.sendData(data: sendData, toTopic: Channel) { (code) in
             
         }
     }
@@ -31,13 +31,13 @@ class OZMxChipIO: OznerBaseIO {
         let statusCallBack:((OznerConnectStatus)->Void) = { status in
             weakSelf?.delegate.OznerBaseIOStatusUpdate(status: status)
         }
-        OznerMQTT.instance.subscribeTopic(topic: Channel, messageHandler: (dataCallBack,statusCallBack))
+        OznerMQTT_V1.instance.subscribeTopic(topic: Channel, messageHandler: (dataCallBack,statusCallBack))
     }
     override func stopWork() {// 暂停工作
-        OznerMQTT.instance.unSubscribeTopic(topic: Channel)
+        OznerMQTT_V1.instance.unSubscribeTopic(topic: Channel)
     }
     //删除设备时销毁自己
     func destroySelf() {
-        OznerMQTT.instance.unSubscribeTopic(topic: Channel)
+        OznerMQTT_V1.instance.unSubscribeTopic(topic: Channel)
     }
 }

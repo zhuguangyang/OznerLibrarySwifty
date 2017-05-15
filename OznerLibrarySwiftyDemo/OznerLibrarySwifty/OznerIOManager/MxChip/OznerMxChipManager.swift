@@ -29,11 +29,14 @@ class OznerMxChipManager: NSObject {
    
     
     func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?,ssid:String?,password:String?) {
-        OznerEasyLink.instance.starPair(deviceClass: deviceClass, pairDelegate: pairDelegate, ssid: ssid, password: password)
+        
+        OznerEasyLink_V1.instance.starPair(deviceClass: deviceClass, pairDelegate: pairDelegate, ssid: ssid, password: password, timeOut: 90)
+        //OznerEasyLink_V2.instance.starPair(deviceClass: deviceClass, pairDelegate: pairDelegate, password: password, outTime: 90)
     }
     //取消配对
     func canclePair() {
-        OznerEasyLink.instance.canclePair()
+        OznerEasyLink_V1.instance.canclePair()
+        OznerEasyLink_V2.instance.canclePair()
     }
        
     //获取已配对的设备IO，或者设备重新连接调用

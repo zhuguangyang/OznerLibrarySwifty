@@ -87,8 +87,7 @@ class OznerManager: NSObject {
         OznerIOManager.instance.canclePair()
     }
     //获取当前连接的无线网名称
-    func getCurrentSsidName() -> String {
-        
-        return OznerEasyLink.instance.getSsid()
+    func fetchCurrentSSID(handler:((String?)->Void)!) {
+        MicoDeviceManager.sharedInstance().fetchCurrentSSID(handler)        
     }
 }

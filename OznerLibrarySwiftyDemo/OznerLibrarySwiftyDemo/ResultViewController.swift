@@ -40,8 +40,10 @@ class ResultViewController: UIViewController,OznerPairDelegate,UITextFieldDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden=false
-        deviceArr=[String : (type: String, instance: Int)]()
-        ssidText.text=OznerManager.instance.getCurrentSsidName()
+        deviceArr=[String : (type: String, instance: Int)]()        
+        OznerManager.instance.fetchCurrentSSID { (ssid) in
+            self.ssidText.text=ssid
+        }
         // Do any additional setup after loading the view.
     }
 
