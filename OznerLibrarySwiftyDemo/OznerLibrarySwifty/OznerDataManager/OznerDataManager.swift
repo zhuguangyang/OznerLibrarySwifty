@@ -8,6 +8,20 @@
 
 import UIKit
 import SQLite
+struct OznerDeviceInfo {
+    var deviceID = ""//设备ID
+    var deviceMac = ""//设备Mac
+    var deviceType = ""//设备型号
+    /*
+     productID
+     蓝牙产品为"BLUE"
+     wifi产品为 a.2.0水机 "737bc5a2-f345-11e6-9d95-00163e103941"
+     b.1.0水机 MXCHIP_HAOZE_Water
+     c.1.0空净 FOG_HAOZE_AIR
+     */
+    var productID = ""
+    var wifiVersion = 1//wifi版本，1.0或2.0
+}
 class OznerDataManager: NSObject {
     private static var _instance: OznerDataManager! = nil
     static var instance: OznerDataManager! {
@@ -21,10 +35,15 @@ class OznerDataManager: NSObject {
             _instance = newValue
         }
     }
-    private let identifier = Expression<String>("identifier")
-    private let type = Expression<String>("type")
+    private let deviceID = Expression<String>("deviceID")
+    private let deviceMac = Expression<String>("deviceMac")
+    private let deviceType = Expression<String>("deviceType")
+    private let productID = Expression<String>("productID")
+    private let wifiVersion = Expression<Int>("wifiVersion")
     private let setting = Expression<String?>("setting")
+    
     private let deviceTable = Table("deviceTable")
+    
     private var db:Connection?
     func setSQL(dbName:String) {
         let path = NSSearchPathForDirectoriesInDomains(
@@ -34,17 +53,20 @@ class OznerDataManager: NSObject {
         //判断表是否存在,不存在就创建
         let _=try? db!.run(deviceTable.create(ifNotExists: true){
             t in
-            t.column(identifier, primaryKey: true)
-            t.column(type)
+            t.column(deviceID, primaryKey: true)
+            t.column(deviceMac)
+            t.column(deviceType)
+            t.column(productID)
+            t.column(wifiVersion)
             t.column(setting)
         })
         
     }
     func addDeviceToSQL(device:OznerBaseDevice)  {
-        let _=try? db!.run(deviceTable.insert(or: .replace, identifier <- device.identifier,  type <- device.type, setting <- device.settings.toJsonString()))
+        let _=try? db!.run(deviceTable.insert(or: .replace, deviceID <- device.deviceInfo.deviceID, deviceMac <- device.deviceInfo.deviceMac, deviceType <- device.deviceInfo.deviceType, productID <- device.deviceInfo.productID, wifiVersion <- device.deviceInfo.wifiVersion, setting <- device.settings.toJsonString()))
     }
     func deleteDeviceFromSQL(Identifier:String)  {
-        let alice = deviceTable.filter(identifier == Identifier)
+        let alice = deviceTable.filter(deviceID == Identifier)
         do {
             if try db!.run(alice.delete()) > 0 {
                 print("deleted \(Identifier) success")
@@ -57,10 +79,9 @@ class OznerDataManager: NSObject {
         
     }
     func updateDeviceToSQL(device:OznerBaseDevice)  {
-        let alice = deviceTable.filter(identifier == device.identifier)
-        //let achieveData = NSKeyedArchiver.archivedDataWithRootObject(device)
+        let alice = deviceTable.filter(deviceID == device.deviceInfo.deviceID)
         do {
-            if try db!.run(alice.update(identifier <- device.identifier, type <- device.type, setting <- device.settings.toJsonString())) > 0 {
+            if try db!.run(alice.update(deviceID <- device.deviceInfo.deviceID, deviceMac <- device.deviceInfo.deviceMac, deviceType <- device.deviceInfo.deviceType, productID <- device.deviceInfo.productID, wifiVersion <- device.deviceInfo.wifiVersion, setting <- device.settings.toJsonString())) > 0 {
                 print("updated alice")
             } else {
                 print("alice not found")
@@ -72,8 +93,9 @@ class OznerDataManager: NSObject {
     func getADeviceFromSQL(Identifier:String)->OznerBaseDevice?  {
         var tmpdevice:OznerBaseDevice?
         for dev in try! db!.prepare(deviceTable) {
-            if Identifier == dev[identifier] {
-                tmpdevice = OznerBaseDevice(Identifier: dev[identifier], Type: dev[type], Settings: dev[setting]!)
+            if Identifier == dev[deviceID] {
+                let deviceinfo=OznerDeviceInfo(deviceID: dev[deviceID], deviceMac: dev[deviceMac], deviceType: dev[deviceType], productID: dev[productID], wifiVersion: dev[wifiVersion])
+                tmpdevice = OznerBaseDevice(deviceinfo: deviceinfo, Settings: dev[setting]!)
                 break
             }
             
@@ -85,28 +107,29 @@ class OznerDataManager: NSObject {
         var tmpDevices = [String:OznerBaseDevice]()
         
         for dev in try! db!.prepare(deviceTable) {
-            tmpDevices[dev[identifier]]=createDevice(identifier: dev[identifier], type: dev[type], setting: dev[setting])
+            let deviceinfo=OznerDeviceInfo(deviceID: dev[deviceID], deviceMac: dev[deviceMac], deviceType: dev[deviceType], productID: dev[productID], wifiVersion: dev[wifiVersion])
+            tmpDevices[deviceinfo.deviceID]=createDevice(deviceInfo: deviceinfo, setting: dev[setting])
         }
         return tmpDevices
     }
-    func createDevice(identifier:String,type:String,setting:String?) -> OznerBaseDevice {
-        let typeInfo = (DeviceConfigManager.deviceTypeInfo)[type]!
+    func createDevice(deviceInfo:OznerDeviceInfo,setting:String?) -> OznerBaseDevice {
+        let typeInfo = (DeviceConfigManager.deviceTypeInfo)[deviceInfo.deviceType]!
         var tmpdev:OznerBaseDevice!
         switch  typeInfo.deviceClass{
         case .Cup:
-            tmpdev=Cup(Identifier: identifier, Type: type, Settings: setting)
+            tmpdev=Cup(deviceinfo: deviceInfo, Settings: setting)
         case .Tap:
-            tmpdev = Tap(Identifier: identifier, Type: type, Settings: setting)
+            tmpdev = Tap(deviceinfo: deviceInfo, Settings: setting)
         case .WaterPurifier_Wifi:
-            tmpdev = WaterPurifier_Wifi(Identifier: identifier, Type: type, Settings: setting)
+            tmpdev = WaterPurifier_Wifi(deviceinfo: deviceInfo, Settings: setting)
         case .WaterPurifier_Blue:
-            tmpdev = WaterPurifier_Blue(Identifier: identifier, Type: type, Settings: setting)
+            tmpdev = WaterPurifier_Blue(deviceinfo: deviceInfo, Settings: setting)
         case .WaterReplenish:
-            tmpdev = WaterReplenish(Identifier: identifier, Type: type, Settings: setting)            
+            tmpdev = WaterReplenish(deviceinfo: deviceInfo, Settings: setting)
         case .AirPurifier_Blue:
-            tmpdev = AirPurifier_Bluetooth(Identifier: identifier, Type: type, Settings: setting)
+            tmpdev = AirPurifier_Bluetooth(deviceinfo: deviceInfo, Settings: setting)
         case .AirPurifier_Wifi:
-            tmpdev = AirPurifier_Wifi(Identifier: identifier, Type: type, Settings: setting)
+            tmpdev = AirPurifier_Wifi(deviceinfo: deviceInfo, Settings: setting)
         }
         return tmpdev
     }

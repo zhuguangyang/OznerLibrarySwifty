@@ -13,9 +13,9 @@ class OZBluetoothIO: OznerBaseIO {
 
     private var babyBLEIO:BabyBLEIO?
     private  var uuidStr:String!
-    required init(identifier: String) {
-        super.init(identifier: identifier)
-        uuidStr=identifier
+    required init(deviceinfo:OznerDeviceInfo) {
+        super.init(deviceinfo: deviceinfo)
+        uuidStr=deviceinfo.deviceID
     }
     //发送数据
     override func SendDataToDevice(sendData:Data,CallBack callback:((Error?)->Void)?) {

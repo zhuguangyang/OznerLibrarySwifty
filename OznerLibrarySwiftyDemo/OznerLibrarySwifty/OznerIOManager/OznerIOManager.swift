@@ -24,15 +24,15 @@ class OznerIOManager: NSObject {
         }
     }
     //获取已配对的设备IO，或者设备重新连接调用
-    func getIO(identifier:String,type:String) -> OznerBaseIO? {
-        let typeAtt=(DeviceConfigManager.deviceTypeInfo[type]?.typeAttr)!
+    func getIO(deviceinfo:OznerDeviceInfo) -> OznerBaseIO? {
+        let typeAtt=(DeviceConfigManager.deviceTypeInfo[deviceinfo.deviceType]?.typeAttr)!
         switch typeAtt {
         case OZTypeAttribute.Ayla:
-            return OznerAylaManager.instance.getIO(identifier: identifier)
+            return OznerAylaManager.instance.getIO(deviceinfo: deviceinfo)
         case OZTypeAttribute.MxChip:
-            return OznerMxChipManager.instance.getIO(identifier: identifier, type: type)
+            return OznerMxChipManager.instance.getIO(deviceinfo: deviceinfo)
         case OZTypeAttribute.Bluetooth:
-            return OznerBluetoothManager.instance.getIO(identifier: identifier)
+            return OznerBluetoothManager.instance.getIO(deviceinfo: deviceinfo)
         }
     }
     //搜索新设备的IO进行配对

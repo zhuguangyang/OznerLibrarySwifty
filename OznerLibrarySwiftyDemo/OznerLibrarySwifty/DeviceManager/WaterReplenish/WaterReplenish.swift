@@ -12,8 +12,8 @@ class WaterReplenish: OznerBaseDevice {
     
     private(set) var status:WaterReplenishStatus!
     
-    required init(Identifier id: String, Type type: String, Settings settings: String?) {
-        super.init(Identifier: id, Type: type, Settings: settings)
+    required init(deviceinfo: OznerDeviceInfo, Settings settings: String?) {
+        super.init(deviceinfo: deviceinfo, Settings: settings)
         status=WaterReplenishStatus()
     }
     
@@ -22,12 +22,12 @@ class WaterReplenish: OznerBaseDevice {
         switch UInt8(recvData[0]) {
         case 0x21://opCode_StatusResp
             status.loadData(data: recvData)
-            self.delegate?.OznerDeviceStatusUpdate?(identifier: self.identifier)
+            self.delegate?.OznerDeviceStatusUpdate?(identifier: self.deviceInfo.deviceID)
             print(1)
         case 0x34://opCode_Testing
             print(2)
             status.startTest()
-            self.delegate?.OznerDeviceSensorUpdate?(identifier: self.identifier)
+            self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
         case 0x33://opCode_TestResp
             print(3)
             let adc = Int(recvData[1])+256*Int(recvData[2])

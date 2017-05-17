@@ -35,13 +35,13 @@ class OznerDeviceManager: NSObject {
         devices=OznerDataManager.instance.getAllDevicesFromSQL()
     }
     func saveDevice(device:OznerBaseDevice) {
-        devices[device.identifier]=device
+        devices[device.deviceInfo.deviceID]=device
         OznerDataManager.instance.addDeviceToSQL(device: device)
     }
     func deleteDevice(device:OznerBaseDevice) {
-        devices.removeValue(forKey: device.identifier)
-        OznerIOManager.instance.deleteIO(identifier: device.identifier)
-        OznerDataManager.instance.deleteDeviceFromSQL(Identifier: device.identifier)
+        devices.removeValue(forKey: device.deviceInfo.deviceID)
+        OznerIOManager.instance.deleteIO(identifier: device.deviceInfo.deviceID)
+        OznerDataManager.instance.deleteDeviceFromSQL(Identifier: device.deviceInfo.deviceID)
         
     }
     func getDevice(identifier:String) -> OznerBaseDevice? {
@@ -54,12 +54,12 @@ class OznerDeviceManager: NSObject {
         }
         return tmpArr
     }
-    func createDevice(identifier:String,type:String,setting:String?) -> OznerBaseDevice {
-        if let device=devices[identifier] {
+    func createDevice(scanDeviceInfo:OznerDeviceInfo,setting:String?) -> OznerBaseDevice {
+        if let device=devices[scanDeviceInfo.deviceID] {
             return device
         }
         else{
-            return OznerDataManager.instance.createDevice(identifier: identifier, type: type, setting: setting)
+            return OznerDataManager.instance.createDevice(deviceInfo: scanDeviceInfo, setting: setting)
         }
     }
 }

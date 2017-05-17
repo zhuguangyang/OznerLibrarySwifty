@@ -15,7 +15,7 @@ class AirPurifier_Bluetooth: OznerBaseDevice {
     private(set) var sensor:(Temperature:Int,Humidity:Int,PM25:Int,Power:Bool,Speed:Int)=(0,0,0,false,0){
         didSet{
             if sensor != oldValue {
-                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.identifier)
+                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
             }
         }
     }
@@ -24,7 +24,7 @@ class AirPurifier_Bluetooth: OznerBaseDevice {
             if filterStatus != oldValue &&
                 filterStatus.starDate != Date(timeIntervalSince1970: 0) &&
                     filterStatus.workTime != -1{
-                self.delegate?.OznerDevicefilterUpdate?(identifier: self.identifier)
+                self.delegate?.OznerDevicefilterUpdate?(identifier: self.deviceInfo.deviceID)
             }
            
         }

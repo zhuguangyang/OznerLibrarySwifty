@@ -26,7 +26,7 @@ class Cup: OznerBaseDevice {
     private(set) var sensor:(Battery:Int,Temperature:Int,Volume:Int,TDS:Int)=(0,0,0,0){
         didSet{
             if sensor != oldValue {
-                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.identifier)
+                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
             }
         }
     }
@@ -40,13 +40,13 @@ class Cup: OznerBaseDevice {
     private(set) var records:OznerCupRecords!{//day:tds
         didSet{
             if records != oldValue {
-                self.delegate?.OznerDeviceRecordUpdate?(identifier: self.identifier)
+                self.delegate?.OznerDeviceRecordUpdate?(identifier: self.deviceInfo.deviceID)
             }
         }
     }
-    required init(Identifier id: String, Type type: String, Settings settings: String?) {
-        super.init(Identifier: id, Type: type, Settings: settings)
-        records=OznerCupRecords(Identifier: id)//初始化水杯记录
+    required init(deviceinfo: OznerDeviceInfo, Settings settings: String?) {
+        super.init(deviceinfo: deviceinfo, Settings: settings)
+        records=OznerCupRecords(Identifier: deviceinfo.deviceID)//初始化水杯记录
         //饮水量记录
         var tmpVolume = 0
         for item in records.getRecord(type: CupRecordType.day) {
@@ -76,9 +76,9 @@ class Cup: OznerBaseDevice {
             let tmpTemperature = Int(recvData[15])+256*Int(recvData[16])
             let tmpVolume = Int(recvData[9])+256*Int(recvData[10])
             if tmpVolume>0 {
-                OznerDeviceRecordHelper.instance.addRecordToSQL(Identifier: self.identifier, Tdate: tmpDate as Date, Tds: tmpTDS, Temperature: tmpTemperature, Volume: tmpVolume, Updated: false)
+                OznerDeviceRecordHelper.instance.addRecordToSQL(Identifier: self.deviceInfo.deviceID, Tdate: tmpDate as Date, Tds: tmpTDS, Temperature: tmpTemperature, Volume: tmpVolume, Updated: false)
                 sensor.Volume=sensor.Volume+tmpVolume
-                self.delegate?.OznerDeviceRecordUpdate?(identifier: self.identifier)
+                self.delegate?.OznerDeviceRecordUpdate?(identifier: self.deviceInfo.deviceID)
             }
             
         default:

@@ -23,7 +23,7 @@ class OznerAylaManager: NSObject {
         }
     }
     //获取已配对的设备IO，或者设备重新连接调用
-    func getIO(identifier:String) -> OZAylaIO? {
+    func getIO(deviceinfo:OznerDeviceInfo) -> OZAylaIO? {
         return nil
     }
     func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?) {//开始配对

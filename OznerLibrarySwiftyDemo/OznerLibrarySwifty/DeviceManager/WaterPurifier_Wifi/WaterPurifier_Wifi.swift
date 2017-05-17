@@ -14,14 +14,14 @@ class WaterPurifier_Wifi: OznerBaseDevice {
     private(set) var sensor:(TDS_Before:Int,TDS_After:Int)=(0,0){
         didSet{
             if sensor != oldValue {
-                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.identifier)
+                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
             }
         }
     }
     private(set) var status:(Power:Bool,Cool:Bool,Hot:Bool,Sterilization:Bool)=(false,false,false,false){
         didSet{
             if status != oldValue {
-                self.delegate?.OznerDeviceStatusUpdate!(identifier: self.identifier)
+                self.delegate?.OznerDeviceStatusUpdate!(identifier: self.deviceInfo.deviceID)
             }
         }
     }
@@ -105,7 +105,7 @@ class WaterPurifier_Wifi: OznerBaseDevice {
     {
         let len = 13+data.count
         var dataNeed = Data.init(bytes: [code,UInt8(len%256),UInt8(len/256),Opcode])
-        let macData=Helper.string(toHexData: self.identifier.replacingOccurrences(of: ":", with: "").lowercased())
+        let macData=Helper.string(toHexData: self.deviceInfo.deviceID.replacingOccurrences(of: ":", with: "").lowercased())
         dataNeed.append(macData!)
         dataNeed.insert(UInt8(0), at: 10)
         dataNeed.insert(UInt8(0), at: 11)
@@ -128,7 +128,7 @@ class WaterPurifier_Wifi: OznerBaseDevice {
     {
         let len = 14+data.count
         var dataNeed = Data.init(bytes: [0xfb,UInt8(len%256),UInt8(len/256),0x1])
-        let macData=Helper.string(toHexData: self.identifier.replacingOccurrences(of: ":", with: "").lowercased())
+        let macData=Helper.string(toHexData: self.deviceInfo.deviceID.replacingOccurrences(of: ":", with: "").lowercased())
         dataNeed.append(macData!)
         dataNeed.insert(UInt8(0), at: 10)
         dataNeed.insert(UInt8(0), at: 11)

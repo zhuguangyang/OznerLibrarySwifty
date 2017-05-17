@@ -29,9 +29,34 @@ class OznerMxChipManager: NSObject {
    
     
     func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?,ssid:String?,password:String?) {
-        
-        OznerEasyLink_V1.instance.starPair(deviceClass: deviceClass, pairDelegate: pairDelegate, ssid: ssid, password: password, timeOut: 90)
-        //OznerEasyLink_V2.instance.starPair(deviceClass: deviceClass, pairDelegate: pairDelegate, password: password, outTime: 90)
+        //let weakSelf=self
+        let myCustomQueue = DispatchQueue.main;
+        myCustomQueue.async {//2.0配网
+            print("开始2.0配网")
+            OznerEasyLink_V2.instance.starPair(password: password, outTime: 90, successBlock: { (deviceinfo) in
+                //weakSelf.deviceInfo=deviceinfo
+                DispatchQueue.main.async {
+                    print("\n配网成功\n\(deviceinfo)")
+                    OznerEasyLink_V1.instance.canclePair()
+                }
+                
+            }, failedBlock: { (error) in
+                DispatchQueue.main.async {
+                    print("配网失败:"+error.localizedDescription)
+                }
+                
+            })
+        }
+        myCustomQueue.async{//1.0配网
+            print("开始1.0配网")
+            OznerEasyLink_V1.instance.starPair(deviceClass: deviceClass, ssid: ssid, password: password, timeOut: 90, successBlock: { (deviceinfo) in
+                OznerEasyLink_V2.instance.canclePair()
+                print(deviceinfo)
+                pairDelegate?.OznerPairSucceed(deviceInfo: deviceinfo)
+            }, failedBlock: { (error) in
+                print(error)
+            })
+        }
     }
     //取消配对
     func canclePair() {
@@ -40,14 +65,12 @@ class OznerMxChipManager: NSObject {
     }
        
     //获取已配对的设备IO，或者设备重新连接调用
-    func getIO(identifier:String,type:String) -> OZMxChipIO? {
-        if let tmpIO = IODics[identifier] {
+    func getIO(deviceinfo:OznerDeviceInfo) -> OZMxChipIO? {
+        if let tmpIO = IODics[deviceinfo.deviceID] {
             return tmpIO
         }else{
-            var chanelStr = identifier.replacingOccurrences(of: ":", with: "").lowercased()
-            chanelStr=type+"/"+chanelStr
-            IODics[identifier] = OZMxChipIO(identifier: chanelStr)
-            return IODics[identifier]
+            IODics[deviceinfo.deviceID] = OZMxChipIO(deviceinfo: deviceinfo)
+            return IODics[deviceinfo.deviceID]
         }
     }
     //删除设备时解除绑定的IO

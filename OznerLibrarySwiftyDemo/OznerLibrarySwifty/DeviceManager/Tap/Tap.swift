@@ -16,14 +16,14 @@ class Tap: OznerBaseDevice {
     private(set) var sensor:(TDS:Int,Battery:Int)=(0,0){
         didSet{
             if sensor != oldValue {
-                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.identifier)
+                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
             }
         }
     }
     private(set) var monthRecords:[Int:Int]=[Int:Int](){//day:tds
         didSet{
             if monthRecords != oldValue {
-                self.delegate?.OznerDeviceRecordUpdate?(identifier: self.identifier)
+                self.delegate?.OznerDeviceRecordUpdate?(identifier: self.deviceInfo.deviceID)
             }
         }
     }
@@ -42,14 +42,15 @@ class Tap: OznerBaseDevice {
             sensor=(tmpTDS,bateary)
         case 0xA8://opCode_ReadMACRet
             if recvData.count>=6 {
-                self.macAdress=String(format: "%02X:%02X:%02X:%02X:%02X:%02X", recvData[5],recvData[4],recvData[3],recvData[2],recvData[1],recvData[0])
+                
+                self.deviceInfo.deviceMac=String(format: "%02X:%02X:%02X:%02X:%02X:%02X", recvData[5],recvData[4],recvData[3],recvData[2],recvData[1],recvData[0])
             }
             break
         case 0xA7://opCode_ReadTapRecordRet
             let tmpDate=NSDate(year: Int(recvData[1])+2000, month: Int(recvData[2]), day: Int(recvData[3]), hour: Int(recvData[4]), minute: Int(recvData[5]), second: Int(recvData[6])) as NSDate
             let tmpTDS = Int(recvData[7])+16*16*Int(recvData[8])
             
-            OznerDeviceRecordHelper.instance.addRecordToSQL(Identifier: self.identifier, Tdate: tmpDate as Date, Tds: tmpTDS, Temperature: 0, Volume: 0, Updated: false)
+            OznerDeviceRecordHelper.instance.addRecordToSQL(Identifier: self.deviceInfo.deviceID, Tdate: tmpDate as Date, Tds: tmpTDS, Temperature: 0, Volume: 0, Updated: false)
             if tmpDate.year()==NSDate().year()&&tmpDate.month()==NSDate().month() {
                 let tmpLastTDS = monthRecords[tmpDate.day()] ?? 0
                 if tmpTDS>tmpLastTDS {
@@ -64,7 +65,7 @@ class Tap: OznerBaseDevice {
     }
     override func doWillInit() {
         //初始化本地月数据记录
-        let tmpMonth=OznerDeviceRecordHelper.instance.getRecords(Identifier: self.identifier)
+        let tmpMonth=OznerDeviceRecordHelper.instance.getRecords(Identifier: self.deviceInfo.deviceID)
         var tmpmonth = [Int:Int]()
         for item in tmpMonth {
             if (item.date as NSDate).year()==NSDate().year()&&(item.date as NSDate).month()==NSDate().month() {

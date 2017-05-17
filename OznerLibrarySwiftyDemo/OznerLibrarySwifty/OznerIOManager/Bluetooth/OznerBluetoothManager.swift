@@ -25,12 +25,12 @@ class OznerBluetoothManager: NSObject {
     }
     private var IODics=[String:OZBluetoothIO]()
     //获取已配对的设备IO，或者设备重新连接调用
-    func getIO(identifier:String) -> OZBluetoothIO? {
-        if let tmpIO = IODics[identifier] {
+    func getIO(deviceinfo:OznerDeviceInfo) -> OZBluetoothIO? {
+        if let tmpIO = IODics[deviceinfo.deviceID] {
             return tmpIO
         }else{
-            IODics[identifier] = OZBluetoothIO(identifier: identifier)
-            return IODics[identifier]
+            IODics[deviceinfo.deviceID] = OZBluetoothIO(deviceinfo: deviceinfo)
+            return IODics[deviceinfo.deviceID]
         }
         
     }
@@ -47,7 +47,7 @@ class OznerBluetoothManager: NSObject {
                                .WaterPurifier_Blue:"Ozner RO",
                                .WaterReplenish:"BSY001"]
     func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?) {//开始配对
-        var scanData=[String:(type:String,instance:Int)]()
+        var scanData=OznerDeviceInfo()
         let starDate = Date()
         self.failDelegateUsed=false
         BabyBLEHelper.share().starScan(30, deviceName: DeviceNameArr[deviceClass], block: { (Identifier, Distance, BLEData) in
@@ -56,9 +56,13 @@ class OznerBluetoothManager: NSObject {
             }
             if !self.IODics.keys.contains(Identifier!)//不是已配对过的设备
             {
-                if !scanData.keys.contains(Identifier!){//不是已扫描到的设备
-                    scanData[Identifier!]=(self.DeviceTypeArr[deviceClass]!,Int(Distance))
-                    pairDelegate?.OznerPairSucceed(devices: scanData)
+                if scanData.deviceMac==""{//不是已扫描到的设备
+                    scanData.deviceID=Identifier!
+                    scanData.deviceMac=Identifier!
+                    scanData.deviceType=self.DeviceTypeArr[deviceClass]!
+                    scanData.productID="BLUE"
+                    pairDelegate?.OznerPairSucceed(deviceInfo: scanData)
+                    self.canclePair()
                 }
                 
             }            
@@ -74,7 +78,7 @@ class OznerBluetoothManager: NSObject {
                 self.failDelegateUsed=true
                 pairDelegate?.OznerPairFailured(error: NSError(domain: "手机蓝牙未打开", code: 1, userInfo: nil))
             case 2://扫描结束
-                if scanData.count==0&&(Date().timeIntervalSince1970-starDate.timeIntervalSince1970)>=30{
+                if scanData.deviceMac==""&&(Date().timeIntervalSince1970-starDate.timeIntervalSince1970)>=30{
                     pairDelegate?.OznerPairFailured(error: NSError(domain: "未搜索到设备，扫描超时！", code: 2, userInfo: nil))
                 }
                 
@@ -84,7 +88,6 @@ class OznerBluetoothManager: NSObject {
         }
     }
     func canclePair() {//取消配对
-        
         BabyBLEHelper.share().cancelScan()
         self.failDelegateUsed=true
     }

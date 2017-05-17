@@ -10,7 +10,7 @@ import UIKit
 //配对成功失败代理
 protocol OznerPairDelegate {
      func OznerPairFailured(error:Error) -> Void
-     func OznerPairSucceed(devices:[String:(type:String,instance:Int)]) -> Void
+     func OznerPairSucceed(deviceInfo:OznerDeviceInfo) -> Void
 }
 //主要是暴露给外部调用的方法或代理，单例模式
 class OznerManager: NSObject {
@@ -30,7 +30,7 @@ class OznerManager: NSObject {
     //当前设备
     var currentDevice:OznerBaseDevice?=nil{
         didSet{
-            if oldValue?.identifier != currentDevice?.identifier {
+            if oldValue?.deviceInfo.deviceID != currentDevice?.deviceInfo.deviceID {
                 oldValue?.isCurrentDevice=false
                 oldValue?.delegate=nil
                 currentDevice?.isCurrentDevice=true
@@ -74,8 +74,8 @@ class OznerManager: NSObject {
         return OznerDeviceManager.instance.getAllDevices()
     }
     
-    func createDevice(identifier:String,type:String,setting:String?) -> OznerBaseDevice {
-        return OznerDeviceManager.instance.createDevice(identifier: identifier, type: type, setting: setting)
+    func createDevice(scanDeviceInfo:OznerDeviceInfo,setting:String?) -> OznerBaseDevice {
+        return OznerDeviceManager.instance.createDevice(scanDeviceInfo: scanDeviceInfo, setting: setting)
     }
     //配对操作
     //开始配对

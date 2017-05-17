@@ -15,7 +15,7 @@ class WaterPurifier_Blue: OznerBaseDevice {
     private(set) var WaterSettingInfo:(rtc:Date,Ozone_WorkTime:Int,Ozone_Interval:Int)=(Date(timeIntervalSince1970: 0),0,0){
         didSet{
             if WaterSettingInfo != oldValue {
-                self.delegate?.OznerDeviceRecordUpdate?(identifier: self.identifier)
+                self.delegate?.OznerDeviceRecordUpdate?(identifier: self.deviceInfo.deviceID)
                 
             }
         }
@@ -23,7 +23,7 @@ class WaterPurifier_Blue: OznerBaseDevice {
     private(set) var WaterInfo:(TDS1:Int,TDS2:Int,TDS1_RAW:Int,TDS2_RAW:Int,TDS_Temperature:Int)=(0,0,0,0,0){
         didSet{
             if WaterInfo != oldValue {
-                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.identifier)
+                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
                 
             }
         }
@@ -31,7 +31,7 @@ class WaterPurifier_Blue: OznerBaseDevice {
     private(set) var FilterInfo:(Filter_A_Time:Int,Filter_B_Time:Int,Filter_C_Time:Int,Filter_A_Percentage:Int,Filter_B_Percentage:Int,Filter_C_Percentage:Int)=(0,0,0,0,0,0){
         didSet{
             if FilterInfo != oldValue {
-                self.delegate?.OznerDevicefilterUpdate?(identifier: self.identifier)
+                self.delegate?.OznerDevicefilterUpdate?(identifier: self.deviceInfo.deviceID)
                 
             }
         }

@@ -15,9 +15,10 @@ protocol OznerBaseIODelegate {
 class OznerBaseIO: NSObject {
   
     var delegate:OznerBaseIODelegate!
-    
-    required init(identifier:String) {
+    var deviceInfo:OznerDeviceInfo!
+    required init(deviceinfo:OznerDeviceInfo) {
         super.init()
+        deviceInfo=deviceinfo
     }
     func SendDataToDevice(sendData:Data,CallBack callback:((Error?)->Void)?) {
         

@@ -10,7 +10,7 @@ import UIKit
 
 class ResultViewController: UIViewController,OznerPairDelegate,UITextFieldDelegate {
     var currDeviceType:OZDeviceClass!
-    var deviceArr:[String : (type: String, instance: Int)]!
+    var scanDeviceInfo:OznerDeviceInfo!
     
     @IBOutlet var ssidText: UITextField!
     @IBOutlet var passwordText: UITextField!
@@ -21,26 +21,25 @@ class ResultViewController: UIViewController,OznerPairDelegate,UITextFieldDelega
         if sender.titleLabel?.text=="StarPair" {
             starORCancelButton.setTitle("CancelPair", for: .normal)
             OznerManager.instance.starPair(deviceClass: currDeviceType, pairDelegate: self, ssid: ssidText.text!, password: passwordText.text!)
-        }else{
-            
+        }else{            
             starORCancelButton.setTitle("StarPair", for: .normal)
             OznerManager.instance.canclePair()
         }
     }
     @IBAction func completeClick(_ sender: Any) {
-        for (iden,value) in deviceArr {
-            let device=OznerManager.instance.createDevice(identifier: iden, type: value.type, setting: nil)
-            device.settings.name=nameText.text!
-            OznerManager.instance.saveDevice(device: device)
-            OznerManager.instance.currentDevice=device
-            break
+        if scanDeviceInfo.deviceMac == "" {
+            return
         }
+        let device=OznerManager.instance.createDevice(scanDeviceInfo: scanDeviceInfo, setting: nil)
+        device.settings.name=nameText.text!
+        OznerManager.instance.saveDevice(device: device)
+        OznerManager.instance.currentDevice=device
         _=self.navigationController?.popToRootViewController(animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden=false
-        deviceArr=[String : (type: String, instance: Int)]()        
+        scanDeviceInfo=OznerDeviceInfo()
         OznerManager.instance.fetchCurrentSSID { (ssid) in
             self.ssidText.text=ssid
         }
@@ -62,9 +61,9 @@ class ResultViewController: UIViewController,OznerPairDelegate,UITextFieldDelega
         // Pass the selected object to the new view controller.
     }
     */
-    func OznerPairSucceed(devices: [String : (type: String, instance: Int)]) {
-        textView.text="找到设备\(devices)"
-        deviceArr=devices
+    func OznerPairSucceed(deviceInfo: OznerDeviceInfo) {
+        textView.text="找到设备\(deviceInfo)"
+        scanDeviceInfo=deviceInfo
     }
     func OznerPairFailured(error: Error) {
         textView.text=error.localizedDescription

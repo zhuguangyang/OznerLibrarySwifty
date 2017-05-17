@@ -11,16 +11,28 @@ import UIKit
 //庆科读写类
 class OZMxChipIO: OznerBaseIO {
 
-    private  var Channel:String!//"type/mac"
-    required init(identifier: String) {//此处 identifier为"type/mac"，mac去掉“:”转小写
-        super.init(identifier: identifier)
-        Channel=identifier        
+    //private  var deviceInfo:OznerDeviceInfo!//"type/mac"
+    private var deviceID = ""
+    
+    required init(deviceinfo:OznerDeviceInfo) {//此处 identifier为"type/mac"，mac去掉“:”转小写
+        super.init(deviceinfo: deviceinfo)
+        deviceID="d2c_hz/"+deviceinfo.deviceID+"/status"
+        if deviceinfo.wifiVersion==1 {
+            let chanelStr = deviceinfo.deviceID.replacingOccurrences(of: ":", with: "").lowercased()
+            deviceID=deviceinfo.deviceType+"/"+chanelStr
+        }
+        
     }
     //发送数据
     override func SendDataToDevice(sendData:Data,CallBack callback:((Error?)->Void)?) {
-        OznerMQTT_V1.instance.sendData(data: sendData, toTopic: Channel) { (code) in
-            
+        if self.deviceInfo.wifiVersion==1 {
+            OznerMQTT_V1.instance.sendData(data: sendData, toTopic: deviceID) { (code) in
+            }
+        }else{
+            OznerMQTT_V2.instance.sendData(data: sendData, deviceid: deviceInfo.deviceID, callback: { (code) in
+            })
         }
+        
     }
     //开始工作
     override func starWork() {
@@ -31,13 +43,28 @@ class OZMxChipIO: OznerBaseIO {
         let statusCallBack:((OznerConnectStatus)->Void) = { status in
             weakSelf?.delegate.OznerBaseIOStatusUpdate(status: status)
         }
-        OznerMQTT_V1.instance.subscribeTopic(topic: Channel, messageHandler: (dataCallBack,statusCallBack))
+        if self.deviceInfo.wifiVersion==1 {
+            OznerMQTT_V1.instance.subscribeTopic(topic: deviceID, messageHandler: (dataCallBack,statusCallBack))
+        }else{
+            OznerMQTT_V2.instance.subscribeTopic(topic: deviceID, messageHandler: (dataCallBack,statusCallBack))
+        }
+        
     }
     override func stopWork() {// 暂停工作
-        OznerMQTT_V1.instance.unSubscribeTopic(topic: Channel)
+        if self.deviceInfo.wifiVersion==1 {
+            OznerMQTT_V1.instance.unSubscribeTopic(topic: deviceID)
+        }else{
+            OznerMQTT_V2.instance.unSubscribeTopic(topic: deviceID)
+        }
+        
     }
     //删除设备时销毁自己
     func destroySelf() {
-        OznerMQTT_V1.instance.unSubscribeTopic(topic: Channel)
+        if self.deviceInfo.wifiVersion==1 {
+            OznerMQTT_V1.instance.unSubscribeTopic(topic: deviceID)
+        }else{
+            OznerMQTT_V2.instance.unSubscribeTopic(topic: deviceID)
+        }
+        
     }
 }

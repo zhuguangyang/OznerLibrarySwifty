@@ -8,15 +8,11 @@
 
 import UIKit
 
-struct WifiDeviceInfo {
-    var deviceID = ""
-    var deviceMac = ""
-    var deviceType = ""
-    var wifiVersion = 1//1.0 or 2.0
-}
-class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate {
 
-    var deviceInfo:WifiDeviceInfo!
+
+class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate {
+    
+    var deviceInfo:OznerDeviceInfo!
     private static var _instance: OznerEasyLink_V2! = nil
     static var instance: OznerEasyLink_V2! {
         get {
@@ -33,20 +29,22 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
     required  override init() {
         
     }
-    //自定义方法
+    
     private var hostIP = ""
     private var gcdAsyncSocket:GCDAsyncSocket!
     private var starTime:Date!
     private var pairOutTime = 0
     private var pairTimer:Timer?
-    private var PairDelegate:OznerPairDelegate?
-    private var deviceType=OZDeviceClass.AirPurifier_Wifi
-    func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?,password:String?,outTime:Int) {
+    private var SuccessBlock:((OznerDeviceInfo)->Void)!
+    private var FailedBlock:((Error)->Void)!
+    
+    func starPair(password:String?,outTime:Int,successBlock:((OznerDeviceInfo)->Void)!,failedBlock:((Error)->Void)!) {
+        SuccessBlock=successBlock
+        FailedBlock=failedBlock
         //初始化参数
         pairOutTime=outTime
-        deviceType=deviceClass
-        PairDelegate=pairDelegate
-        deviceInfo=WifiDeviceInfo.init()
+        deviceInfo=OznerDeviceInfo.init()
+        deviceInfo.wifiVersion=2
         starTime = Date()
         //配网超时
         pairTimer?.invalidate()
@@ -60,25 +58,21 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
                 ZBBonjourService.sharedInstance().startSearchDevice()
             }
         }
-        
     }
     
     func canclePair() {//取消配对
         pairTimer?.invalidate()
         pairTimer = nil
         ZBBonjourService.sharedInstance().stopSearchDevice()
-        ZBBonjourService.sharedInstance().delegate=nil
-        gcdAsyncSocket=nil
-        gcdAsyncSocket.delegate=nil
     }
     @objc private func pairFailed() {
-        pairTimer?.invalidate()
-        pairTimer = nil
-        ZBBonjourService.sharedInstance().stopSearchDevice()
-        ZBBonjourService.sharedInstance().delegate=nil
-        PairDelegate?.OznerPairFailured(error: NSError(domain: "未找到设备，配对超时", code: 2, userInfo: nil))
+        canclePair()
+        FailedBlock(NSError.init(domain: "配网失败", code: 0, userInfo: nil))
     }
-    
+    private func pairSuccess() {
+        canclePair()
+        SuccessBlock(deviceInfo)
+    }
     
     func bonjourService(_ service: ZBBonjourService!, didReturnDevicesArray array: [Any]!) {
         print(array)
@@ -88,28 +82,38 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
                 if let tmpProductID = (RecordData as AnyObject).object(forKey: "FogProductId") {
                     deviceInfo.deviceMac = (RecordData as AnyObject).object(forKey: "MAC") as! String
                     hostIP = (RecordData as AnyObject).object(forKey: "IP") as! String
-                    deviceInfo.deviceType = tmpProductID as! String
+                    deviceInfo.productID = tmpProductID as! String
+                    deviceInfo.deviceType = deviceInfo.productID
                     //if isHaveSuperUser != "UNCHECK" {
                     print("\n搜索到新设备\n"+"ProductID:"+deviceInfo.deviceMac+"\nmac:"+deviceInfo.deviceType)
                     print("\n开始激活设备:\(hostIP)")
                     ZBBonjourService.sharedInstance().stopSearchDevice()
-                    gcdAsyncSocket=GCDAsyncSocket.init(delegate: self, delegateQueue: DispatchQueue.main)
+                    if gcdAsyncSocket != nil {
+                        gcdAsyncSocket.setDelegate(nil, delegateQueue: nil)
+                        gcdAsyncSocket.disconnect()
+                        gcdAsyncSocket=nil
+                    }
+                    isneedReconnectHost=true
+                    let myQueue = DispatchQueue.init(label: "come.ozner.GCDAsyncSocket")
+                    gcdAsyncSocket=GCDAsyncSocket.init(delegate: self, delegateQueue: myQueue)
                     do {
                         try gcdAsyncSocket?.connect(toHost: hostIP, onPort: 8002)
                     } catch let error {
                         print("\n激活设备失败!")
                         print(error)
+                        pairFailed()
                     }
+                    break
                 }
             }
         }
     }
     
     private var isneedReconnectHost = true
-    
     func socketDidDisconnect(_ sock: GCDAsyncSocket!, withError err: Error!) {
+        print("Socket 断开链接")
         if Int(Date().timeIntervalSince1970-starTime.timeIntervalSince1970)>pairOutTime {
-            print("\n激活设备失败!")
+            pairFailed()
             return
         }
         if !isneedReconnectHost {
@@ -118,14 +122,14 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
         do {
             try gcdAsyncSocket?.connect(toHost: hostIP, onPort: 8002)
         } catch let error {
-            print("\n激活设备失败!")
-            print(error)
+            print("\n激活设备失败!\(error)")
+            pairFailed()
         }
         sleep(1)
     }
     func socket(_ sock: GCDAsyncSocket!, didConnectToHost host: String!, port: UInt16) {
         print("Socket 连接成功")
-        sock.readData(withTimeout: -1, tag: 200)
+        gcdAsyncSocket.readData(withTimeout: -1, tag: 200)
         // 发送消息
         let sPostURL = "POST / HTTP/1.1\r\n\r\n{\"getvercode\":\"\"}\r\n"
         let sPostdata = sPostURL.data(using: String.Encoding.utf8)
@@ -142,6 +146,6 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
         deviceInfo.deviceID=deviceInfo.deviceID.replacingOccurrences(of: "\"", with: "")
         let useTime = Date().timeIntervalSince1970-starTime.timeIntervalSince1970
         print("\n设备激活成功(\(Date()))\n配网完成(用时:\(useTime))")
-        
+        pairSuccess()
     }
 }

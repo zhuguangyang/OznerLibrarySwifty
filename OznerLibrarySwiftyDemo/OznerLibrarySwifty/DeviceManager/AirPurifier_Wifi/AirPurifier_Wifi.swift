@@ -15,21 +15,21 @@ class AirPurifier_Wifi: OznerBaseDevice {
     private(set) var sensor:(Temperature:Int,Humidity:Int,PM25:Int,VOC:Int,TotalClean:Int)=(0,0,0,0,0){
         didSet{
             if sensor != oldValue {
-                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.identifier)
+                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
             }
         }
     }
     private(set) var status:(Power:Bool,Lock:Bool,Speed:Int)=(false,false,0){
         didSet{
             if status != oldValue {
-                self.delegate?.OznerDeviceStatusUpdate!(identifier: self.identifier)
+                self.delegate?.OznerDeviceStatusUpdate!(identifier: self.deviceInfo.deviceID)
             }
         }
     }
     private(set) var filterStatus:(starDate:Date,stopDate:Date,workTime:Int,maxWorkTime:Int) = (Date(timeIntervalSinceNow: 0),Date(timeIntervalSinceNow: 0),0,129600){
         didSet{
             if filterStatus != oldValue {
-                self.delegate?.OznerDevicefilterUpdate?(identifier: self.identifier)
+                self.delegate?.OznerDevicefilterUpdate?(identifier: self.deviceInfo.deviceID)
             }
             
         }
@@ -165,7 +165,7 @@ class AirPurifier_Wifi: OznerBaseDevice {
     {
         let len = 13+data.count
         var dataNeed = Data.init(bytes: [0xfb,UInt8(len%256),UInt8(len/256),0x2])
-        let macData=Helper.string(toHexData: self.identifier.replacingOccurrences(of: ":", with: "").lowercased())
+        let macData=Helper.string(toHexData: self.deviceInfo.deviceID.replacingOccurrences(of: ":", with: "").lowercased())
         dataNeed.append(macData!)
         dataNeed.insert(UInt8(0), at: 10)
         dataNeed.insert(UInt8(0), at: 11)
@@ -177,7 +177,7 @@ class AirPurifier_Wifi: OznerBaseDevice {
     {
         let len = 14+data.count
         var dataNeed = Data.init(bytes: [0xfb,UInt8(len%256),UInt8(len/256),0x1])
-        let macData=Helper.string(toHexData: self.identifier.replacingOccurrences(of: ":", with: "").lowercased())
+        let macData=Helper.string(toHexData: self.deviceInfo.deviceID.replacingOccurrences(of: ":", with: "").lowercased())
         dataNeed.append(macData!)
         dataNeed.insert(UInt8(0), at: 10)
         dataNeed.insert(UInt8(0), at: 11)
