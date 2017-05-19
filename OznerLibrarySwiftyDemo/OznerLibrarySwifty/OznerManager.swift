@@ -38,10 +38,30 @@ class OznerManager: NSObject {
             
         }
     }
+    
+    //wifi判断
+    var wifiReachability:Reachability!
     var owner:String!
     
     //设置账户信息
-    func setOwner(Owner:String,UserToken:String) {//Owner：数据库名称,userToken：ayla会用到
+    func setOwner(Owner:String,UserToken:String) {
+        //初始化
+        //监测Wi-Fi连接状态
+        wifiReachability = Reachability.forLocalWiFi()
+        // Tell the reachability that we DON'T want to be reachable on 3G/EDGE/CDMA
+        wifiReachability.reachableOnWWAN = false
+         wifiReachability.startNotifier()
+        //在需要的地方开启Wi-Fi变化监听
+
+//        NotificationCenter.default.addObserver(
+//            self,
+//            selector: #selector(reachabilityChanged),
+//            name: NSNotification.Name.reachabilityChanged,
+//            object: nil
+//        )
+        
+       
+        //Owner：数据库名称,userToken：ayla会用到
         owner=Owner
         OznerDeviceManager.instance.setOwner(Owner: Owner, UserToken: UserToken)
         //初始化第一个设备为当前设备
@@ -49,8 +69,6 @@ class OznerManager: NSObject {
         if (devices?.count)!>0 {
             currentDevice=devices?[0]
         }
-        
-        
     }
     
     //增删改查设备方法
@@ -88,6 +106,19 @@ class OznerManager: NSObject {
     }
     //获取当前连接的无线网名称
     func fetchCurrentSSID(handler:((String?)->Void)!) {
-        MicoDeviceManager.sharedInstance().fetchCurrentSSID(handler)        
+        handler(EASYLINK.ssidForConnectedNetwork())
     }
+    
+    
+    
+    
+//    func reachabilityChanged(notification: NSNotification) {
+//        if wifiReachability.isReachableViaWiFi() || wifiReachability.isReachableViaWWAN() {
+//            print("Service avalaible!!!")
+//        } else {
+//            print("No service avalaible!!!")
+//        }
+//    }
+    //蓝牙判断
+    
 }

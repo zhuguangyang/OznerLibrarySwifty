@@ -27,39 +27,70 @@ class OznerMxChipManager: NSObject {
     }
     //开始配对
    
-    
+    private var pairTimer:Timer?
+    private let pairOutTime=60//配网超时时间
+    var PairDelegate:OznerPairDelegate!
+    var haveSuccessed = false
     func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?,ssid:String?,password:String?) {
-        //let weakSelf=self
-        let myCustomQueue = DispatchQueue.main;
-        myCustomQueue.async {//2.0配网
-            print("开始2.0配网")
-            OznerEasyLink_V2.instance.starPair(password: password, outTime: 90, successBlock: { (deviceinfo) in
-                //weakSelf.deviceInfo=deviceinfo
-                DispatchQueue.main.async {
-                    print("\n配网成功\n\(deviceinfo)")
-                    OznerEasyLink_V1.instance.canclePair()
-                }
-                
+        //初始化
+        let weakself=self
+        haveSuccessed=false
+        PairDelegate=pairDelegate
+        
+        //加个是否连上Wi-Fi判断
+        if OznerManager.instance.wifiReachability.currentReachabilityStatus() != NetworkStatus.ReachableViaWiFi {
+            PairDelegate.OznerPairFailured(error: NSError(domain: "手机请连接上Wi-Fi网络再进行配网！！！", code: 1, userInfo: nil))
+            return
+        }
+        //加个是否连上Wi-Fi判断
+        if ssid==nil||ssid=="" {
+            PairDelegate.OznerPairFailured(error: NSError(domain: "Wi-Fi名称不能为空", code: 1, userInfo: nil))
+            return
+        }
+        
+        //配网超时
+        pairTimer?.invalidate()
+        pairTimer=Timer.scheduledTimer(timeInterval: TimeInterval(pairOutTime), target: self, selector: #selector(pairFailed), userInfo: nil, repeats: false)
+        //1.0、2.0同时配网
+        let myCustomQueue = DispatchQueue.main
+        myCustomQueue.async {//2.0配网            
+            OznerEasyLink_V2.instance.starPair(password: password, outTime: weakself.pairOutTime, successBlock: { (deviceinfo) in
+                print("2.0配网成功")
+                weakself.pairSuccess(deviceInfo: deviceinfo)
             }, failedBlock: { (error) in
-                DispatchQueue.main.async {
-                    print("配网失败:"+error.localizedDescription)
-                }
-                
+                print("2.0配网失败:"+error.localizedDescription)
             })
         }
         myCustomQueue.async{//1.0配网
-            print("开始1.0配网")
-            OznerEasyLink_V1.instance.starPair(deviceClass: deviceClass, ssid: ssid, password: password, timeOut: 90, successBlock: { (deviceinfo) in
-                OznerEasyLink_V2.instance.canclePair()
-                print(deviceinfo)
-                pairDelegate?.OznerPairSucceed(deviceInfo: deviceinfo)
+            OznerEasyLink_V1.instance.starPair(deviceClass: deviceClass, ssid: ssid, password: password, timeOut: weakself.pairOutTime, successBlock: { (deviceinfo) in
+                print("1.0配网成功")
+                weakself.pairSuccess(deviceInfo: deviceinfo)
+                
             }, failedBlock: { (error) in
-                print(error)
+                print("1.0配网失败"+error.localizedDescription)
             })
+        }
+    }
+    private func pairSuccess(deviceInfo:OznerDeviceInfo) {
+        print(deviceInfo)
+        if !haveSuccessed {
+            haveSuccessed=true
+            canclePair()
+            DispatchQueue.main.async {
+                self.PairDelegate?.OznerPairSucceed(deviceInfo: deviceInfo)
+            }
+        }        
+    }
+    @objc private func pairFailed() {
+        canclePair()
+        DispatchQueue.main.async {
+            self.PairDelegate.OznerPairFailured(error: NSError(domain: "未找到设备，配对超时", code: 2, userInfo: nil))
         }
     }
     //取消配对
     func canclePair() {
+        pairTimer?.invalidate()
+        pairTimer = nil
         OznerEasyLink_V1.instance.canclePair()
         OznerEasyLink_V2.instance.canclePair()
     }
@@ -79,5 +110,16 @@ class OznerMxChipManager: NSObject {
             tmpIO.destroySelf()
             IODics.removeValue(forKey: identifier)
         }
-    }    
+    }
+    
+    func foundDeviceIsExist(mac:String) -> Bool {//判断设备是否已存在
+        var isExist = false
+        for (_,value) in IODics {
+            if value.deviceInfo.deviceMac==mac {
+                isExist=true
+                break
+            }
+        }
+        return isExist
+    }
 }

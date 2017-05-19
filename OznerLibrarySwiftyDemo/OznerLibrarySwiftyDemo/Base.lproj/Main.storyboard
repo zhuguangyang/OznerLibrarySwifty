@@ -111,7 +111,7 @@
                                     <constraint firstAttribute="width" constant="80" id="cx0-CD-hju"/>
                                     <constraint firstAttribute="height" constant="40" id="v9E-uF-aQa"/>
                                 </constraints>
-                                <state key="normal" title="power"/>
+                                <state key="normal" title="电源"/>
                                 <connections>
                                     <action selector="powerClick:" destination="SIH-SE-P31" eventType="touchUpInside" id="cUJ-cW-hqK"/>
                                 </connections>
@@ -129,7 +129,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGi-vu-AtW">
                                 <rect key="frame" x="31" y="349" width="80" height="40"/>
                                 <color key="backgroundColor" red="0.87843137250000003" green="0.93725490199999995" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Speed"/>
+                                <state key="normal" title="加热"/>
                                 <connections>
                                     <action selector="speedClick:" destination="SIH-SE-P31" eventType="touchUpInside" id="zdM-V7-MnP"/>
                                 </connections>
@@ -137,7 +137,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XsV-xz-2d0">
                                 <rect key="frame" x="141" y="354" width="80" height="40"/>
                                 <color key="backgroundColor" red="0.87843137250000003" green="0.93725490199999995" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Lock"/>
+                                <state key="normal" title="制冷"/>
                                 <connections>
                                     <action selector="lockClick:" destination="SIH-SE-P31" eventType="touchUpInside" id="4Tm-4B-3dZ"/>
                                 </connections>
@@ -216,16 +216,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CLO-xV-GUi">
-                                <rect key="frame" x="16" y="164" width="343" height="150"/>
+                                <rect key="frame" x="16" y="164" width="343" height="348"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="QDV-Qt-jOv"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HJp-xj-bzX">
-                                <rect key="frame" x="16" y="329" width="343" height="30"/>
+                                <rect key="frame" x="16" y="527" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="qfj-jq-yyl"/>
                                 </constraints>
@@ -294,6 +291,7 @@
                             <constraint firstItem="CLO-xV-GUi" firstAttribute="top" secondItem="EPn-5Y-ChI" secondAttribute="bottom" constant="100" id="Cxr-fr-akB"/>
                             <constraint firstItem="HJp-xj-bzX" firstAttribute="leading" secondItem="k5t-h1-39q" secondAttribute="leadingMargin" id="Hdi-xf-MLQ"/>
                             <constraint firstItem="CLO-xV-GUi" firstAttribute="leading" secondItem="k5t-h1-39q" secondAttribute="leadingMargin" id="Kpe-T2-iEK"/>
+                            <constraint firstItem="6fs-9K-2lE" firstAttribute="top" secondItem="HJp-xj-bzX" secondAttribute="bottom" constant="30" id="PSE-K4-MbE"/>
                             <constraint firstItem="dt7-q5-WNK" firstAttribute="top" secondItem="6fs-9K-2lE" secondAttribute="bottom" constant="40" id="RNk-y8-H8f"/>
                             <constraint firstItem="HJp-xj-bzX" firstAttribute="top" secondItem="CLO-xV-GUi" secondAttribute="bottom" constant="15" id="VIT-ef-aer"/>
                             <constraint firstItem="PBd-fa-vsb" firstAttribute="trailing" secondItem="k5t-h1-39q" secondAttribute="trailingMargin" constant="10" id="bHG-Z9-Ra3"/>

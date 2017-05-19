@@ -17,11 +17,15 @@ class ResultViewController: UIViewController,OznerPairDelegate,UITextFieldDelega
     @IBOutlet var textView: UITextView!
     @IBOutlet var nameText: UITextField!
     @IBOutlet var starORCancelButton: UIButton!
+    var starDate:Date!
+    
     @IBAction func StarORCancel(_ sender: UIButton) {
         if sender.titleLabel?.text=="StarPair" {
+            starDate=Date()
+            textView.text="开始配网(<60s):\(Date())"
             starORCancelButton.setTitle("CancelPair", for: .normal)
             OznerManager.instance.starPair(deviceClass: currDeviceType, pairDelegate: self, ssid: ssidText.text!, password: passwordText.text!)
-        }else{            
+        }else{
             starORCancelButton.setTitle("StarPair", for: .normal)
             OznerManager.instance.canclePair()
         }
@@ -62,11 +66,13 @@ class ResultViewController: UIViewController,OznerPairDelegate,UITextFieldDelega
     }
     */
     func OznerPairSucceed(deviceInfo: OznerDeviceInfo) {
-        textView.text="找到设备\(deviceInfo)"
+        textView.text.append("\n发现设备:\n"+deviceInfo.des())
+        textView.text.append("\n结束时间:\(Date())")
+        textView.text.append("\n配网用时:\(0-starDate.timeIntervalSinceNow)s")
         scanDeviceInfo=deviceInfo
     }
     func OznerPairFailured(error: Error) {
-        textView.text=error.localizedDescription
+        textView.text.append("\n配网失败:"+error.localizedDescription)
         starORCancelButton.setTitle("starPair", for: .normal)
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

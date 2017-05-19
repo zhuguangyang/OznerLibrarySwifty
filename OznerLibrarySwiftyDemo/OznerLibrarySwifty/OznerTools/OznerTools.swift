@@ -27,7 +27,6 @@ class OznerTools: NSObject {
         var hexStr=""
         for i in 0..<data.count {
             if Int(data[i])<16 {
-                print(Int(data[i]))
                 hexStr=hexStr.appendingFormat("0")
             }
             hexStr=hexStr.appendingFormat("%x",Int(data[i]))
@@ -51,24 +50,19 @@ class OznerTools: NSObject {
     }
     class func publicString(payload:Data,deviceid:String,callback:((Int32)->Void)!){
         let payloadStr=OznerTools.hexStringFromData(data: payload)
-        print(payloadStr)
         //第一步，创建URL
         let url=URL.init(string: "https://v2.fogcloud.io/enduser/sendCommandHz/")
         //第二步，创建请求
         let request=NSMutableURLRequest.init(url: url!, cachePolicy: NSURLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
         request.httpMethod="POST"//设置请求方式为POST，默认为GET
         let params = "username=bing.zhao@cftcn.com&password=l5201314&deviceid="+deviceid+"&payload="+payloadStr//设置参数
-        print(params)
         let paramsdata=params.data(using: String.Encoding.utf8)
         request.httpBody=paramsdata
         //第三步，连接服务器
         do{
-            let str1 = try NSURLConnection.sendSynchronousRequest(request as URLRequest, returning: nil)
-            print(String.init(data: str1, encoding: String.Encoding.utf8) ?? "失败")
+            _ = try NSURLConnection.sendSynchronousRequest(request as URLRequest, returning: nil)
         }catch{}
-        
-        //let deviceid=OznerTools.getWifiDeviceID(Topic: toTopic)
-        //“username=bing.zhao@cftcn.com&password=l5201314&deviceid=ashjk1l2kasd&payload=1cabe2” https://v2.fogcloud.io/enduser/sendCommandHz/
+
         
     }
     

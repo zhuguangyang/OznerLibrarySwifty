@@ -34,35 +34,30 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
     private var gcdAsyncSocket:GCDAsyncSocket!
     private var starTime:Date!
     private var pairOutTime = 0
-    private var pairTimer:Timer?
+    //private var pairTimer:Timer?
     private var SuccessBlock:((OznerDeviceInfo)->Void)!
     private var FailedBlock:((Error)->Void)!
     
     func starPair(password:String?,outTime:Int,successBlock:((OznerDeviceInfo)->Void)!,failedBlock:((Error)->Void)!) {
+        //初始化参数
         SuccessBlock=successBlock
         FailedBlock=failedBlock
-        //初始化参数
         pairOutTime=outTime
         deviceInfo=OznerDeviceInfo.init()
         deviceInfo.wifiVersion=2
         starTime = Date()
         //配网超时
-        pairTimer?.invalidate()
-        pairTimer=Timer.scheduledTimer(timeInterval: TimeInterval(pairOutTime), target: self, selector: #selector(pairFailed), userInfo: nil, repeats: false)
+        //pairTimer?.invalidate()
+        //pairTimer=Timer.scheduledTimer(timeInterval: TimeInterval(pairOutTime), target: self, selector: #selector(pairFailed), userInfo: nil, repeats: false)
         //启动配网
-        let weakSelf = self
-        MicoDeviceManager.sharedInstance().startEasyLink(withPassword: password) { (isSuccess) in
-            if isSuccess{
-                ZBBonjourService.sharedInstance().stopSearchDevice()
-                ZBBonjourService.sharedInstance().delegate=weakSelf
-                ZBBonjourService.sharedInstance().startSearchDevice()
-            }
-        }
+        ZBBonjourService.sharedInstance().stopSearchDevice()
+        ZBBonjourService.sharedInstance().delegate=self
+        ZBBonjourService.sharedInstance().startSearchDevice()
     }
     
     func canclePair() {//取消配对
-        pairTimer?.invalidate()
-        pairTimer = nil
+        //pairTimer?.invalidate()
+        //pairTimer = nil
         ZBBonjourService.sharedInstance().stopSearchDevice()
     }
     @objc private func pairFailed() {
@@ -80,30 +75,32 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
             if let RecordData = (item as AnyObject).object(forKey: "RecordData")
             {
                 if let tmpProductID = (RecordData as AnyObject).object(forKey: "FogProductId") {
-                    deviceInfo.deviceMac = (RecordData as AnyObject).object(forKey: "MAC") as! String
-                    hostIP = (RecordData as AnyObject).object(forKey: "IP") as! String
-                    deviceInfo.productID = tmpProductID as! String
-                    deviceInfo.deviceType = deviceInfo.productID
-                    //if isHaveSuperUser != "UNCHECK" {
-                    print("\n搜索到新设备\n"+"ProductID:"+deviceInfo.deviceMac+"\nmac:"+deviceInfo.deviceType)
-                    print("\n开始激活设备:\(hostIP)")
-                    ZBBonjourService.sharedInstance().stopSearchDevice()
-                    if gcdAsyncSocket != nil {
-                        gcdAsyncSocket.setDelegate(nil, delegateQueue: nil)
-                        gcdAsyncSocket.disconnect()
-                        gcdAsyncSocket=nil
+                    let macAdress = (RecordData as AnyObject).object(forKey: "MAC") as! String
+                    if !OznerMxChipManager.instance.foundDeviceIsExist(mac: macAdress) {
+                        deviceInfo.deviceMac = macAdress
+                        hostIP = (RecordData as AnyObject).object(forKey: "IP") as! String
+                        deviceInfo.productID = tmpProductID as! String
+                        deviceInfo.deviceType = deviceInfo.productID
+                        print("\n搜索到新设备\n"+"ProductID:"+deviceInfo.deviceMac+"\nmac:"+deviceInfo.deviceType)
+                        print("\n开始激活设备:\(hostIP)")
+                        ZBBonjourService.sharedInstance().stopSearchDevice()
+                        if gcdAsyncSocket != nil {
+                            gcdAsyncSocket.setDelegate(nil, delegateQueue: nil)
+                            gcdAsyncSocket.disconnect()
+                            gcdAsyncSocket=nil
+                        }
+                        isneedReconnectHost=true
+                        let myQueue = DispatchQueue.init(label: "come.ozner.GCDAsyncSocket")
+                        gcdAsyncSocket=GCDAsyncSocket.init(delegate: self, delegateQueue: myQueue)
+                        do {
+                            try gcdAsyncSocket?.connect(toHost: hostIP, onPort: 8002)
+                        } catch let error {
+                            print("\n激活设备失败!")
+                            print(error)
+                            pairFailed()
+                        }
+                        break
                     }
-                    isneedReconnectHost=true
-                    let myQueue = DispatchQueue.init(label: "come.ozner.GCDAsyncSocket")
-                    gcdAsyncSocket=GCDAsyncSocket.init(delegate: self, delegateQueue: myQueue)
-                    do {
-                        try gcdAsyncSocket?.connect(toHost: hostIP, onPort: 8002)
-                    } catch let error {
-                        print("\n激活设备失败!")
-                        print(error)
-                        pairFailed()
-                    }
-                    break
                 }
             }
         }

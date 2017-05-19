@@ -36,6 +36,8 @@ class DeviceConfigManager: NSObject {
         "BSY001":(.Bluetooth,.WaterReplenish),
         "580c2783":(.MxChip,.AirPurifier_Wifi),
         "Ozner RO":(.Bluetooth,.WaterPurifier_Blue),
-        "16a21bd6":(.MxChip,.WaterPurifier_Wifi)]
+        "16a21bd6":(.MxChip,.WaterPurifier_Wifi),
+        "737bc5a2-f345-11e6-9d95-00163e103941":(.MxChip,.WaterPurifier_Wifi)
+    ]
     
 }

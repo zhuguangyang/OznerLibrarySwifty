@@ -21,6 +21,9 @@ struct OznerDeviceInfo {
      */
     var productID = ""
     var wifiVersion = 1//wifi版本，1.0或2.0
+    func des() -> String {
+        return "设备ID:\(self.deviceID)\n设备Mac:\(self.deviceMac)\n设备型号:\(self.deviceType)\n产品ID:\(self.productID)\nWiFi版本:\(self.wifiVersion)"
+    }
 }
 class OznerDataManager: NSObject {
     private static var _instance: OznerDataManager! = nil

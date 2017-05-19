@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AsyncSocket.h"
+#import "AsyncSocket.h"//"AsyncSocket.h"
 typedef void (^OznerWifiScanDataBlock)(NSString* deviceID);
 
 typedef enum
