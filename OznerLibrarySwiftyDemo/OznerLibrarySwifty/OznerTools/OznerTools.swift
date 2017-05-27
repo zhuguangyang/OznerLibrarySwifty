@@ -60,7 +60,9 @@ class OznerTools: NSObject {
         request.httpBody=paramsdata
         //第三步，连接服务器
         do{
-            _ = try NSURLConnection.sendSynchronousRequest(request as URLRequest, returning: nil)
+            let str1 = try NSURLConnection.sendSynchronousRequest(request as URLRequest, returning: nil)
+            print(String.init(data: str1, encoding: String.Encoding.utf8))
+            
         }catch{}
 
         

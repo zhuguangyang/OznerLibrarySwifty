@@ -66,8 +66,10 @@ class OznerManager: NSObject {
         OznerDeviceManager.instance.setOwner(Owner: Owner, UserToken: UserToken)
         //初始化第一个设备为当前设备
         let devices = getAllDevices()
+        
         if (devices?.count)!>0 {
             currentDevice=devices?[0]
+            print(currentDevice?.deviceInfo)
         }
     }
     

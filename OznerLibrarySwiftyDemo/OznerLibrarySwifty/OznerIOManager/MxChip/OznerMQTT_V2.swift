@@ -56,6 +56,7 @@ class OznerMQTT_V2: NSObject {
         mqttClient.messageHandler={(mess) in
             if let callback = self.SubscribeTopics[mess?.topic ?? "none"] {
                 if let hexStr=mess?.payloadString() {
+                    print(hexStr)
                     if hexStr.characters.count>0 {
                         let needData=OznerTools.hexStringToData(strHex: hexStr)
                         callback.dataCallBack(needData)

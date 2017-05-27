@@ -92,11 +92,11 @@ class AirPurifier_Wifi: OznerBaseDevice {
                 case 0x04://PROPERTY_POWER_TIMER
                     break
                 case 0x00://PROPERTY_POWER
-                    tmpStatus.Power=Int(valueData[0])==1
+                    tmpStatus.Power=(Int(valueData[0]) != 0)
                 case 0x02://PROPERTY_LIGHT
                     break
                 case 0x03://PROPERTY_LOCK
-                    tmpStatus.Lock=Int(valueData[0])==1
+                    tmpStatus.Lock=(Int(valueData[0]) != 0)
                     break
                 case 0x01://PROPERTY_SPEED
                     tmpStatus.Speed=Int(valueData[0])
@@ -165,7 +165,7 @@ class AirPurifier_Wifi: OznerBaseDevice {
     {
         let len = 13+data.count
         var dataNeed = Data.init(bytes: [0xfb,UInt8(len%256),UInt8(len/256),0x2])
-        let macData=Helper.string(toHexData: self.deviceInfo.deviceID.replacingOccurrences(of: ":", with: "").lowercased())
+        let macData=Helper.string(toHexData: self.deviceInfo.deviceMac.replacingOccurrences(of: ":", with: "").lowercased())
         dataNeed.append(macData!)
         dataNeed.insert(UInt8(0), at: 10)
         dataNeed.insert(UInt8(0), at: 11)
@@ -177,7 +177,7 @@ class AirPurifier_Wifi: OznerBaseDevice {
     {
         let len = 14+data.count
         var dataNeed = Data.init(bytes: [0xfb,UInt8(len%256),UInt8(len/256),0x1])
-        let macData=Helper.string(toHexData: self.deviceInfo.deviceID.replacingOccurrences(of: ":", with: "").lowercased())
+        let macData=Helper.string(toHexData: self.deviceInfo.deviceMac.replacingOccurrences(of: ":", with: "").lowercased())
         dataNeed.append(macData!)
         dataNeed.insert(UInt8(0), at: 10)
         dataNeed.insert(UInt8(0), at: 11)
