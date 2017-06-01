@@ -105,11 +105,11 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TP9-QO-lYL">
-                                <rect key="frame" x="16" y="284" width="80" height="40"/>
+                                <rect key="frame" x="16" y="339" width="60" height="40"/>
                                 <color key="backgroundColor" red="0.87843137250000003" green="0.93725490199999995" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="cx0-CD-hju"/>
-                                    <constraint firstAttribute="height" constant="40" id="v9E-uF-aQa"/>
+                                    <constraint firstAttribute="height" constant="40" id="Pqe-3U-4Fv"/>
+                                    <constraint firstAttribute="width" constant="60" id="ZYU-mg-IB2"/>
                                 </constraints>
                                 <state key="normal" title="电源"/>
                                 <connections>
@@ -117,7 +117,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uKT-Mz-SBf">
-                                <rect key="frame" x="144" y="284" width="124" height="31"/>
+                                <rect key="frame" x="14" y="284" width="124" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="64E-IG-L1M"/>
                                     <constraint firstAttribute="height" constant="30" id="tob-nl-hwL"/>
@@ -127,7 +127,7 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGi-vu-AtW">
-                                <rect key="frame" x="31" y="349" width="80" height="40"/>
+                                <rect key="frame" x="103" y="339" width="60" height="40"/>
                                 <color key="backgroundColor" red="0.87843137250000003" green="0.93725490199999995" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="加热"/>
                                 <connections>
@@ -135,35 +135,59 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XsV-xz-2d0">
-                                <rect key="frame" x="141" y="354" width="80" height="40"/>
+                                <rect key="frame" x="190" y="339" width="60" height="40"/>
                                 <color key="backgroundColor" red="0.87843137250000003" green="0.93725490199999995" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="制冷"/>
                                 <connections>
                                     <action selector="lockClick:" destination="SIH-SE-P31" eventType="touchUpInside" id="4Tm-4B-3dZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsy-dB-lLe">
+                                <rect key="frame" x="105.5" y="413" width="60" height="40"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.93725490199999995" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="冲水"/>
+                                <connections>
+                                    <action selector="rechargeClick:" destination="SIH-SE-P31" eventType="touchUpInside" id="Z2v-Z6-BXg"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="months" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CO9-xr-3ke">
+                                <rect key="frame" x="16" y="417" width="69.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="SIH-SE-P31" id="KbV-V3-sph"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.74722909930000003" green="0.92477899789999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="XsV-xz-2d0" firstAttribute="leading" secondItem="PGi-vu-AtW" secondAttribute="trailing" constant="27" id="1cx-DZ-IY2"/>
+                            <constraint firstItem="PGi-vu-AtW" firstAttribute="width" secondItem="TP9-QO-lYL" secondAttribute="width" id="3Af-xr-e8J"/>
+                            <constraint firstItem="qsy-dB-lLe" firstAttribute="top" secondItem="TP9-QO-lYL" secondAttribute="bottom" constant="34" id="3IW-eh-sft"/>
+                            <constraint firstItem="CO9-xr-3ke" firstAttribute="top" secondItem="PGi-vu-AtW" secondAttribute="bottom" constant="38" id="6cc-Gb-4no"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kA9-8S-MfA" secondAttribute="trailing" id="87b-ND-yDx"/>
-                            <constraint firstItem="uKT-Mz-SBf" firstAttribute="leading" secondItem="TP9-QO-lYL" secondAttribute="trailing" constant="50" id="PLo-7T-Exw"/>
+                            <constraint firstItem="TP9-QO-lYL" firstAttribute="leading" secondItem="Vnu-M5-PPn" secondAttribute="leadingMargin" id="Hpr-xZ-2FP"/>
+                            <constraint firstItem="TP9-QO-lYL" firstAttribute="top" secondItem="uKT-Mz-SBf" secondAttribute="bottom" constant="25" id="MrW-9O-RBu"/>
+                            <constraint firstItem="PGi-vu-AtW" firstAttribute="top" secondItem="TP9-QO-lYL" secondAttribute="top" id="PkE-na-3Hs"/>
                             <constraint firstItem="kA9-8S-MfA" firstAttribute="leading" secondItem="Vnu-M5-PPn" secondAttribute="leadingMargin" id="Qqe-sz-eJL"/>
-                            <constraint firstItem="XsV-xz-2d0" firstAttribute="width" secondItem="PGi-vu-AtW" secondAttribute="width" id="XVK-ye-n41"/>
-                            <constraint firstItem="XsV-xz-2d0" firstAttribute="height" secondItem="PGi-vu-AtW" secondAttribute="height" id="aJd-oe-9qO"/>
-                            <constraint firstItem="PGi-vu-AtW" firstAttribute="top" secondItem="TP9-QO-lYL" secondAttribute="bottom" constant="25" id="aTS-H9-3d4"/>
+                            <constraint firstItem="CO9-xr-3ke" firstAttribute="leading" secondItem="Vnu-M5-PPn" secondAttribute="leadingMargin" id="T5W-mX-yJr"/>
+                            <constraint firstItem="qsy-dB-lLe" firstAttribute="leading" secondItem="CO9-xr-3ke" secondAttribute="trailing" constant="20" id="U3K-ru-lNz"/>
+                            <constraint firstItem="XsV-xz-2d0" firstAttribute="height" secondItem="TP9-QO-lYL" secondAttribute="height" id="Zzc-hB-aEC"/>
                             <constraint firstItem="uKT-Mz-SBf" firstAttribute="top" secondItem="kA9-8S-MfA" secondAttribute="bottom" constant="20" id="bGv-HV-qJV"/>
-                            <constraint firstItem="PGi-vu-AtW" firstAttribute="height" secondItem="TP9-QO-lYL" secondAttribute="height" id="dHU-nV-bkx"/>
-                            <constraint firstItem="PGi-vu-AtW" firstAttribute="leading" secondItem="Vnu-M5-PPn" secondAttribute="leadingMargin" constant="15" id="e2V-pX-wLG"/>
-                            <constraint firstItem="XsV-xz-2d0" firstAttribute="leading" secondItem="PGi-vu-AtW" secondAttribute="trailing" constant="30" id="eyn-su-K9W"/>
-                            <constraint firstItem="XsV-xz-2d0" firstAttribute="top" secondItem="uKT-Mz-SBf" secondAttribute="bottom" constant="40" id="gpi-YZ-s1A"/>
-                            <constraint firstItem="TP9-QO-lYL" firstAttribute="top" secondItem="kA9-8S-MfA" secondAttribute="bottom" constant="20" id="ozm-qL-7qb"/>
-                            <constraint firstItem="PGi-vu-AtW" firstAttribute="width" secondItem="TP9-QO-lYL" secondAttribute="width" id="pGK-1a-urU"/>
+                            <constraint firstItem="PGi-vu-AtW" firstAttribute="height" secondItem="TP9-QO-lYL" secondAttribute="height" id="dwO-RZ-Pr0"/>
+                            <constraint firstItem="qsy-dB-lLe" firstAttribute="height" secondItem="TP9-QO-lYL" secondAttribute="height" id="g6W-i9-wgc"/>
+                            <constraint firstItem="XsV-xz-2d0" firstAttribute="width" secondItem="TP9-QO-lYL" secondAttribute="width" id="hIx-Zg-kcp"/>
+                            <constraint firstItem="uKT-Mz-SBf" firstAttribute="leading" secondItem="Vnu-M5-PPn" secondAttribute="leadingMargin" id="hp1-cN-QiK"/>
+                            <constraint firstItem="PGi-vu-AtW" firstAttribute="leading" secondItem="TP9-QO-lYL" secondAttribute="trailing" constant="27" id="iU1-MZ-qZj"/>
+                            <constraint firstItem="qsy-dB-lLe" firstAttribute="width" secondItem="TP9-QO-lYL" secondAttribute="width" id="oWd-Gt-v2T"/>
                             <constraint firstItem="kA9-8S-MfA" firstAttribute="top" secondItem="Qto-r3-Gql" secondAttribute="bottom" id="pVZ-0T-9rn"/>
-                            <constraint firstItem="TP9-QO-lYL" firstAttribute="leading" secondItem="Vnu-M5-PPn" secondAttribute="leadingMargin" id="tyP-JY-JEd"/>
+                            <constraint firstItem="XsV-xz-2d0" firstAttribute="top" secondItem="TP9-QO-lYL" secondAttribute="top" id="ymQ-Xs-dS9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="设备详情页" id="CRK-4Y-dzE"/>
                     <connections>
+                        <outlet property="monthsTF" destination="CO9-xr-3ke" id="mFf-n5-r8J"/>
                         <outlet property="textView" destination="kA9-8S-MfA" id="e1h-MW-8H1"/>
                     </connections>
                 </viewController>
@@ -268,7 +292,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="87654321" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s7P-u1-7wX">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s7P-u1-7wX">
                                 <rect key="frame" x="16" y="110" width="120" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="173-c9-OsH"/>

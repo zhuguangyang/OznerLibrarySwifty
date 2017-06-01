@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate {
+class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITextFieldDelegate {
 
     
     @IBOutlet var textView: UITextView!
@@ -77,6 +77,18 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate {
             break
         }
     }
+    
+    @IBOutlet var monthsTF: UITextField!
+    @IBAction func rechargeClick(_ sender: UIButton) {
+        
+        
+        if monthsTF.text=="" {
+            return
+        }
+        let months = Int(monthsTF.text!)
+        _=(currDevice as! WaterPurifier_Blue).setWaterTime(months: months!)
+    }
+    
     private var currDevice:OznerBaseDevice!
     
     override func viewDidLoad() {
@@ -126,5 +138,9 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
 }

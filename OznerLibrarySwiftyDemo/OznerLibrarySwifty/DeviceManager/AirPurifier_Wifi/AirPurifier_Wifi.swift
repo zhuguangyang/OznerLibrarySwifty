@@ -175,7 +175,7 @@ class AirPurifier_Wifi: OznerBaseDevice {
     }
     private func reqesutProperty(data:Data)
     {
-        let len = 14+data.count
+        let len = 13+data.count
         var dataNeed = Data.init(bytes: [0xfb,UInt8(len%256),UInt8(len/256),0x1])
         let macData=Helper.string(toHexData: self.deviceInfo.deviceMac.replacingOccurrences(of: ":", with: "").lowercased())
         dataNeed.append(macData!)
@@ -186,6 +186,6 @@ class AirPurifier_Wifi: OznerBaseDevice {
         self.SendDataToDevice(sendData: dataNeed, CallBack: nil)
     }
     override func describe() -> String {
-        return "name:\(self.settings.name!)\n connectStatus:\(self.connectStatus)\n sensor:\(self.sensor)\n status:\(self.status)\n filterStatus:\(self.filterStatus)\n"
+        return "name:\(self.settings.name!)\n connectStatus:\(self.connectStatus)\n TotalClean:\(self.sensor.TotalClean),Temperature:\(self.sensor.Temperature),PM25:\(self.sensor.PM25),Humidity:\(self.sensor.Humidity),VOC:\(self.sensor.VOC)\n 电源:\(self.status.Power)\n,童锁:\(self.status.Lock)\n,风速:\(self.status.Speed)\n 滤芯:\(self.filterStatus)\n"
     }
 }
