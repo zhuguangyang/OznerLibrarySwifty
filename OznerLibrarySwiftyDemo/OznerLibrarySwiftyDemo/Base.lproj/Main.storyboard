@@ -116,7 +116,7 @@
                                     <action selector="powerClick:" destination="SIH-SE-P31" eventType="touchUpInside" id="cUJ-cW-hqK"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uKT-Mz-SBf">
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uKT-Mz-SBf">
                                 <rect key="frame" x="14" y="284" width="124" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="64E-IG-L1M"/>
@@ -129,7 +129,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGi-vu-AtW">
                                 <rect key="frame" x="103" y="339" width="60" height="40"/>
                                 <color key="backgroundColor" red="0.87843137250000003" green="0.93725490199999995" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="加热"/>
+                                <state key="normal" title="风速"/>
                                 <connections>
                                     <action selector="speedClick:" destination="SIH-SE-P31" eventType="touchUpInside" id="zdM-V7-MnP"/>
                                 </connections>
@@ -137,12 +137,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XsV-xz-2d0">
                                 <rect key="frame" x="190" y="339" width="60" height="40"/>
                                 <color key="backgroundColor" red="0.87843137250000003" green="0.93725490199999995" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="制冷"/>
+                                <state key="normal" title="童锁"/>
                                 <connections>
                                     <action selector="lockClick:" destination="SIH-SE-P31" eventType="touchUpInside" id="4Tm-4B-3dZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsy-dB-lLe">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsy-dB-lLe">
                                 <rect key="frame" x="105.5" y="413" width="60" height="40"/>
                                 <color key="backgroundColor" red="0.87843137250000003" green="0.93725490199999995" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="冲水"/>
@@ -150,7 +150,7 @@
                                     <action selector="rechargeClick:" destination="SIH-SE-P31" eventType="touchUpInside" id="Z2v-Z6-BXg"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="months" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CO9-xr-3ke">
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="months" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CO9-xr-3ke">
                                 <rect key="frame" x="16" y="417" width="69.5" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>

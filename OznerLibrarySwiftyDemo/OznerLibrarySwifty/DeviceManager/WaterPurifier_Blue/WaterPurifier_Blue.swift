@@ -42,31 +42,37 @@ class WaterPurifier_Blue: OznerBaseDevice {
             requestWaterInfo()
             return false
         }
-        let setDate = NSDate().addingMonths(months) as NSDate
+        var stopDate=NSDate()
+        if (curWaterDate.timeIntervalSince(stopDate as Date)>0) {
+            stopDate=curWaterDate as NSDate
+        }
+        stopDate = stopDate.addingMonths(months) as NSDate
         var data = Data.init(bytes: [
             0x40,UInt8(NSDate().year()-2000),
             UInt8(NSDate().month()),
             UInt8(NSDate().day()),
             UInt8(NSDate().hour()),
             UInt8(NSDate().minute()),
-            UInt8(NSDate().second()),UInt8(4),
-            UInt8(3),
+            UInt8(NSDate().second()),UInt8(WaterSettingInfo.Ozone_Interval),
+            UInt8(WaterSettingInfo.Ozone_WorkTime),
             UInt8(0),
-            UInt8(setDate.year()-2000),
-            UInt8(setDate.month()),
-            UInt8(setDate.day()),
-            UInt8(setDate.hour()),
-            UInt8(setDate.minute()),
-            UInt8(setDate.second()),0x88,
+            UInt8(stopDate.year()-2000),
+            UInt8(stopDate.month()),
+            UInt8(stopDate.day()),
+            UInt8(stopDate.hour()),
+            UInt8(stopDate.minute()),
+            UInt8(stopDate.second()),0x88,
             0x16,            
             ])
         let tmpByte = calcSum(data: data)
         data.append(tmpByte)
         self.SendDataToDevice(sendData: data) { (error) in}
-        sleep(UInt32(1))
+        sleep(UInt32(0.3))
         requestWaterInfo()
-        sleep(UInt32(1))
-        if WaterSettingInfo.waterDate.timeIntervalSince(curWaterDate)>0 {
+        sleep(UInt32(0.3))
+        let tmpCurWaterDate = WaterSettingInfo.waterDate as NSDate
+        
+        if tmpCurWaterDate.month()==stopDate.month()&&tmpCurWaterDate.year()==stopDate.year() {
             return true
         }else{
             return false

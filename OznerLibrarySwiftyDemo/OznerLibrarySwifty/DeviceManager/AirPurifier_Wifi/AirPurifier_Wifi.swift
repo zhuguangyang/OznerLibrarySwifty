@@ -72,11 +72,11 @@ class AirPurifier_Wifi: OznerBaseDevice {
             var tmpSensor = sensor
             var tmpFilterStatus = filterStatus
             var p = 13
-            
+            if recvData.count<16{
+                return
+            }
             for _ in 0..<Int(recvData[12]) {
-                if p >= (recvData.count-3){
-                    continue
-                }
+                
                 let keyOfData = UInt8(recvData[p])
                 p+=1
                 let size = Int(recvData[p])
