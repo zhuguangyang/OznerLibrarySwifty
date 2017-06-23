@@ -78,7 +78,12 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
                     let macAdress = (RecordData as AnyObject).object(forKey: "MAC") as! String
                     if !OznerMxChipManager.instance.foundDeviceIsExist(mac: macAdress) {
                         deviceInfo.deviceMac = macAdress
-                        hostIP = (RecordData as AnyObject).object(forKey: "IP") as! String
+                        if let tmpHostIP=(RecordData as AnyObject).object(forKey: "IP")  {
+                            hostIP=tmpHostIP as! String
+                        }else{
+                            continue
+                        }
+                        
                         deviceInfo.productID = tmpProductID as! String
                         deviceInfo.deviceType = deviceInfo.productID
                         print("\n搜索到新设备\n"+"ProductID:"+deviceInfo.deviceMac+"\nmac:"+deviceInfo.deviceType)

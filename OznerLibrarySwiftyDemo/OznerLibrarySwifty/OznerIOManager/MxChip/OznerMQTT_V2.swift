@@ -35,7 +35,7 @@ class OznerMQTT_V2: NSObject {
         mqttClient.password="admin"
         mqttClient.keepAlive=60
         mqttClient.cleanSession=false
-        mqttClient.connect(toHost: "211.136.146.211") { (code) in
+        mqttClient.connect(toHost: "qk.ozner.net") { (code) in
             //MQTTConnectionReturnCode
             switch code {
             case ConnectionAccepted:
@@ -56,8 +56,9 @@ class OznerMQTT_V2: NSObject {
         mqttClient.messageHandler={(mess) in
             if let callback = self.SubscribeTopics[mess?.topic ?? "none"] {
                 if let hexStr=mess?.payloadString() {
-                    print(hexStr)
+                    
                     if hexStr.characters.count>0 {
+                        print("2.0收到指令："+hexStr)
                         let needData=OznerTools.hexStringToData(strHex: hexStr)
                         callback.dataCallBack(needData)
                     }
@@ -67,6 +68,7 @@ class OznerMQTT_V2: NSObject {
         
     }
     func subscribeTopic(topic:String,messageHandler:(dataCallBack:((Data)->Void),statusCallBack:((OznerConnectStatus)->Void))) {
+    
         mqttClient.subscribe(topic, withQos: AtLeastOnce) { (_) in
         }
         

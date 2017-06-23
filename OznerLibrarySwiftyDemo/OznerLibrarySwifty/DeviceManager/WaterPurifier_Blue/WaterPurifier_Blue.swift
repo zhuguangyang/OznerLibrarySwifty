@@ -101,15 +101,20 @@ class WaterPurifier_Blue: OznerBaseDevice {
     }
     override func doWillInit(){}
     override func repeatFunc() {
-        NSDate().second()%2==0 ? requestFilterInfo():requestWaterInfo()
+        if NSDate().second()%2==0 {
+            requestFilterInfo()
+            requestSettingInfo()
+        }else{
+            requestWaterInfo()
+        }
     }
     
     private func calcSum(data:Data)->UInt8{
-        var sum = UInt8(0)
+        var sum = 0
         for item in data {
-            sum+=item
+            sum+=Int(item)
         }
-        return sum
+        return UInt8(sum%256)
     }
     private func requestSettingInfo(){
         let tmpBytes = calcSum(data: Data.init(bytes: [0x20,UInt8(1)]))

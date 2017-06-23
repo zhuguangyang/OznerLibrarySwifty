@@ -50,22 +50,12 @@ class OznerTools: NSObject {
     }
     class func publicString(payload:Data,deviceid:String,callback:((Int32)->Void)!){
         let payloadStr=OznerTools.hexStringFromData(data: payload)
-        //第一步，创建URL
-        let url=URL.init(string: "https://v2.fogcloud.io/enduser/sendCommandHz/")
-        //第二步，创建请求
-        let request=NSMutableURLRequest.init(url: url!, cachePolicy: NSURLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10)
-        request.httpMethod="POST"//设置请求方式为POST，默认为GET
-        let params = "username=bing.zhao@cftcn.com&password=l5201314&deviceid="+deviceid+"&payload="+payloadStr//设置参数
-        let paramsdata=params.data(using: String.Encoding.utf8)
-        request.httpBody=paramsdata
-        //第三步，连接服务器
-        do{
-            let str1 = try NSURLConnection.sendSynchronousRequest(request as URLRequest, returning: nil)
-            print(String.init(data: str1, encoding: String.Encoding.utf8))
-            
-        }catch{}
-
-        
+        let params = ["username" : "bing.zhao@cftcn.com","password" : "l5201314","deviceid" : deviceid,"payload" : payloadStr]//设置参数
+        print("2.0发送指令："+payloadStr)
+        Helper.post("https://v2.fogcloud.io/enduser/sendCommandHz/", requestParams: params) { (response, data, error) in
+            print(error ?? "")
+        }
+      
     }
     
 }

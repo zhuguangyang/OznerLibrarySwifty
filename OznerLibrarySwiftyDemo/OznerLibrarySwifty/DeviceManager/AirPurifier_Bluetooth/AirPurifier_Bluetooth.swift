@@ -105,11 +105,11 @@ class AirPurifier_Bluetooth: OznerBaseDevice {
     {
         var dataNeed = Data.init(bytes: [code])
         dataNeed.append(data)
-        var checksum:UInt8=0x00
+        var checksum=0
         for i in 0..<dataNeed.count {
-            checksum+=UInt8(dataNeed[i])
+            checksum = checksum+Int(dataNeed[i])
         }
-        dataNeed.append(checksum)
+        dataNeed.append(UInt8(checksum%256))
         return dataNeed
     }
     override func describe() -> String {

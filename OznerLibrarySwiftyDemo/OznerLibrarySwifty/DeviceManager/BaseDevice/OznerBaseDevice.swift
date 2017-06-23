@@ -64,11 +64,10 @@ class OznerBaseDevice: NSObject,OznerBaseIODelegate {
             }
             if isCurrentDevice {//开启循环数据模式
                 io?.starWork()
-                
                 Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(doWillInit), userInfo: nil, repeats: false)
                 cycyleTimer?.invalidate()
                 cycyleTimer = nil
-                cycyleTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(self.repeatFunc), userInfo: nil, repeats: true)                
+                cycyleTimer = Timer(timeInterval: 3.0, target: self, selector: #selector(self.repeatFunc), userInfo: nil, repeats: true)
                 RunLoop.main.add(cycyleTimer!, forMode: RunLoopMode.commonModes)
             }else{//关闭循环数据模式
                 // 从运行循环中移除

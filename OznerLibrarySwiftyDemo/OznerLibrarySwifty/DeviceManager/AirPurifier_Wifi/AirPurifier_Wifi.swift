@@ -10,6 +10,25 @@ import UIKit
 
 class AirPurifier_Wifi: OznerBaseDevice {
 
+    
+    //测试
+    func testOTA()  {
+        print("开始OTA")
+        let deviceMac = self.deviceInfo.deviceMac
+        let OTAdata = Data.init(base64Encoded: "/bYABrD4kxAHhAAAKEFQLVdJRkkoS0c0NjBHKSlBMDEtSnVuLTE1LTIwMTctMTczNjQ5LmJpbgAAAAAAAAAAAAAAAAAAAAAAAAAAANiBAADwsysAN2NkNDYzZjAwYTEyOTY5MTMyNTcwZDA2MzdlNzMxMWMAaHR0cDovL2FwaS5lYXN5bGluay5pby9yb21zLwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAo=")
+        print(OTAdata!)
+        self.SendDataToDevice(sendData: OTAdata!) { (error) in
+            print("success")
+        }
+    }
+    ////测试
+    private(set) var FCdata:(Temperature:Int,Humidity:Int,PM25:Int,VOC:Int,TotalClean:Int)=(0,0,0,0,0){
+        didSet{
+            if sensor != oldValue {
+                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
+            }
+        }
+    }
     //添加个性字段
     //对外只读，对内可读写
     private(set) var sensor:(Temperature:Int,Humidity:Int,PM25:Int,VOC:Int,TotalClean:Int)=(0,0,0,0,0){

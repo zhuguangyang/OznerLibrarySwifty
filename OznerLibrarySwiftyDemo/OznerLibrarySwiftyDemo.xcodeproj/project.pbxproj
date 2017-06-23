@@ -1070,7 +1070,7 @@
 					"-framework",
 					"\"SQLite\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ozner.custom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ozner.lot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1114,7 +1114,7 @@
 					"-framework",
 					"\"SQLite\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ozner.custom;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ozner.lot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

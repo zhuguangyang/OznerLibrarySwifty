@@ -86,9 +86,15 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
             return
         }
         let months = Int(monthsTF.text!)
-        _=(currDevice as! WaterPurifier_Blue).setWaterTime(months: months!)
+        _=(currDevice as! WaterPurifier_Wifi).setWaterTime(months: months!)
     }
     
+    @IBAction func OTAClick(_ sender: UIButton) {
+        (currDevice as! WaterPurifier_Wifi).testOTA()
+    }
+    @IBAction func FCTest(_ sender: Any) {
+        (currDevice as! WaterPurifier_Wifi).FCTest()
+    }
     private var currDevice:OznerBaseDevice!
     
     override func viewDidLoad() {

@@ -17,4 +17,5 @@ bool StringIsNullOrEmpty(NSString* str);
 +(uint8_t)Crc8:(uint8_t*) inBuffer inLen:(uint16_t)inLen;
 + (NSData *) stringToHexData:(NSString*)str;
 + (NSString *) getDeviceIDFromService:(NSString*)ipAdress Login_id:(NSString*)login_id PassWord:(NSString*)passWord;
++ (void)post:(NSString *)URL RequestParams:(NSDictionary *)params FinishBlock:(void (^)(NSURLResponse *response, NSData *data, NSError *connectionError)) block;
 @end

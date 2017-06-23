@@ -54,7 +54,9 @@ class ResultViewController: UIViewController,OznerPairDelegate,UITextFieldDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        OznerManager.instance.canclePair()
+    }
 
     /*
     // MARK: - Navigation
