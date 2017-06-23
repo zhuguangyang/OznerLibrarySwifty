@@ -127,6 +127,7 @@ class WaterPurifier_Wifi: OznerBaseDevice {
             }
         }
     }
+    
     //添加个性字段
     //对外只读，对内可读写
     private(set) var sensor:(TDS_Before:Int,TDS_After:Int,Temperature:Float)=(0,0,0.0){
