@@ -78,23 +78,7 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
         }
     }
     
-    @IBOutlet var monthsTF: UITextField!
-    @IBAction func rechargeClick(_ sender: UIButton) {
-        
-        
-        if monthsTF.text=="" {
-            return
-        }
-        let months = Int(monthsTF.text!)
-        _=(currDevice as! WaterPurifier_Wifi).setWaterTime(months: months!)
-    }
     
-    @IBAction func OTAClick(_ sender: UIButton) {
-        (currDevice as! WaterPurifier_Wifi).testOTA()
-    }
-    @IBAction func FCTest(_ sender: Any) {
-        (currDevice as! WaterPurifier_Wifi).FCTest()
-    }
     private var currDevice:OznerBaseDevice!
     
     override func viewDidLoad() {
