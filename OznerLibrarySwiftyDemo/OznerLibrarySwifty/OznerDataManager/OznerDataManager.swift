@@ -8,23 +8,7 @@
 
 import UIKit
 import SQLite
-struct OznerDeviceInfo {
-    var deviceID = ""//设备ID
-    var deviceMac = ""//设备Mac
-    var deviceType = ""//设备型号
-    /*
-     productID
-     蓝牙产品为"BLUE"
-     wifi产品为 a.2.0水机 "737bc5a2-f345-11e6-9d95-00163e103941"
-     b.1.0水机 MXCHIP_HAOZE_Water
-     c.1.0空净 FOG_HAOZE_AIR
-     */
-    var productID = ""
-    var wifiVersion = 1//wifi版本，1.0或2.0
-    func des() -> String {
-        return "设备ID:\(self.deviceID)\n设备Mac:\(self.deviceMac)\n设备型号:\(self.deviceType)\n产品ID:\(self.productID)\nWiFi版本:\(self.wifiVersion)"
-    }
-}
+
 class OznerDataManager: NSObject {
     private static var _instance: OznerDataManager! = nil
     static var instance: OznerDataManager! {
@@ -43,6 +27,7 @@ class OznerDataManager: NSObject {
     private let deviceType = Expression<String>("deviceType")
     private let productID = Expression<String>("productID")
     private let wifiVersion = Expression<Int>("wifiVersion")
+    
     private let setting = Expression<String?>("setting")
     
     private let deviceTable = Table("deviceTable")
@@ -51,7 +36,7 @@ class OznerDataManager: NSObject {
     func setSQL(dbName:String) {
         let path = NSSearchPathForDirectoriesInDomains(
             .documentDirectory, .userDomainMask, true
-            ).first!+"/OznerLibrary"+dbName+".sqlite3"
+            ).first!+"/OznerLibrary2"+dbName+".sqlite3"
         db = try? Connection(path)
         //判断表是否存在,不存在就创建
         let _=try? db!.run(deviceTable.create(ifNotExists: true){

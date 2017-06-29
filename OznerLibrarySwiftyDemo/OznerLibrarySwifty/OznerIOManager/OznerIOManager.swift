@@ -27,12 +27,16 @@ class OznerIOManager: NSObject {
     func getIO(deviceinfo:OznerDeviceInfo) -> OznerBaseIO? {
         let typeAtt=(DeviceConfigManager.deviceTypeInfo[deviceinfo.deviceType]?.typeAttr)!
         switch typeAtt {
-        case OZTypeAttribute.Ayla:
+        case .Ayla:
             return OznerAylaManager.instance.getIO(deviceinfo: deviceinfo)
-        case OZTypeAttribute.MxChip:
+        case .MxChip:
             return OznerMxChipManager.instance.getIO(deviceinfo: deviceinfo)
-        case OZTypeAttribute.Bluetooth:
+        case .Bluetooth:
             return OznerBluetoothManager.instance.getIO(deviceinfo: deviceinfo)
+        case .BlueMxChip:
+            return nil
+        case .AylaMxChip:
+            return nil
         }
     }
     //搜索新设备的IO进行配对
@@ -40,25 +44,34 @@ class OznerIOManager: NSObject {
     func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?,ssid:String?,password:String?) {//开始配对
         //以后需要解决Ayla和庆科的区别，目前只有庆科配对
         currentPairDeviceClass=deviceClass
-        switch deviceClass {
-        case OZDeviceClass.Cup,.Tap,.AirPurifier_Blue,.WaterPurifier_Blue,.WaterReplenish://蓝牙配对
+        switch (currentPairDeviceClass?.IOType)! {
+        case .Bluetooth://蓝牙配对
             OznerBluetoothManager.instance.starPair(deviceClass: deviceClass, pairDelegate: pairDelegate)
-        case .AirPurifier_Wifi,.WaterPurifier_Wifi://Wifi配对，目前只有庆科，以后要解决庆科和Ayla区别问题
+        case .MxChip://Wifi配对，目前只有庆科，以后要解决庆科和Ayla区别问题
             OznerMxChipManager.instance.starPair(deviceClass: deviceClass, pairDelegate: pairDelegate,ssid: ssid,password: password)
-        //case Ayla:
-        //OznerAylaManager.instance.starPair(deviceClass: deviceClass, pairDelegate: pairDelegate)
+        case .Ayla:
+            OznerAylaManager.instance.starPair(deviceClass: deviceClass, pairDelegate: pairDelegate)
+        case .AylaMxChip:
+            break
+        case .BlueMxChip:
+            break
         }
     }
     func canclePair() {//取消配对
         //以后需要解决Ayla和庆科的区别，目前只有庆科配对
         if currentPairDeviceClass != nil {
-            switch currentPairDeviceClass! {
-            case OZDeviceClass.Cup,.Tap,.AirPurifier_Blue,.WaterPurifier_Blue,.WaterReplenish:
+            switch (currentPairDeviceClass?.IOType)! {
+            case .Bluetooth:
                 OznerBluetoothManager.instance.canclePair()
-            case .AirPurifier_Wifi,.WaterPurifier_Wifi:
+            case .MxChip:
                 OznerMxChipManager.instance.canclePair()
-//            case .Ayla:
-//                OznerAylaManager.instance.canclePair()
+            case .Ayla:
+                OznerAylaManager.instance.canclePair()
+            case .AylaMxChip:
+                break
+            case .BlueMxChip:
+                break
+
             }
             currentPairDeviceClass=nil
         }

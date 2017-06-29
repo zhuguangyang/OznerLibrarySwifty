@@ -116,7 +116,7 @@
                                     <action selector="powerClick:" destination="SIH-SE-P31" eventType="touchUpInside" id="cUJ-cW-hqK"/>
                                 </connections>
                             </button>
-                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uKT-Mz-SBf">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="uKT-Mz-SBf">
                                 <rect key="frame" x="14" y="344" width="124" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="64E-IG-L1M"/>

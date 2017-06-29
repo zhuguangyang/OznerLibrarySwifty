@@ -20,7 +20,7 @@ class WaterPurifier_Blue: OznerBaseDevice {
             }
         }
     }
-    private(set) var WaterInfo:(TDS1:Int,TDS2:Int,TDS1_RAW:Int,TDS2_RAW:Int,TDS_Temperature:Int)=(0,0,0,0,0){
+    private(set) var WaterInfo:(TDS1:Int,TDS2:Int,TDS1_RAW:Int,TDS2_RAW:Int,TDS_Temperature:Int,waterml:CLongLong)=(0,0,0,0,0,0){
         didSet{
             if WaterInfo != oldValue {
                 self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
@@ -87,14 +87,15 @@ class WaterPurifier_Blue: OznerBaseDevice {
                 let tmpWaterDate=NSDate(year: Int(recvData[9])+2000, month: Int(recvData[10]), day: Int(recvData[11]), hour: Int(recvData[12]), minute: Int(recvData[13]), second: Int(recvData[14])) as Date
                 WaterSettingInfo=(tmpStarDate,Int(recvData[8]),Int(recvData[7]),tmpWaterDate)
             }
-            
         case 0x22://opCode_respone_water
-            WaterInfo=(Int(recvData[1]),Int(recvData[2]),Int(recvData[3]),Int(recvData[4]),Int(recvData[5]))
+            WaterInfo=(recvData.subInt(starIndex: 1, count: 2),recvData.subInt(starIndex: 3, count: 2),recvData.subInt(starIndex: 5, count: 2),recvData.subInt(starIndex: 7, count: 2),recvData.subInt(starIndex: 9, count: 2),CLongLong(recvData.subInt(starIndex: 11, count: 4)))
         case 0x23://opCode_respone_filter
-            let A_Time = Int(recvData[1])+16*16*Int(recvData[2])+16*16*16*16*Int(recvData[3])+16*16*16*16*16*16*Int(recvData[4])
-            let B_Time = Int(recvData[0])+16*16*Int(recvData[1])+16*16*16*16*Int(recvData[7])+16*16*16*16*16*16*Int(recvData[8])
-            let C_Time = Int(recvData[9])+16*16*Int(recvData[10])+16*16*16*16*Int(recvData[11])+16*16*16*16*16*16*Int(recvData[12])
+            let A_Time = recvData.subInt(starIndex: 1, count: 4)
+            let B_Time = recvData.subInt(starIndex: 5, count: 4)
+            let C_Time = recvData.subInt(starIndex: 9, count: 4)
             FilterInfo=(A_Time,B_Time,C_Time,Int(recvData[13]),Int(recvData[14]),Int(recvData[15]))
+        case 0x25:
+            break
         default:
             break
         }

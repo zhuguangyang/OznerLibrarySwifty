@@ -10,7 +10,6 @@ import UIKit
 //蓝牙读写类
 class OZBluetoothIO: OznerBaseIO {
 
-
     private var babyBLEIO:BabyBLEIO?
     private  var uuidStr:String!
     required init(deviceinfo:OznerDeviceInfo) {

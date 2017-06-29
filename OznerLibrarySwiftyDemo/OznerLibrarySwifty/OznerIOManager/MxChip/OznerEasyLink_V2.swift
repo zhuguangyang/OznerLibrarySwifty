@@ -34,21 +34,19 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
     private var gcdAsyncSocket:GCDAsyncSocket!
     private var starTime:Date!
     private var pairOutTime = 0
-    //private var pairTimer:Timer?
+    private var DeviceClass:OZDeviceClass!
     private var SuccessBlock:((OznerDeviceInfo)->Void)!
     private var FailedBlock:((Error)->Void)!
     
-    func starPair(password:String?,outTime:Int,successBlock:((OznerDeviceInfo)->Void)!,failedBlock:((Error)->Void)!) {
+    func starPair(deviceClass:OZDeviceClass,password:String?,outTime:Int,successBlock:((OznerDeviceInfo)->Void)!,failedBlock:((Error)->Void)!) {
         //初始化参数
+        DeviceClass=deviceClass
         SuccessBlock=successBlock
         FailedBlock=failedBlock
         pairOutTime=outTime
         deviceInfo=OznerDeviceInfo.init()
         deviceInfo.wifiVersion=2
         starTime = Date()
-        //配网超时
-        //pairTimer?.invalidate()
-        //pairTimer=Timer.scheduledTimer(timeInterval: TimeInterval(pairOutTime), target: self, selector: #selector(pairFailed), userInfo: nil, repeats: false)
         //启动配网
         ZBBonjourService.sharedInstance().stopSearchDevice()
         ZBBonjourService.sharedInstance().delegate=self
@@ -56,8 +54,6 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
     }
     
     func canclePair() {//取消配对
-        //pairTimer?.invalidate()
-        //pairTimer = nil
         ZBBonjourService.sharedInstance().stopSearchDevice()
     }
     @objc private func pairFailed() {
@@ -75,6 +71,9 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
             if let RecordData = (item as AnyObject).object(forKey: "RecordData")
             {
                 if let tmpProductID = (RecordData as AnyObject).object(forKey: "FogProductId") {
+                    if !DeviceClass.pairID.contains(tmpProductID as! String) {
+                        continue
+                    }
                     let macAdress = (RecordData as AnyObject).object(forKey: "MAC") as! String
                     if !OznerMxChipManager.instance.foundDeviceIsExist(mac: macAdress) {
                         deviceInfo.deviceMac = macAdress

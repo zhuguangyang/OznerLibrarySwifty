@@ -59,3 +59,32 @@ class OznerTools: NSObject {
     }
     
 }
+extension Data{
+    func subInt(starIndex:Int,count:Int) -> Int {
+        if starIndex+count>self.count {
+            return 0
+        }
+        var dataValue = 0
+        for i in 0..<count {
+            dataValue+=Int(Float(self[i+starIndex])*powf(256, Float(i)))
+        }
+        return dataValue
+    }
+    func subString(starIndex:Int,count:Int) -> String {
+        if starIndex+count>self.count {
+            return ""
+        }
+        let range1 = self.index(self.startIndex, offsetBy: starIndex)
+        let range2 = self.index(self.startIndex, offsetBy: starIndex+count)
+        let valueData=self.subdata(in: Range(range1..<range2))
+        return String.init(data: valueData, encoding: String.Encoding.utf8)!
+    }
+    func subData(starIndex:Int,count:Int) -> Data {
+        if starIndex+count>self.count {
+            return Data.init()
+        }
+        let range1 = self.index(self.startIndex, offsetBy: starIndex)
+        let range2 = self.index(self.startIndex, offsetBy: starIndex+count)
+        return self.subdata(in: Range(range1..<range2))
+    }
+}

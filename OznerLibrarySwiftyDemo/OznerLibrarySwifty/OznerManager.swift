@@ -50,7 +50,7 @@ class OznerManager: NSObject {
         wifiReachability = Reachability.forLocalWiFi()
         // Tell the reachability that we DON'T want to be reachable on 3G/EDGE/CDMA
         wifiReachability.reachableOnWWAN = false
-         wifiReachability.startNotifier()
+        wifiReachability.startNotifier()
         //在需要的地方开启Wi-Fi变化监听
 
 //        NotificationCenter.default.addObserver(
@@ -69,7 +69,7 @@ class OznerManager: NSObject {
         
         if (devices?.count)!>0 {
             currentDevice=devices?[0]
-            print(currentDevice?.deviceInfo)
+            print(currentDevice?.deviceInfo ?? "")
         }
     }
     

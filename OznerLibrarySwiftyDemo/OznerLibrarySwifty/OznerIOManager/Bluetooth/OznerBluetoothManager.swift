@@ -36,21 +36,21 @@ class OznerBluetoothManager: NSObject {
     }
     //搜索新设备的IO进行配对
     private var failDelegateUsed:Bool=false
-    private let DeviceNameArr=[OZDeviceClass.Cup:"Ozner Cup",
-                               .Tap:"Ozner Tap",
-                               .AirPurifier_Blue:"OAP",
-                               .WaterPurifier_Blue:"Ozner RO",
-                               .WaterReplenish:"OZNER_SKIN"]
-    private let DeviceTypeArr=[OZDeviceClass.Cup:"CP001",
-                               .Tap:"SC001",
-                               .AirPurifier_Blue:"FLT001",
-                               .WaterPurifier_Blue:"Ozner RO",
-                               .WaterReplenish:"BSY001"]
+//    private let DeviceNameArr=[OZDeviceClass.Cup:"Ozner Cup",
+//                               .Tap:"Ozner Tap",
+//                               .AirPurifier_Blue:"OAP",
+//                               .WaterPurifier_Blue:"Ozner RO",
+//                               .WaterReplenish:"OZNER_SKIN"]
+//    private let DeviceTypeArr=[OZDeviceClass.Cup:"CP001",
+//                               .Tap:"SC001",
+//                               .AirPurifier_Blue:"FLT001",
+//                               .WaterPurifier_Blue:"Ozner RO",
+//                               .WaterReplenish:"BSY001"]
     func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?) {//开始配对
         var scanData=OznerDeviceInfo()
         let starDate = Date()
         self.failDelegateUsed=false
-        BabyBLEHelper.share().starScan(30, deviceName: DeviceNameArr[deviceClass], block: { (Identifier, Distance, BLEData) in
+        BabyBLEHelper.share().starScan(30, deviceName: deviceClass.pairID, block: { (Identifier, type, Distance, BLEData) in
             if self.failDelegateUsed{//已经回调过了
                 return
             }
@@ -59,7 +59,7 @@ class OznerBluetoothManager: NSObject {
                 if scanData.deviceMac==""{//不是已扫描到的设备
                     scanData.deviceID=Identifier!
                     scanData.deviceMac=Identifier!
-                    scanData.deviceType=self.DeviceTypeArr[deviceClass]!
+                    scanData.deviceType=type!
                     scanData.productID="BLUE"
                     pairDelegate?.OznerPairSucceed(deviceInfo: scanData)
                     self.canclePair()

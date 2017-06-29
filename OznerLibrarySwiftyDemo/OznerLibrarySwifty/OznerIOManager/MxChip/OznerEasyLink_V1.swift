@@ -90,6 +90,7 @@ class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
             deviceInfo.deviceID=identifier
             deviceInfo.deviceMac=identifier
             deviceInfo.deviceType=strArr[0]
+            deviceInfo.productID=strArr[0]
             pairSuccessed()            
         }
         else{
@@ -118,6 +119,7 @@ class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
                 weakself.deviceInfo.deviceID=identifier
                 weakself.deviceInfo.deviceMac=identifier
                 weakself.deviceInfo.deviceType=strArr[0]
+                weakself.deviceInfo.productID=strArr[0]
                 weakself.pairSuccessed()
             }
         })
@@ -125,46 +127,22 @@ class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
     }
     //EasyLinkFTCDelegate 代理方法
     func onFound(_ client: NSNumber!, withName name: String!, mataData mataDataDict: [AnyHashable : Any]!) {
-        print("=====onFoundwithName=====")
         print(mataDataDict)
         if let tmptype =  mataDataDict["FW"] as? String
         {
-            switch deviceType {
-            case OZDeviceClass.AirPurifier_Wifi:
-                if tmptype=="FOG_HAOZE_AIR@" {
-                    deviceInfo.productID="FOG_HAOZE_AIR"
-                    self.pairSuccessed(configDict: mataDataDict)
-                }
-            case OZDeviceClass.WaterPurifier_Wifi:
-                if tmptype=="MXCHIP_HAOZE_Water@" {
-                    deviceInfo.productID="MXCHIP_HAOZE_Water"
-                    self.pairSuccessed(configDict: mataDataDict)
-                }
-            default:
-                break
+            if deviceType.pairID.contains(tmptype) {
+                self.pairSuccessed(configDict: mataDataDict)
             }
         }
         
         
     }
     func onFound(byFTC client: NSNumber!, withConfiguration configDict: [AnyHashable : Any]!) {
-        print("=====onFoundwithConfiguration=====")
         print(configDict)
         if let tmptype =  configDict["FW"] as? String
         {
-            switch deviceType {
-            case OZDeviceClass.AirPurifier_Wifi:
-                if tmptype=="FOG_HAOZE_AIR@" {
-                    deviceInfo.productID="FOG_HAOZE_AIR"
-                    self.pairSuccessed(configDict: configDict)
-                }
-            case OZDeviceClass.WaterPurifier_Wifi:
-                if tmptype=="MXCHIP_HAOZE_Water@" {
-                    deviceInfo.productID="MXCHIP_HAOZE_Water"
-                    self.pairSuccessed(configDict: configDict)
-                }
-            default:
-                break
+            if deviceType.pairID.contains(tmptype) {
+                self.pairSuccessed(configDict: configDict)
             }
         }
         

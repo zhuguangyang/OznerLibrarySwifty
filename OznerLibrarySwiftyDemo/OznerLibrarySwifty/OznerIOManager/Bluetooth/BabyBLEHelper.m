@@ -67,7 +67,7 @@ NSString* deviceName=nil;
     
     //设置扫描到设备的委托
     [baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
-            weakSelf.babyBLEScanDataBlock(peripheral.identifier.UUIDString,[weakSelf calcDistByRSSI:RSSI.intValue],advertisementData);
+            weakSelf.babyBLEScanDataBlock(peripheral.identifier.UUIDString,peripheral.name,[weakSelf calcDistByRSSI:RSSI.intValue],advertisementData);
         NSLog(@"%d",RSSI.intValue);
     }];
     
@@ -75,7 +75,7 @@ NSString* deviceName=nil;
     
     //设置查找设备的过滤器
     [baby setFilterOnDiscoverPeripherals:^BOOL(NSString *peripheralName, NSDictionary *advertisementData, NSNumber *RSSI) {
-        if ([peripheralName isEqualToString:deviceName]) {
+        if ([deviceName containsString:peripheralName]) {
             return YES;
         }
         return NO;

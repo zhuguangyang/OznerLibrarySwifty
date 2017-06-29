@@ -54,7 +54,7 @@ class OznerMxChipManager: NSObject {
         //1.0、2.0同时配网
         let myCustomQueue = DispatchQueue.main
         myCustomQueue.async {//2.0配网            
-            OznerEasyLink_V2.instance.starPair(password: password, outTime: weakself.pairOutTime, successBlock: { (deviceinfo) in
+            OznerEasyLink_V2.instance.starPair(deviceClass: deviceClass,password: password, outTime: weakself.pairOutTime, successBlock: { (deviceinfo) in
                 print("2.0配网成功")
                 weakself.pairSuccess(deviceInfo: deviceinfo)
             }, failedBlock: { (error) in
