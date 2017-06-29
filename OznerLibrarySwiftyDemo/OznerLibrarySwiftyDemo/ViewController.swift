@@ -61,7 +61,7 @@ extension ViewController:UITableViewDataSource,UITableViewDelegate{
         let cell=tableView.dequeueReusableCell(withIdentifier: "DeviceListCell")!
         let device = deviceArray[indexPath.row]
         cell.textLabel?.numberOfLines=0
-        cell.textLabel?.text="设备名称:\(device.settings.name!)\n连接状态:\(device.connectStatus)\n设备型号:\(device.deviceInfo.deviceType)\n是否是当前选中设备:\(device.isCurrentDevice)"
+        cell.textLabel?.text="name:\(device.settings.name!)\nConnectStatus:\(device.connectStatus)\nType:\(device.deviceInfo.deviceType)\nMac:\(device.deviceInfo.deviceMac)\ndeviceID:\(device.deviceInfo.deviceID)\nIsCurrentDevice:\(device.isCurrentDevice)"
         return cell
     }
    

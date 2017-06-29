@@ -31,7 +31,7 @@ class ResultViewController: UIViewController,OznerPairDelegate,UITextFieldDelega
         }
     }
     @IBAction func completeClick(_ sender: Any) {
-        if scanDeviceInfo.deviceMac == "" {
+        if scanDeviceInfo.deviceID == "" {
             return
         }
         let device=OznerManager.instance.createDevice(scanDeviceInfo: scanDeviceInfo, setting: nil)

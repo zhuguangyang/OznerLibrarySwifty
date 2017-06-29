@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BabyBluetooth.h"
-typedef void (^BabyBLEScanDataBlock)(NSString* identifier,NSString* type,int distance,NSDictionary* data);
+typedef void (^BabyBLEScanDataBlock)(NSString* uuidStr,NSString* type,NSString* mac,int distance,NSDictionary* data);
 typedef void (^BabyBLEScanFailedBlock)(int code);
 @interface BabyBLEHelper : NSObject
 @property (nonatomic, copy) BabyBLEScanDataBlock babyBLEScanDataBlock;

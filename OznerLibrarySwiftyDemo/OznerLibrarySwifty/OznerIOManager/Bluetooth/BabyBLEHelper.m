@@ -7,6 +7,7 @@
 //
 
 #import "BabyBLEHelper.h"
+#import "ScanData.h"
 
 @implementation BabyBLEHelper
 {
@@ -53,7 +54,39 @@ NSString* deviceName=nil;
     return pow(10, power);
 }
 #pragma mark -蓝牙配置和操作
-
+-(NSString*)getMac:(NSDictionary *)advertisementData Name:(NSString*)name {
+    NSString* MAC=@"";
+    if (![name isEqualToString:@"Ozner Cup"]) {
+        
+        if ([advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey])
+        {
+            NSData* data=[advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey];
+            
+            BytePtr bytes=(BytePtr)[data bytes];
+            MAC = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
+                         bytes[7],bytes[6],bytes[5],bytes[4],bytes[3],bytes[2]];
+        }
+    }
+    //台式空净OAP、0x20
+    //水杯、
+    //RO蓝牙水机、0x11
+    
+    if ([MAC  isEqual: @""]) {
+        if ([advertisementData objectForKey:CBAdvertisementDataServiceDataKey])
+        {
+            NSDictionary* dict=[advertisementData objectForKey:CBAdvertisementDataServiceDataKey];
+            CBUUID* uuid=[CBUUID UUIDWithString:@"FFF0"];
+            NSData* data=[dict objectForKey:uuid];
+            BytePtr bytes=(BytePtr)[data bytes];
+            if (data != nil && data.length>7) {
+                MAC = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
+                       bytes[6],bytes[5],bytes[4],bytes[3],bytes[2],bytes[1]];
+            }
+        }
+    }
+    
+    return MAC;
+}
 //蓝牙网关初始化和委托方法设置
 -(void)babyDelegate{
     
@@ -67,8 +100,9 @@ NSString* deviceName=nil;
     
     //设置扫描到设备的委托
     [baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
-            weakSelf.babyBLEScanDataBlock(peripheral.identifier.UUIDString,peripheral.name,[weakSelf calcDistByRSSI:RSSI.intValue],advertisementData);
-        NSLog(@"%d",RSSI.intValue);
+        NSString* mac=[weakSelf getMac:advertisementData Name:peripheral.name];
+        weakSelf.babyBLEScanDataBlock(peripheral.identifier.UUIDString,peripheral.name,mac,[weakSelf calcDistByRSSI:RSSI.intValue],advertisementData);
+        NSLog(@"发现设备name:%@,距离:%d,mac:%@",peripheral.name,RSSI.intValue,mac);
     }];
     
     

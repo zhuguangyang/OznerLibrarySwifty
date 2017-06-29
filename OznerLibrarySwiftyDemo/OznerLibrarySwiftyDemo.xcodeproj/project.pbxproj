@@ -35,6 +35,7 @@
 		8D2419C61E11122200CF9B9C /* BabyToy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419BD1E11122200CF9B9C /* BabyToy.m */; };
 		8D2C8F8E1E1F840E002D83EF /* WaterReplenish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2C8F8D1E1F840E002D83EF /* WaterReplenish.swift */; };
 		8D2C8F901E1F9081002D83EF /* WaterReplenishStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2C8F8F1E1F9081002D83EF /* WaterReplenishStatus.swift */; };
+		8D2F7C5E1F04EE5B00B94258 /* ScanData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2F7C5D1F04EE5B00B94258 /* ScanData.m */; };
 		8D441D7F1E0CF21100B895D4 /* OznerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D441D7E1E0CF21100B895D4 /* OznerDataManager.swift */; };
 		8D46A9641E13B6D90011FBAE /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D46A9631E13B6D90011FBAE /* CoreBluetooth.framework */; };
 		8D54AC621E20B1EA00689790 /* WaterPurifier_Blue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D54AC611E20B1EA00689790 /* WaterPurifier_Blue.swift */; };
@@ -156,6 +157,9 @@
 		8D2419BD1E11122200CF9B9C /* BabyToy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyToy.m; sourceTree = "<group>"; };
 		8D2C8F8D1E1F840E002D83EF /* WaterReplenish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterReplenish.swift; sourceTree = "<group>"; };
 		8D2C8F8F1E1F9081002D83EF /* WaterReplenishStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterReplenishStatus.swift; sourceTree = "<group>"; };
+		8D2F7C5C1F04EE5B00B94258 /* ScanData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanData.h; sourceTree = "<group>"; };
+		8D2F7C5D1F04EE5B00B94258 /* ScanData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanData.m; sourceTree = "<group>"; };
+		8D2F7C5F1F04EEE600B94258 /* OznerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OznerHeader.h; sourceTree = "<group>"; };
 		8D441D7E1E0CF21100B895D4 /* OznerDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDataManager.swift; sourceTree = "<group>"; };
 		8D441D811E0CFB9800B895D4 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
 		8D46A9631E13B6D90011FBAE /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -635,6 +639,9 @@
 		8DE095911E1E512700D00679 /* OznerTools */ = {
 			isa = PBXGroup;
 			children = (
+				8D2F7C5F1F04EEE600B94258 /* OznerHeader.h */,
+				8D2F7C5C1F04EE5B00B94258 /* ScanData.h */,
+				8D2F7C5D1F04EE5B00B94258 /* ScanData.m */,
 				8D7C9B991E55833700D29C5D /* Helper.h */,
 				8D7C9B9A1E55833700D29C5D /* Helper.m */,
 				8DE095921E1E513500D00679 /* OznerTools.swift */,
@@ -879,6 +886,7 @@
 				8DD349821E0BA9C600C945A2 /* OznerBaseDevice.swift in Sources */,
 				8D7C9B9B1E55833700D29C5D /* Helper.m in Sources */,
 				8D2419BE1E11122200CF9B9C /* BabyBluetooth.m in Sources */,
+				8D2F7C5E1F04EE5B00B94258 /* ScanData.m in Sources */,
 				8D2C8F8E1E1F840E002D83EF /* WaterReplenish.swift in Sources */,
 				8DC14BEA1ECD893100CFCCE4 /* OznerBonjourDetail.m in Sources */,
 				8D2419C41E11122200CF9B9C /* BabyRhythm.m in Sources */,
