@@ -67,7 +67,7 @@ class OznerBaseDevice: NSObject,OznerBaseIODelegate {
                 Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(doWillInit), userInfo: nil, repeats: false)
                 cycyleTimer?.invalidate()
                 cycyleTimer = nil
-                cycyleTimer = Timer(timeInterval: 3.0, target: self, selector: #selector(self.repeatFunc), userInfo: nil, repeats: true)
+                cycyleTimer = Timer(timeInterval: 2.0, target: self, selector: #selector(self.repeatFunc), userInfo: nil, repeats: true)
                 RunLoop.main.add(cycyleTimer!, forMode: RunLoopMode.commonModes)
             }else{//关闭循环数据模式
                 // 从运行循环中移除
@@ -82,9 +82,8 @@ class OznerBaseDevice: NSObject,OznerBaseIODelegate {
     }
     //io 发送初始化数据
     func doWillInit() {
+
     }
-    
-    
     
     //OznerBaseIODelegate
     //收到传感器变化数据
@@ -92,7 +91,6 @@ class OznerBaseDevice: NSObject,OznerBaseIODelegate {
     }
     //连接状态变化
     func OznerBaseIOStatusUpdate(status: OznerConnectStatus) {
-        
         if status==OznerConnectStatus.IOIsReadly {
             connectStatus=OznerConnectStatus.Connected
             self.doWillInit()

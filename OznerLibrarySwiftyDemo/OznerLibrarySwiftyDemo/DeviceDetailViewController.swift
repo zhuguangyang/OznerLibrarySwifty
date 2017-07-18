@@ -14,8 +14,8 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
     @IBOutlet var textView: UITextView!
     @IBAction func powerClick(_ sender: Any) {
         switch true {
-        case currDevice.isKind(of: AirPurifier_Bluetooth.classForCoder()):
-            let tmpdevice = currDevice as! AirPurifier_Bluetooth
+        case currDevice.isKind(of: AirPurifier_Blue.classForCoder()):
+            let tmpdevice = currDevice as! AirPurifier_Blue
             tmpdevice.setPower(power: !(tmpdevice.sensor.Power), callBack: { (error) in
                 
             })
@@ -36,8 +36,8 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
         }
     }
     @IBAction func ValueChange(_ sender: UISlider) {
-        if currDevice.isKind(of: AirPurifier_Bluetooth.classForCoder()) {
-            (currDevice as! AirPurifier_Bluetooth).setSpeed(speed: Int(sender.value), callBack: { (error) in
+        if currDevice.isKind(of: AirPurifier_Blue.classForCoder()) {
+            (currDevice as! AirPurifier_Blue).setSpeed(speed: Int(sender.value), callBack: { (error) in
             })
         }
     }

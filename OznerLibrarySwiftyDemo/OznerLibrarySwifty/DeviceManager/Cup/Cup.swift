@@ -133,8 +133,9 @@ class Cup: OznerBaseDevice {
         data.append(0)
         self.SendDataToDevice(sendData: data) { (error) in}
     }
+
     override func repeatFunc() {
-        if NSDate().second()%2==0 {
+        if Int(arc4random()%2)==0 {
             self.SendDataToDevice(sendData: Data.init(bytes: [0x14])) { (error) in}//opCode_ReadTapRecord
         }else{
             self.SendDataToDevice(sendData: Data.init(bytes: [0x12])) { (error) in}//opCode_ReadSensor

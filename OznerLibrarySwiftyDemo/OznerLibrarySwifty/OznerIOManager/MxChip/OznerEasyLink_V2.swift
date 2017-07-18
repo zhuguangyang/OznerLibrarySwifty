@@ -48,6 +48,7 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
         deviceInfo.wifiVersion=2
         starTime = Date()
         //启动配网
+        print("启动配网2.0")
         ZBBonjourService.sharedInstance().stopSearchDevice()
         ZBBonjourService.sharedInstance().delegate=self
         ZBBonjourService.sharedInstance().startSearchDevice()

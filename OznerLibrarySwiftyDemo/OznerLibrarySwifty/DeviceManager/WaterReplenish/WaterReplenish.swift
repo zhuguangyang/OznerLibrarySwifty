@@ -39,8 +39,9 @@ class WaterReplenish: OznerBaseDevice {
     override func doWillInit() {
 
     }
+   
     override func repeatFunc() {
-        if NSDate().second()%3==0 {
+        if Int(arc4random()%2)==0 {
             requestStatus()
         }
     }

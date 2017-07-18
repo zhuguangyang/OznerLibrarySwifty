@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		1F90702BB28E42715A9D5E03 /* Pods_OznerLibrarySwiftyDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */; };
 		8D183CE61E28723D002E4618 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D183CE51E28723D002E4618 /* ResultViewController.swift */; };
-		8D1DBC9E1F0785470083E1D6 /* DeviceInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D1DBC9C1F0785470083E1D6 /* DeviceInfo.plist */; };
-		8D1DBC9F1F0785470083E1D6 /* DeviceConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBC9D1F0785470083E1D6 /* DeviceConfigManager.swift */; };
-		8D1ED41D1E12332F0081D2BB /* BabyBLEHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1ED41C1E12332F0081D2BB /* BabyBLEHelper.m */; };
-		8D1ED4201E1239230081D2BB /* BabyBLEIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1ED41F1E1239230081D2BB /* BabyBLEIO.m */; };
 		8D1FB6131E5314F70075C009 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */; };
 		8D1FB6151E5315010075C009 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6141E5315010075C009 /* CoreGraphics.framework */; };
 		8D1FB6171E5315290075C009 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6161E5315290075C009 /* Foundation.framework */; };
@@ -21,41 +17,64 @@
 		8D1FB61D1E5315530075C009 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB61C1E5315530075C009 /* QuartzCore.framework */; };
 		8D1FB61F1E5315690075C009 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB61E1E5315690075C009 /* AudioToolbox.framework */; };
 		8D1FB6211E5315790075C009 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6201E5315790075C009 /* Security.framework */; };
-		8D1FB63B1E531ACC0075C009 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1FB6311E531ACC0075C009 /* Reachability.m */; };
-		8D2055521E543AC9003E51A2 /* OznerMQTT_V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2055511E543AC9003E51A2 /* OznerMQTT_V1.swift */; };
-		8D2055541E544A28003E51A2 /* OznerEasyLink_V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2055531E544A28003E51A2 /* OznerEasyLink_V1.swift */; };
-		8D2287E81EC9BEE00094096B /* OznerEasyLink_V2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2287E71EC9BEE00094096B /* OznerEasyLink_V2.swift */; };
-		8D2287EA1EC9BF890094096B /* OznerMQTT_V2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2287E91EC9BF890094096B /* OznerMQTT_V2.swift */; };
-		8D2419BE1E11122200CF9B9C /* BabyBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419AD1E11122200CF9B9C /* BabyBluetooth.m */; };
-		8D2419BF1E11122200CF9B9C /* BabyCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419AF1E11122200CF9B9C /* BabyCallback.m */; };
-		8D2419C01E11122200CF9B9C /* BabyCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419B11E11122200CF9B9C /* BabyCentralManager.m */; };
-		8D2419C11E11122200CF9B9C /* BabyDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419B31E11122200CF9B9C /* BabyDefine.m */; };
-		8D2419C21E11122200CF9B9C /* BabyOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419B51E11122200CF9B9C /* BabyOptions.m */; };
-		8D2419C31E11122200CF9B9C /* BabyPeripheralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419B71E11122200CF9B9C /* BabyPeripheralManager.m */; };
-		8D2419C41E11122200CF9B9C /* BabyRhythm.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419B91E11122200CF9B9C /* BabyRhythm.m */; };
-		8D2419C51E11122200CF9B9C /* BabySpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419BB1E11122200CF9B9C /* BabySpeaker.m */; };
-		8D2419C61E11122200CF9B9C /* BabyToy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419BD1E11122200CF9B9C /* BabyToy.m */; };
-		8D2C8F8E1E1F840E002D83EF /* WaterReplenish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2C8F8D1E1F840E002D83EF /* WaterReplenish.swift */; };
-		8D2C8F901E1F9081002D83EF /* WaterReplenishStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2C8F8F1E1F9081002D83EF /* WaterReplenishStatus.swift */; };
-		8D441D7F1E0CF21100B895D4 /* OznerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D441D7E1E0CF21100B895D4 /* OznerDataManager.swift */; };
 		8D46A9641E13B6D90011FBAE /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D46A9631E13B6D90011FBAE /* CoreBluetooth.framework */; };
-		8D54AC621E20B1EA00689790 /* WaterPurifier_Blue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D54AC611E20B1EA00689790 /* WaterPurifier_Blue.swift */; };
-		8D60675C1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D60675B1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift */; };
 		8D60675E1E27895E00C87CC0 /* AddDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D60675D1E27895E00C87CC0 /* AddDeviceTableViewController.swift */; };
 		8D6067601E27897A00C87CC0 /* DeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D60675F1E27897A00C87CC0 /* DeviceDetailViewController.swift */; };
 		8D6266281EC456B700FB46C5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6266271EC456B700FB46C5 /* MobileCoreServices.framework */; };
-		8D7C9B9B1E55833700D29C5D /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7C9B9A1E55833700D29C5D /* Helper.m */; };
-		8DC14BE51ECD893100CFCCE4 /* libEasyLink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC14BD81ECD893100CFCCE4 /* libEasyLink.a */; };
-		8DC14BE61ECD893100CFCCE4 /* NSData+IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC14BDA1ECD893100CFCCE4 /* NSData+IPAddress.m */; };
-		8DC14BE71ECD893100CFCCE4 /* NSDictionary+ZBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC14BDC1ECD893100CFCCE4 /* NSDictionary+ZBAdd.m */; };
-		8DC14BE81ECD893100CFCCE4 /* NSDictionary+ZBKeyMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC14BDE1ECD893100CFCCE4 /* NSDictionary+ZBKeyMapping.m */; };
-		8DC14BE91ECD893100CFCCE4 /* NSMutableDictionary+NilFuckOff.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC14BE01ECD893100CFCCE4 /* NSMutableDictionary+NilFuckOff.m */; };
-		8DC14BEA1ECD893100CFCCE4 /* OznerBonjourDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC14BE21ECD893100CFCCE4 /* OznerBonjourDetail.m */; };
-		8DC14BEB1ECD893100CFCCE4 /* ZBBonjourService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC14BE41ECD893100CFCCE4 /* ZBBonjourService.m */; };
-		8DC14BF81ECD8A3600CFCCE4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC14BF01ECD8A3600CFCCE4 /* GCDAsyncSocket.m */; };
-		8DC14BF91ECD8A3600CFCCE4 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC14BF21ECD8A3600CFCCE4 /* GCDAsyncUdpSocket.m */; };
-		8DC14BFA1ECD8A3600CFCCE4 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC14BF51ECD8A3600CFCCE4 /* AsyncSocket.m */; };
-		8DC14BFB1ECD8A3600CFCCE4 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DC14BF71ECD8A3600CFCCE4 /* AsyncUdpSocket.m */; };
+		8D72E5051F1DA4F7003A2067 /* AirPurifier_Blue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E49F1F1DA4F7003A2067 /* AirPurifier_Blue.swift */; };
+		8D72E5061F1DA4F7003A2067 /* AirPurifier_Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4A11F1DA4F7003A2067 /* AirPurifier_Wifi.swift */; };
+		8D72E5071F1DA4F7003A2067 /* BaseDeviceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4A31F1DA4F7003A2067 /* BaseDeviceSetting.swift */; };
+		8D72E5081F1DA4F7003A2067 /* OznerBaseDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4A41F1DA4F7003A2067 /* OznerBaseDevice.swift */; };
+		8D72E5091F1DA4F7003A2067 /* Cup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4A61F1DA4F7003A2067 /* Cup.swift */; };
+		8D72E50A1F1DA4F7003A2067 /* OznerCupRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4A71F1DA4F7003A2067 /* OznerCupRecords.swift */; };
+		8D72E50B1F1DA4F7003A2067 /* OznerDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4A81F1DA4F7003A2067 /* OznerDeviceManager.swift */; };
+		8D72E50C1F1DA4F7003A2067 /* Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4AA1F1DA4F7003A2067 /* Tap.swift */; };
+		8D72E50D1F1DA4F7003A2067 /* WaterPurifier_Blue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4AC1F1DA4F7003A2067 /* WaterPurifier_Blue.swift */; };
+		8D72E50E1F1DA4F7003A2067 /* WaterPurifier_Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4AE1F1DA4F7003A2067 /* WaterPurifier_Wifi.swift */; };
+		8D72E50F1F1DA4F7003A2067 /* WaterReplenish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4B01F1DA4F7003A2067 /* WaterReplenish.swift */; };
+		8D72E5101F1DA4F7003A2067 /* WaterReplenishStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4B11F1DA4F7003A2067 /* WaterReplenishStatus.swift */; };
+		8D72E5111F1DA4F7003A2067 /* OznerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4B31F1DA4F7003A2067 /* OznerDataManager.swift */; };
+		8D72E5121F1DA4F7003A2067 /* OznerDeviceRecordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4B41F1DA4F7003A2067 /* OznerDeviceRecordHelper.swift */; };
+		8D72E5131F1DA4F7003A2067 /* OZAylaIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4B71F1DA4F7003A2067 /* OZAylaIO.swift */; };
+		8D72E5141F1DA4F7003A2067 /* OznerAylaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4B81F1DA4F7003A2067 /* OznerAylaManager.swift */; };
+		8D72E5151F1DA4F7003A2067 /* BabyBLEHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4BB1F1DA4F7003A2067 /* BabyBLEHelper.m */; };
+		8D72E5161F1DA4F7003A2067 /* BabyBLEIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4BD1F1DA4F7003A2067 /* BabyBLEIO.m */; };
+		8D72E5171F1DA4F7003A2067 /* BabyBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4C21F1DA4F7003A2067 /* BabyBluetooth.m */; };
+		8D72E5181F1DA4F7003A2067 /* BabyCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4C41F1DA4F7003A2067 /* BabyCallback.m */; };
+		8D72E5191F1DA4F7003A2067 /* BabyCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4C61F1DA4F7003A2067 /* BabyCentralManager.m */; };
+		8D72E51A1F1DA4F7003A2067 /* BabyDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4C81F1DA4F7003A2067 /* BabyDefine.m */; };
+		8D72E51B1F1DA4F7003A2067 /* BabyOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4CA1F1DA4F7003A2067 /* BabyOptions.m */; };
+		8D72E51C1F1DA4F7003A2067 /* BabyPeripheralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4CC1F1DA4F7003A2067 /* BabyPeripheralManager.m */; };
+		8D72E51D1F1DA4F7003A2067 /* BabyRhythm.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4CE1F1DA4F7003A2067 /* BabyRhythm.m */; };
+		8D72E51E1F1DA4F7003A2067 /* BabySpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4D01F1DA4F7003A2067 /* BabySpeaker.m */; };
+		8D72E51F1F1DA4F7003A2067 /* BabyToy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4D21F1DA4F7003A2067 /* BabyToy.m */; };
+		8D72E5201F1DA4F7003A2067 /* OZBluetoothIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4D31F1DA4F7003A2067 /* OZBluetoothIO.swift */; };
+		8D72E5211F1DA4F7003A2067 /* OznerBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4D41F1DA4F7003A2067 /* OznerBluetoothManager.swift */; };
+		8D72E5221F1DA4F7003A2067 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4DA1F1DA4F7003A2067 /* GCDAsyncSocket.m */; };
+		8D72E5231F1DA4F7003A2067 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4DC1F1DA4F7003A2067 /* GCDAsyncUdpSocket.m */; };
+		8D72E5241F1DA4F7003A2067 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4DF1F1DA4F7003A2067 /* AsyncSocket.m */; };
+		8D72E5251F1DA4F7003A2067 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4E11F1DA4F7003A2067 /* AsyncUdpSocket.m */; };
+		8D72E5261F1DA4F7003A2067 /* libEasyLink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D72E4E41F1DA4F7003A2067 /* libEasyLink.a */; };
+		8D72E5271F1DA4F7003A2067 /* NSData+IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4E61F1DA4F7003A2067 /* NSData+IPAddress.m */; };
+		8D72E5281F1DA4F7003A2067 /* NSDictionary+ZBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4E81F1DA4F7003A2067 /* NSDictionary+ZBAdd.m */; };
+		8D72E5291F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4EA1F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.m */; };
+		8D72E52A1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4EC1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.m */; };
+		8D72E52B1F1DA4F7003A2067 /* OznerBonjourDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4EE1F1DA4F7003A2067 /* OznerBonjourDetail.m */; };
+		8D72E52C1F1DA4F7003A2067 /* ZBBonjourService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F01F1DA4F7003A2067 /* ZBBonjourService.m */; };
+		8D72E52D1F1DA4F7003A2067 /* OZMxChipIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F11F1DA4F7003A2067 /* OZMxChipIO.swift */; };
+		8D72E52E1F1DA4F7003A2067 /* OznerEasyLink_V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F21F1DA4F7003A2067 /* OznerEasyLink_V1.swift */; };
+		8D72E52F1F1DA4F7003A2067 /* OznerEasyLink_V2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F31F1DA4F7003A2067 /* OznerEasyLink_V2.swift */; };
+		8D72E5301F1DA4F7003A2067 /* OznerMQTT_V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F41F1DA4F7003A2067 /* OznerMQTT_V1.swift */; };
+		8D72E5311F1DA4F7003A2067 /* OznerMQTT_V2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F51F1DA4F7003A2067 /* OznerMQTT_V2.swift */; };
+		8D72E5321F1DA4F7003A2067 /* OznerMxChipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F61F1DA4F7003A2067 /* OznerMxChipManager.swift */; };
+		8D72E5331F1DA4F7003A2067 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F91F1DA4F7003A2067 /* Reachability.m */; };
+		8D72E5341F1DA4F7003A2067 /* OznerBaseIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4FB1F1DA4F7003A2067 /* OznerBaseIO.swift */; };
+		8D72E5351F1DA4F7003A2067 /* OznerIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4FC1F1DA4F7003A2067 /* OznerIOManager.swift */; };
+		8D72E5361F1DA4F7003A2067 /* OznerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4FD1F1DA4F7003A2067 /* OznerManager.swift */; };
+		8D72E5371F1DA4F7003A2067 /* ProductInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D72E5001F1DA4F7003A2067 /* ProductInfo.plist */; };
+		8D72E5381F1DA4F7003A2067 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E5011F1DA4F7003A2067 /* ProductInfo.swift */; };
+		8D72E5391F1DA4F7003A2067 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E5031F1DA4F7003A2067 /* Helper.m */; };
+		8D72E53A1F1DA4F7003A2067 /* OznerTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E5041F1DA4F7003A2067 /* OznerTools.swift */; };
 		8DD349471E0BA62200C945A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349461E0BA62200C945A2 /* AppDelegate.swift */; };
 		8DD349491E0BA62200C945A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349481E0BA62200C945A2 /* ViewController.swift */; };
 		8DD3494C1E0BA62200C945A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DD3494A1E0BA62200C945A2 /* Main.storyboard */; };
@@ -63,25 +82,8 @@
 		8DD349511E0BA62200C945A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DD3494F1E0BA62200C945A2 /* LaunchScreen.storyboard */; };
 		8DD3495C1E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3495B1E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests.swift */; };
 		8DD349671E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349661E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.swift */; };
-		8DD349771E0BA7A100C945A2 /* OznerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349761E0BA7A100C945A2 /* OznerManager.swift */; };
-		8DD349791E0BA82900C945A2 /* OznerDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349781E0BA82900C945A2 /* OznerDeviceManager.swift */; };
-		8DD349821E0BA9C600C945A2 /* OznerBaseDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349811E0BA9C600C945A2 /* OznerBaseDevice.swift */; };
-		8DD349841E0BA9ED00C945A2 /* AirPurifier_Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349831E0BA9ED00C945A2 /* AirPurifier_Bluetooth.swift */; };
-		8DD349861E0BAA0500C945A2 /* AirPurifier_Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349851E0BAA0500C945A2 /* AirPurifier_Wifi.swift */; };
-		8DD349881E0BB57A00C945A2 /* BaseDeviceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349871E0BB57A00C945A2 /* BaseDeviceSetting.swift */; };
-		8DD349921E0BC6B100C945A2 /* OznerBaseIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349911E0BC6B100C945A2 /* OznerBaseIO.swift */; };
-		8DD349941E0BD2B400C945A2 /* OznerIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349931E0BD2B400C945A2 /* OznerIOManager.swift */; };
-		8DD349991E0BD33300C945A2 /* OZAylaIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349981E0BD33300C945A2 /* OZAylaIO.swift */; };
-		8DD3499B1E0BD34E00C945A2 /* OZBluetoothIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3499A1E0BD34E00C945A2 /* OZBluetoothIO.swift */; };
-		8DD3499D1E0BD36300C945A2 /* OZMxChipIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3499C1E0BD36300C945A2 /* OZMxChipIO.swift */; };
-		8DD3499F1E0BD99C00C945A2 /* OznerAylaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3499E1E0BD99C00C945A2 /* OznerAylaManager.swift */; };
-		8DD349A11E0BD9B100C945A2 /* OznerBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349A01E0BD9B100C945A2 /* OznerBluetoothManager.swift */; };
-		8DD349A31E0BD9C400C945A2 /* OznerMxChipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349A21E0BD9C400C945A2 /* OznerMxChipManager.swift */; };
-		8DE0958A1E1B8B0A00D00679 /* Cup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE095891E1B8B0A00D00679 /* Cup.swift */; };
-		8DE0958C1E1B8B1A00D00679 /* Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE0958B1E1B8B1A00D00679 /* Tap.swift */; };
-		8DE0958E1E1C8E6A00D00679 /* OznerDeviceRecordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE0958D1E1C8E6A00D00679 /* OznerDeviceRecordHelper.swift */; };
-		8DE095901E1DEA2B00D00679 /* OznerCupRecords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE0958F1E1DEA2B00D00679 /* OznerCupRecords.swift */; };
-		8DE095931E1E513500D00679 /* OznerTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE095921E1E513500D00679 /* OznerTools.swift */; };
+		8DDBDC101F1DA8AE004912F0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DDBDC0F1F1DA8AE004912F0 /* SwiftyJSON.framework */; };
+		8DDBDC111F1DA8AE004912F0 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8DDBDC0F1F1DA8AE004912F0 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,16 +103,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8DDBDC121F1DA8AE004912F0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8DDBDC111F1DA8AE004912F0 /* SwiftyJSON.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OznerLibrarySwiftyDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D183CE51E28723D002E4618 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		8D1DBC9C1F0785470083E1D6 /* DeviceInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DeviceInfo.plist; sourceTree = "<group>"; };
-		8D1DBC9D1F0785470083E1D6 /* DeviceConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceConfigManager.swift; sourceTree = "<group>"; };
-		8D1DBCA01F078B740083E1D6 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		8D1ED41B1E12332F0081D2BB /* BabyBLEHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBLEHelper.h; sourceTree = "<group>"; };
-		8D1ED41C1E12332F0081D2BB /* BabyBLEHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBLEHelper.m; sourceTree = "<group>"; };
-		8D1ED41E1E1239230081D2BB /* BabyBLEIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBLEIO.h; sourceTree = "<group>"; };
-		8D1ED41F1E1239230081D2BB /* BabyBLEIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBLEIO.m; sourceTree = "<group>"; };
 		8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D1FB6141E5315010075C009 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8D1FB6161E5315290075C009 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -119,65 +128,90 @@
 		8D1FB61C1E5315530075C009 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8D1FB61E1E5315690075C009 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		8D1FB6201E5315790075C009 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		8D1FB6301E531ACC0075C009 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		8D1FB6311E531ACC0075C009 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		8D2055511E543AC9003E51A2 /* OznerMQTT_V1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerMQTT_V1.swift; sourceTree = "<group>"; };
-		8D2055531E544A28003E51A2 /* OznerEasyLink_V1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerEasyLink_V1.swift; sourceTree = "<group>"; };
-		8D2287E71EC9BEE00094096B /* OznerEasyLink_V2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerEasyLink_V2.swift; sourceTree = "<group>"; };
-		8D2287E91EC9BF890094096B /* OznerMQTT_V2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerMQTT_V2.swift; sourceTree = "<group>"; };
 		8D2419A61E1111D700CF9B9C /* OznerLibrarySwiftyDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OznerLibrarySwiftyDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		8D2419AC1E11122200CF9B9C /* BabyBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBluetooth.h; sourceTree = "<group>"; };
-		8D2419AD1E11122200CF9B9C /* BabyBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBluetooth.m; sourceTree = "<group>"; };
-		8D2419AE1E11122200CF9B9C /* BabyCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyCallback.h; sourceTree = "<group>"; };
-		8D2419AF1E11122200CF9B9C /* BabyCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyCallback.m; sourceTree = "<group>"; };
-		8D2419B01E11122200CF9B9C /* BabyCentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyCentralManager.h; sourceTree = "<group>"; };
-		8D2419B11E11122200CF9B9C /* BabyCentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyCentralManager.m; sourceTree = "<group>"; };
-		8D2419B21E11122200CF9B9C /* BabyDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyDefine.h; sourceTree = "<group>"; };
-		8D2419B31E11122200CF9B9C /* BabyDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyDefine.m; sourceTree = "<group>"; };
-		8D2419B41E11122200CF9B9C /* BabyOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyOptions.h; sourceTree = "<group>"; };
-		8D2419B51E11122200CF9B9C /* BabyOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyOptions.m; sourceTree = "<group>"; };
-		8D2419B61E11122200CF9B9C /* BabyPeripheralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyPeripheralManager.h; sourceTree = "<group>"; };
-		8D2419B71E11122200CF9B9C /* BabyPeripheralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyPeripheralManager.m; sourceTree = "<group>"; };
-		8D2419B81E11122200CF9B9C /* BabyRhythm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyRhythm.h; sourceTree = "<group>"; };
-		8D2419B91E11122200CF9B9C /* BabyRhythm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyRhythm.m; sourceTree = "<group>"; };
-		8D2419BA1E11122200CF9B9C /* BabySpeaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabySpeaker.h; sourceTree = "<group>"; };
-		8D2419BB1E11122200CF9B9C /* BabySpeaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabySpeaker.m; sourceTree = "<group>"; };
-		8D2419BC1E11122200CF9B9C /* BabyToy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyToy.h; sourceTree = "<group>"; };
-		8D2419BD1E11122200CF9B9C /* BabyToy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyToy.m; sourceTree = "<group>"; };
-		8D2C8F8D1E1F840E002D83EF /* WaterReplenish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterReplenish.swift; sourceTree = "<group>"; };
-		8D2C8F8F1E1F9081002D83EF /* WaterReplenishStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterReplenishStatus.swift; sourceTree = "<group>"; };
-		8D441D7E1E0CF21100B895D4 /* OznerDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDataManager.swift; sourceTree = "<group>"; };
 		8D441D811E0CFB9800B895D4 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
 		8D46A9631E13B6D90011FBAE /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		8D54AC611E20B1EA00689790 /* WaterPurifier_Blue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterPurifier_Blue.swift; sourceTree = "<group>"; };
-		8D60675B1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterPurifier_Wifi.swift; sourceTree = "<group>"; };
 		8D60675D1E27895E00C87CC0 /* AddDeviceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDeviceTableViewController.swift; sourceTree = "<group>"; };
 		8D60675F1E27897A00C87CC0 /* DeviceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetailViewController.swift; sourceTree = "<group>"; };
 		8D6266271EC456B700FB46C5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		8D7C9B991E55833700D29C5D /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
-		8D7C9B9A1E55833700D29C5D /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
-		8DC14BD71ECD893100CFCCE4 /* EasyLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLink.h; sourceTree = "<group>"; };
-		8DC14BD81ECD893100CFCCE4 /* libEasyLink.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEasyLink.a; sourceTree = "<group>"; };
-		8DC14BD91ECD893100CFCCE4 /* NSData+IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+IPAddress.h"; sourceTree = "<group>"; };
-		8DC14BDA1ECD893100CFCCE4 /* NSData+IPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+IPAddress.m"; sourceTree = "<group>"; };
-		8DC14BDB1ECD893100CFCCE4 /* NSDictionary+ZBAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ZBAdd.h"; sourceTree = "<group>"; };
-		8DC14BDC1ECD893100CFCCE4 /* NSDictionary+ZBAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ZBAdd.m"; sourceTree = "<group>"; };
-		8DC14BDD1ECD893100CFCCE4 /* NSDictionary+ZBKeyMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ZBKeyMapping.h"; sourceTree = "<group>"; };
-		8DC14BDE1ECD893100CFCCE4 /* NSDictionary+ZBKeyMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ZBKeyMapping.m"; sourceTree = "<group>"; };
-		8DC14BDF1ECD893100CFCCE4 /* NSMutableDictionary+NilFuckOff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+NilFuckOff.h"; sourceTree = "<group>"; };
-		8DC14BE01ECD893100CFCCE4 /* NSMutableDictionary+NilFuckOff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+NilFuckOff.m"; sourceTree = "<group>"; };
-		8DC14BE11ECD893100CFCCE4 /* OznerBonjourDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OznerBonjourDetail.h; sourceTree = "<group>"; };
-		8DC14BE21ECD893100CFCCE4 /* OznerBonjourDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OznerBonjourDetail.m; sourceTree = "<group>"; };
-		8DC14BE31ECD893100CFCCE4 /* ZBBonjourService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBonjourService.h; sourceTree = "<group>"; };
-		8DC14BE41ECD893100CFCCE4 /* ZBBonjourService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBonjourService.m; sourceTree = "<group>"; };
-		8DC14BEF1ECD8A3600CFCCE4 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
-		8DC14BF01ECD8A3600CFCCE4 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
-		8DC14BF11ECD8A3600CFCCE4 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
-		8DC14BF21ECD8A3600CFCCE4 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
-		8DC14BF41ECD8A3600CFCCE4 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
-		8DC14BF51ECD8A3600CFCCE4 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
-		8DC14BF61ECD8A3600CFCCE4 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
-		8DC14BF71ECD8A3600CFCCE4 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+		8D72E49F1F1DA4F7003A2067 /* AirPurifier_Blue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirPurifier_Blue.swift; sourceTree = "<group>"; };
+		8D72E4A11F1DA4F7003A2067 /* AirPurifier_Wifi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirPurifier_Wifi.swift; sourceTree = "<group>"; };
+		8D72E4A31F1DA4F7003A2067 /* BaseDeviceSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDeviceSetting.swift; sourceTree = "<group>"; };
+		8D72E4A41F1DA4F7003A2067 /* OznerBaseDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerBaseDevice.swift; sourceTree = "<group>"; };
+		8D72E4A61F1DA4F7003A2067 /* Cup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cup.swift; sourceTree = "<group>"; };
+		8D72E4A71F1DA4F7003A2067 /* OznerCupRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerCupRecords.swift; sourceTree = "<group>"; };
+		8D72E4A81F1DA4F7003A2067 /* OznerDeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDeviceManager.swift; sourceTree = "<group>"; };
+		8D72E4AA1F1DA4F7003A2067 /* Tap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tap.swift; sourceTree = "<group>"; };
+		8D72E4AC1F1DA4F7003A2067 /* WaterPurifier_Blue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterPurifier_Blue.swift; sourceTree = "<group>"; };
+		8D72E4AE1F1DA4F7003A2067 /* WaterPurifier_Wifi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterPurifier_Wifi.swift; sourceTree = "<group>"; };
+		8D72E4B01F1DA4F7003A2067 /* WaterReplenish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterReplenish.swift; sourceTree = "<group>"; };
+		8D72E4B11F1DA4F7003A2067 /* WaterReplenishStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterReplenishStatus.swift; sourceTree = "<group>"; };
+		8D72E4B31F1DA4F7003A2067 /* OznerDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDataManager.swift; sourceTree = "<group>"; };
+		8D72E4B41F1DA4F7003A2067 /* OznerDeviceRecordHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDeviceRecordHelper.swift; sourceTree = "<group>"; };
+		8D72E4B71F1DA4F7003A2067 /* OZAylaIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OZAylaIO.swift; sourceTree = "<group>"; };
+		8D72E4B81F1DA4F7003A2067 /* OznerAylaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerAylaManager.swift; sourceTree = "<group>"; };
+		8D72E4BA1F1DA4F7003A2067 /* BabyBLEHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBLEHelper.h; sourceTree = "<group>"; };
+		8D72E4BB1F1DA4F7003A2067 /* BabyBLEHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBLEHelper.m; sourceTree = "<group>"; };
+		8D72E4BC1F1DA4F7003A2067 /* BabyBLEIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBLEIO.h; sourceTree = "<group>"; };
+		8D72E4BD1F1DA4F7003A2067 /* BabyBLEIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBLEIO.m; sourceTree = "<group>"; };
+		8D72E4C11F1DA4F7003A2067 /* BabyBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBluetooth.h; sourceTree = "<group>"; };
+		8D72E4C21F1DA4F7003A2067 /* BabyBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBluetooth.m; sourceTree = "<group>"; };
+		8D72E4C31F1DA4F7003A2067 /* BabyCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyCallback.h; sourceTree = "<group>"; };
+		8D72E4C41F1DA4F7003A2067 /* BabyCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyCallback.m; sourceTree = "<group>"; };
+		8D72E4C51F1DA4F7003A2067 /* BabyCentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyCentralManager.h; sourceTree = "<group>"; };
+		8D72E4C61F1DA4F7003A2067 /* BabyCentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyCentralManager.m; sourceTree = "<group>"; };
+		8D72E4C71F1DA4F7003A2067 /* BabyDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyDefine.h; sourceTree = "<group>"; };
+		8D72E4C81F1DA4F7003A2067 /* BabyDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyDefine.m; sourceTree = "<group>"; };
+		8D72E4C91F1DA4F7003A2067 /* BabyOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyOptions.h; sourceTree = "<group>"; };
+		8D72E4CA1F1DA4F7003A2067 /* BabyOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyOptions.m; sourceTree = "<group>"; };
+		8D72E4CB1F1DA4F7003A2067 /* BabyPeripheralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyPeripheralManager.h; sourceTree = "<group>"; };
+		8D72E4CC1F1DA4F7003A2067 /* BabyPeripheralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyPeripheralManager.m; sourceTree = "<group>"; };
+		8D72E4CD1F1DA4F7003A2067 /* BabyRhythm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyRhythm.h; sourceTree = "<group>"; };
+		8D72E4CE1F1DA4F7003A2067 /* BabyRhythm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyRhythm.m; sourceTree = "<group>"; };
+		8D72E4CF1F1DA4F7003A2067 /* BabySpeaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabySpeaker.h; sourceTree = "<group>"; };
+		8D72E4D01F1DA4F7003A2067 /* BabySpeaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabySpeaker.m; sourceTree = "<group>"; };
+		8D72E4D11F1DA4F7003A2067 /* BabyToy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyToy.h; sourceTree = "<group>"; };
+		8D72E4D21F1DA4F7003A2067 /* BabyToy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyToy.m; sourceTree = "<group>"; };
+		8D72E4D31F1DA4F7003A2067 /* OZBluetoothIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OZBluetoothIO.swift; sourceTree = "<group>"; };
+		8D72E4D41F1DA4F7003A2067 /* OznerBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerBluetoothManager.swift; sourceTree = "<group>"; };
+		8D72E4D91F1DA4F7003A2067 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		8D72E4DA1F1DA4F7003A2067 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		8D72E4DB1F1DA4F7003A2067 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		8D72E4DC1F1DA4F7003A2067 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		8D72E4DE1F1DA4F7003A2067 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		8D72E4DF1F1DA4F7003A2067 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		8D72E4E01F1DA4F7003A2067 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
+		8D72E4E11F1DA4F7003A2067 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
+		8D72E4E31F1DA4F7003A2067 /* EasyLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLink.h; sourceTree = "<group>"; };
+		8D72E4E41F1DA4F7003A2067 /* libEasyLink.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEasyLink.a; sourceTree = "<group>"; };
+		8D72E4E51F1DA4F7003A2067 /* NSData+IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+IPAddress.h"; sourceTree = "<group>"; };
+		8D72E4E61F1DA4F7003A2067 /* NSData+IPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+IPAddress.m"; sourceTree = "<group>"; };
+		8D72E4E71F1DA4F7003A2067 /* NSDictionary+ZBAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ZBAdd.h"; sourceTree = "<group>"; };
+		8D72E4E81F1DA4F7003A2067 /* NSDictionary+ZBAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ZBAdd.m"; sourceTree = "<group>"; };
+		8D72E4E91F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ZBKeyMapping.h"; sourceTree = "<group>"; };
+		8D72E4EA1F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ZBKeyMapping.m"; sourceTree = "<group>"; };
+		8D72E4EB1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+NilFuckOff.h"; sourceTree = "<group>"; };
+		8D72E4EC1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+NilFuckOff.m"; sourceTree = "<group>"; };
+		8D72E4ED1F1DA4F7003A2067 /* OznerBonjourDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OznerBonjourDetail.h; sourceTree = "<group>"; };
+		8D72E4EE1F1DA4F7003A2067 /* OznerBonjourDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OznerBonjourDetail.m; sourceTree = "<group>"; };
+		8D72E4EF1F1DA4F7003A2067 /* ZBBonjourService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBonjourService.h; sourceTree = "<group>"; };
+		8D72E4F01F1DA4F7003A2067 /* ZBBonjourService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBonjourService.m; sourceTree = "<group>"; };
+		8D72E4F11F1DA4F7003A2067 /* OZMxChipIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OZMxChipIO.swift; sourceTree = "<group>"; };
+		8D72E4F21F1DA4F7003A2067 /* OznerEasyLink_V1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerEasyLink_V1.swift; sourceTree = "<group>"; };
+		8D72E4F31F1DA4F7003A2067 /* OznerEasyLink_V2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerEasyLink_V2.swift; sourceTree = "<group>"; };
+		8D72E4F41F1DA4F7003A2067 /* OznerMQTT_V1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerMQTT_V1.swift; sourceTree = "<group>"; };
+		8D72E4F51F1DA4F7003A2067 /* OznerMQTT_V2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerMQTT_V2.swift; sourceTree = "<group>"; };
+		8D72E4F61F1DA4F7003A2067 /* OznerMxChipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerMxChipManager.swift; sourceTree = "<group>"; };
+		8D72E4F81F1DA4F7003A2067 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		8D72E4F91F1DA4F7003A2067 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		8D72E4FB1F1DA4F7003A2067 /* OznerBaseIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerBaseIO.swift; sourceTree = "<group>"; };
+		8D72E4FC1F1DA4F7003A2067 /* OznerIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerIOManager.swift; sourceTree = "<group>"; };
+		8D72E4FD1F1DA4F7003A2067 /* OznerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerManager.swift; sourceTree = "<group>"; };
+		8D72E5001F1DA4F7003A2067 /* ProductInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProductInfo.plist; sourceTree = "<group>"; };
+		8D72E5011F1DA4F7003A2067 /* ProductInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
+		8D72E5021F1DA4F7003A2067 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		8D72E5031F1DA4F7003A2067 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		8D72E5041F1DA4F7003A2067 /* OznerTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerTools.swift; sourceTree = "<group>"; };
 		8DD349431E0BA62200C945A2 /* OznerLibrarySwiftyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OznerLibrarySwiftyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD349461E0BA62200C945A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DD349481E0BA62200C945A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -191,25 +225,7 @@
 		8DD349621E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OznerLibrarySwiftyDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD349661E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OznerLibrarySwiftyDemoUITests.swift; sourceTree = "<group>"; };
 		8DD349681E0BA62200C945A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DD349761E0BA7A100C945A2 /* OznerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerManager.swift; sourceTree = "<group>"; };
-		8DD349781E0BA82900C945A2 /* OznerDeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDeviceManager.swift; sourceTree = "<group>"; };
-		8DD349811E0BA9C600C945A2 /* OznerBaseDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerBaseDevice.swift; sourceTree = "<group>"; };
-		8DD349831E0BA9ED00C945A2 /* AirPurifier_Bluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirPurifier_Bluetooth.swift; sourceTree = "<group>"; };
-		8DD349851E0BAA0500C945A2 /* AirPurifier_Wifi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirPurifier_Wifi.swift; sourceTree = "<group>"; };
-		8DD349871E0BB57A00C945A2 /* BaseDeviceSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDeviceSetting.swift; sourceTree = "<group>"; };
-		8DD349911E0BC6B100C945A2 /* OznerBaseIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerBaseIO.swift; sourceTree = "<group>"; };
-		8DD349931E0BD2B400C945A2 /* OznerIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerIOManager.swift; sourceTree = "<group>"; };
-		8DD349981E0BD33300C945A2 /* OZAylaIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OZAylaIO.swift; sourceTree = "<group>"; };
-		8DD3499A1E0BD34E00C945A2 /* OZBluetoothIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OZBluetoothIO.swift; sourceTree = "<group>"; };
-		8DD3499C1E0BD36300C945A2 /* OZMxChipIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OZMxChipIO.swift; sourceTree = "<group>"; };
-		8DD3499E1E0BD99C00C945A2 /* OznerAylaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerAylaManager.swift; sourceTree = "<group>"; };
-		8DD349A01E0BD9B100C945A2 /* OznerBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerBluetoothManager.swift; sourceTree = "<group>"; };
-		8DD349A21E0BD9C400C945A2 /* OznerMxChipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerMxChipManager.swift; sourceTree = "<group>"; };
-		8DE095891E1B8B0A00D00679 /* Cup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cup.swift; sourceTree = "<group>"; };
-		8DE0958B1E1B8B1A00D00679 /* Tap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tap.swift; sourceTree = "<group>"; };
-		8DE0958D1E1C8E6A00D00679 /* OznerDeviceRecordHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDeviceRecordHelper.swift; sourceTree = "<group>"; };
-		8DE0958F1E1DEA2B00D00679 /* OznerCupRecords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerCupRecords.swift; sourceTree = "<group>"; };
-		8DE095921E1E513500D00679 /* OznerTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerTools.swift; sourceTree = "<group>"; };
+		8DDBDC0F1F1DA8AE004912F0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		8E143C6116DD8580096B13BA /* Pods-OznerLibrarySwiftyDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OznerLibrarySwiftyDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OznerLibrarySwiftyDemo/Pods-OznerLibrarySwiftyDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		ACBB721B282F5D7D14FDBB2A /* Pods-OznerLibrarySwiftyDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OznerLibrarySwiftyDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-OznerLibrarySwiftyDemo/Pods-OznerLibrarySwiftyDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +235,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DDBDC101F1DA8AE004912F0 /* SwiftyJSON.framework in Frameworks */,
 				8D6266281EC456B700FB46C5 /* MobileCoreServices.framework in Frameworks */,
 				8D1FB6211E5315790075C009 /* Security.framework in Frameworks */,
 				8D1FB61F1E5315690075C009 /* AudioToolbox.framework in Frameworks */,
@@ -230,7 +247,7 @@
 				8D1FB6131E5314F70075C009 /* SystemConfiguration.framework in Frameworks */,
 				8D46A9641E13B6D90011FBAE /* CoreBluetooth.framework in Frameworks */,
 				1F90702BB28E42715A9D5E03 /* Pods_OznerLibrarySwiftyDemo.framework in Frameworks */,
-				8DC14BE51ECD893100CFCCE4 /* libEasyLink.a in Frameworks */,
+				8D72E5261F1DA4F7003A2067 /* libEasyLink.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,83 +277,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		8D1DBC9B1F0785470083E1D6 /* DeviceConfig */ = {
-			isa = PBXGroup;
-			children = (
-				8D1DBC9C1F0785470083E1D6 /* DeviceInfo.plist */,
-				8D1DBC9D1F0785470083E1D6 /* DeviceConfigManager.swift */,
-			);
-			path = DeviceConfig;
-			sourceTree = "<group>";
-		};
-		8D1FB62E1E531ACC0075C009 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				8D1FB6301E531ACC0075C009 /* Reachability.h */,
-				8D1FB6311E531ACC0075C009 /* Reachability.m */,
-			);
-			path = Reachability;
-			sourceTree = "<group>";
-		};
-		8D2419851E11113B00CF9B9C /* BabyBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				8D2419AA1E11122200CF9B9C /* Classes */,
-			);
-			path = BabyBluetooth;
-			sourceTree = "<group>";
-		};
-		8D2419AA1E11122200CF9B9C /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				8D2419AB1E11122200CF9B9C /* objc */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		8D2419AB1E11122200CF9B9C /* objc */ = {
-			isa = PBXGroup;
-			children = (
-				8D2419AC1E11122200CF9B9C /* BabyBluetooth.h */,
-				8D2419AD1E11122200CF9B9C /* BabyBluetooth.m */,
-				8D2419AE1E11122200CF9B9C /* BabyCallback.h */,
-				8D2419AF1E11122200CF9B9C /* BabyCallback.m */,
-				8D2419B01E11122200CF9B9C /* BabyCentralManager.h */,
-				8D2419B11E11122200CF9B9C /* BabyCentralManager.m */,
-				8D2419B21E11122200CF9B9C /* BabyDefine.h */,
-				8D2419B31E11122200CF9B9C /* BabyDefine.m */,
-				8D2419B41E11122200CF9B9C /* BabyOptions.h */,
-				8D2419B51E11122200CF9B9C /* BabyOptions.m */,
-				8D2419B61E11122200CF9B9C /* BabyPeripheralManager.h */,
-				8D2419B71E11122200CF9B9C /* BabyPeripheralManager.m */,
-				8D2419B81E11122200CF9B9C /* BabyRhythm.h */,
-				8D2419B91E11122200CF9B9C /* BabyRhythm.m */,
-				8D2419BA1E11122200CF9B9C /* BabySpeaker.h */,
-				8D2419BB1E11122200CF9B9C /* BabySpeaker.m */,
-				8D2419BC1E11122200CF9B9C /* BabyToy.h */,
-				8D2419BD1E11122200CF9B9C /* BabyToy.m */,
-			);
-			path = objc;
-			sourceTree = "<group>";
-		};
-		8D2C8F8C1E1F83F5002D83EF /* WaterReplenish */ = {
-			isa = PBXGroup;
-			children = (
-				8D2C8F8D1E1F840E002D83EF /* WaterReplenish.swift */,
-				8D2C8F8F1E1F9081002D83EF /* WaterReplenishStatus.swift */,
-			);
-			path = WaterReplenish;
-			sourceTree = "<group>";
-		};
-		8D441D7D1E0CF1F700B895D4 /* OznerDataManager */ = {
-			isa = PBXGroup;
-			children = (
-				8D441D7E1E0CF21100B895D4 /* OznerDataManager.swift */,
-				8DE0958D1E1C8E6A00D00679 /* OznerDeviceRecordHelper.swift */,
-			);
-			path = OznerDataManager;
-			sourceTree = "<group>";
-		};
 		8D441D801E0CFB9700B895D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,88 +296,305 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8D54AC5F1E20B14800689790 /* WaterPurifier_Wifi */ = {
+		8D72E49C1F1DA4F7003A2067 /* OznerLibrarySwifty */ = {
 			isa = PBXGroup;
 			children = (
-				8D60675B1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift */,
+				8D72E49D1F1DA4F7003A2067 /* DeviceManager */,
+				8D72E4B21F1DA4F7003A2067 /* OznerDataManager */,
+				8D72E4B51F1DA4F7003A2067 /* OznerIOManager */,
+				8D72E4FD1F1DA4F7003A2067 /* OznerManager.swift */,
+				8D72E4FE1F1DA4F7003A2067 /* OznerTools */,
 			);
-			path = WaterPurifier_Wifi;
+			path = OznerLibrarySwifty;
 			sourceTree = "<group>";
 		};
-		8D54AC601E20B15500689790 /* WaterPurifier_Blue */ = {
+		8D72E49D1F1DA4F7003A2067 /* DeviceManager */ = {
 			isa = PBXGroup;
 			children = (
-				8D54AC611E20B1EA00689790 /* WaterPurifier_Blue.swift */,
+				8D72E49E1F1DA4F7003A2067 /* AirPurifier_Bluetooth */,
+				8D72E4A01F1DA4F7003A2067 /* AirPurifier_Wifi */,
+				8D72E4A21F1DA4F7003A2067 /* BaseDevice */,
+				8D72E4A51F1DA4F7003A2067 /* Cup */,
+				8D72E4A81F1DA4F7003A2067 /* OznerDeviceManager.swift */,
+				8D72E4A91F1DA4F7003A2067 /* Tap */,
+				8D72E4AB1F1DA4F7003A2067 /* WaterPurifier_Blue */,
+				8D72E4AD1F1DA4F7003A2067 /* WaterPurifier_Wifi */,
+				8D72E4AF1F1DA4F7003A2067 /* WaterReplenish */,
+			);
+			path = DeviceManager;
+			sourceTree = "<group>";
+		};
+		8D72E49E1F1DA4F7003A2067 /* AirPurifier_Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E49F1F1DA4F7003A2067 /* AirPurifier_Blue.swift */,
+			);
+			path = AirPurifier_Bluetooth;
+			sourceTree = "<group>";
+		};
+		8D72E4A01F1DA4F7003A2067 /* AirPurifier_Wifi */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4A11F1DA4F7003A2067 /* AirPurifier_Wifi.swift */,
+			);
+			path = AirPurifier_Wifi;
+			sourceTree = "<group>";
+		};
+		8D72E4A21F1DA4F7003A2067 /* BaseDevice */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4A31F1DA4F7003A2067 /* BaseDeviceSetting.swift */,
+				8D72E4A41F1DA4F7003A2067 /* OznerBaseDevice.swift */,
+			);
+			path = BaseDevice;
+			sourceTree = "<group>";
+		};
+		8D72E4A51F1DA4F7003A2067 /* Cup */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4A61F1DA4F7003A2067 /* Cup.swift */,
+				8D72E4A71F1DA4F7003A2067 /* OznerCupRecords.swift */,
+			);
+			path = Cup;
+			sourceTree = "<group>";
+		};
+		8D72E4A91F1DA4F7003A2067 /* Tap */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4AA1F1DA4F7003A2067 /* Tap.swift */,
+			);
+			path = Tap;
+			sourceTree = "<group>";
+		};
+		8D72E4AB1F1DA4F7003A2067 /* WaterPurifier_Blue */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4AC1F1DA4F7003A2067 /* WaterPurifier_Blue.swift */,
 			);
 			path = WaterPurifier_Blue;
 			sourceTree = "<group>";
 		};
-		8DC14BD61ECD893100CFCCE4 /* EasyLink */ = {
+		8D72E4AD1F1DA4F7003A2067 /* WaterPurifier_Wifi */ = {
 			isa = PBXGroup;
 			children = (
-				8DC14BD71ECD893100CFCCE4 /* EasyLink.h */,
-				8DC14BD81ECD893100CFCCE4 /* libEasyLink.a */,
-				8DC14BD91ECD893100CFCCE4 /* NSData+IPAddress.h */,
-				8DC14BDA1ECD893100CFCCE4 /* NSData+IPAddress.m */,
-				8DC14BDB1ECD893100CFCCE4 /* NSDictionary+ZBAdd.h */,
-				8DC14BDC1ECD893100CFCCE4 /* NSDictionary+ZBAdd.m */,
-				8DC14BDD1ECD893100CFCCE4 /* NSDictionary+ZBKeyMapping.h */,
-				8DC14BDE1ECD893100CFCCE4 /* NSDictionary+ZBKeyMapping.m */,
-				8DC14BDF1ECD893100CFCCE4 /* NSMutableDictionary+NilFuckOff.h */,
-				8DC14BE01ECD893100CFCCE4 /* NSMutableDictionary+NilFuckOff.m */,
-				8DC14BE11ECD893100CFCCE4 /* OznerBonjourDetail.h */,
-				8DC14BE21ECD893100CFCCE4 /* OznerBonjourDetail.m */,
-				8DC14BE31ECD893100CFCCE4 /* ZBBonjourService.h */,
-				8DC14BE41ECD893100CFCCE4 /* ZBBonjourService.m */,
+				8D72E4AE1F1DA4F7003A2067 /* WaterPurifier_Wifi.swift */,
 			);
-			path = EasyLink;
+			path = WaterPurifier_Wifi;
 			sourceTree = "<group>";
 		};
-		8DC14BEC1ECD8A3600CFCCE4 /* CocoaAsyncSocket */ = {
+		8D72E4AF1F1DA4F7003A2067 /* WaterReplenish */ = {
 			isa = PBXGroup;
 			children = (
-				8DC14BED1ECD8A3600CFCCE4 /* Source */,
+				8D72E4B01F1DA4F7003A2067 /* WaterReplenish.swift */,
+				8D72E4B11F1DA4F7003A2067 /* WaterReplenishStatus.swift */,
+			);
+			path = WaterReplenish;
+			sourceTree = "<group>";
+		};
+		8D72E4B21F1DA4F7003A2067 /* OznerDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4B31F1DA4F7003A2067 /* OznerDataManager.swift */,
+				8D72E4B41F1DA4F7003A2067 /* OznerDeviceRecordHelper.swift */,
+			);
+			path = OznerDataManager;
+			sourceTree = "<group>";
+		};
+		8D72E4B51F1DA4F7003A2067 /* OznerIOManager */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4B61F1DA4F7003A2067 /* Ayla */,
+				8D72E4B91F1DA4F7003A2067 /* Bluetooth */,
+				8D72E4D51F1DA4F7003A2067 /* MxChip */,
+				8D72E4FA1F1DA4F7003A2067 /* OznerBaseIO */,
+				8D72E4FC1F1DA4F7003A2067 /* OznerIOManager.swift */,
+			);
+			path = OznerIOManager;
+			sourceTree = "<group>";
+		};
+		8D72E4B61F1DA4F7003A2067 /* Ayla */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4B71F1DA4F7003A2067 /* OZAylaIO.swift */,
+				8D72E4B81F1DA4F7003A2067 /* OznerAylaManager.swift */,
+			);
+			path = Ayla;
+			sourceTree = "<group>";
+		};
+		8D72E4B91F1DA4F7003A2067 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4BA1F1DA4F7003A2067 /* BabyBLEHelper.h */,
+				8D72E4BB1F1DA4F7003A2067 /* BabyBLEHelper.m */,
+				8D72E4BC1F1DA4F7003A2067 /* BabyBLEIO.h */,
+				8D72E4BD1F1DA4F7003A2067 /* BabyBLEIO.m */,
+				8D72E4BE1F1DA4F7003A2067 /* BabyBluetooth */,
+				8D72E4D31F1DA4F7003A2067 /* OZBluetoothIO.swift */,
+				8D72E4D41F1DA4F7003A2067 /* OznerBluetoothManager.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		8D72E4BE1F1DA4F7003A2067 /* BabyBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4BF1F1DA4F7003A2067 /* Classes */,
+			);
+			path = BabyBluetooth;
+			sourceTree = "<group>";
+		};
+		8D72E4BF1F1DA4F7003A2067 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4C01F1DA4F7003A2067 /* objc */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8D72E4C01F1DA4F7003A2067 /* objc */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4C11F1DA4F7003A2067 /* BabyBluetooth.h */,
+				8D72E4C21F1DA4F7003A2067 /* BabyBluetooth.m */,
+				8D72E4C31F1DA4F7003A2067 /* BabyCallback.h */,
+				8D72E4C41F1DA4F7003A2067 /* BabyCallback.m */,
+				8D72E4C51F1DA4F7003A2067 /* BabyCentralManager.h */,
+				8D72E4C61F1DA4F7003A2067 /* BabyCentralManager.m */,
+				8D72E4C71F1DA4F7003A2067 /* BabyDefine.h */,
+				8D72E4C81F1DA4F7003A2067 /* BabyDefine.m */,
+				8D72E4C91F1DA4F7003A2067 /* BabyOptions.h */,
+				8D72E4CA1F1DA4F7003A2067 /* BabyOptions.m */,
+				8D72E4CB1F1DA4F7003A2067 /* BabyPeripheralManager.h */,
+				8D72E4CC1F1DA4F7003A2067 /* BabyPeripheralManager.m */,
+				8D72E4CD1F1DA4F7003A2067 /* BabyRhythm.h */,
+				8D72E4CE1F1DA4F7003A2067 /* BabyRhythm.m */,
+				8D72E4CF1F1DA4F7003A2067 /* BabySpeaker.h */,
+				8D72E4D01F1DA4F7003A2067 /* BabySpeaker.m */,
+				8D72E4D11F1DA4F7003A2067 /* BabyToy.h */,
+				8D72E4D21F1DA4F7003A2067 /* BabyToy.m */,
+			);
+			path = objc;
+			sourceTree = "<group>";
+		};
+		8D72E4D51F1DA4F7003A2067 /* MxChip */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4D61F1DA4F7003A2067 /* CocoaAsyncSocket */,
+				8D72E4E21F1DA4F7003A2067 /* EasyLink */,
+				8D72E4F11F1DA4F7003A2067 /* OZMxChipIO.swift */,
+				8D72E4F21F1DA4F7003A2067 /* OznerEasyLink_V1.swift */,
+				8D72E4F31F1DA4F7003A2067 /* OznerEasyLink_V2.swift */,
+				8D72E4F41F1DA4F7003A2067 /* OznerMQTT_V1.swift */,
+				8D72E4F51F1DA4F7003A2067 /* OznerMQTT_V2.swift */,
+				8D72E4F61F1DA4F7003A2067 /* OznerMxChipManager.swift */,
+				8D72E4F71F1DA4F7003A2067 /* Reachability */,
+			);
+			path = MxChip;
+			sourceTree = "<group>";
+		};
+		8D72E4D61F1DA4F7003A2067 /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4D71F1DA4F7003A2067 /* Source */,
 			);
 			path = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
-		8DC14BED1ECD8A3600CFCCE4 /* Source */ = {
+		8D72E4D71F1DA4F7003A2067 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				8DC14BEE1ECD8A3600CFCCE4 /* GCD */,
-				8DC14BF31ECD8A3600CFCCE4 /* RunLoop */,
+				8D72E4D81F1DA4F7003A2067 /* GCD */,
+				8D72E4DD1F1DA4F7003A2067 /* RunLoop */,
 			);
 			path = Source;
 			sourceTree = "<group>";
 		};
-		8DC14BEE1ECD8A3600CFCCE4 /* GCD */ = {
+		8D72E4D81F1DA4F7003A2067 /* GCD */ = {
 			isa = PBXGroup;
 			children = (
-				8DC14BEF1ECD8A3600CFCCE4 /* GCDAsyncSocket.h */,
-				8DC14BF01ECD8A3600CFCCE4 /* GCDAsyncSocket.m */,
-				8DC14BF11ECD8A3600CFCCE4 /* GCDAsyncUdpSocket.h */,
-				8DC14BF21ECD8A3600CFCCE4 /* GCDAsyncUdpSocket.m */,
+				8D72E4D91F1DA4F7003A2067 /* GCDAsyncSocket.h */,
+				8D72E4DA1F1DA4F7003A2067 /* GCDAsyncSocket.m */,
+				8D72E4DB1F1DA4F7003A2067 /* GCDAsyncUdpSocket.h */,
+				8D72E4DC1F1DA4F7003A2067 /* GCDAsyncUdpSocket.m */,
 			);
 			path = GCD;
 			sourceTree = "<group>";
 		};
-		8DC14BF31ECD8A3600CFCCE4 /* RunLoop */ = {
+		8D72E4DD1F1DA4F7003A2067 /* RunLoop */ = {
 			isa = PBXGroup;
 			children = (
-				8DC14BF41ECD8A3600CFCCE4 /* AsyncSocket.h */,
-				8DC14BF51ECD8A3600CFCCE4 /* AsyncSocket.m */,
-				8DC14BF61ECD8A3600CFCCE4 /* AsyncUdpSocket.h */,
-				8DC14BF71ECD8A3600CFCCE4 /* AsyncUdpSocket.m */,
+				8D72E4DE1F1DA4F7003A2067 /* AsyncSocket.h */,
+				8D72E4DF1F1DA4F7003A2067 /* AsyncSocket.m */,
+				8D72E4E01F1DA4F7003A2067 /* AsyncUdpSocket.h */,
+				8D72E4E11F1DA4F7003A2067 /* AsyncUdpSocket.m */,
 			);
 			path = RunLoop;
+			sourceTree = "<group>";
+		};
+		8D72E4E21F1DA4F7003A2067 /* EasyLink */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4E31F1DA4F7003A2067 /* EasyLink.h */,
+				8D72E4E41F1DA4F7003A2067 /* libEasyLink.a */,
+				8D72E4E51F1DA4F7003A2067 /* NSData+IPAddress.h */,
+				8D72E4E61F1DA4F7003A2067 /* NSData+IPAddress.m */,
+				8D72E4E71F1DA4F7003A2067 /* NSDictionary+ZBAdd.h */,
+				8D72E4E81F1DA4F7003A2067 /* NSDictionary+ZBAdd.m */,
+				8D72E4E91F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.h */,
+				8D72E4EA1F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.m */,
+				8D72E4EB1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.h */,
+				8D72E4EC1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.m */,
+				8D72E4ED1F1DA4F7003A2067 /* OznerBonjourDetail.h */,
+				8D72E4EE1F1DA4F7003A2067 /* OznerBonjourDetail.m */,
+				8D72E4EF1F1DA4F7003A2067 /* ZBBonjourService.h */,
+				8D72E4F01F1DA4F7003A2067 /* ZBBonjourService.m */,
+			);
+			path = EasyLink;
+			sourceTree = "<group>";
+		};
+		8D72E4F71F1DA4F7003A2067 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4F81F1DA4F7003A2067 /* Reachability.h */,
+				8D72E4F91F1DA4F7003A2067 /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		8D72E4FA1F1DA4F7003A2067 /* OznerBaseIO */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4FB1F1DA4F7003A2067 /* OznerBaseIO.swift */,
+			);
+			path = OznerBaseIO;
+			sourceTree = "<group>";
+		};
+		8D72E4FE1F1DA4F7003A2067 /* OznerTools */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E4FF1F1DA4F7003A2067 /* DeviceConfig */,
+				8D72E5021F1DA4F7003A2067 /* Helper.h */,
+				8D72E5031F1DA4F7003A2067 /* Helper.m */,
+				8D72E5041F1DA4F7003A2067 /* OznerTools.swift */,
+			);
+			path = OznerTools;
+			sourceTree = "<group>";
+		};
+		8D72E4FF1F1DA4F7003A2067 /* DeviceConfig */ = {
+			isa = PBXGroup;
+			children = (
+				8D72E5001F1DA4F7003A2067 /* ProductInfo.plist */,
+				8D72E5011F1DA4F7003A2067 /* ProductInfo.swift */,
+			);
+			path = DeviceConfig;
 			sourceTree = "<group>";
 		};
 		8DD3493A1E0BA62200C945A2 = {
 			isa = PBXGroup;
 			children = (
-				8D1DBCA01F078B740083E1D6 /* SwiftyJSON.framework */,
+				8DDBDC0F1F1DA8AE004912F0 /* SwiftyJSON.framework */,
+				8D72E49C1F1DA4F7003A2067 /* OznerLibrarySwifty */,
 				8D2419A61E1111D700CF9B9C /* OznerLibrarySwiftyDemo-Bridging-Header.h */,
-				8DD349741E0BA66600C945A2 /* OznerLibrarySwifty */,
 				8DD349451E0BA62200C945A2 /* OznerLibrarySwiftyDemo */,
 				8DD3495A1E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests */,
 				8DD349651E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests */,
@@ -491,146 +648,6 @@
 			path = OznerLibrarySwiftyDemoUITests;
 			sourceTree = "<group>";
 		};
-		8DD349741E0BA66600C945A2 /* OznerLibrarySwifty */ = {
-			isa = PBXGroup;
-			children = (
-				8DD349761E0BA7A100C945A2 /* OznerManager.swift */,
-				8D441D7D1E0CF1F700B895D4 /* OznerDataManager */,
-				8DD3498F1E0BC66400C945A2 /* OznerIOManager */,
-				8DD349751E0BA75F00C945A2 /* DeviceManager */,
-				8DE095911E1E512700D00679 /* OznerTools */,
-			);
-			path = OznerLibrarySwifty;
-			sourceTree = "<group>";
-		};
-		8DD349751E0BA75F00C945A2 /* DeviceManager */ = {
-			isa = PBXGroup;
-			children = (
-				8DD349781E0BA82900C945A2 /* OznerDeviceManager.swift */,
-				8DE095871E1B8A8900D00679 /* Cup */,
-				8DE095881E1B8AC500D00679 /* Tap */,
-				8DD3497A1E0BA8D300C945A2 /* AirPurifier_Bluetooth */,
-				8D2C8F8C1E1F83F5002D83EF /* WaterReplenish */,
-				8D54AC601E20B15500689790 /* WaterPurifier_Blue */,
-				8D54AC5F1E20B14800689790 /* WaterPurifier_Wifi */,
-				8DD3497B1E0BA8D300C945A2 /* AirPurifier_Wifi */,
-				8DD3497C1E0BA8D300C945A2 /* BaseDevice */,
-			);
-			path = DeviceManager;
-			sourceTree = "<group>";
-		};
-		8DD3497A1E0BA8D300C945A2 /* AirPurifier_Bluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				8DD349831E0BA9ED00C945A2 /* AirPurifier_Bluetooth.swift */,
-			);
-			path = AirPurifier_Bluetooth;
-			sourceTree = "<group>";
-		};
-		8DD3497B1E0BA8D300C945A2 /* AirPurifier_Wifi */ = {
-			isa = PBXGroup;
-			children = (
-				8DD349851E0BAA0500C945A2 /* AirPurifier_Wifi.swift */,
-			);
-			path = AirPurifier_Wifi;
-			sourceTree = "<group>";
-		};
-		8DD3497C1E0BA8D300C945A2 /* BaseDevice */ = {
-			isa = PBXGroup;
-			children = (
-				8DD349811E0BA9C600C945A2 /* OznerBaseDevice.swift */,
-				8DD349871E0BB57A00C945A2 /* BaseDeviceSetting.swift */,
-			);
-			path = BaseDevice;
-			sourceTree = "<group>";
-		};
-		8DD3498F1E0BC66400C945A2 /* OznerIOManager */ = {
-			isa = PBXGroup;
-			children = (
-				8DD349931E0BD2B400C945A2 /* OznerIOManager.swift */,
-				8DD349901E0BC69500C945A2 /* OznerBaseIO */,
-				8DD349961E0BD2EF00C945A2 /* Bluetooth */,
-				8DD349951E0BD2EF00C945A2 /* Ayla */,
-				8DD349971E0BD2EF00C945A2 /* MxChip */,
-			);
-			path = OznerIOManager;
-			sourceTree = "<group>";
-		};
-		8DD349901E0BC69500C945A2 /* OznerBaseIO */ = {
-			isa = PBXGroup;
-			children = (
-				8DD349911E0BC6B100C945A2 /* OznerBaseIO.swift */,
-			);
-			path = OznerBaseIO;
-			sourceTree = "<group>";
-		};
-		8DD349951E0BD2EF00C945A2 /* Ayla */ = {
-			isa = PBXGroup;
-			children = (
-				8DD349981E0BD33300C945A2 /* OZAylaIO.swift */,
-				8DD3499E1E0BD99C00C945A2 /* OznerAylaManager.swift */,
-			);
-			path = Ayla;
-			sourceTree = "<group>";
-		};
-		8DD349961E0BD2EF00C945A2 /* Bluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				8D2419851E11113B00CF9B9C /* BabyBluetooth */,
-				8DD3499A1E0BD34E00C945A2 /* OZBluetoothIO.swift */,
-				8DD349A01E0BD9B100C945A2 /* OznerBluetoothManager.swift */,
-				8D1ED41B1E12332F0081D2BB /* BabyBLEHelper.h */,
-				8D1ED41C1E12332F0081D2BB /* BabyBLEHelper.m */,
-				8D1ED41E1E1239230081D2BB /* BabyBLEIO.h */,
-				8D1ED41F1E1239230081D2BB /* BabyBLEIO.m */,
-			);
-			path = Bluetooth;
-			sourceTree = "<group>";
-		};
-		8DD349971E0BD2EF00C945A2 /* MxChip */ = {
-			isa = PBXGroup;
-			children = (
-				8DC14BEC1ECD8A3600CFCCE4 /* CocoaAsyncSocket */,
-				8DC14BD61ECD893100CFCCE4 /* EasyLink */,
-				8D1FB62E1E531ACC0075C009 /* Reachability */,
-				8DD3499C1E0BD36300C945A2 /* OZMxChipIO.swift */,
-				8DD349A21E0BD9C400C945A2 /* OznerMxChipManager.swift */,
-				8D2055511E543AC9003E51A2 /* OznerMQTT_V1.swift */,
-				8D2055531E544A28003E51A2 /* OznerEasyLink_V1.swift */,
-				8D2287E71EC9BEE00094096B /* OznerEasyLink_V2.swift */,
-				8D2287E91EC9BF890094096B /* OznerMQTT_V2.swift */,
-			);
-			path = MxChip;
-			sourceTree = "<group>";
-		};
-		8DE095871E1B8A8900D00679 /* Cup */ = {
-			isa = PBXGroup;
-			children = (
-				8DE095891E1B8B0A00D00679 /* Cup.swift */,
-				8DE0958F1E1DEA2B00D00679 /* OznerCupRecords.swift */,
-			);
-			path = Cup;
-			sourceTree = "<group>";
-		};
-		8DE095881E1B8AC500D00679 /* Tap */ = {
-			isa = PBXGroup;
-			children = (
-				8DE0958B1E1B8B1A00D00679 /* Tap.swift */,
-			);
-			path = Tap;
-			sourceTree = "<group>";
-		};
-		8DE095911E1E512700D00679 /* OznerTools */ = {
-			isa = PBXGroup;
-			children = (
-				8D1DBC9B1F0785470083E1D6 /* DeviceConfig */,
-				8D7C9B991E55833700D29C5D /* Helper.h */,
-				8D7C9B9A1E55833700D29C5D /* Helper.m */,
-				8DE095921E1E513500D00679 /* OznerTools.swift */,
-			);
-			path = OznerTools;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -644,6 +661,7 @@
 				8DD349411E0BA62200C945A2 /* Resources */,
 				866D5D1B1E92EDA22E4927C2 /* [CP] Embed Pods Frameworks */,
 				04EE88EA6FC72C78053F10C7 /* [CP] Copy Pods Resources */,
+				8DDBDC121F1DA8AE004912F0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -745,9 +763,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D72E5371F1DA4F7003A2067 /* ProductInfo.plist in Resources */,
 				8DD349511E0BA62200C945A2 /* LaunchScreen.storyboard in Resources */,
 				8DD3494E1E0BA62200C945A2 /* Assets.xcassets in Resources */,
-				8D1DBC9E1F0785470083E1D6 /* DeviceInfo.plist in Resources */,
 				8DD3494C1E0BA62200C945A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -821,63 +839,63 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DC14BF91ECD8A3600CFCCE4 /* GCDAsyncUdpSocket.m in Sources */,
-				8DC14BEB1ECD893100CFCCE4 /* ZBBonjourService.m in Sources */,
-				8D2419C51E11122200CF9B9C /* BabySpeaker.m in Sources */,
-				8DC14BE61ECD893100CFCCE4 /* NSData+IPAddress.m in Sources */,
+				8D72E50E1F1DA4F7003A2067 /* WaterPurifier_Wifi.swift in Sources */,
+				8D72E52F1F1DA4F7003A2067 /* OznerEasyLink_V2.swift in Sources */,
+				8D72E5251F1DA4F7003A2067 /* AsyncUdpSocket.m in Sources */,
+				8D72E51D1F1DA4F7003A2067 /* BabyRhythm.m in Sources */,
+				8D72E50A1F1DA4F7003A2067 /* OznerCupRecords.swift in Sources */,
+				8D72E51B1F1DA4F7003A2067 /* BabyOptions.m in Sources */,
+				8D72E5291F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.m in Sources */,
+				8D72E5111F1DA4F7003A2067 /* OznerDataManager.swift in Sources */,
+				8D72E5281F1DA4F7003A2067 /* NSDictionary+ZBAdd.m in Sources */,
 				8D183CE61E28723D002E4618 /* ResultViewController.swift in Sources */,
-				8DD349991E0BD33300C945A2 /* OZAylaIO.swift in Sources */,
-				8DC14BF81ECD8A3600CFCCE4 /* GCDAsyncSocket.m in Sources */,
-				8D2287E81EC9BEE00094096B /* OznerEasyLink_V2.swift in Sources */,
-				8D2419C11E11122200CF9B9C /* BabyDefine.m in Sources */,
-				8D441D7F1E0CF21100B895D4 /* OznerDataManager.swift in Sources */,
-				8DE0958C1E1B8B1A00D00679 /* Tap.swift in Sources */,
-				8DC14BE71ECD893100CFCCE4 /* NSDictionary+ZBAdd.m in Sources */,
-				8D2419C21E11122200CF9B9C /* BabyOptions.m in Sources */,
-				8D2055521E543AC9003E51A2 /* OznerMQTT_V1.swift in Sources */,
-				8DD3499F1E0BD99C00C945A2 /* OznerAylaManager.swift in Sources */,
-				8DD349791E0BA82900C945A2 /* OznerDeviceManager.swift in Sources */,
-				8D2055541E544A28003E51A2 /* OznerEasyLink_V1.swift in Sources */,
-				8D2419C31E11122200CF9B9C /* BabyPeripheralManager.m in Sources */,
-				8D2C8F901E1F9081002D83EF /* WaterReplenishStatus.swift in Sources */,
-				8DD3499D1E0BD36300C945A2 /* OZMxChipIO.swift in Sources */,
-				8D1ED4201E1239230081D2BB /* BabyBLEIO.m in Sources */,
-				8D1DBC9F1F0785470083E1D6 /* DeviceConfigManager.swift in Sources */,
-				8DD349A11E0BD9B100C945A2 /* OznerBluetoothManager.swift in Sources */,
+				8D72E5081F1DA4F7003A2067 /* OznerBaseDevice.swift in Sources */,
+				8D72E5391F1DA4F7003A2067 /* Helper.m in Sources */,
+				8D72E5271F1DA4F7003A2067 /* NSData+IPAddress.m in Sources */,
+				8D72E5151F1DA4F7003A2067 /* BabyBLEHelper.m in Sources */,
+				8D72E5171F1DA4F7003A2067 /* BabyBluetooth.m in Sources */,
+				8D72E5361F1DA4F7003A2067 /* OznerManager.swift in Sources */,
+				8D72E5351F1DA4F7003A2067 /* OznerIOManager.swift in Sources */,
+				8D72E5061F1DA4F7003A2067 /* AirPurifier_Wifi.swift in Sources */,
+				8D72E5321F1DA4F7003A2067 /* OznerMxChipManager.swift in Sources */,
+				8D72E5331F1DA4F7003A2067 /* Reachability.m in Sources */,
 				8D60675E1E27895E00C87CC0 /* AddDeviceTableViewController.swift in Sources */,
-				8D1ED41D1E12332F0081D2BB /* BabyBLEHelper.m in Sources */,
-				8DD349861E0BAA0500C945A2 /* AirPurifier_Wifi.swift in Sources */,
-				8D60675C1E2783FC00C87CC0 /* WaterPurifier_Wifi.swift in Sources */,
-				8D2419BF1E11122200CF9B9C /* BabyCallback.m in Sources */,
-				8DD349841E0BA9ED00C945A2 /* AirPurifier_Bluetooth.swift in Sources */,
-				8DE0958A1E1B8B0A00D00679 /* Cup.swift in Sources */,
-				8D2287EA1EC9BF890094096B /* OznerMQTT_V2.swift in Sources */,
-				8D54AC621E20B1EA00689790 /* WaterPurifier_Blue.swift in Sources */,
-				8DD349881E0BB57A00C945A2 /* BaseDeviceSetting.swift in Sources */,
-				8DD349921E0BC6B100C945A2 /* OznerBaseIO.swift in Sources */,
-				8D2419C01E11122200CF9B9C /* BabyCentralManager.m in Sources */,
-				8DE0958E1E1C8E6A00D00679 /* OznerDeviceRecordHelper.swift in Sources */,
+				8D72E5211F1DA4F7003A2067 /* OznerBluetoothManager.swift in Sources */,
+				8D72E5241F1DA4F7003A2067 /* AsyncSocket.m in Sources */,
+				8D72E5191F1DA4F7003A2067 /* BabyCentralManager.m in Sources */,
+				8D72E5071F1DA4F7003A2067 /* BaseDeviceSetting.swift in Sources */,
+				8D72E5051F1DA4F7003A2067 /* AirPurifier_Blue.swift in Sources */,
+				8D72E5131F1DA4F7003A2067 /* OZAylaIO.swift in Sources */,
+				8D72E5121F1DA4F7003A2067 /* OznerDeviceRecordHelper.swift in Sources */,
+				8D72E5181F1DA4F7003A2067 /* BabyCallback.m in Sources */,
+				8D72E50D1F1DA4F7003A2067 /* WaterPurifier_Blue.swift in Sources */,
+				8D72E5091F1DA4F7003A2067 /* Cup.swift in Sources */,
+				8D72E50C1F1DA4F7003A2067 /* Tap.swift in Sources */,
+				8D72E5341F1DA4F7003A2067 /* OznerBaseIO.swift in Sources */,
+				8D72E5201F1DA4F7003A2067 /* OZBluetoothIO.swift in Sources */,
+				8D72E50B1F1DA4F7003A2067 /* OznerDeviceManager.swift in Sources */,
+				8D72E52B1F1DA4F7003A2067 /* OznerBonjourDetail.m in Sources */,
+				8D72E52C1F1DA4F7003A2067 /* ZBBonjourService.m in Sources */,
+				8D72E5101F1DA4F7003A2067 /* WaterReplenishStatus.swift in Sources */,
+				8D72E51E1F1DA4F7003A2067 /* BabySpeaker.m in Sources */,
+				8D72E50F1F1DA4F7003A2067 /* WaterReplenish.swift in Sources */,
+				8D72E5221F1DA4F7003A2067 /* GCDAsyncSocket.m in Sources */,
+				8D72E52A1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.m in Sources */,
+				8D72E52E1F1DA4F7003A2067 /* OznerEasyLink_V1.swift in Sources */,
+				8D72E51A1F1DA4F7003A2067 /* BabyDefine.m in Sources */,
+				8D72E5381F1DA4F7003A2067 /* ProductInfo.swift in Sources */,
+				8D72E5231F1DA4F7003A2067 /* GCDAsyncUdpSocket.m in Sources */,
+				8D72E5301F1DA4F7003A2067 /* OznerMQTT_V1.swift in Sources */,
+				8D72E5311F1DA4F7003A2067 /* OznerMQTT_V2.swift in Sources */,
+				8D72E53A1F1DA4F7003A2067 /* OznerTools.swift in Sources */,
+				8D72E51C1F1DA4F7003A2067 /* BabyPeripheralManager.m in Sources */,
+				8D72E5141F1DA4F7003A2067 /* OznerAylaManager.swift in Sources */,
+				8D72E52D1F1DA4F7003A2067 /* OZMxChipIO.swift in Sources */,
 				8D6067601E27897A00C87CC0 /* DeviceDetailViewController.swift in Sources */,
-				8DE095901E1DEA2B00D00679 /* OznerCupRecords.swift in Sources */,
 				8DD349491E0BA62200C945A2 /* ViewController.swift in Sources */,
-				8DC14BFB1ECD8A3600CFCCE4 /* AsyncUdpSocket.m in Sources */,
-				8DD3499B1E0BD34E00C945A2 /* OZBluetoothIO.swift in Sources */,
+				8D72E5161F1DA4F7003A2067 /* BabyBLEIO.m in Sources */,
+				8D72E51F1F1DA4F7003A2067 /* BabyToy.m in Sources */,
 				8DD349471E0BA62200C945A2 /* AppDelegate.swift in Sources */,
-				8DC14BE91ECD893100CFCCE4 /* NSMutableDictionary+NilFuckOff.m in Sources */,
-				8DD349821E0BA9C600C945A2 /* OznerBaseDevice.swift in Sources */,
-				8D7C9B9B1E55833700D29C5D /* Helper.m in Sources */,
-				8D2419BE1E11122200CF9B9C /* BabyBluetooth.m in Sources */,
-				8D2C8F8E1E1F840E002D83EF /* WaterReplenish.swift in Sources */,
-				8DC14BEA1ECD893100CFCCE4 /* OznerBonjourDetail.m in Sources */,
-				8D2419C41E11122200CF9B9C /* BabyRhythm.m in Sources */,
-				8D1FB63B1E531ACC0075C009 /* Reachability.m in Sources */,
-				8DD349941E0BD2B400C945A2 /* OznerIOManager.swift in Sources */,
-				8DE095931E1E513500D00679 /* OznerTools.swift in Sources */,
-				8DD349A31E0BD9C400C945A2 /* OznerMxChipManager.swift in Sources */,
-				8D2419C61E11122200CF9B9C /* BabyToy.m in Sources */,
-				8DD349771E0BA7A100C945A2 /* OznerManager.swift in Sources */,
-				8DC14BE81ECD893100CFCCE4 /* NSDictionary+ZBKeyMapping.m in Sources */,
-				8DC14BFA1ECD8A3600CFCCE4 /* AsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

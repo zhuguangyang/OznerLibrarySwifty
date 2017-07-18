@@ -80,14 +80,14 @@ class Tap: OznerBaseDevice {
         self.SendDataToDevice(sendData: Data.init(bytes: [0x18])) { (error) in}//opCode_ReadMAC
         
     }
-    
+  
     override func repeatFunc() {
-        if NSDate().second()%2==0 {
+        if Int(arc4random()%2)==0 {
             self.SendDataToDevice(sendData: Data.init(bytes: [0x17])) { (error) in}//opCode_ReadTapRecord
         }else{
             self.SendDataToDevice(sendData: Data.init(bytes: [0x12])) { (error) in}//opCode_ReadSensor
         }
-        
+       
     }
     
     private func sendTime()  {

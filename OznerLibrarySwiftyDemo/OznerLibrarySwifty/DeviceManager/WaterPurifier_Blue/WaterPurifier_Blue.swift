@@ -11,12 +11,11 @@ import UIKit
 class WaterPurifier_Blue: OznerBaseDevice {
     
     //对外只读，对内可读写
-    
     private(set) var WaterSettingInfo:(rtc:Date,Ozone_WorkTime:Int,Ozone_Interval:Int,waterDate:Date)=(Date(timeIntervalSince1970: 0),0,0,Date(timeIntervalSince1970: 0)){
         didSet{
             if WaterSettingInfo != oldValue {
                 self.delegate?.OznerDeviceRecordUpdate?(identifier: self.deviceInfo.deviceID)
-                
+                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
             }
         }
     }
@@ -24,7 +23,6 @@ class WaterPurifier_Blue: OznerBaseDevice {
         didSet{
             if WaterInfo != oldValue {
                 self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
-                
             }
         }
     }
@@ -32,11 +30,42 @@ class WaterPurifier_Blue: OznerBaseDevice {
         didSet{
             if FilterInfo != oldValue {
                 self.delegate?.OznerDevicefilterUpdate?(identifier: self.deviceInfo.deviceID)
-                
+                self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
             }
         }
     }
-    func setWaterTime(months:Int) -> Bool {
+    
+    
+    private(set) var TwoInfo:(hottempSet:Int,isPower:Int,openPowerTime:Int,closePowerTime:Int,isHot:Int,startHotTime:Int,endHotTime:Int,isCold:Int) = (40,0,0,0,0,0,0,0){
+        
+        didSet{
+            if TwoInfo != oldValue {
+             
+                self.delegate?.OznerDeviceSensorUpdate!(identifier: self.deviceInfo.deviceID)
+                
+            }
+        }
+        
+    }
+    
+    func setHotTemp(_ temp:Int) -> Bool {
+        
+        if temp == TwoInfo.hottempSet {
+            return true
+        }
+        
+        var data = Data.init(bytes: [0x41,UInt8(temp),UInt8(TwoInfo.isPower),UInt8(TwoInfo.openPowerTime),UInt8(TwoInfo.closePowerTime),UInt8(TwoInfo.isHot),UInt8(TwoInfo.startHotTime),UInt8(TwoInfo.endHotTime),UInt8(TwoInfo.isCold)])
+        let tmpByte = calcSum(data: data)
+        data.append(tmpByte)
+        self.SendDataToDevice(sendData: data) { (error) in
+   
+        }
+        sleep(UInt32(0.3))
+        
+        return true
+    }
+    
+    func addWaterDays(days:Int) -> Bool {
         let curWaterDate = WaterSettingInfo.waterDate
         if curWaterDate.timeIntervalSince1970==0 {//没有获取到水值信息
             requestWaterInfo()
@@ -46,7 +75,7 @@ class WaterPurifier_Blue: OznerBaseDevice {
         if (curWaterDate.timeIntervalSince(stopDate as Date)>0) {
             stopDate=curWaterDate as NSDate
         }
-        stopDate = stopDate.addingMonths(months) as NSDate
+        stopDate = stopDate.addingDays(days) as NSDate
         var data = Data.init(bytes: [
             0x40,UInt8(NSDate().year()-2000),
             UInt8(NSDate().month()),
@@ -95,19 +124,34 @@ class WaterPurifier_Blue: OznerBaseDevice {
             let C_Time = recvData.subInt(starIndex: 9, count: 4)
             FilterInfo=(A_Time,B_Time,C_Time,Int(recvData[13]),Int(recvData[14]),Int(recvData[15]))
         case 0x25:
+            let hottempSet = recvData.subInt(starIndex: 1, count: 1)
+            let isPower = recvData.subInt(starIndex: 2, count: 1)
+            let openPowerTime = recvData.subInt(starIndex: 3, count: 1)
+            let closePowerTime = recvData.subInt(starIndex: 4, count: 1)
+            let isHot = recvData.subInt(starIndex: 5, count: 1)
+            let startHotTime = recvData.subInt(starIndex: 6, count: 1)
+            let endHotTime = recvData.subInt(starIndex: 7, count: 1)
+            let isCold  = recvData.subInt(starIndex: 8, count: 1)
+            
+            TwoInfo = (hottempSet,isPower,openPowerTime,closePowerTime,isHot,startHotTime,endHotTime,isCold)
+            
             break
         default:
             break
         }
     }
+    
     override func doWillInit(){}
     override func repeatFunc() {
-        if NSDate().second()%2==0 {
+        
+        if Int(arc4random()%2)==0 {
             requestFilterInfo()
             requestSettingInfo()
         }else{
             requestWaterInfo()
+            requestSetting()
         }
+        
     }
     
     private func calcSum(data:Data)->UInt8{
@@ -128,6 +172,10 @@ class WaterPurifier_Blue: OznerBaseDevice {
     private func requestFilterInfo(){
         let tmpBytes = calcSum(data: Data.init(bytes: [0x20,UInt8(3)]))
         self.SendDataToDevice(sendData: Data.init(bytes: [0x20,UInt8(3),tmpBytes]), CallBack: nil)
+    }
+    private func requestSetting(){
+        let tmpBytes = calcSum(data: Data.init(bytes: [0x20,UInt8(5)]))
+        self.SendDataToDevice(sendData: Data.init(bytes: [0x20,UInt8(5),tmpBytes]), CallBack: nil)
     }
     /*!
      滤芯历史信息
@@ -172,4 +220,10 @@ class WaterPurifier_Blue: OznerBaseDevice {
     override func describe() -> String {
         return "name:\(self.settings.name!)\nconnectStatus:\(self.connectStatus)\nTDS1:\(self.WaterInfo.TDS1),TDS2:\(self.WaterInfo.TDS2),TDS_Temperature:\(self.WaterInfo.TDS_Temperature)\nrtc:\(self.WaterSettingInfo.rtc),Ozone_Interval:\(self.WaterSettingInfo.Ozone_Interval),Ozone_WorkTime:\(self.WaterSettingInfo.Ozone_WorkTime),waterDate:\(self.WaterSettingInfo.waterDate)\nFilterA:\(self.FilterInfo.Filter_A_Percentage),FilterB:\(self.FilterInfo.Filter_B_Percentage),FilterC:\(self.FilterInfo.Filter_C_Percentage)\n"
     }
+}
+
+public func !=<A, B, C, D, E,F,G,H>(lhs: (A, B, C, D, E,F,G,H), rhs: (A, B, C, D, E,F,G,H)) -> Bool where A : Equatable, B : Equatable, C : Equatable, D : Equatable, E : Equatable,F : Equatable, G : Equatable, H : Equatable {
+    
+    return lhs.0 != rhs.0 && lhs.1 != rhs.1 && lhs.2 != rhs.2 && lhs.3 != rhs.3 && lhs.4 != rhs.4 && lhs.5 != rhs.5 && lhs.6 != rhs.6 && lhs.7 != rhs.7
+    
 }

@@ -7,7 +7,7 @@
 //
 
 #import "BabyBLEHelper.h"
-
+//#import "ScanData.h"
 
 @implementation BabyBLEHelper
 {
@@ -56,16 +56,26 @@ NSString* deviceName=nil;
 #pragma mark -蓝牙配置和操作
 -(NSString*)getMac:(NSDictionary *)advertisementData Name:(NSString*)name {
     NSString* MAC=@"";
-    if (![name isEqualToString:@"Ozner Cup"]) {
-        
-        if ([advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey])
-        {
-            NSData* data=[advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey];
-            
-            BytePtr bytes=(BytePtr)[data bytes];
-            MAC = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
-                         bytes[7],bytes[6],bytes[5],bytes[4],bytes[3],bytes[2]];
-        }
+    NSData* macData1=nil;
+    NSData* macData2=nil;
+    if ([advertisementData objectForKey:CBAdvertisementDataServiceDataKey])
+    {
+        NSDictionary* dict=[advertisementData objectForKey:CBAdvertisementDataServiceDataKey];
+        CBUUID* uuid=[CBUUID UUIDWithString:@"FFF0"];
+        macData1=[dict objectForKey:uuid];
+    }
+    if ([advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey]){
+        macData2=[advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey];
+    }
+    if ([name isEqualToString:@"Ozner RO"]&&macData1.length>23) {
+        BytePtr bytes=(BytePtr)[macData1 bytes];
+        MAC=[NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
+             bytes[23],bytes[22],bytes[21],bytes[20],bytes[19],bytes[18]];
+    }
+    if ([name isEqualToString:@"Ozner Cup"]&&macData2.length>5) {
+        BytePtr bytes=(BytePtr)[macData2 bytes];
+        MAC=[NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
+             bytes[5],bytes[4],bytes[3],bytes[2],bytes[1],bytes[0]];
     }
     //台式空净OAP、0x20
     //水杯、
@@ -80,7 +90,7 @@ NSString* deviceName=nil;
             BytePtr bytes=(BytePtr)[data bytes];
             if (data != nil && data.length>7) {
                 MAC = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
-                       bytes[6],bytes[5],bytes[4],bytes[3],bytes[2],bytes[1]];
+                       bytes[7],bytes[6],bytes[5],bytes[4],bytes[3],bytes[2]];
             }
         }
     }

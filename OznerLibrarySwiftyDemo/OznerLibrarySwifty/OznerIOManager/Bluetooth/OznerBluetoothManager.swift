@@ -40,7 +40,7 @@ class OznerBluetoothManager: NSObject {
         var scanData=OznerDeviceInfo()
         let starDate = Date()
         self.failDelegateUsed=false
-        BabyBLEHelper.share().starScan(30, deviceName: deviceClass.pairID, block: { (uuidString,type,Mac, Distance,bleData) in
+        BabyBLEHelper.share().starScan(30, deviceName: (deviceClass == .TDSPan ? "Ozner Tap":deviceClass.pairID), block: { (uuidString,type,Mac, Distance,bleData) in
             if self.failDelegateUsed{//已经回调过了
                 return
             }
@@ -49,8 +49,8 @@ class OznerBluetoothManager: NSObject {
                 if scanData.deviceMac==""{//不是已扫描到的设备
                     scanData.deviceID=uuidString!
                     scanData.deviceMac=Mac!
-                    scanData.deviceType=type!
-                    scanData.productID="BLUE"
+                    scanData.deviceType=(deviceClass == .TDSPan ? "Ozner TDSPan":type!)
+                    scanData.productID = scanData.deviceType
                     pairDelegate?.OznerPairSucceed(deviceInfo: scanData)
                     self.canclePair()
                 }

@@ -101,14 +101,12 @@ class OznerDataManager: NSObject {
         return tmpDevices
     }
     func createDevice(deviceInfo:OznerDeviceInfo,setting:String?) -> OznerBaseDevice {
-        let typeInfo = (DeviceConfigManager.deviceTypeInfo)[deviceInfo.deviceType]!
+        let  deviceClass = ProductInfo.getDeviceClassFromProductID(productID: deviceInfo.productID)
         var tmpdev:OznerBaseDevice!
-        switch  typeInfo.deviceClass{
+        switch  deviceClass{
         case .Cup:
             tmpdev=Cup(deviceinfo: deviceInfo, Settings: setting)
-        case .Tap:
-            tmpdev = Tap(deviceinfo: deviceInfo, Settings: setting)
-        case .TDSPan:
+        case .Tap,.TDSPan:
             tmpdev = Tap(deviceinfo: deviceInfo, Settings: setting)
         case .WaterPurifier_Wifi:
             tmpdev = WaterPurifier_Wifi(deviceinfo: deviceInfo, Settings: setting)
@@ -117,7 +115,7 @@ class OznerDataManager: NSObject {
         case .WaterReplenish:
             tmpdev = WaterReplenish(deviceinfo: deviceInfo, Settings: setting)
         case .AirPurifier_Blue:
-            tmpdev = AirPurifier_Bluetooth(deviceinfo: deviceInfo, Settings: setting)
+            tmpdev = AirPurifier_Blue(deviceinfo: deviceInfo, Settings: setting)
         case .AirPurifier_Wifi:
             tmpdev = AirPurifier_Wifi(deviceinfo: deviceInfo, Settings: setting)
         }

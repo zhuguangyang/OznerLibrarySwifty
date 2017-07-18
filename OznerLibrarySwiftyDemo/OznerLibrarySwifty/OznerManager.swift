@@ -31,6 +31,7 @@ class OznerManager: NSObject {
     var currentDevice:OznerBaseDevice?=nil{
         didSet{
             if oldValue?.deviceInfo.deviceID != currentDevice?.deviceInfo.deviceID {
+                print(currentDevice?.deviceInfo.des() ?? "")
                 oldValue?.isCurrentDevice=false
                 oldValue?.delegate=nil
                 currentDevice?.isCurrentDevice=true
@@ -85,7 +86,8 @@ class OznerManager: NSObject {
     }
     func deleteDevice(device:OznerBaseDevice) {
         OznerDeviceManager.instance.deleteDevice(device: device)
-        OznerManager.instance.currentDevice=nil
+        let devices = OznerDeviceManager.instance.getAllDevices()        
+        OznerManager.instance.currentDevice = (devices?.count)!>0 ? devices?[0]:nil
     }
     func getDevice(identifier:String) -> OznerBaseDevice? {
         return OznerDeviceManager.instance.getDevice(identifier: identifier)

@@ -57,13 +57,21 @@ class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
             wlanConfig[KEY_GATEWAY]=EASYLINK.getGatewayAddress()
             wlanConfig[KEY_DNS1]=EASYLINK.getGatewayAddress()
             easylink_config.prepareEasyLink_(withFTC: wlanConfig, info: "".data(using: String.Encoding.utf8), mode: EASYLINK_V2_PLUS)
-            easylink_config.transmitSettings()
-            print("开始进行WIFI配对，配对信息如下")
+        print("开始进行WIFI1.0配对")
+        
+        
+        do {
+            try easylink_config.transmitSettings()
+        }
+        
+        
     }
     
     func canclePair() {//取消配对
-        if (easylink_config != nil&&easylink_config.responds(to: Selector.init(("stopTransmitting:")))) {
-            easylink_config.stopTransmitting()
+        if (easylink_config != nil) {
+            do {
+                try easylink_config.stopTransmitting()
+            }
         }
     }
     @objc private func pairFailed() {
@@ -130,7 +138,11 @@ class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
         print(mataDataDict)
         if let tmptype =  mataDataDict["FW"] as? String
         {
-            if deviceType.pairID.contains(tmptype) {
+            var productID = "16a21bd6"
+            if tmptype.contains("FOG_HAOZE_AIR") {
+                productID="580c2783"
+            }
+            if deviceType.pairID.contains(productID) {
                 self.pairSuccessed(configDict: mataDataDict)
             }
         }
@@ -141,7 +153,11 @@ class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
         print(configDict)
         if let tmptype =  configDict["FW"] as? String
         {
-            if deviceType.pairID.contains(tmptype) {
+            var productID = "16a21bd6"
+            if tmptype.contains("FOG_HAOZE_AIR") {
+                productID="580c2783"
+            }
+            if deviceType.pairID.contains(productID) {
                 self.pairSuccessed(configDict: configDict)
             }
         }

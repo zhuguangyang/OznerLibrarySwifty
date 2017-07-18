@@ -88,7 +88,7 @@ class WaterPurifier_Wifi: OznerBaseDevice {
     }
     var requestCount = 0//请求三次没反应代表机器断网
     override func repeatFunc() {
-        if NSDate().second()%2==0 {
+        if Int(arc4random()%2)==0 {
             requestCount+=1
             if requestCount>=3 {
                 self.connectStatus = .Disconnect
