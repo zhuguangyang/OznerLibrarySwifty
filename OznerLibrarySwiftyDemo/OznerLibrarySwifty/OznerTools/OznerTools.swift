@@ -9,6 +9,18 @@
 import UIKit
 
 class OznerTools: NSObject {
+    
+    class func dataFromInt16(number:UInt16)->Data {
+        
+        let data = NSMutableData()
+//        var val = CFSwapInt16HostToBig(number)
+        var val = CFSwapInt16LittleToHost(number)
+        
+        data.append(&val, length: MemoryLayout<UInt16>.size)
+        
+        return data as Data
+    }
+    
     class func dataFromInt(number:CLongLong,length:Int)->Data{
         var data=Data()
         if length<1 {

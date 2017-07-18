@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F90702BB28E42715A9D5E03 /* Pods_OznerLibrarySwiftyDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */; };
+		68618C541F1DAF97003855F4 /* Electrickettle_Blue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68618C531F1DAF97003855F4 /* Electrickettle_Blue.swift */; };
 		8D183CE61E28723D002E4618 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D183CE51E28723D002E4618 /* ResultViewController.swift */; };
 		8D1FB6131E5314F70075C009 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */; };
 		8D1FB6151E5315010075C009 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6141E5315010075C009 /* CoreGraphics.framework */; };
@@ -119,6 +120,8 @@
 
 /* Begin PBXFileReference section */
 		53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OznerLibrarySwiftyDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68618C531F1DAF97003855F4 /* Electrickettle_Blue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Electrickettle_Blue.swift; sourceTree = "<group>"; };
+		687F0E7C1F1DEAC5008F99D7 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		8D183CE51E28723D002E4618 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D1FB6141E5315010075C009 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -268,6 +271,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68618C521F1DAF97003855F4 /* Electrickettle */ = {
+			isa = PBXGroup;
+			children = (
+				68618C531F1DAF97003855F4 /* Electrickettle_Blue.swift */,
+				687F0E7C1F1DEAC5008F99D7 /* MyPlayground.playground */,
+			);
+			path = Electrickettle;
+			sourceTree = "<group>";
+		};
 		8AED77541B4ACE227D3F2053 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +323,7 @@
 		8D72E49D1F1DA4F7003A2067 /* DeviceManager */ = {
 			isa = PBXGroup;
 			children = (
+				68618C521F1DAF97003855F4 /* Electrickettle */,
 				8D72E49E1F1DA4F7003A2067 /* AirPurifier_Bluetooth */,
 				8D72E4A01F1DA4F7003A2067 /* AirPurifier_Wifi */,
 				8D72E4A21F1DA4F7003A2067 /* BaseDevice */,
@@ -856,6 +869,7 @@
 				8D72E5171F1DA4F7003A2067 /* BabyBluetooth.m in Sources */,
 				8D72E5361F1DA4F7003A2067 /* OznerManager.swift in Sources */,
 				8D72E5351F1DA4F7003A2067 /* OznerIOManager.swift in Sources */,
+				68618C541F1DAF97003855F4 /* Electrickettle_Blue.swift in Sources */,
 				8D72E5061F1DA4F7003A2067 /* AirPurifier_Wifi.swift in Sources */,
 				8D72E5321F1DA4F7003A2067 /* OznerMxChipManager.swift in Sources */,
 				8D72E5331F1DA4F7003A2067 /* Reachability.m in Sources */,

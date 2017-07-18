@@ -10,12 +10,18 @@ import UIKit
 
 class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITextFieldDelegate {
 
+    @IBOutlet weak var powerBtn: UIButton!
     
+    @IBOutlet weak var coldBtn: UIButton!
+    @IBOutlet weak var hotBtn: UIButton!
     @IBOutlet var textView: UITextView!
     @IBAction func powerClick(_ sender: Any) {
         switch true {
         case currDevice.isKind(of: AirPurifier_Blue.classForCoder()):
             let tmpdevice = currDevice as! AirPurifier_Blue
+//            tmpdevice.resetFilter(callBack: { (error) in
+//                print(error)
+//            })
             tmpdevice.setPower(power: !(tmpdevice.sensor.Power), callBack: { (error) in
                 
             })
@@ -31,6 +37,10 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
             deviceTmp.setPower(power: !deviceTmp.status.Power, callBack: { (error) in
                 print(error ?? "")
             })
+        case currDevice.isKind(of: Electrickettle_Blue.classForCoder()):
+            let deviceTmp = currDevice as! Electrickettle_Blue
+            _ = deviceTmp.setSetting((36, 37, 38, 0, 40, 41))
+            
         default:
             break
         }
@@ -84,6 +94,18 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden=false
+//        
+//        switch currDevice.deviceInfo.deviceType {
+//        case "NMQ_BLE":
+//            
+//            powerBtn.setTitle("设置", for: UIControlState.normal)
+//            hotBtn.setTitle("加热模式", for: UIControlState.normal)
+//            powerBtn.setTitle("未知", for: UIControlState.normal)
+//            break
+//        default:
+//            break
+//        }
+        
         currDevice=OznerManager.instance.currentDevice
         currDevice.delegate=self
         textView.text=currDevice.describe()

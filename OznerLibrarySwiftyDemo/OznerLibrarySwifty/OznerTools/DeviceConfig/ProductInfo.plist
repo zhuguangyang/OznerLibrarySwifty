@@ -239,6 +239,21 @@
 			<key>IOType</key>
 			<string>Blue</string>
 		</dict>
+		<key>8</key>
+		<dict>
+			<key>ProductIDs</key>
+			<array>
+				<string>NMQ_BLE</string>
+			</array>
+			<key>IOType</key>
+			<string>Blue</string>
+			<key>ClassName</key>
+			<string>Electrickettle_Blue</string>
+			<key>Name</key>
+			<string>电热壶</string>
+			<key>pairing</key>
+			<dict/>
+		</dict>
 	</dict>
 </dict>
 </plist>
