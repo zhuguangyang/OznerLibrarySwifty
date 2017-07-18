@@ -108,6 +108,8 @@ class OznerDataManager: NSObject {
             tmpdev=Cup(deviceinfo: deviceInfo, Settings: setting)
         case .Tap:
             tmpdev = Tap(deviceinfo: deviceInfo, Settings: setting)
+        case .TDSPan:
+            tmpdev = Tap(deviceinfo: deviceInfo, Settings: setting)
         case .WaterPurifier_Wifi:
             tmpdev = WaterPurifier_Wifi(deviceinfo: deviceInfo, Settings: setting)
         case .WaterPurifier_Blue:

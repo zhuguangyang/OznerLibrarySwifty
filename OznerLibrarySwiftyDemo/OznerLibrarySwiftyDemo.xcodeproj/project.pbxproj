@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1F90702BB28E42715A9D5E03 /* Pods_OznerLibrarySwiftyDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */; };
 		8D183CE61E28723D002E4618 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D183CE51E28723D002E4618 /* ResultViewController.swift */; };
+		8D1DBC9E1F0785470083E1D6 /* DeviceInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D1DBC9C1F0785470083E1D6 /* DeviceInfo.plist */; };
+		8D1DBC9F1F0785470083E1D6 /* DeviceConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DBC9D1F0785470083E1D6 /* DeviceConfigManager.swift */; };
 		8D1ED41D1E12332F0081D2BB /* BabyBLEHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1ED41C1E12332F0081D2BB /* BabyBLEHelper.m */; };
 		8D1ED4201E1239230081D2BB /* BabyBLEIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1ED41F1E1239230081D2BB /* BabyBLEIO.m */; };
 		8D1FB6131E5314F70075C009 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */; };
@@ -35,7 +37,6 @@
 		8D2419C61E11122200CF9B9C /* BabyToy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2419BD1E11122200CF9B9C /* BabyToy.m */; };
 		8D2C8F8E1E1F840E002D83EF /* WaterReplenish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2C8F8D1E1F840E002D83EF /* WaterReplenish.swift */; };
 		8D2C8F901E1F9081002D83EF /* WaterReplenishStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2C8F8F1E1F9081002D83EF /* WaterReplenishStatus.swift */; };
-		8D2F7C5E1F04EE5B00B94258 /* ScanData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D2F7C5D1F04EE5B00B94258 /* ScanData.m */; };
 		8D441D7F1E0CF21100B895D4 /* OznerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D441D7E1E0CF21100B895D4 /* OznerDataManager.swift */; };
 		8D46A9641E13B6D90011FBAE /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D46A9631E13B6D90011FBAE /* CoreBluetooth.framework */; };
 		8D54AC621E20B1EA00689790 /* WaterPurifier_Blue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D54AC611E20B1EA00689790 /* WaterPurifier_Blue.swift */; };
@@ -68,8 +69,6 @@
 		8DD349841E0BA9ED00C945A2 /* AirPurifier_Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349831E0BA9ED00C945A2 /* AirPurifier_Bluetooth.swift */; };
 		8DD349861E0BAA0500C945A2 /* AirPurifier_Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349851E0BAA0500C945A2 /* AirPurifier_Wifi.swift */; };
 		8DD349881E0BB57A00C945A2 /* BaseDeviceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349871E0BB57A00C945A2 /* BaseDeviceSetting.swift */; };
-		8DD3498B1E0BBF1D00C945A2 /* DeviceConfigInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DD3498A1E0BBF1D00C945A2 /* DeviceConfigInfo.plist */; };
-		8DD3498D1E0BBF5200C945A2 /* DeviceConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3498C1E0BBF5200C945A2 /* DeviceConfigManager.swift */; };
 		8DD349921E0BC6B100C945A2 /* OznerBaseIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349911E0BC6B100C945A2 /* OznerBaseIO.swift */; };
 		8DD349941E0BD2B400C945A2 /* OznerIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349931E0BD2B400C945A2 /* OznerIOManager.swift */; };
 		8DD349991E0BD33300C945A2 /* OZAylaIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349981E0BD33300C945A2 /* OZAylaIO.swift */; };
@@ -102,22 +101,12 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		8D6E7EC61EA8BE7400C20F59 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OznerLibrarySwiftyDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D183CE51E28723D002E4618 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		8D1DBC9C1F0785470083E1D6 /* DeviceInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DeviceInfo.plist; sourceTree = "<group>"; };
+		8D1DBC9D1F0785470083E1D6 /* DeviceConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceConfigManager.swift; sourceTree = "<group>"; };
+		8D1DBCA01F078B740083E1D6 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		8D1ED41B1E12332F0081D2BB /* BabyBLEHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBLEHelper.h; sourceTree = "<group>"; };
 		8D1ED41C1E12332F0081D2BB /* BabyBLEHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBLEHelper.m; sourceTree = "<group>"; };
 		8D1ED41E1E1239230081D2BB /* BabyBLEIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBLEIO.h; sourceTree = "<group>"; };
@@ -157,9 +146,6 @@
 		8D2419BD1E11122200CF9B9C /* BabyToy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyToy.m; sourceTree = "<group>"; };
 		8D2C8F8D1E1F840E002D83EF /* WaterReplenish.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterReplenish.swift; sourceTree = "<group>"; };
 		8D2C8F8F1E1F9081002D83EF /* WaterReplenishStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterReplenishStatus.swift; sourceTree = "<group>"; };
-		8D2F7C5C1F04EE5B00B94258 /* ScanData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanData.h; sourceTree = "<group>"; };
-		8D2F7C5D1F04EE5B00B94258 /* ScanData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanData.m; sourceTree = "<group>"; };
-		8D2F7C5F1F04EEE600B94258 /* OznerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OznerHeader.h; sourceTree = "<group>"; };
 		8D441D7E1E0CF21100B895D4 /* OznerDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDataManager.swift; sourceTree = "<group>"; };
 		8D441D811E0CFB9800B895D4 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/iOS/SQLite.framework; sourceTree = "<group>"; };
 		8D46A9631E13B6D90011FBAE /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -211,8 +197,6 @@
 		8DD349831E0BA9ED00C945A2 /* AirPurifier_Bluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirPurifier_Bluetooth.swift; sourceTree = "<group>"; };
 		8DD349851E0BAA0500C945A2 /* AirPurifier_Wifi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirPurifier_Wifi.swift; sourceTree = "<group>"; };
 		8DD349871E0BB57A00C945A2 /* BaseDeviceSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDeviceSetting.swift; sourceTree = "<group>"; };
-		8DD3498A1E0BBF1D00C945A2 /* DeviceConfigInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DeviceConfigInfo.plist; sourceTree = "<group>"; };
-		8DD3498C1E0BBF5200C945A2 /* DeviceConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceConfigManager.swift; sourceTree = "<group>"; };
 		8DD349911E0BC6B100C945A2 /* OznerBaseIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerBaseIO.swift; sourceTree = "<group>"; };
 		8DD349931E0BD2B400C945A2 /* OznerIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerIOManager.swift; sourceTree = "<group>"; };
 		8DD349981E0BD33300C945A2 /* OZAylaIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OZAylaIO.swift; sourceTree = "<group>"; };
@@ -274,6 +258,15 @@
 				ACBB721B282F5D7D14FDBB2A /* Pods-OznerLibrarySwiftyDemo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8D1DBC9B1F0785470083E1D6 /* DeviceConfig */ = {
+			isa = PBXGroup;
+			children = (
+				8D1DBC9C1F0785470083E1D6 /* DeviceInfo.plist */,
+				8D1DBC9D1F0785470083E1D6 /* DeviceConfigManager.swift */,
+			);
+			path = DeviceConfig;
 			sourceTree = "<group>";
 		};
 		8D1FB62E1E531ACC0075C009 /* Reachability */ = {
@@ -442,6 +435,7 @@
 		8DD3493A1E0BA62200C945A2 = {
 			isa = PBXGroup;
 			children = (
+				8D1DBCA01F078B740083E1D6 /* SwiftyJSON.framework */,
 				8D2419A61E1111D700CF9B9C /* OznerLibrarySwiftyDemo-Bridging-Header.h */,
 				8DD349741E0BA66600C945A2 /* OznerLibrarySwifty */,
 				8DD349451E0BA62200C945A2 /* OznerLibrarySwiftyDemo */,
@@ -521,7 +515,6 @@
 				8D54AC5F1E20B14800689790 /* WaterPurifier_Wifi */,
 				8DD3497B1E0BA8D300C945A2 /* AirPurifier_Wifi */,
 				8DD3497C1E0BA8D300C945A2 /* BaseDevice */,
-				8DD349891E0BBEE300C945A2 /* DeviceConfig */,
 			);
 			path = DeviceManager;
 			sourceTree = "<group>";
@@ -549,15 +542,6 @@
 				8DD349871E0BB57A00C945A2 /* BaseDeviceSetting.swift */,
 			);
 			path = BaseDevice;
-			sourceTree = "<group>";
-		};
-		8DD349891E0BBEE300C945A2 /* DeviceConfig */ = {
-			isa = PBXGroup;
-			children = (
-				8DD3498A1E0BBF1D00C945A2 /* DeviceConfigInfo.plist */,
-				8DD3498C1E0BBF5200C945A2 /* DeviceConfigManager.swift */,
-			);
-			path = DeviceConfig;
 			sourceTree = "<group>";
 		};
 		8DD3498F1E0BC66400C945A2 /* OznerIOManager */ = {
@@ -639,9 +623,7 @@
 		8DE095911E1E512700D00679 /* OznerTools */ = {
 			isa = PBXGroup;
 			children = (
-				8D2F7C5F1F04EEE600B94258 /* OznerHeader.h */,
-				8D2F7C5C1F04EE5B00B94258 /* ScanData.h */,
-				8D2F7C5D1F04EE5B00B94258 /* ScanData.m */,
+				8D1DBC9B1F0785470083E1D6 /* DeviceConfig */,
 				8D7C9B991E55833700D29C5D /* Helper.h */,
 				8D7C9B9A1E55833700D29C5D /* Helper.m */,
 				8DE095921E1E513500D00679 /* OznerTools.swift */,
@@ -662,7 +644,6 @@
 				8DD349411E0BA62200C945A2 /* Resources */,
 				866D5D1B1E92EDA22E4927C2 /* [CP] Embed Pods Frameworks */,
 				04EE88EA6FC72C78053F10C7 /* [CP] Copy Pods Resources */,
-				8D6E7EC61EA8BE7400C20F59 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -766,7 +747,7 @@
 			files = (
 				8DD349511E0BA62200C945A2 /* LaunchScreen.storyboard in Resources */,
 				8DD3494E1E0BA62200C945A2 /* Assets.xcassets in Resources */,
-				8DD3498B1E0BBF1D00C945A2 /* DeviceConfigInfo.plist in Resources */,
+				8D1DBC9E1F0785470083E1D6 /* DeviceInfo.plist in Resources */,
 				8DD3494C1E0BA62200C945A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -840,7 +821,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DD3498D1E0BBF5200C945A2 /* DeviceConfigManager.swift in Sources */,
 				8DC14BF91ECD8A3600CFCCE4 /* GCDAsyncUdpSocket.m in Sources */,
 				8DC14BEB1ECD893100CFCCE4 /* ZBBonjourService.m in Sources */,
 				8D2419C51E11122200CF9B9C /* BabySpeaker.m in Sources */,
@@ -862,6 +842,7 @@
 				8D2C8F901E1F9081002D83EF /* WaterReplenishStatus.swift in Sources */,
 				8DD3499D1E0BD36300C945A2 /* OZMxChipIO.swift in Sources */,
 				8D1ED4201E1239230081D2BB /* BabyBLEIO.m in Sources */,
+				8D1DBC9F1F0785470083E1D6 /* DeviceConfigManager.swift in Sources */,
 				8DD349A11E0BD9B100C945A2 /* OznerBluetoothManager.swift in Sources */,
 				8D60675E1E27895E00C87CC0 /* AddDeviceTableViewController.swift in Sources */,
 				8D1ED41D1E12332F0081D2BB /* BabyBLEHelper.m in Sources */,
@@ -886,7 +867,6 @@
 				8DD349821E0BA9C600C945A2 /* OznerBaseDevice.swift in Sources */,
 				8D7C9B9B1E55833700D29C5D /* Helper.m in Sources */,
 				8D2419BE1E11122200CF9B9C /* BabyBluetooth.m in Sources */,
-				8D2F7C5E1F04EE5B00B94258 /* ScanData.m in Sources */,
 				8D2C8F8E1E1F840E002D83EF /* WaterReplenish.swift in Sources */,
 				8DC14BEA1ECD893100CFCCE4 /* OznerBonjourDetail.m in Sources */,
 				8D2419C41E11122200CF9B9C /* BabyRhythm.m in Sources */,

@@ -20,6 +20,7 @@ enum OZIOType{
 enum OZDeviceClass{
     case Cup
     case Tap
+    case TDSPan
     case AirPurifier_Blue
     case AirPurifier_Wifi
     case WaterPurifier_Blue
@@ -29,7 +30,7 @@ enum OZDeviceClass{
         switch self {
         case .AirPurifier_Wifi,.WaterPurifier_Wifi:
             return .MxChip
-        case .Cup,.Tap,.AirPurifier_Blue,.WaterPurifier_Blue,.WaterReplenish:
+        case .Cup,.Tap,.AirPurifier_Blue,.WaterPurifier_Blue,.WaterReplenish,.TDSPan:
             return .Bluetooth
         //case .otherDevice: return .BlueMxChip
         //case .otherDevice: return .AylaMxChip
@@ -40,7 +41,7 @@ enum OZDeviceClass{
         switch self {
         case .Cup:
             return "Ozner Cup"
-        case .Tap:
+        case .Tap,.TDSPan:
             return "Ozner Tap"
         case .AirPurifier_Blue:
             return "OAP"
@@ -57,8 +58,8 @@ enum OZDeviceClass{
 }
 
 struct OznerDeviceInfo {
-    var deviceID = ""//设备ID
-    var deviceMac = ""//设备Mac
+    var deviceID = ""//设备唯一ID
+    var deviceMac = ""//设备Mac：访问服务器和接口的时候才用到这个，或者Wi-Fi协议里面会用这个，其余的都用deviceID
     var deviceType = ""
     /*
      productID
@@ -69,16 +70,15 @@ struct OznerDeviceInfo {
      */
     var productID = ""
     var wifiVersion = 1//wifi版本，1或2
-    
-    
     func des() -> String {
         return "设备ID:\(self.deviceID)\n设备Mac:\(self.deviceMac)\n设备型号:\(self.deviceType)\n产品ID:\(self.productID)\nWiFi版本:\(self.wifiVersion)"
     }
 }
 class DeviceConfigManager: NSObject {
-    static var deviceTypeInfo:[String:(typeAttr:OZIOType,deviceClass:OZDeviceClass)] = [
+    static var deviceTypeInfo:[String:(IOType:OZIOType,deviceClass:OZDeviceClass)] = [
         "Ozner Cup":(.Bluetooth,.Cup),
         "Ozner Tap":(.Bluetooth,.Tap),
+        "Ozner TDSPan":(.Bluetooth,.Tap),
         //"MXCHIP_HAOZE_Water@":(.MxChip,.WaterPurifier_Wifi),
         "OAP":(.Bluetooth,.AirPurifier_Blue),
         //"FOG_HAOZE_AIR@":(.MxChip,.AirPurifier_Wifi),
@@ -98,4 +98,8 @@ class DeviceConfigManager: NSObject {
         "10c347a8-562f-11e7-9baf-00163e120d98":(.MxChip,.AirPurifier_Wifi),//空净(普信)KG460-140A
         "e137b6e0-2668-11e7-9d95-00163e103941":(.MxChip,.AirPurifier_Wifi)//空净(浩泽)KG460-110A
     ]
+    func sdad() {
+        let dic=NSDictionary(contentsOfFile: Bundle.main.path(forResource: "DeviceInfo", ofType: "plist")!)!
+    }
+    
 }

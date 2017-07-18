@@ -7,7 +7,7 @@
 //
 
 #import "BabyBLEHelper.h"
-#import "ScanData.h"
+
 
 @implementation BabyBLEHelper
 {

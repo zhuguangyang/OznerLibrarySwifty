@@ -25,7 +25,7 @@ class OznerIOManager: NSObject {
     }
     //获取已配对的设备IO，或者设备重新连接调用
     func getIO(deviceinfo:OznerDeviceInfo) -> OznerBaseIO? {
-        let typeAtt=(DeviceConfigManager.deviceTypeInfo[deviceinfo.deviceType]?.typeAttr)!
+        let typeAtt=(DeviceConfigManager.deviceTypeInfo[deviceinfo.deviceType]?.IOType)!
         switch typeAtt {
         case .Ayla:
             return OznerAylaManager.instance.getIO(deviceinfo: deviceinfo)
