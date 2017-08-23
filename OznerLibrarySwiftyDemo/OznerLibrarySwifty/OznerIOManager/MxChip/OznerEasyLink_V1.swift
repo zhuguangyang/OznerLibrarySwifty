@@ -85,25 +85,25 @@ class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
     private func pairSuccessed(configDict: [AnyHashable : Any]!) {
         print(configDict)        
         easylink_config.stopTransmitting()//停止扫描
-        let tmpStr = ((configDict["C"] as AnyObject).objectAt(2).object(forKey: "C") as AnyObject).objectAt(3).object(forKey: "C") as! String
-        if tmpStr.contains("/") {
-            let strArr = tmpStr.components(separatedBy: "/")
-            let tmpIdent=strArr[1].uppercased()  as NSString
-            var identifier = tmpIdent.substring(to: 2)
-            
-            for i in 1...5 {
-                let tmpstr = tmpIdent.substring(from: i*2) as NSString
-                identifier=identifier+":"+tmpstr.substring(to: 2)
-            }
-            deviceInfo.deviceID=identifier
-            deviceInfo.deviceMac=identifier
-            deviceInfo.deviceType=strArr[0]
-            deviceInfo.productID=strArr[0]
-            pairSuccessed()            
-        }
-        else{
+//        let tmpStr = ((configDict["C"] as AnyObject).objectAt(2).object(forKey: "C") as AnyObject).objectAt(3).object(forKey: "C") as! String
+//        if tmpStr.contains("/") {
+//            let strArr = tmpStr.components(separatedBy: "/")
+//            let tmpIdent=strArr[1].uppercased()  as NSString
+//            var identifier = tmpIdent.substring(to: 2)
+//            
+//            for i in 1...5 {
+//                let tmpstr = tmpIdent.substring(from: i*2) as NSString
+//                identifier=identifier+":"+tmpstr.substring(to: 2)
+//            }
+//            deviceInfo.deviceID=identifier
+//            deviceInfo.deviceMac=identifier
+//            deviceInfo.deviceType=strArr[0]
+//            deviceInfo.productID=strArr[0]
+//            pairSuccessed()            
+//        }
+//        else{
             activateDevice(configDict: configDict)
-        }
+//        }
         
     }
     var oznerBonjourDetail:OznerBonjourDetail!

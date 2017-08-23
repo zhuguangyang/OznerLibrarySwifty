@@ -120,6 +120,8 @@ class OznerDataManager: NSObject {
             tmpdev = AirPurifier_Wifi(deviceinfo: deviceInfo, Settings: setting)
         case .Electrickettle_Blue:
             tmpdev = Electrickettle_Blue(deviceinfo: deviceInfo, Settings: setting)
+        case .WashDush_Wifi:
+            tmpdev = WashDush_Wifi(deviceinfo: deviceInfo, Settings: setting)
         }
         return tmpdev
     }

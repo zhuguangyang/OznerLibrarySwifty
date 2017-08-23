@@ -40,6 +40,9 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
         case currDevice.isKind(of: Electrickettle_Blue.classForCoder()):
             let deviceTmp = currDevice as! Electrickettle_Blue
             _ = deviceTmp.setSetting((36, 37, 38, 0, 40, 41))
+//        case currDevice.isKind(of: WashDush_Wifi.classForCoder()):
+//            let deviceTmp = currDevice as! WashDush_Wifi
+            
             
         default:
             break

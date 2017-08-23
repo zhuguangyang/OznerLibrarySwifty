@@ -254,6 +254,20 @@
 			<key>pairing</key>
 			<dict/>
 		</dict>
+		<key>9</key>
+		<dict>
+			<key>ProductIDs</key>
+			<array>
+				<string>edb7b978-6aca-11e7-9baf-00163e120d98</string>
+				<string>151e571a-6acb-11e7-9baf-00163e120d98</string>
+			</array>
+			<key>IOType</key>
+			<string>MxChip</string>
+			<key>Name</key>
+			<string>洗碗机</string>
+			<key>ClassName</key>
+			<string>WashDush_Wifi</string>
+		</dict>
 	</dict>
 </dict>
 </plist>

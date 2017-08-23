@@ -25,7 +25,8 @@ class AddDeviceTableViewController: UITableViewController {
             ("补水仪---蓝牙连接",.WaterReplenish),
             ("立式空净---WIFI连接",.AirPurifier_Wifi),
             ("净水器---WIFI连接",.WaterPurifier_Wifi),
-            ("电热壶---蓝牙连接",.Electrickettle_Blue)
+            ("电热壶---蓝牙连接",.Electrickettle_Blue),
+            (("洗碗机---蓝牙连接",.WashDush_Wifi))
         ]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
