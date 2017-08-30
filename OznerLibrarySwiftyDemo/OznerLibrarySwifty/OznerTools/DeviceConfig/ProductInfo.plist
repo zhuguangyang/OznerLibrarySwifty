@@ -57,6 +57,7 @@
 			<key>ProductIDs</key>
 			<array>
 				<string>Ozner Cup</string>
+				<string>智能水杯</string>
 			</array>
 			<key>IOType</key>
 			<string>Blue</string>

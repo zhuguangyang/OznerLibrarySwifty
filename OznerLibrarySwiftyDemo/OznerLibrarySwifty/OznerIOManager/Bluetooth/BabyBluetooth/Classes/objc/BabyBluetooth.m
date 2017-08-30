@@ -139,6 +139,7 @@
 //找到Peripherals的委托
 - (void)setBlockOnDiscoverToPeripheralsAtChannel:(NSString *)channel
                                           block:(void (^)(CBCentralManager *central,CBPeripheral *peripheral,NSDictionary *advertisementData, NSNumber *RSSI))block {
+
     [[babySpeaker callbackOnChnnel:channel createWhenNotExist:YES] setBlockOnDiscoverPeripherals:block];
 }
 
@@ -569,6 +570,8 @@
 - (void)notify:(CBPeripheral *)peripheral
 characteristic:(CBCharacteristic *)characteristic
         block:(void(^)(CBPeripheral *peripheral, CBCharacteristic *characteristics, NSError *error))block {
+
+    NSLog(@"%@",peripheral.name);
     //设置通知
     [peripheral setNotifyValue:YES forCharacteristic:characteristic];
     [babySpeaker addNotifyCallback:characteristic withBlock:block];
