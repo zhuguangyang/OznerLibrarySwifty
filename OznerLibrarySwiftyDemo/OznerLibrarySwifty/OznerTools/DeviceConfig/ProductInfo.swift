@@ -36,6 +36,7 @@ enum OZIOType{
 enum OZDeviceClass:String{
     case WaterPurifier_Blue="WaterPurifier_Blue"
     case Cup="Cup"
+    case TTwoCup="TwoCup"
     case Tap="Tap"
     case TDSPan="TDSPan"
     case WaterPurifier_Wifi="WaterPurifier_Wifi"
@@ -141,6 +142,11 @@ class ProductInfo: NSObject {
             for id in product["ProductIDs"].arrayValue {
                 if productID==id.stringValue {
                     classStr=product["ClassName"].stringValue
+                    
+                    if productID == "智能水杯" {
+                        classStr = "TwoCup"
+                    }
+                    
                     break
                 }
             }
