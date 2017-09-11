@@ -72,11 +72,17 @@ NSString* deviceName=nil;
         MAC=[NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
              bytes[23],bytes[22],bytes[21],bytes[20],bytes[19],bytes[18]];
     }
+    if ([name isEqualToString:@"智能水杯"]&&macData1.length>23) {
+        BytePtr bytes=(BytePtr)[macData1 bytes];
+        MAC=[NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
+             bytes[23],bytes[22],bytes[21],bytes[20],bytes[19],bytes[18]];
+    }
     if ([name isEqualToString:@"Ozner Cup"]&&macData2.length>5) {
         BytePtr bytes=(BytePtr)[macData2 bytes];
         MAC=[NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
              bytes[5],bytes[4],bytes[3],bytes[2],bytes[1],bytes[0]];
     }
+
     //台式空净OAP、0x20
     //水杯、
     //RO蓝牙水机、0x11
@@ -111,6 +117,7 @@ NSString* deviceName=nil;
     //设置扫描到设备的委托
     [baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
         NSString* mac=[weakSelf getMac:advertisementData Name:peripheral.name];
+        sleep(1);
         weakSelf.babyBLEScanDataBlock(peripheral.identifier.UUIDString,peripheral.name,mac,[weakSelf calcDistByRSSI:RSSI.intValue],advertisementData);
         NSLog(@"发现设备name:%@,距离:%d,mac:%@",peripheral.name,RSSI.intValue,mac);
     }];

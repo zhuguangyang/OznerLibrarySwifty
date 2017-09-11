@@ -142,6 +142,14 @@
                                     <action selector="lockClick:" destination="SIH-SE-P31" eventType="touchUpInside" id="4Tm-4B-3dZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40r-3x-a7d">
+                                <rect key="frame" x="103" y="523" width="122" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="OTA"/>
+                                <connections>
+                                    <action selector="otaAction:" destination="SIH-SE-P31" eventType="touchUpInside" id="WHT-QT-yde"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.74722909930000003" green="0.92477899789999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

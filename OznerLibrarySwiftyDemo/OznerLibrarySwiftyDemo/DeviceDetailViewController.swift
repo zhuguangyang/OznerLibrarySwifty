@@ -115,6 +115,18 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func otaAction(_ sender: UIButton) {
+        
+//        let device = currDevice as! TwoCup
+//        
+//        device.twoCupClearUpgrade()
+//        device.startOTA()
+//        device.getBin()
+        
+        
+        
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
