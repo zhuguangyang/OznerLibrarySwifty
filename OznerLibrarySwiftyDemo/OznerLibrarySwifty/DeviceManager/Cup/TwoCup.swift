@@ -76,6 +76,7 @@ class TwoCup: OznerBaseDevice {
             print(senSorTwo)
         case 0x42://获取历史记录
             print(recvData)
+            
             listHistory = String.init(data: recvData, encoding: String.Encoding.ascii)!
             
             print("0x42历史记录条数\(recvData[1])")
@@ -116,9 +117,10 @@ class TwoCup: OznerBaseDevice {
                 OznerDeviceRecordHelper.instance.addRecordToSQL(Identifier: self.deviceInfo.deviceID, Tdate: timeDate, Tds: tds, Temperature: temp, Volume: 0, Updated: false)
             }
             
-            
         case 0x43://历史记录数量
             print("0x43总历史记录条数:\(Int(recvData[1]) + 256 * Int(recvData[2]) + 256 * 256 * Int(recvData[3]) + 256 * 256 * 256 * Int(recvData[4]))")
+//           let mm = OznerDeviceRecordHelper.instance.getRecords(Identifier: self.deviceInfo.deviceID)
+//            print("数据库历史记录:\(mm.count)")
 
         default:
             break
@@ -350,7 +352,7 @@ class TwoCup: OznerBaseDevice {
             temp += Int(UInt32(bigEndian: value))
         }
         
-        var tempMask = CLongLong(0x1FFFFFFFF);
+        var tempMask = CLongLong(0x1FFFFFFFF)
         tempMask -= CLongLong(0x100000000)
         
         Checksum = Int(CLongLong(temp) & tempMask)
