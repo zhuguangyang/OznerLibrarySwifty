@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         deviceArray=[OznerBaseDevice]()
+//        let filePath = Bundle.main.path(forResource: "TwoCup", ofType: "bin")
+//        print(Helper.otaCheckS/um(withFileStr: filePath!))
         
     }
     override func viewWillAppear(_ animated: Bool) {

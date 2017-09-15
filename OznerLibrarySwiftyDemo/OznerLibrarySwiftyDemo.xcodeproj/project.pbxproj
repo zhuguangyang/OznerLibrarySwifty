@@ -11,7 +11,8 @@
 		682B8A881F3AAC0600CBE821 /* WashDush_Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682B8A871F3AAC0600CBE821 /* WashDush_Wifi.swift */; };
 		682E76C71F58FE6F0074D3A7 /* TwoCup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682E76C61F58FE6F0074D3A7 /* TwoCup.swift */; };
 		68618C541F1DAF97003855F4 /* Electrickettle_Blue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68618C531F1DAF97003855F4 /* Electrickettle_Blue.swift */; };
-		686F89CF1F6287CC00BD85D0 /* TwoCup.bin in Resources */ = {isa = PBXBuildFile; fileRef = 686F89CE1F6287CC00BD85D0 /* TwoCup.bin */; };
+		689813D11F6B720A000551F0 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689813D01F6B720A000551F0 /* SwiftNotice.swift */; };
+		68BCF1C41F6BCD7A002F3865 /* TwoCup.bin in Resources */ = {isa = PBXBuildFile; fileRef = 68BCF1C31F6BCD7A002F3865 /* TwoCup.bin */; };
 		8D183CE61E28723D002E4618 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D183CE51E28723D002E4618 /* ResultViewController.swift */; };
 		8D1FB6131E5314F70075C009 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */; };
 		8D1FB6151E5315010075C009 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6141E5315010075C009 /* CoreGraphics.framework */; };
@@ -126,7 +127,8 @@
 		682B8A871F3AAC0600CBE821 /* WashDush_Wifi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WashDush_Wifi.swift; sourceTree = "<group>"; };
 		682E76C61F58FE6F0074D3A7 /* TwoCup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoCup.swift; sourceTree = "<group>"; };
 		68618C531F1DAF97003855F4 /* Electrickettle_Blue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Electrickettle_Blue.swift; sourceTree = "<group>"; };
-		686F89CE1F6287CC00BD85D0 /* TwoCup.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = TwoCup.bin; sourceTree = "<group>"; };
+		689813D01F6B720A000551F0 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
+		68BCF1C31F6BCD7A002F3865 /* TwoCup.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = TwoCup.bin; sourceTree = "<group>"; };
 		8D183CE51E28723D002E4618 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D1FB6141E5315010075C009 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -378,7 +380,7 @@
 		8D72E4A51F1DA4F7003A2067 /* Cup */ = {
 			isa = PBXGroup;
 			children = (
-				686F89CE1F6287CC00BD85D0 /* TwoCup.bin */,
+				68BCF1C31F6BCD7A002F3865 /* TwoCup.bin */,
 				8D72E4A61F1DA4F7003A2067 /* Cup.swift */,
 				8D72E4A71F1DA4F7003A2067 /* OznerCupRecords.swift */,
 				682E76C61F58FE6F0074D3A7 /* TwoCup.swift */,
@@ -600,6 +602,7 @@
 		8D72E4FE1F1DA4F7003A2067 /* OznerTools */ = {
 			isa = PBXGroup;
 			children = (
+				689813D01F6B720A000551F0 /* SwiftNotice.swift */,
 				8D72E4FF1F1DA4F7003A2067 /* DeviceConfig */,
 				8D72E5021F1DA4F7003A2067 /* Helper.h */,
 				8D72E5031F1DA4F7003A2067 /* Helper.m */,
@@ -791,10 +794,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68BCF1C41F6BCD7A002F3865 /* TwoCup.bin in Resources */,
 				8D72E5371F1DA4F7003A2067 /* ProductInfo.plist in Resources */,
 				8DD349511E0BA62200C945A2 /* LaunchScreen.storyboard in Resources */,
 				8DD3494E1E0BA62200C945A2 /* Assets.xcassets in Resources */,
-				686F89CF1F6287CC00BD85D0 /* TwoCup.bin in Resources */,
 				8DD3494C1E0BA62200C945A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -902,6 +905,7 @@
 				8D72E5091F1DA4F7003A2067 /* Cup.swift in Sources */,
 				8D72E50C1F1DA4F7003A2067 /* Tap.swift in Sources */,
 				8D72E5341F1DA4F7003A2067 /* OznerBaseIO.swift in Sources */,
+				689813D11F6B720A000551F0 /* SwiftNotice.swift in Sources */,
 				8D72E5201F1DA4F7003A2067 /* OZBluetoothIO.swift in Sources */,
 				8D72E50B1F1DA4F7003A2067 /* OznerDeviceManager.swift in Sources */,
 				8D72E52B1F1DA4F7003A2067 /* OznerBonjourDetail.m in Sources */,

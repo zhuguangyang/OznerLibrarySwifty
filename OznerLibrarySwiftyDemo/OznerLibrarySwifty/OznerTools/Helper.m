@@ -204,4 +204,45 @@ bool StringIsNullOrEmpty(NSString* str)
     return result;
 }
 
++ (int)OTACheckSumWithFileStr:(NSString *)filepath
+{
+
+    NSFileManager *fm = [NSFileManager defaultManager];
+    
+    NSData *file = [NSData dataWithContentsOfFile:filepath];
+    
+    int Size = (int)file.length;
+    
+    if ((Size % 256) != 0) {
+        
+        Size = (Size/256) * 256 + 256;
+    }
+    int CheckSum = 0;
+    Byte* bytes = alloca(Size);
+    @try {
+        
+        memset(bytes, 0, Size);
+        memcpy(bytes, [file bytes], file.length);
+        long temp = 0;
+        int len = Size/4;
+        long TempMask = 0x1FFFFFFFFL-0x100000000L;
+
+        for (int i = 0; i < len; i++) {
+            temp += *((UInt32*)bytes + i*4);
+            
+        }
+        
+        
+        CheckSum = (int)(temp & TempMask);
+        
+    } @catch (NSException *exception) {
+        NSLog(@"%@",exception);
+    } @finally {
+        free(bytes);
+    }
+    
+    return CheckSum;
+    
+}
+
 @end

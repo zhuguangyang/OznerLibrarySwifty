@@ -126,6 +126,9 @@ NSString* deviceName=nil;
     
     //设置查找设备的过滤器
     [baby setFilterOnDiscoverPeripherals:^BOOL(NSString *peripheralName, NSDictionary *advertisementData, NSNumber *RSSI) {
+        if (peripheralName == nil) {
+            return NO;
+        }
         if ([deviceName containsString:peripheralName]) {
             return YES;
         }

@@ -8,6 +8,10 @@
 
 import UIKit
 
+var appDelegate: AppDelegate {
+    return UIApplication.shared.delegate as! AppDelegate
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

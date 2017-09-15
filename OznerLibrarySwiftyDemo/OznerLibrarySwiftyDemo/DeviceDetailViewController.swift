@@ -117,16 +117,29 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
 
     @IBAction func otaAction(_ sender: UIButton) {
         
-//        let device = currDevice as! TwoCup
-//        
-//        device.twoCupClearUpgrade()
-//        device.startOTA()
+        let device = currDevice as! TwoCup
+        
+        DispatchQueue.global().async {
+
+            device.twoCupClearUpgrade()
+            device.startOTA()
+
+        
+        }
+    }
+    
+    
+    @IBAction func LASTAction(_ sender: Any) {
+        
+        
+        let device = currDevice as! TwoCup
+
 //        device.getBin()
-        
-        
-        
+        device.getHistory()
+
         
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

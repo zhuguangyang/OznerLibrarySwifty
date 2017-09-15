@@ -57,7 +57,9 @@ class TwoCup: OznerBaseDevice {
     private(set) var historyListArr:NSMutableArray = NSMutableArray()
 
     var listHistory:String = "未获取到历史数据"
-    var listHistoryCount:Int = 0
+    var listHistoryCount:String = "0"
+    var i = 0
+    var eachInfo = ""
     
     override func OznerBaseIORecvData(recvData: Data) {
         switch UInt8(recvData[0]) {
@@ -76,7 +78,7 @@ class TwoCup: OznerBaseDevice {
             print(senSorTwo)
         case 0x42://获取历史记录
             print(recvData)
-            
+            sumHistory += Int(recvData[1])
             listHistory = String.init(data: recvData, encoding: String.Encoding.ascii)!
             
             print("0x42历史记录条数\(recvData[1])")
@@ -84,12 +86,12 @@ class TwoCup: OznerBaseDevice {
 //            print("第一条时间戳:\(time1)时间:\(secondstoString(time1))")
 
             if time1 != 0 {
-                
+                i += 1
                 let timeDate = secsToData(time1)
                 let tds = Int(recvData[6])
                 let temp = Int(recvData[7])
-                print("timeDate：\(timeDate)，tds:\(tds)，temp:\(temp)")
-
+                print("time：\(secondstoString(time1))，tds:\(tds)，temp:\(temp)")
+                eachInfo += "第\(i)条 timeDate：\(secondstoString(time1))，tds:\(tds)，temp:\(temp)\n"
                 OznerDeviceRecordHelper.instance.addRecordToSQL(Identifier: self.deviceInfo.deviceID, Tdate: timeDate, Tds: tds, Temperature: temp, Volume: 0, Updated: false)
             }
             
@@ -97,11 +99,11 @@ class TwoCup: OznerBaseDevice {
             print("第二条时间戳:\(time2)" + "时间:\(secondstoString(time2))")
 
             if time2 != 0 {
-
+                i += 1
                 let timeDate = secsToData(time2)
                 let tds = Int(recvData[12])
                 let temp = Int(recvData[13])
-                
+                eachInfo += "第\(i)条 timeDate：\(secondstoString(time2))，tds:\(tds)，temp:\(temp)\n"
                 OznerDeviceRecordHelper.instance.addRecordToSQL(Identifier: self.deviceInfo.deviceID, Tdate: timeDate, Tds: tds, Temperature: temp, Volume: 0, Updated: false)
             }
             
@@ -109,16 +111,17 @@ class TwoCup: OznerBaseDevice {
             print("第三条时间戳:\(time3)" + "时间:\(secondstoString(time3))")
 
             if time3 != 0 {
-
+                i += 1
                 let timeDate = secsToData(time3)
                 let tds = Int(recvData[18])
                 let temp = Int(recvData[19])
-                
+                eachInfo += "第\(i)条 timeDate：\(secondstoString(time3))，tds:\(tds)，temp:\(temp)\n"
                 OznerDeviceRecordHelper.instance.addRecordToSQL(Identifier: self.deviceInfo.deviceID, Tdate: timeDate, Tds: tds, Temperature: temp, Volume: 0, Updated: false)
             }
             
         case 0x43://历史记录数量
             print("0x43总历史记录条数:\(Int(recvData[1]) + 256 * Int(recvData[2]) + 256 * 256 * Int(recvData[3]) + 256 * 256 * 256 * Int(recvData[4]))")
+            listHistoryCount = "0x43总历史记录条数:\(Int(recvData[1]) + 256 * Int(recvData[2]) + 256 * 256 * Int(recvData[3]) + 256 * 256 * 256 * Int(recvData[4]))"
 //           let mm = OznerDeviceRecordHelper.instance.getRecords(Identifier: self.deviceInfo.deviceID)
 //            print("数据库历史记录:\(mm.count)")
 
@@ -129,14 +132,22 @@ class TwoCup: OznerBaseDevice {
         
     }
     
+    var count = 1
+    
     override func doWillInit() {
         
         readDeviceInfo()
         calibrationTime()
-        getHistory()
+        count += 1
+        if count == 2 {
+        
+            getHistory()
+
+        }
+    
     }
     
-    var i = 0
+    var sumHistory = 0
     
     override func repeatFunc() {
         
@@ -144,7 +155,7 @@ class TwoCup: OznerBaseDevice {
         
 //        if i%2 == 0 {
         
-            readDeviceInfo()
+        readDeviceInfo()
   
 //        } else {
         
@@ -157,7 +168,7 @@ class TwoCup: OznerBaseDevice {
     
     override func describe() -> String {
         
-        return "name:\(self.settings.name!)\n connectStatus:\(self.connectStatus)\n sensor:\(self.senSorTwo)\n,CupState:\(self.cupState)\n 历史记录:\(self.listHistory)"
+        return "name:\(self.settings.name!)\n connectStatus:\(self.connectStatus)\n sensor:\(self.senSorTwo)\n,CupState:\(self.cupState)\n \(self.listHistoryCount)\n  0x42收到总条数:\(self.sumHistory)\n 记录信息:\(self.eachInfo)\n OTA进度:\(currenLength)/\(sumLength)"
     
     }
     
@@ -180,14 +191,6 @@ class TwoCup: OznerBaseDevice {
         var data = Data.init(bytes: [
             0x40])
         data.append(OznerTools.dataFromInt(number: time, length: 4))
-        //        let data = Data.init(bytes: [
-        //            0x40,
-        //            UInt8(NSDate().year()-2000),
-        //            UInt8(NSDate().month()),
-        //            UInt8(NSDate().day()),
-        //            UInt8(NSDate().hour()),
-        //            UInt8(NSDate().minute()),
-        //            UInt8(NSDate().second())])
         
         self.SendDataToDevice(sendData: data) { (error) in}
         
@@ -208,16 +211,17 @@ class TwoCup: OznerBaseDevice {
         
         return formatter.string(from: data)
         
-        
     }
     
     //获取历史记录
-    private func getHistory() {
+    func getHistory() {
         
-        
+        self.sumHistory = 0
+        self.eachInfo = ""
+        i = 0
         let endtime = CLongLong(Date().timeIntervalSince1970)
         
-        let startTime = CLongLong(Date().timeIntervalSince1970 - 60 * 60 * 240000)
+        let startTime = CLongLong(Date().timeIntervalSince1970 - 60 * 60 * 24 * 3200)
         
         var data = Data.init(bytes: [
             0x41])
@@ -225,6 +229,27 @@ class TwoCup: OznerBaseDevice {
         data.append(OznerTools.dataFromInt(number: endtime, length: 4))
         self.SendDataToDevice(sendData: data) { (error) in}
         
+        self.perform(#selector(TwoCup.updateSensor), with: nil, afterDelay: 3.5)
+        
+    }
+    
+    var slider:UISlider?
+    func updateSensor() {
+        
+        self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
+        
+//        if slider == nil {
+//            slider = UISlider(frame: CGRect(x: 50, y: 200, width: 200, height: 30))
+//            slider?.maximumValue = Float(sumLength)
+//            slider?.minimumValue = 0
+//            appDelegate.window?.addSubview(slider!)
+//        }
+//        
+//        
+//        slider?.value = Float(currenLength)
+        
+        
+
     }
     
     func twoCupClearUpgrade() {
@@ -239,52 +264,84 @@ class TwoCup: OznerBaseDevice {
             }
         }
         
-        sleep(3)
+        sleep(2)
         
     }
     
+    var
+    sumLength:Int = 0
+    var currenLength:Int = 0
+    
     func startOTA() {
+   
+        sleep(1)
         
         let filePath = Bundle.main.path(forResource: "TwoCup", ofType: "bin")
         
-        let data = NSData(contentsOfFile: filePath!)! as Data
-        print(Int((data.count)/16))
+        let data = NSData(contentsOfFile: filePath!)!
         
-        var sum = Int((data.count)/16)
+        var size = data.length
         
-        if Int((data.count)%16) != 0 {
-            sum += 1
+        if size > 127 * 1024 {
+            print("文件过大")
+            appDelegate.window?.noticeOnlyText("OTA失败 文件过大!")
+            return
         }
+        
+        if (size % 256) != 0 {
+            size = (size/256) * 256 + 256
+        }
+        
  
-        for i in 0...sum {
+        var readBuffer:[UInt8] = [UInt8].init(repeating: 0xff, count: size)
+        
+        memset(&readBuffer, 0xff, size)
+        memcpy(&readBuffer, data.bytes, data.length)
+        
+        let data123 = Data.init(bytes: readBuffer)
+        
+        sumLength = data123.count
+
+        for  i in 0 ... size/16 {
             
             var sendData = Data.init(bytes: [0xC1])
-            
+            Thread.sleep(forTimeInterval: 0.1)
+            print(i)
             //固件包位置
             sendData.append(OznerTools.dataFromInt(number: CLongLong(i), length: 2))
+
+            //固件包大小
+            sendData.append(Data.init(bytes: [0x10]))
+            sendData.append(data123.subData(starIndex: i * 16, count: 16))
             
-            if i != sum {
-                //固件包大小
-                sendData.append(Data.init(bytes: [0x10]))
-                sendData.append(data.subData(starIndex: i * 16, count: 16))
-                
-            } else {
-                sendData.append(Data.init(bytes: [UInt8(data.count%16 == 0 ? 16 : data.count%16)]))
-                sendData.append(data.subData(starIndex: i * 16, count: (data.count%16 == 0 ? 16 : data.count%16)))
-                
+            currenLength = i * 16
+            
+           
+            if self.connectStatus != .Connected {
+                currenLength = 0
+                appDelegate.window?.noticeOnlyText("OTA失败 设备断开连接!")
+                return
             }
-//            sleep(1)
-            Thread.sleep(forTimeInterval: 0.1)
 
-            self.SendDataToDevice(sendData: sendData, CallBack: nil)
+//            self.perform(#selector(TwoCup.sendOTAData(_:)), with: sendData, afterDelay: TimeInterval(0.1))
+            
+//            self.perform(#selector(TwoCup.sendOTAData(_:)), on: Thread.current, with: sendData, waitUntilDone: true, modes: nil)
+            
+            self.SendDataToDevice(sendData: sendData, CallBack: { (error) in
+                print("============")
+            })
 
-            //固件包
-//            self.perform(#selector(TwoCup.sendOTAData(_:)), with: sendData, afterDelay: 0.5, inModes: [RunLoopMode.commonModes])
+            updateSensor()
         }
+        sleep(2)
+        getBin()
         
     }
     
+    
     func sendOTAData(_ data:Data) {
+        
+        print("====")
         
         self.SendDataToDevice(sendData: data, CallBack: nil)
         
@@ -308,12 +365,12 @@ class TwoCup: OznerBaseDevice {
             
         }
         sendData.append(OznerTools.dataFromInt(number: CLongLong(sum!), length: 4))
-        let Checksum = CheckSum(filePath!)
+        let Checksum = 2146531410
         
         sendData.append(OznerTools.dataFromInt(number: CLongLong(Checksum), length: 4))
         
         self.SendDataToDevice(sendData: sendData, CallBack: nil)
-        
+        sleep(60)
     }
     
     func CheckSum(_ path:String) -> Int {
@@ -336,28 +393,31 @@ class TwoCup: OznerBaseDevice {
         
         //        let readBuffer = UnsafeMutablePointer<UInt8>.allocate(capacity: size)
         
-        var readBuffer:[UInt8] = [UInt8]()
+        var readBuffer:[UInt8] = [UInt8].init(repeating: 0xff, count: size)
         
-        inputStream?.read(&readBuffer, maxLength: (data?.length)!)
+        memset(&readBuffer, 0, size)
+        memcpy(&readBuffer, data?.bytes, (data?.length)!)
+        
         var temp = 0
         var Checksum = 0
-        let len = size/4
-        let data123 = NSData(bytes: readBuffer, length: 4)
-        
+        let len = size/4 - 1
+        let allData = NSData.init(bytes: readBuffer, length: readBuffer.count)
+
         
         for i in 0...len {
             var value:UInt32 = 0
             
-            data123.getBytes(&value, length: i * 4)
+            allData.getBytes(&value, range: NSRange.init(location: i * 4, length: 4))
+
             temp += Int(UInt32(bigEndian: value))
         }
         
-        var tempMask = CLongLong(0x1FFFFFFFF)
-        tempMask -= CLongLong(0x100000000)
-        
-        Checksum = Int(CLongLong(temp) & tempMask)
-        
-        
+//        var tempMask = CLongLong(0x1FFFFFFFF)
+//        tempMask -= CLongLong(0x100000000)
+//
+//        Checksum = Int(CLongLong(temp) & tempMask)
+//
+        Checksum = 2146531471
         print(Checksum)
         
         inputStream?.close()

@@ -64,7 +64,7 @@ NSString* idString;
 - (void)sendDataToDevice:(NSData *)data block:(void (^)(NSError *error))block{
     if (self.currPeripheral != nil) {
         if (writeCharacteristic != nil) {
-            [self.currPeripheral writeValue:data forCharacteristic:writeCharacteristic type:CBCharacteristicWriteWithResponse];
+            [self.currPeripheral writeValue:data forCharacteristic:writeCharacteristic type:CBCharacteristicWriteWithoutResponse];
         }
     }
 }
