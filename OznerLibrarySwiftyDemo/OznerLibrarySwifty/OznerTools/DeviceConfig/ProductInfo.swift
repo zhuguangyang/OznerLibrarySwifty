@@ -16,7 +16,6 @@ enum OZIOType{
     case BlueMxChip
     case AylaMxChip
     
-    case GPRS
     static func getFromString(str:String) -> OZIOType {
         switch str {
         case "Ayla":
@@ -29,8 +28,6 @@ enum OZIOType{
             return .BlueMxChip
         case "AylaMxChip":
             return .AylaMxChip
-        case "GPRS":
-            return .GPRS
         default:
             return .Blue
         }
@@ -49,11 +46,9 @@ enum OZDeviceClass:String{
     case WaterReplenish="WaterReplenish"
     case Electrickettle_Blue="Electrickettle_Blue"
     case WashDush_Wifi="WashDush_Wifi"
-    
-    case Water_GPRS = "Water_GPRS"
-    
+        
     static func getFromString(str:String)->OZDeviceClass{
-        return ["WaterPurifier_Blue":.WaterPurifier_Blue,"Cup":.Cup,"TwoCup":.TwoCup,"Tap":.Tap,"TDSPan":.TDSPan,"WaterPurifier_Wifi":.WaterPurifier_Wifi,"AirPurifier_Blue":.AirPurifier_Blue,"AirPurifier_Wifi":.AirPurifier_Wifi,"WaterReplenish":.WaterReplenish,"Electrickettle_Blue":.Electrickettle_Blue,"WashDush_Wifi":.WashDush_Wifi,"Water_GPRS":.Water_GPRS][str]!
+        return ["WaterPurifier_Blue":.WaterPurifier_Blue,"Cup":.Cup,"TwoCup":.TwoCup,"Tap":.Tap,"TDSPan":.TDSPan,"WaterPurifier_Wifi":.WaterPurifier_Wifi,"AirPurifier_Blue":.AirPurifier_Blue,"AirPurifier_Wifi":.AirPurifier_Wifi,"WaterReplenish":.WaterReplenish,"Electrickettle_Blue":.Electrickettle_Blue,"WashDush_Wifi":.WashDush_Wifi][str]!
     }
     public var ioType:OZIOType {
         switch self {
@@ -61,8 +56,6 @@ enum OZDeviceClass:String{
             return OZIOType.Blue
         case .WaterPurifier_Wifi,.AirPurifier_Wifi,.WashDush_Wifi:
             return OZIOType.MxChip
-        case .Water_GPRS:
-            return OZIOType.GPRS
 //        default:
 //            return OZIOType.Blue
         }
@@ -124,10 +117,6 @@ class ProductInfo: NSObject {
     }
     class func getIOTypeFromProductID(productID:String)->OZIOType {
         var IOStr = ""
-        
-        if productID == "GPRS" {
-            return OZIOType.GPRS
-        }
         
         for product in products.values {
             if IOStr != "" {

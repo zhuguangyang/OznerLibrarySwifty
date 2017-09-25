@@ -17,11 +17,11 @@ import UIKit
 import MQTTKit
 
 
-class MQTTGprs: NSObject {
+class OznerMQTT_V3: NSObject {
     
     private var mqttClient:MQTTClient!
     
-    static let `instance`: MQTTGprs = MQTTGprs()
+    static let `instance`: OznerMQTT_V3 = OznerMQTT_V3()
     
     typealias dataCallBlock = (dataCallBack:((Data)->Void),statusCallBack:((OznerConnectStatus)->Void))
     

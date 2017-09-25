@@ -37,9 +37,7 @@ class OznerIOManager: NSObject {
             return nil
         case .AylaMxChip:
             return nil
-            //GPRS
-        case .GPRS:
-            return OZGprsManager.instance.getIO(deviceinfo:deviceinfo)
+
         }
     }
     //搜索新设备的IO进行配对
@@ -50,6 +48,7 @@ class OznerIOManager: NSObject {
         switch deviceClass.ioType {
         case .Blue://蓝牙配对
             OznerBluetoothManager.instance.starPair(deviceClass: deviceClass, pairDelegate: pairDelegate)
+            //扫码配对 ssid为设备类型 password 为设备Mac地址
         case .MxChip://Wifi配对，目前只有庆科，以后要解决庆科和Ayla区别问题
             OznerMxChipManager.instance.starPair(deviceClass: deviceClass, pairDelegate: pairDelegate,ssid: ssid,password: password)
         case .Ayla:
@@ -58,9 +57,6 @@ class OznerIOManager: NSObject {
             break
         case .BlueMxChip:
             break
-            //扫码配对 ssid为设备类型 password 为设备Mac地址
-        case .GPRS:
-            OZGprsManager.instance.starPair(deviceClass: deviceClass, pairDelegate: pairDelegate, ssid: ssid, password: password)
         }
     }
     func canclePair() {//取消配对
@@ -78,9 +74,7 @@ class OznerIOManager: NSObject {
                 break
             case .BlueMxChip:
                 break
-            case .GPRS:
-                OZGprsManager.instance.canclePair()
-                break
+
             }
             currentPairDeviceClass=nil
         }
@@ -91,7 +85,6 @@ class OznerIOManager: NSObject {
         OznerBluetoothManager.instance.deleteIO(identifier: identifier)
         OznerMxChipManager.instance.deleteIO(identifier: identifier)
         OznerAylaManager.instance.deleteIO(identifier: identifier)
-        OZGprsManager.instance.deleteIO(identifier: identifier)
         
     }
 }
