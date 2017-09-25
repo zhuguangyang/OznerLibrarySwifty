@@ -12,6 +12,7 @@ bool StringIsNullOrEmpty(NSString* str);
 
 @interface Helper : NSObject
 
++(NSString*)GPRSEncryption:(NSString*)str;
 +(NSString*)md5:(NSString*)str;
 +(NSString*)rndString:(int)len;
 +(uint8_t)Crc8:(uint8_t*) inBuffer inLen:(uint16_t)inLen;
