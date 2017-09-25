@@ -86,4 +86,24 @@ class MQTTGprs: NSObject {
         }
 
     }
+    
+    
+    func sendData(data:Data,toTopic:String,callback:((Int32)->Void)!)  {
+        mqttClient.publishData(data, toTopic: toTopic, withQos: AtMostOnce, retain: true, completionHandler: callback)
+    }
+    
+    func subscribeTopic(topic:String,messageHandler:(dataCallBack:((Data)->Void),statusCallBack:((OznerConnectStatus)->Void))) {
+        
+        mqttClient.subscribe(topic, withQos: AtLeastOnce) { (_) in
+        }
+        
+        SubscribeTopics[topic]=messageHandler
+        
+    }
+    
+    func unSubscribeTopic(topic:String) {
+        SubscribeTopics.removeValue(forKey: topic)
+        mqttClient.unsubscribe(topic) {
+        }
+    }
 }
