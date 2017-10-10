@@ -40,20 +40,20 @@ class AirPurifier_Blue: OznerBaseDevice {
     func resetFilter(callBack:((_ error:Error?)->Void)) {
         let nowDate = NSDate() as NSDate
         let stopDate = nowDate.addingMonths(3) as NSDate
-        
-        var tmpData=Data.init(bytes: [UInt8(nowDate.year()-2000),
-                                      UInt8(nowDate.month()),
-                                      UInt8(nowDate.day()),
-                                      UInt8(nowDate.hour()),
-                                      UInt8(nowDate.minute()),
-                                      UInt8(nowDate.second()),
-                                      UInt8(stopDate.year()-2000),
-                                      UInt8(stopDate.month()),
-                                      UInt8(stopDate.day()),
-                                      UInt8(stopDate.hour()),
-                                      UInt8(stopDate.minute()),
-                                      UInt8(stopDate.second())
-                                      ])
+        let subBytes:[UInt8] = [UInt8(nowDate.year()-2000),
+                                UInt8(nowDate.month()),
+                                UInt8(nowDate.day()),
+                                UInt8(nowDate.hour()),
+                                UInt8(nowDate.minute()),
+                                UInt8(nowDate.second()),
+                                UInt8(stopDate.year()-2000),
+                                UInt8(stopDate.month()),
+                                UInt8(stopDate.day()),
+                                UInt8(stopDate.hour()),
+                                UInt8(stopDate.minute()),
+                                UInt8(stopDate.second())
+        ]
+        var tmpData=Data.init(bytes: subBytes)
         tmpData.append(OznerTools.dataFromInt(number: 60*1000, length: 4))
         self.SendDataToDevice(sendData: makePacket(code: 0x41, data: tmpData), CallBack: nil)
     }

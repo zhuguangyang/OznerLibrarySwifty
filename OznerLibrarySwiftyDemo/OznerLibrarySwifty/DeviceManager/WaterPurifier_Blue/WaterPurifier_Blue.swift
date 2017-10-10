@@ -76,7 +76,7 @@ class WaterPurifier_Blue: OznerBaseDevice {
             stopDate=curWaterDate as NSDate
         }
         stopDate = stopDate.addingDays(days) as NSDate
-        var data = Data.init(bytes: [
+        let dataBytes:[UInt8] = [
             0x40,UInt8(NSDate().year()-2000),
             UInt8(NSDate().month()),
             UInt8(NSDate().day()),
@@ -91,8 +91,9 @@ class WaterPurifier_Blue: OznerBaseDevice {
             UInt8(stopDate.hour()),
             UInt8(stopDate.minute()),
             UInt8(stopDate.second()),0x88,
-            0x16,            
-            ])
+            0x16
+        ]
+        var data = Data.init(bytes: dataBytes)
         let tmpByte = calcSum(data: data)
         data.append(tmpByte)
         self.SendDataToDevice(sendData: data) { (error) in}
@@ -219,6 +220,13 @@ class WaterPurifier_Blue: OznerBaseDevice {
     }
     override func describe() -> String {
         return "name:\(self.settings.name!)\nconnectStatus:\(self.connectStatus)\nTDS1:\(self.WaterInfo.TDS1),TDS2:\(self.WaterInfo.TDS2),TDS_Temperature:\(self.WaterInfo.TDS_Temperature)\nrtc:\(self.WaterSettingInfo.rtc),Ozone_Interval:\(self.WaterSettingInfo.Ozone_Interval),Ozone_WorkTime:\(self.WaterSettingInfo.Ozone_WorkTime),waterDate:\(self.WaterSettingInfo.waterDate)\nFilterA:\(self.FilterInfo.Filter_A_Percentage),FilterB:\(self.FilterInfo.Filter_B_Percentage),FilterC:\(self.FilterInfo.Filter_C_Percentage)\n"
+    }
+    
+    //OTA
+    func loadBinFile() {
+        
+        
+        
     }
 }
 

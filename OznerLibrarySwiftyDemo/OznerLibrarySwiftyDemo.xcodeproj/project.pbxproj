@@ -87,8 +87,6 @@
 		8DD349511E0BA62200C945A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DD3494F1E0BA62200C945A2 /* LaunchScreen.storyboard */; };
 		8DD3495C1E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD3495B1E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests.swift */; };
 		8DD349671E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349661E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.swift */; };
-		8DDBDC101F1DA8AE004912F0 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DDBDC0F1F1DA8AE004912F0 /* SwiftyJSON.framework */; };
-		8DDBDC111F1DA8AE004912F0 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8DDBDC0F1F1DA8AE004912F0 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,7 +113,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8DDBDC111F1DA8AE004912F0 /* SwiftyJSON.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,7 +232,6 @@
 		8DD349621E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OznerLibrarySwiftyDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD349661E0BA62200C945A2 /* OznerLibrarySwiftyDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OznerLibrarySwiftyDemoUITests.swift; sourceTree = "<group>"; };
 		8DD349681E0BA62200C945A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DDBDC0F1F1DA8AE004912F0 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		8E143C6116DD8580096B13BA /* Pods-OznerLibrarySwiftyDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OznerLibrarySwiftyDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OznerLibrarySwiftyDemo/Pods-OznerLibrarySwiftyDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		ACBB721B282F5D7D14FDBB2A /* Pods-OznerLibrarySwiftyDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OznerLibrarySwiftyDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-OznerLibrarySwiftyDemo/Pods-OznerLibrarySwiftyDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -245,7 +241,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DDBDC101F1DA8AE004912F0 /* SwiftyJSON.framework in Frameworks */,
 				8D6266281EC456B700FB46C5 /* MobileCoreServices.framework in Frameworks */,
 				8D1FB6211E5315790075C009 /* Security.framework in Frameworks */,
 				8D1FB61F1E5315690075C009 /* AudioToolbox.framework in Frameworks */,
@@ -623,7 +618,6 @@
 		8DD3493A1E0BA62200C945A2 = {
 			isa = PBXGroup;
 			children = (
-				8DDBDC0F1F1DA8AE004912F0 /* SwiftyJSON.framework */,
 				8D72E49C1F1DA4F7003A2067 /* OznerLibrarySwifty */,
 				8D2419A61E1111D700CF9B9C /* OznerLibrarySwiftyDemo-Bridging-Header.h */,
 				8DD349451E0BA62200C945A2 /* OznerLibrarySwiftyDemo */,
@@ -825,13 +819,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OznerLibrarySwiftyDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		04EE88EA6FC72C78053F10C7 /* [CP] Copy Pods Resources */ = {
@@ -855,9 +852,18 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OznerLibrarySwiftyDemo/Pods-OznerLibrarySwiftyDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
+				"${BUILT_PRODUCTS_DIR}/MQTTKit/MQTTKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MQTTKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

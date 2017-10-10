@@ -105,7 +105,7 @@ class Tap: OznerBaseDevice {
         let check1=Int(self.settings.GetValue(key: TapCheckKey1, defaultValue: "\(Int(8*3600))"))
         let check2=Int(self.settings.GetValue(key: TapCheckKey2, defaultValue: "\(Int(8*3600))"))
         
-        let data = Data.init(bytes: [
+        let bytes:[UInt8] = [
             0x10,
             UInt8(check1!/3600),
             UInt8(check1!%3600/60),
@@ -118,7 +118,9 @@ class Tap: OznerBaseDevice {
             UInt8(check1!%60),
             UInt8(check2!/3600),
             UInt8(check2!%3600/60),
-            UInt8(check2!%60)])
+            UInt8(check2!%60)]
+        
+        let data = Data.init(bytes: bytes)
         self.SendDataToDevice(sendData: data) { (error) in}
     }
     override func describe() -> String {
