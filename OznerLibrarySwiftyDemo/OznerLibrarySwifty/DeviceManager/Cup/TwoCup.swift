@@ -252,8 +252,7 @@ class TwoCup: OznerBaseDevice {
         
     }
     
-    var
-    sumLength:Int = 0
+    var sumLength:Int = 0
     var currenLength:Int = 0
     
     func startOTA() {

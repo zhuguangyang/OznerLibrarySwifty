@@ -223,8 +223,110 @@ class WaterPurifier_Blue: OznerBaseDevice {
     }
     
     //OTA
-    func loadBinFile() {
+    
+    var sumLength:Int = 0
+    var currenLength:Int = 0
+    
+    func startOTA() {
         
+        sleep(1)
+        
+        let filePath = Bundle.main.path(forResource: "TwoCup", ofType: "bin")
+        
+        let data = NSData(contentsOfFile: filePath!)!
+        
+        var size = data.length
+        
+        if size > 127 * 1024 {
+            print("文件过大")
+            appDelegate.window?.noticeOnlyText("OTA失败 文件过大!")
+            return
+        }
+        
+        if (size % 256) != 0 {
+            size = (size/256) * 256 + 256
+        }
+        
+        
+        var readBuffer:[UInt8] = [UInt8].init(repeating: 0xff, count: size)
+        
+        memset(&readBuffer, 0xff, size)
+        memcpy(&readBuffer, data.bytes, data.length)
+        
+        let data123 = Data.init(bytes: readBuffer)
+        
+        sumLength = data123.count
+        
+        for  i in 0 ... size/16 {
+            
+            var sendData = Data.init(bytes: [0xC1])
+            Thread.sleep(forTimeInterval: 0.1)
+            print(i)
+            //固件包位置
+            sendData.append(OznerTools.dataFromInt(number: CLongLong(i), length: 2))
+            
+            //固件包大小
+//            sendData.append(Data.init(bytes: [0x10]))
+            sendData.append(data123.subData(starIndex: i * 16, count: 16))
+            
+            var checkSum:UInt8 = 0
+            for i in 0..<19 {
+                
+                checkSum = checkSum + sendData[i] & 0x0ff
+            }
+            sendData.append(checkSum & 0xff)
+            
+            currenLength = i * 16
+            
+            if self.connectStatus != .Connected {
+                currenLength = 0
+                appDelegate.window?.noticeOnlyText("OTA失败 设备断开连接!")
+                return
+            }
+            
+            //            self.perform(#selector(TwoCup.sendOTAData(_:)), with: sendData, afterDelay: TimeInterval(0.1))
+            
+            //            self.perform(#selector(TwoCup.sendOTAData(_:)), on: Thread.current, with: sendData, waitUntilDone: true, modes: nil)
+            
+            self.SendDataToDevice(sendData: sendData, CallBack: { (error) in
+                print("============")
+            })
+            
+            updateSensor()
+        }
+    }
+    
+    func OTASuccess() {
+        
+        let filePath = Bundle.main.path(forResource: "TwoCup", ofType: "bin")
+        
+        var sendData = Data.init(bytes: [0xC3])
+        
+        let data = NSData(contentsOfFile: filePath!)
+        
+        //0xC3
+        let sum = data?.length
+        
+        if sum == nil {
+            
+            print("OTA失败 sum")
+            return
+            
+        }
+        sendData.append(OznerTools.dataFromInt(number: CLongLong(sum!), length: 4))
+        let Checksum = 2146531410
+        
+        sendData.append(OznerTools.dataFromInt(number: CLongLong(Checksum), length: 4))
+        
+        self.SendDataToDevice(sendData: sendData, CallBack: nil)
+        sleep(60)
+    }
+    
+    func updateSensor() {
+    
+    }
+    
+    func loadBinFile() {
         
         
     }
