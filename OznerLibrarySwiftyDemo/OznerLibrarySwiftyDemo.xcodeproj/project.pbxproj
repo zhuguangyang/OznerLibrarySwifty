@@ -125,6 +125,7 @@
 		682E76C61F58FE6F0074D3A7 /* TwoCup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoCup.swift; sourceTree = "<group>"; };
 		68618C531F1DAF97003855F4 /* Electrickettle_Blue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Electrickettle_Blue.swift; sourceTree = "<group>"; };
 		689813D01F6B720A000551F0 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
+		68AD528B1F9D9917005EAF0C /* Electrickettle.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = Electrickettle.bin; sourceTree = "<group>"; };
 		68BCF1C31F6BCD7A002F3865 /* TwoCup.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = TwoCup.bin; sourceTree = "<group>"; };
 		8D183CE51E28723D002E4618 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -284,6 +285,7 @@
 		68618C521F1DAF97003855F4 /* Electrickettle */ = {
 			isa = PBXGroup;
 			children = (
+				68AD528B1F9D9917005EAF0C /* Electrickettle.bin */,
 				68618C531F1DAF97003855F4 /* Electrickettle_Blue.swift */,
 			);
 			path = Electrickettle;

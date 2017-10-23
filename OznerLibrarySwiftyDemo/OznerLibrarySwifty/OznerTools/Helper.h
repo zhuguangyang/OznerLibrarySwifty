@@ -21,4 +21,9 @@ bool StringIsNullOrEmpty(NSString* str);
 
 + (int)OTACheckSumWithFileStr:(NSString *)filepath;
 
++ (int)loadFileWithpath:(NSString *)path;
+
++ (int)getBigHost:(Byte[])byte index:(int)index;
+
+
 @end

@@ -223,12 +223,29 @@ class WaterPurifier_Blue: OznerBaseDevice {
     }
     
     //OTA
-    
     var sumLength:Int = 0
     var currenLength:Int = 0
     
-    func startOTA() {
+    func eraseBlock(_ index:UInt8)  {
         
+        var sendData = Data.init(bytes: [0xc0,index])
+        
+        sendData.append(Data.init(bytes: [0xc0 & 0x0ff + (index & 0x0ff) & 0xff]))
+        
+        self.SendDataToDevice(sendData: sendData) { (error) in
+            if error != nil {
+                appDelegate.window?.noticeOnlyText("出错,请终止")
+            }
+        }
+        sleep(1)
+    }
+    
+    func startOTA(_ isBLE:Bool) {
+        
+        eraseBlock(UInt8(0))
+        eraseBlock(UInt8(1))
+        eraseBlock(UInt8(2))
+        eraseBlock(UInt8(3))
         sleep(1)
         
         let filePath = Bundle.main.path(forResource: "TwoCup", ofType: "bin")
@@ -246,7 +263,6 @@ class WaterPurifier_Blue: OznerBaseDevice {
         if (size % 256) != 0 {
             size = (size/256) * 256 + 256
         }
-        
         
         var readBuffer:[UInt8] = [UInt8].init(repeating: 0xff, count: size)
         
@@ -284,19 +300,17 @@ class WaterPurifier_Blue: OznerBaseDevice {
                 return
             }
             
-            //            self.perform(#selector(TwoCup.sendOTAData(_:)), with: sendData, afterDelay: TimeInterval(0.1))
-            
-            //            self.perform(#selector(TwoCup.sendOTAData(_:)), on: Thread.current, with: sendData, waitUntilDone: true, modes: nil)
-            
             self.SendDataToDevice(sendData: sendData, CallBack: { (error) in
                 print("============")
             })
             
             updateSensor()
         }
+        
+        OTASuccess(isBLE)
     }
     
-    func OTASuccess() {
+    func OTASuccess(_ isBLE:Bool) {
         
         let filePath = Bundle.main.path(forResource: "TwoCup", ofType: "bin")
         
@@ -311,25 +325,31 @@ class WaterPurifier_Blue: OznerBaseDevice {
             
             print("OTA失败 sum")
             return
-            
         }
+        
         sendData.append(OznerTools.dataFromInt(number: CLongLong(sum!), length: 4))
-        let Checksum = 2146531410
+        
+        var bleStr = "BLE"
+        
+        if isBLE {
+            bleStr = "HOS"
+        }
+        
+        sendData.append(bleStr.data(using: String.Encoding.ascii)!)
+        
+        let Checksum = Helper.loadFileWithpath(filePath!)
         
         sendData.append(OznerTools.dataFromInt(number: CLongLong(Checksum), length: 4))
         
         self.SendDataToDevice(sendData: sendData, CallBack: nil)
         sleep(60)
+        appDelegate.window?.noticeOnlyText("BLE传输完成")
     }
     
     func updateSensor() {
     
     }
-    
-    func loadBinFile() {
-        
-        
-    }
+
 }
 
 public func !=<A, B, C, D, E,F,G,H>(lhs: (A, B, C, D, E,F,G,H), rhs: (A, B, C, D, E,F,G,H)) -> Bool where A : Equatable, B : Equatable, C : Equatable, D : Equatable, E : Equatable,F : Equatable, G : Equatable, H : Equatable {

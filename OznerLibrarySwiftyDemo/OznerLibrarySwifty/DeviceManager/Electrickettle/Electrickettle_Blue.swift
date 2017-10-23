@@ -127,14 +127,170 @@ class Electrickettle_Blue: OznerBaseDevice {
     
     override func describe() -> String {
         
-        return "name:\(self.settings.name!)\n connectStatus:\(self.connectStatus)\n sensor:\(settingInfo)\n"
+        return "name:\(self.settings.name!)\n connectStatus:\(self.connectStatus)\n sensor:\(settingInfo)\nOTA进度:\(currenLength)/\(sumLength)"
     }
     
     override var description: String {
         
-        return "name:\(self.settings.name!)\n connectStatus:\(self.connectStatus)\n sensor:\(settingInfo)\n"
+        return "name:\(self.settings.name!)\n connectStatus:\(self.connectStatus)\n sensor:\(settingInfo)\nOTA进度:\(currenLength)/\(sumLength)"
     }
+    
+    
+    //OTA
+    func twoCupClearUpgrade() {
+        
+        let data = Data.init(bytes: [0xC2])
+        
+        self.SendDataToDevice(sendData: data) { (error) in
+            if error != nil {
+                
+                print("OTA失败")
+                
+            }
+        }
+        
+        sleep(2)
+        
+    }
+    
+    var sumLength:Int = 0
+    var currenLength:Int = 0
+    
+    func startOTA() {
+        
+        sleep(1)
+        let filePath = Bundle.main.path(forResource: "Electrickettle", ofType: "bin")
+        
+        let data = NSData(contentsOfFile: filePath!)!
+        CheckSum(filePath!)
+        var size = data.length
+        
+        if size > 127 * 1024 {
+            print("文件过大")
+            appDelegate.window?.noticeOnlyText("OTA失败 文件过大!")
+            return
+        }
+        
+        if (size % 256) != 0 {
+            size = (size/256) * 256 + 256
+        }
+        
+        
+        var readBuffer:[UInt8] = [UInt8].init(repeating: 0xff, count: size)
+        
+        memset(&readBuffer, 0xff, size)
+        memcpy(&readBuffer, data.bytes, data.length)
+        
+        let data123 = Data.init(bytes: readBuffer)
+        
+        sumLength = data123.count
+        
+        for  i in 0 ... size/16 {
+            
+            var sendData = Data.init(bytes: [0xC1])
+            Thread.sleep(forTimeInterval: 0.1)
+            print(i)
+            //固件包位置
+            sendData.append(OznerTools.dataFromInt(number: CLongLong(i), length: 2))
+            
+            //固件包大小
+//            sendData.append(Data.init(bytes: [0x10]))
+            sendData.append(data123.subData(starIndex: i * 16, count: 16))
+            
+            currenLength = i * 16
+            
+            if self.connectStatus != .Connected {
+                currenLength = 0
+                appDelegate.window?.noticeOnlyText("OTA失败 设备断开连接!")
+                return
+            }
+            
+            self.SendDataToDevice(sendData: sendData, CallBack: { (error) in
+                print("============")
+            })
+            
+//            更新UI界面
+            updateSensor()
+        }
+        sleep(2)
+        getBin()
+        
+    }
+    
+    func updateSensor() {
+        
+        self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
+    }
+    
+    func getBin() {
+        
+        let filePath = Bundle.main.path(forResource: "Electrickettle", ofType: "bin")
+        
+        var sendData = Data.init(bytes: [0xC3])
+        
+        let data = NSData(contentsOfFile: filePath!)
+        
+        //0xC3
+        let sum = data?.length
+        
+        if sum == nil {
+            
+            print("OTA失败 sum")
+            return
+            
+        }
+        sendData.append(OznerTools.dataFromInt(number: CLongLong(sum!), length: 4))
+        
+        sendData.append(OznerTools.dataFromInt(number: CLongLong(CheckSum), length: 4))
+        
+        self.SendDataToDevice(sendData: sendData, CallBack: nil)
+        sleep(60)
+        appDelegate.window?.noticeOnlyText("OTA成功!")
+    }
+    
+    private var CheckSum:Int = 0
+    func CheckSum(_ path:String) {
+        
+        let data = NSData(contentsOfFile: path)
+        
+        var size = (data?.length)!
+        
+        if size > 127 * 1024 {
+            print("文件过大")
+            return
+        }
+        
+        if (size % 256) != 0 {
+            size = (size/256) * 256 + 256
+        }
+        
+        let inputStream = InputStream(fileAtPath: path)
+        
+        var readBuffer:[UInt8] = [UInt8].init(repeating: 0xff, count: size)
+        
+        memset(&readBuffer, 0xff, size)
+        memcpy(&readBuffer, data?.bytes, (data?.length)!)
 
+        let allData = NSData.init(bytes: readBuffer, length: readBuffer.count)
+        
+        var temp:Int = 0
+        let len = size/4 - 1
+        
+        for i in 0...len {
+   
+            temp += Int(GYTools.getBigHost(&readBuffer, index: Int32(i * 4)))
+        }
+        var tempMask = CLongLong(0x1FFFFFFFF);
+        tempMask -= CLongLong(0x100000000)
+        
+        CheckSum = Int(CLongLong(temp) & tempMask)
+        print(CheckSum)
+        print(CheckSum & 0x7fffffff)
+        inputStream?.close()// 1464111506 TwoCup//2146531471
+        print(OznerTools.dataFromInt(number: CLongLong(CheckSum), length: 4))
+        
+    }
+    
 }
 
 public func !=<A, B, C, D, E,F,G,H,I>(lhs: (A, B, C, D, E,F,G,H,I), rhs: (A, B, C, D, E,F,G,H,I)) -> Bool where A : Equatable, B : Equatable, C : Equatable, D : Equatable, E : Equatable,F : Equatable, G : Equatable, H : Equatable , I : Equatable{
