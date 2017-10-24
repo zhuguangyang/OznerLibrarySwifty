@@ -10,7 +10,11 @@
 		1F90702BB28E42715A9D5E03 /* Pods_OznerLibrarySwiftyDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */; };
 		682B8A881F3AAC0600CBE821 /* WashDush_Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682B8A871F3AAC0600CBE821 /* WashDush_Wifi.swift */; };
 		682E76C71F58FE6F0074D3A7 /* TwoCup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682E76C61F58FE6F0074D3A7 /* TwoCup.swift */; };
+		6842E3661F9DF6D2009A46A5 /* ble.bin in Resources */ = {isa = PBXBuildFile; fileRef = 68AD528F1F9DE60B005EAF0C /* ble.bin */; };
+		6842E3671F9DF6D5009A46A5 /* BLE_OLD.bin in Resources */ = {isa = PBXBuildFile; fileRef = 6842E3651F9DF5D1009A46A5 /* BLE_OLD.bin */; };
+		6842E3681F9DF6D8009A46A5 /* abc.txt in Resources */ = {isa = PBXBuildFile; fileRef = 68122F681F9DF27E0095589F /* abc.txt */; };
 		68618C541F1DAF97003855F4 /* Electrickettle_Blue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68618C531F1DAF97003855F4 /* Electrickettle_Blue.swift */; };
+		68761E021F9EEC2200759494 /* Electrickettle.bin in Resources */ = {isa = PBXBuildFile; fileRef = 68AD528B1F9D9917005EAF0C /* Electrickettle.bin */; };
 		689813D11F6B720A000551F0 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689813D01F6B720A000551F0 /* SwiftNotice.swift */; };
 		68BCF1C41F6BCD7A002F3865 /* TwoCup.bin in Resources */ = {isa = PBXBuildFile; fileRef = 68BCF1C31F6BCD7A002F3865 /* TwoCup.bin */; };
 		8D183CE61E28723D002E4618 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D183CE51E28723D002E4618 /* ResultViewController.swift */; };
@@ -121,11 +125,14 @@
 
 /* Begin PBXFileReference section */
 		53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OznerLibrarySwiftyDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68122F681F9DF27E0095589F /* abc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = abc.txt; sourceTree = "<group>"; };
 		682B8A871F3AAC0600CBE821 /* WashDush_Wifi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WashDush_Wifi.swift; sourceTree = "<group>"; };
 		682E76C61F58FE6F0074D3A7 /* TwoCup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoCup.swift; sourceTree = "<group>"; };
+		6842E3641F9DF5D1009A46A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; name = Base; path = Base.lproj/BLE_OLD.bin; sourceTree = "<group>"; };
 		68618C531F1DAF97003855F4 /* Electrickettle_Blue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Electrickettle_Blue.swift; sourceTree = "<group>"; };
 		689813D01F6B720A000551F0 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 		68AD528B1F9D9917005EAF0C /* Electrickettle.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = Electrickettle.bin; sourceTree = "<group>"; };
+		68AD528F1F9DE60B005EAF0C /* ble.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = ble.bin; sourceTree = "<group>"; };
 		68BCF1C31F6BCD7A002F3865 /* TwoCup.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = TwoCup.bin; sourceTree = "<group>"; };
 		8D183CE51E28723D002E4618 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -377,6 +384,9 @@
 		8D72E4A51F1DA4F7003A2067 /* Cup */ = {
 			isa = PBXGroup;
 			children = (
+				68122F681F9DF27E0095589F /* abc.txt */,
+				6842E3651F9DF5D1009A46A5 /* BLE_OLD.bin */,
+				68AD528F1F9DE60B005EAF0C /* ble.bin */,
 				68BCF1C31F6BCD7A002F3865 /* TwoCup.bin */,
 				8D72E4A61F1DA4F7003A2067 /* Cup.swift */,
 				8D72E4A71F1DA4F7003A2067 /* OznerCupRecords.swift */,
@@ -790,11 +800,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6842E3671F9DF6D5009A46A5 /* BLE_OLD.bin in Resources */,
 				68BCF1C41F6BCD7A002F3865 /* TwoCup.bin in Resources */,
 				8D72E5371F1DA4F7003A2067 /* ProductInfo.plist in Resources */,
+				6842E3681F9DF6D8009A46A5 /* abc.txt in Resources */,
 				8DD349511E0BA62200C945A2 /* LaunchScreen.storyboard in Resources */,
+				6842E3661F9DF6D2009A46A5 /* ble.bin in Resources */,
 				8DD3494E1E0BA62200C945A2 /* Assets.xcassets in Resources */,
 				8DD3494C1E0BA62200C945A2 /* Main.storyboard in Resources */,
+				68761E021F9EEC2200759494 /* Electrickettle.bin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -975,6 +989,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		6842E3651F9DF5D1009A46A5 /* BLE_OLD.bin */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6842E3641F9DF5D1009A46A5 /* Base */,
+			);
+			name = BLE_OLD.bin;
+			sourceTree = "<group>";
+		};
 		8DD3494A1E0BA62200C945A2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

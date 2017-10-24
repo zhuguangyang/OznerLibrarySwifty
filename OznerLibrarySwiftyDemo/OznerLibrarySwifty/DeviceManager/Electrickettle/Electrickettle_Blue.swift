@@ -159,7 +159,14 @@ class Electrickettle_Blue: OznerBaseDevice {
     func startOTA() {
         
         sleep(1)
-        let filePath = Bundle.main.path(forResource: "Electrickettle", ofType: "bin")
+
+        let filePath = Bundle.main.path(forResource: "ble", ofType: "bin")
+//        let filePath = "/Users/macpro-hz/Desktop/workSpace/个人项目/ATAnimatons/ATAnimatons/GYLineView/ble.bin"
+        
+        if filePath == nil {
+            appDelegate.window?.noticeOnlyText("请检查文件是否存在")
+            return
+        }
         
         let data = NSData(contentsOfFile: filePath!)!
         CheckSum(filePath!)
@@ -224,7 +231,7 @@ class Electrickettle_Blue: OznerBaseDevice {
     
     func getBin() {
         
-        let filePath = Bundle.main.path(forResource: "Electrickettle", ofType: "bin")
+        let filePath = Bundle.main.path(forResource: "ble", ofType: "bin")
         
         var sendData = Data.init(bytes: [0xC3])
         
@@ -271,14 +278,14 @@ class Electrickettle_Blue: OznerBaseDevice {
         memset(&readBuffer, 0xff, size)
         memcpy(&readBuffer, data?.bytes, (data?.length)!)
 
-        let allData = NSData.init(bytes: readBuffer, length: readBuffer.count)
+//        let allData = NSData.init(bytes: readBuffer, length: readBuffer.count)
         
         var temp:Int = 0
         let len = size/4 - 1
         
         for i in 0...len {
    
-            temp += Int(GYTools.getBigHost(&readBuffer, index: Int32(i * 4)))
+            temp = temp + Int(Helper.getBigHost(&readBuffer, index: Int32(i * 4)))
         }
         var tempMask = CLongLong(0x1FFFFFFFF);
         tempMask -= CLongLong(0x100000000)

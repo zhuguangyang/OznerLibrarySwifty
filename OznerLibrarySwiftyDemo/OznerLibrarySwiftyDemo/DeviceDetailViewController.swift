@@ -117,15 +117,15 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
 
     @IBAction func otaAction(_ sender: UIButton) {
         
-        let device = currDevice as! TwoCup
+        let device = currDevice as! Electrickettle_Blue
         
-        DispatchQueue.global().async {
+//        DispatchQueue.global().async {
 
             device.twoCupClearUpgrade()
             device.startOTA()
 
         
-        }
+//        }
     }
     
     
