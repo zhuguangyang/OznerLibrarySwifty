@@ -53,6 +53,23 @@ NSString* deviceName=nil;
     float power = (iRssi-59)/(10*2.0);
     return pow(10, power);
 }
+#pragma mark -设备是否可以被搜索（RO Comml）
+
+- (BOOL)isCanSearch:(NSDictionary *)advertisementData {
+    NSData* macData1=nil;
+    if ([advertisementData objectForKey:CBAdvertisementDataServiceDataKey])
+    {
+        NSDictionary* dict=[advertisementData objectForKey:CBAdvertisementDataServiceDataKey];
+        CBUUID* uuid=[CBUUID UUIDWithString:@"FFF0"];
+        macData1=[dict objectForKey:uuid];
+    }
+    
+    BytePtr bytes2 = (BytePtr)[[macData1 subdataWithRange:NSMakeRange(18, 1)] bytes];
+    NSLog(@"%d",bytes2[0]);
+    
+    return bytes2[0] == 0 ? true : false;
+}
+
 #pragma mark -蓝牙配置和操作
 -(NSString*)getMac:(NSDictionary *)advertisementData Name:(NSString*)name {
     NSString* MAC=@"";
@@ -64,6 +81,7 @@ NSString* deviceName=nil;
         CBUUID* uuid=[CBUUID UUIDWithString:@"FFF0"];
         macData1=[dict objectForKey:uuid];
     }
+    
     if ([advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey]){
         macData2=[advertisementData objectForKey:CBAdvertisementDataManufacturerDataKey];
     }
@@ -123,10 +141,17 @@ NSString* deviceName=nil;
     }];
     
     
-    
     //设置查找设备的过滤器
     [baby setFilterOnDiscoverPeripherals:^BOOL(NSString *peripheralName, NSDictionary *advertisementData, NSNumber *RSSI) {
-        if (peripheralName == nil) {
+        
+        BOOL isCanSearch = false;
+        
+        if ([peripheralName  isEqual: @"RO Comml"]) {
+            
+            isCanSearch = [weakSelf isCanSearch:advertisementData];
+        }
+        
+        if (peripheralName == nil || ([peripheralName  isEqual: @"RO Comml"]  && isCanSearch)) {
             return NO;
         }
         if ([deviceName containsString:peripheralName]) {

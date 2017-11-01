@@ -136,7 +136,7 @@
     //日志
     //BabyLog(@"当扫描到设备:%@",peripheral.name);
     [self addDiscoverPeripheral:peripheral];
-    
+//    kCBAdvDataManufacturerData
     //发出通知
     [[NSNotificationCenter defaultCenter]postNotificationName:BabyNotificationAtDidDiscoverPeripheral
                                                        object:@{@"central":central,@"peripheral":peripheral,@"advertisementData":advertisementData,@"RSSI":RSSI}];

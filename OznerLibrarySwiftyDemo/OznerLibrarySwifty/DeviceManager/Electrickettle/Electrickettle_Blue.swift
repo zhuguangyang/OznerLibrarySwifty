@@ -244,7 +244,6 @@ class Electrickettle_Blue: OznerBaseDevice {
             
             print("OTA失败 sum")
             return
-            
         }
         sendData.append(OznerTools.dataFromInt(number: CLongLong(sum!), length: 4))
         

@@ -111,7 +111,23 @@ NSString* idString;
         if (![idString isEqualToString:peripheral.identifier.UUIDString]) {
             return ;
         }
-       
+        
+//        CBService * service1=nil;
+//        
+//        for (CBService* s in [peripheral services])
+//        {
+//            if ([[[s UUID] UUIDString] isEqualToString:@"FFF0"])
+//            {
+//                NSLog(@"didDiscoverServices:%@",[[s UUID] UUIDString]);
+//                service1=s;
+//                [peripheral discoverCharacteristics:nil forService:service1];
+//                sleep(3);
+//                break;
+//            }
+//        }
+//       
+        
+        
         for (CBCharacteristic* characteristic in service.characteristics)
         {
             if ([[[characteristic UUID] UUIDString] isEqualToString:@"FFF2"])
