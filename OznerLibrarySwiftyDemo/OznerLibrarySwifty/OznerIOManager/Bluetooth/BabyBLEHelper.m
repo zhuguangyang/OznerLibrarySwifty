@@ -64,6 +64,10 @@ NSString* deviceName=nil;
         macData1=[dict objectForKey:uuid];
     }
     
+    NSData *data = [macData1 subdataWithRange:NSMakeRange(0, 8)];
+    
+    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF16StringEncoding];
+    NSLog(@"%@",str);
     BytePtr bytes2 = (BytePtr)[[macData1 subdataWithRange:NSMakeRange(18, 1)] bytes];
     NSLog(@"%d",bytes2[0]);
     
@@ -147,7 +151,7 @@ NSString* deviceName=nil;
         BOOL isCanSearch = false;
         
         if ([peripheralName  isEqual: @"RO Comml"]) {
-            
+
             isCanSearch = [weakSelf isCanSearch:advertisementData];
         }
         
@@ -159,8 +163,6 @@ NSString* deviceName=nil;
         }
         return NO;
     }];
-    
-    
     
     
     [baby setBlockOnCancelScanBlock:^(CBCentralManager *centralManager) {
