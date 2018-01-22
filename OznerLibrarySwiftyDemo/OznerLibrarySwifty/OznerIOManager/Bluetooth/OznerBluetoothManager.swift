@@ -10,9 +10,9 @@ import UIKit
 
 
 //蓝牙库管理中心
-class OznerBluetoothManager: NSObject {
+public class OznerBluetoothManager: NSObject {
     private static var _instance: OznerBluetoothManager! = nil
-    static var instance: OznerBluetoothManager! {
+   public static var instance: OznerBluetoothManager! {
         get {
             if _instance == nil {
                 _instance = OznerBluetoothManager()
@@ -25,7 +25,7 @@ class OznerBluetoothManager: NSObject {
     }
     private var IODics=[String:OZBluetoothIO]()
     //获取已配对的设备IO，或者设备重新连接调用
-    func getIO(deviceinfo:OznerDeviceInfo) -> OZBluetoothIO? {
+  public  func getIO(deviceinfo:OznerDeviceInfo) -> OZBluetoothIO? {
         if let tmpIO = IODics[deviceinfo.deviceID] {
             return tmpIO
         }else{
@@ -36,7 +36,7 @@ class OznerBluetoothManager: NSObject {
     }
     //搜索新设备的IO进行配对
     private var failDelegateUsed:Bool=false
-    func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?) {//开始配对
+   public func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?) {//开始配对
         var scanData=OznerDeviceInfo()
         let starDate = Date()
         self.failDelegateUsed=false
@@ -77,12 +77,12 @@ class OznerBluetoothManager: NSObject {
             }
         }
     }
-    func canclePair() {//取消配对
+   public func canclePair() {//取消配对
         BabyBLEHelper.share().cancelScan()
         self.failDelegateUsed=true
     }
     //删除设备时解除绑定的IO
-    func deleteIO(identifier:String) {
+   public func deleteIO(identifier:String) {
         if let tmpIO = IODics[identifier] {
             tmpIO.destroySelf()
             IODics.removeValue(forKey: identifier)

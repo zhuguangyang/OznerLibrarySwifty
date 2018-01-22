@@ -8,25 +8,25 @@
 
 import UIKit
 //外部使用
-protocol OznerBaseIODelegate {
+public protocol OznerBaseIODelegate {
     func OznerBaseIORecvData(recvData:Data)->Void//IO收到传感器数据变化
     func OznerBaseIOStatusUpdate(status:OznerConnectStatus)->Void//IO状态变化
 }
-class OznerBaseIO: NSObject {
+public class OznerBaseIO: NSObject {
   
-    var delegate:OznerBaseIODelegate!
-    var deviceInfo:OznerDeviceInfo!
-    required init(deviceinfo:OznerDeviceInfo) {
+   public var delegate:OznerBaseIODelegate!
+   public var deviceInfo:OznerDeviceInfo!
+   public required init(deviceinfo:OznerDeviceInfo) {
         super.init()
         deviceInfo=deviceinfo
     }
-    func SendDataToDevice(sendData:Data,CallBack callback:((Error?)->Void)?) {
+   public func SendDataToDevice(sendData:Data,CallBack callback:((Error?)->Void)?) {
         
     }
-    func starWork() {
+   public func starWork() {
         
     }
-    func stopWork()  {
+   public func stopWork()  {
         
     }
 }

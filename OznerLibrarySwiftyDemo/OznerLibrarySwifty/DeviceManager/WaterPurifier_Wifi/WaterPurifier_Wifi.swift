@@ -8,18 +8,18 @@
 
 import UIKit
 
-class WaterPurifier_Wifi: OznerBaseDevice {
+public class WaterPurifier_Wifi: OznerBaseDevice {
     
     //添加个性字段
     //对外只读，对内可读写
-    private(set) var sensor:(TDS_Before:Int,TDS_After:Int,Temperature:Float)=(0,0,0.0){
+   public private(set) var sensor:(TDS_Before:Int,TDS_After:Int,Temperature:Float)=(0,0,0.0){
         didSet{
             if sensor != oldValue {
                 self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
             }
         }
     }
-    private(set) var status:(Power:Bool,Cool:Bool,Hot:Bool,Sterilization:Bool)=(false,false,false,false){
+  public  private(set) var status:(Power:Bool,Cool:Bool,Hot:Bool,Sterilization:Bool)=(false,false,false,false){
         didSet{
             if status != oldValue {
                 self.delegate?.OznerDeviceStatusUpdate!(identifier: self.deviceInfo.deviceID)
@@ -27,16 +27,16 @@ class WaterPurifier_Wifi: OznerBaseDevice {
         }
     }
     
-    func setPower(Power:Bool,callBack:((_ error:Error?)->Void)) {
+  public  func setPower(Power:Bool,callBack:((_ error:Error?)->Void)) {
         setStatus(data: Data.init(bytes: [UInt8(status.Hot.hashValue),UInt8(status.Cool.hashValue),UInt8(Power.hashValue),UInt8(status.Sterilization.hashValue)]))
     }
-    func setCool(Cool:Bool,callBack:((_ error:Error?)->Void)) {
+   public func setCool(Cool:Bool,callBack:((_ error:Error?)->Void)) {
         setStatus(data: Data.init(bytes: [UInt8(status.Hot.hashValue),UInt8(Cool.hashValue),UInt8(status.Power.hashValue),UInt8(status.Sterilization.hashValue)]))
     }
-    func setHot(Hot:Bool,callBack:((_ error:Error?)->Void)) {
+   public func setHot(Hot:Bool,callBack:((_ error:Error?)->Void)) {
         setStatus(data: Data.init(bytes: [UInt8(Hot.hashValue),UInt8(status.Cool.hashValue),UInt8(status.Power.hashValue),UInt8(status.Sterilization.hashValue)]))
     }
-    func setSterilization(Sterilization:Bool,callBack:((_ error:Error?)->Void)) {
+   public func setSterilization(Sterilization:Bool,callBack:((_ error:Error?)->Void)) {
        setStatus(data: Data.init(bytes: [UInt8(status.Hot.hashValue),UInt8(status.Cool.hashValue),UInt8(status.Power.hashValue),UInt8(Sterilization.hashValue)]))
     }
     private func setStatus(data:Data) {
@@ -45,7 +45,7 @@ class WaterPurifier_Wifi: OznerBaseDevice {
         reqeusetStatus()
     }
     
-    override func OznerBaseIORecvData(recvData: Data) {
+   public override func OznerBaseIORecvData(recvData: Data) {
         //解析数据并更新个性字段
         requestCount=0
         if self.connectStatus != .Connected
@@ -82,12 +82,12 @@ class WaterPurifier_Wifi: OznerBaseDevice {
             sensor = tmpSensor
         }
     }
-    override func doWillInit() {
+    public override func doWillInit() {
         let needData=self.MakeWoodyBytes(code: 0xfa, Opcode: 0x01, data: Data())
         self.SendDataToDevice(sendData: needData, CallBack: nil)
     }
-    var requestCount = 0//请求三次没反应代表机器断网
-    override func repeatFunc() {
+   public var requestCount = 0//请求三次没反应代表机器断网
+   public override func repeatFunc() {
         if Int(arc4random()%2)==0 {
             requestCount+=1
             if requestCount>=3 {
@@ -96,7 +96,7 @@ class WaterPurifier_Wifi: OznerBaseDevice {
             self.reqeusetStatus()
         }
     }
-    func reqeusetStatus() {
+   public func reqeusetStatus() {
         let needData=self.MakeWoodyBytes(code: 0xfa, Opcode: 0x01, data: Data())
         self.SendDataToDevice(sendData: needData, CallBack: nil)
     }
@@ -144,7 +144,7 @@ class WaterPurifier_Wifi: OznerBaseDevice {
         dataNeed.append(data)
         self.SendDataToDevice(sendData: dataNeed, CallBack: nil)
     }
-    override func describe() -> String {
+    public override func describe() -> String {
         return "设备名称:\(self.settings.name!)\n 连接状态:\(self.connectStatus)\n 净化前TDS:\(self.sensor.TDS_Before)\n 净化后TDS:\(self.sensor.TDS_After)\n 水温:\(self.sensor.Temperature)\n 电源:\(self.status.Power)\n 加热:\(self.status.Hot)\n 制冷:\(self.status.Cool)\n"
     }
     

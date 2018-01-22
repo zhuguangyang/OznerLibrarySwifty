@@ -7,7 +7,7 @@
 //
 
 import UIKit
-enum OznerConnectStatus {
+public enum OznerConnectStatus {
     case Connecting
     case Disconnect
     case Connected
@@ -27,22 +27,22 @@ enum OznerConnectStatus {
     @objc optional func OznerDeviceRecordUpdate(identifier:String)->Void//设备滤芯变化
 }
 
-class OznerBaseDevice: NSObject,OznerBaseIODelegate {
+public class OznerBaseDevice: NSObject,OznerBaseIODelegate {
 
     //var identifier:String!//系统自动生成的，自带的，原生的设备id，不一样的设备获取到的不唯一，蓝牙自动连接使用
     //var macAdress:String!//广播包发过来的，浩泽自己定义的唯一识别码,接口调用时用,滤芯，周月数据
     //var type:String!
-    var deviceInfo:OznerDeviceInfo!
+  public var deviceInfo:OznerDeviceInfo!
     
-    var settings:BaseDeviceSetting!
-    var connectStatus=OznerConnectStatus.Disconnect{
+  public  var settings:BaseDeviceSetting!
+  public  var connectStatus=OznerConnectStatus.Disconnect{
         didSet{
             delegate?.OznerDeviceStatusUpdate?(identifier: deviceInfo.deviceID)
         }
     }
-    var delegate:OznerBaseDeviceDelegate?
+   public var delegate:OznerBaseDeviceDelegate?
     private var io:OznerBaseIO?
-    required init(deviceinfo:OznerDeviceInfo,Settings settings:String?) {
+   public required init(deviceinfo:OznerDeviceInfo,Settings settings:String?) {
         super.init()
         self.deviceInfo=deviceinfo
         self.settings=BaseDeviceSetting(json: settings)
@@ -50,14 +50,14 @@ class OznerBaseDevice: NSObject,OznerBaseIODelegate {
         self.io?.delegate=self
        
     }
-    func SendDataToDevice(sendData:Data,CallBack callback:((Error?)->Void)?) {
+  public  func SendDataToDevice(sendData:Data,CallBack callback:((Error?)->Void)?) {
         if io != nil {
              io?.SendDataToDevice(sendData: sendData, CallBack: callback)
         }
        
     }
     private var cycyleTimer:Timer?
-    var isCurrentDevice = false{
+  public  var isCurrentDevice = false{
         didSet{
             if isCurrentDevice == oldValue {
                 return
@@ -77,20 +77,20 @@ class OznerBaseDevice: NSObject,OznerBaseIODelegate {
             }
         }
     }
-    func repeatFunc() {//需要重复执行的调用
+   public func repeatFunc() {//需要重复执行的调用
         
     }
     //io 发送初始化数据
-    func doWillInit() {
+   public func doWillInit() {
 
     }
     
     //OznerBaseIODelegate
     //收到传感器变化数据
-    func OznerBaseIORecvData(recvData: Data) {
+   public func OznerBaseIORecvData(recvData: Data) {
     }
     //连接状态变化
-    func OznerBaseIOStatusUpdate(status: OznerConnectStatus) {
+   public func OznerBaseIOStatusUpdate(status: OznerConnectStatus) {
         if status==OznerConnectStatus.IOIsReadly {
             connectStatus=OznerConnectStatus.Connected
             self.doWillInit()
@@ -98,7 +98,7 @@ class OznerBaseDevice: NSObject,OznerBaseIODelegate {
             connectStatus=status
         }
     }
-    func describe() -> String {
+   public func describe() -> String {
         return ""
     }
 }

@@ -8,9 +8,9 @@
 
 import UIKit
 import SQLite
-class OznerDeviceRecordHelper: NSObject {
+public class OznerDeviceRecordHelper: NSObject {
     private static var _instance: OznerDeviceRecordHelper! = nil
-    static var instance: OznerDeviceRecordHelper! {
+   public static var instance: OznerDeviceRecordHelper! {
         get {
             if _instance == nil {
                 _instance = OznerDeviceRecordHelper(dbName: OznerManager.instance.owner)
@@ -28,14 +28,14 @@ class OznerDeviceRecordHelper: NSObject {
     private let updated = Expression<Bool>("updated")
 
     private var db:Connection?
-    required init(dbName:String) {
+  public  required init(dbName:String) {
         let path = NSSearchPathForDirectoriesInDomains(
             .documentDirectory, .userDomainMask, true
             ).first!+"/OznerLibrary"+dbName+".sqlite3"
         db = try? Connection(path)
     }
 
-    func addRecordToSQL(Identifier:String,Tdate:Date,Tds:Int,Temperature:Int,Volume:Int,Updated:Bool)  {
+   public func addRecordToSQL(Identifier:String,Tdate:Date,Tds:Int,Temperature:Int,Volume:Int,Updated:Bool)  {
         //判断表是否存在,不存在就创建
         let _=try? db!.run(Table(Identifier).create(ifNotExists: true){
             t in
@@ -47,7 +47,7 @@ class OznerDeviceRecordHelper: NSObject {
         })
         let _=try? db!.run(Table(Identifier).insert(or: .replace, date <- Tdate, tds <- Tds, temperature <- Temperature,volume <- Volume, updated <- Updated))
     }
-    func getRecords(Identifier:String)->[(date:Date,tds:Int,temperat:Int,volum:Int,ipdated:Bool)]  {
+   public func getRecords(Identifier:String)->[(date:Date,tds:Int,temperat:Int,volum:Int,ipdated:Bool)]  {
         //判断表是否存在,不存在就创建
         let _=try? db!.run(Table(Identifier).create(ifNotExists: true){
             t in

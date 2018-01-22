@@ -10,11 +10,11 @@ import UIKit
 
 
 
-class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate {
+public class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate {
     
-    var deviceInfo:OznerDeviceInfo!
+   public var deviceInfo:OznerDeviceInfo!
     private static var _instance: OznerEasyLink_V2! = nil
-    static var instance: OznerEasyLink_V2! {
+   public static var instance: OznerEasyLink_V2! {
         get {
             if _instance == nil {
                 
@@ -26,7 +26,7 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
             _instance = newValue
         }
     }
-    required  override init() {
+  public  required  override init() {
         
     }
     
@@ -38,7 +38,7 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
     private var SuccessBlock:((OznerDeviceInfo)->Void)!
     private var FailedBlock:((Error)->Void)!
     
-    func starPair(deviceClass:OZDeviceClass,password:String?,outTime:Int,successBlock:((OznerDeviceInfo)->Void)!,failedBlock:((Error)->Void)!) {
+   public func starPair(deviceClass:OZDeviceClass,password:String?,outTime:Int,successBlock:((OznerDeviceInfo)->Void)!,failedBlock:((Error)->Void)!) {
         //初始化参数
         DeviceClass=deviceClass
         SuccessBlock=successBlock
@@ -54,7 +54,7 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
         ZBBonjourService.sharedInstance().startSearchDevice()
     }
     
-    func canclePair() {//取消配对
+   public func canclePair() {//取消配对
         ZBBonjourService.sharedInstance().stopSearchDevice()
     }
     @objc private func pairFailed() {
@@ -66,7 +66,7 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
         SuccessBlock(deviceInfo)
     }
     
-    func bonjourService(_ service: ZBBonjourService!, didReturnDevicesArray array: [Any]!) {
+   public func bonjourService(_ service: ZBBonjourService!, didReturnDevicesArray array: [Any]!) {
         print(array)
         for item in array {
             if let RecordData = (item as AnyObject).object(forKey: "RecordData")
@@ -112,7 +112,7 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
     }
     
     private var isneedReconnectHost = true
-    func socketDidDisconnect(_ sock: GCDAsyncSocket!, withError err: Error!) {
+   public func socketDidDisconnect(_ sock: GCDAsyncSocket!, withError err: Error!) {
         print("Socket 断开链接")
         if Int(Date().timeIntervalSince1970-starTime.timeIntervalSince1970)>pairOutTime {
             pairFailed()
@@ -129,7 +129,7 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
         }
         sleep(1)
     }
-    func socket(_ sock: GCDAsyncSocket!, didConnectToHost host: String!, port: UInt16) {
+   public func socket(_ sock: GCDAsyncSocket!, didConnectToHost host: String!, port: UInt16) {
         print("Socket 连接成功")
         gcdAsyncSocket.readData(withTimeout: -1, tag: 200)
         // 发送消息
@@ -138,7 +138,7 @@ class OznerEasyLink_V2: NSObject,ZBBonjourServiceDelegate,GCDAsyncSocketDelegate
         // 开始发送消息 这里不需要知道对象的ip地址和端口
         gcdAsyncSocket?.write(sPostdata, withTimeout: 10, tag: 100)
     }
-    func socket(_ sock: GCDAsyncSocket!, didRead data: Data!, withTag tag: Int) {
+   public func socket(_ sock: GCDAsyncSocket!, didRead data: Data!, withTag tag: Int) {
         isneedReconnectHost=false
         let stringFromData = String.init(data: data, encoding: String.Encoding.utf8)
         print(stringFromData ?? "")

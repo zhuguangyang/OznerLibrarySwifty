@@ -8,10 +8,10 @@
 
 import UIKit
 //Ayla库管理中心
-class OznerAylaManager: NSObject {
+public class OznerAylaManager: NSObject {
 
     private static var _instance: OznerAylaManager! = nil
-    static var instance: OznerAylaManager! {
+   public static var instance: OznerAylaManager! {
         get {
             if _instance == nil {
                 _instance = OznerAylaManager()
@@ -23,17 +23,17 @@ class OznerAylaManager: NSObject {
         }
     }
     //获取已配对的设备IO，或者设备重新连接调用
-    func getIO(deviceinfo:OznerDeviceInfo) -> OZAylaIO? {
+   public func getIO(deviceinfo:OznerDeviceInfo) -> OZAylaIO? {
         return nil
     }
-    func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?) {//开始配对
+  public  func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?) {//开始配对
         
     }
-    func canclePair() {//取消配对
+   public func canclePair() {//取消配对
         
     }
     //删除设备时解除绑定的IO
-    func deleteIO(identifier:String) {
+   public func deleteIO(identifier:String) {
         
     }
 }

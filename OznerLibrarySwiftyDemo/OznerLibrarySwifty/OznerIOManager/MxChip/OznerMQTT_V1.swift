@@ -9,10 +9,10 @@
 import UIKit
 import MQTTKit
 
-class OznerMQTT_V1: NSObject {
+public class OznerMQTT_V1: NSObject {
     private var mqttClient:MQTTClient!
     private static var _instance: OznerMQTT_V1! = nil
-    static var instance: OznerMQTT_V1! {
+   public static var instance: OznerMQTT_V1! {
         get {
             if _instance == nil {
                 
@@ -25,7 +25,7 @@ class OznerMQTT_V1: NSObject {
         }
     }
     private var SubscribeTopics:[String:(dataCallBack:((Data)->Void),statusCallBack:((OznerConnectStatus)->Void))]!
-    required override init() {
+   public required override init() {
         super.init()
         SubscribeTopics=[String:(dataCallBack:((Data)->Void),statusCallBack:((OznerConnectStatus)->Void))]()
         mqttClient=MQTTClient(clientId: "v1-app-"+rndString(len: 12))
@@ -66,18 +66,18 @@ class OznerMQTT_V1: NSObject {
         }
        
     }
-    func subscribeTopic(topic:String,messageHandler:(dataCallBack:((Data)->Void),statusCallBack:((OznerConnectStatus)->Void))) {
+  public  func subscribeTopic(topic:String,messageHandler:(dataCallBack:((Data)->Void),statusCallBack:((OznerConnectStatus)->Void))) {
         mqttClient.subscribe(topic+"/out", withQos: AtLeastOnce) { (_) in
         }
         SubscribeTopics[topic+"/out"]=messageHandler
         
     }
-    func unSubscribeTopic(topic:String) {
+   public func unSubscribeTopic(topic:String) {
         SubscribeTopics.removeValue(forKey: topic+"/out")
         mqttClient.unsubscribe(topic+"/out") {
         }
     }
-    func sendData(data:Data,toTopic:String,callback:((Int32)->Void)!)  {
+  public  func sendData(data:Data,toTopic:String,callback:((Int32)->Void)!)  {
         mqttClient.publishData(data, toTopic: toTopic+"/in", withQos: AtMostOnce, retain: true, completionHandler: callback)
     }
     private func rndString(len:Int) -> String {

@@ -8,12 +8,12 @@
 //
 import UIKit
 
-class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
+public class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
     
-    var deviceInfo:OznerDeviceInfo!
+   public var deviceInfo:OznerDeviceInfo!
     private var easylink_config:EASYLINK!
     private static var _instance: OznerEasyLink_V1! = nil
-    static var instance: OznerEasyLink_V1! {
+   public static var instance: OznerEasyLink_V1! {
         get {
             if _instance == nil {
                 
@@ -25,7 +25,7 @@ class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
             _instance = newValue
         }
     }
-    required override init() {
+  public  required override init() {
         super.init()
         if( easylink_config == nil){
             easylink_config = EASYLINK(delegate: self)
@@ -38,7 +38,7 @@ class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
     private var pairOutTime=0
     private var SuccessBlock:((OznerDeviceInfo)->Void)!
     private var FailedBlock:((Error)->Void)!
-    func starPair(deviceClass:OZDeviceClass,ssid:String?,password:String?,timeOut:Int,successBlock:((OznerDeviceInfo)->Void)!,failedBlock:((Error)->Void)!) {//开始配对
+   public func starPair(deviceClass:OZDeviceClass,ssid:String?,password:String?,timeOut:Int,successBlock:((OznerDeviceInfo)->Void)!,failedBlock:((Error)->Void)!) {//开始配对
         deviceInfo=OznerDeviceInfo()
         deviceInfo.wifiVersion=1
         SuccessBlock=successBlock
@@ -67,7 +67,7 @@ class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
         
     }
     
-    func canclePair() {//取消配对
+   public func canclePair() {//取消配对
         if (easylink_config != nil) {
             do {
                 try easylink_config.stopTransmitting()
@@ -106,8 +106,8 @@ class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
 //        }
         
     }
-    var oznerBonjourDetail:OznerBonjourDetail!
-    func activateDevice(configDict: [AnyHashable : Any]!) {
+   public var oznerBonjourDetail:OznerBonjourDetail!
+   public func activateDevice(configDict: [AnyHashable : Any]!) {
         let IPAddress = ((configDict["C"] as AnyObject).objectAt(1).object(forKey: "C") as AnyObject).objectAt(3).object(forKey: "C") as! String
         easylink_config.unInit()
         easylink_config = nil
@@ -134,7 +134,7 @@ class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
         
     }
     //EasyLinkFTCDelegate 代理方法
-    func onFound(_ client: NSNumber!, withName name: String!, mataData mataDataDict: [AnyHashable : Any]!) {
+   public func onFound(_ client: NSNumber!, withName name: String!, mataData mataDataDict: [AnyHashable : Any]!) {
         print(mataDataDict)
         if let tmptype =  mataDataDict["FW"] as? String
         {
@@ -149,7 +149,7 @@ class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
         
         
     }
-    func onFound(byFTC client: NSNumber!, withConfiguration configDict: [AnyHashable : Any]!) {
+   public func onFound(byFTC client: NSNumber!, withConfiguration configDict: [AnyHashable : Any]!) {
         print(configDict)
         if let tmptype =  configDict["FW"] as? String
         {
@@ -163,7 +163,7 @@ class OznerEasyLink_V1: NSObject,EasyLinkFTCDelegate {
         }
         
     }
-    func onDisconnect(fromFTC client: NSNumber!, withError err: Bool) {
+   public func onDisconnect(fromFTC client: NSNumber!, withError err: Bool) {
         print("=====onDisconnect fromFTC=====")
     }
     

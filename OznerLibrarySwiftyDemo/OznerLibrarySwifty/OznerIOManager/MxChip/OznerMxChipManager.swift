@@ -9,11 +9,11 @@
 import UIKit
 
 //庆科库管理中心
-class OznerMxChipManager: NSObject {
+public class OznerMxChipManager: NSObject {
 
     private var IODics=[String:OZMxChipIO]()
     private static var _instance: OznerMxChipManager! = nil    
-    static var instance: OznerMxChipManager! {
+   public static var instance: OznerMxChipManager! {
         get {
             if _instance == nil {
                 
@@ -29,9 +29,9 @@ class OznerMxChipManager: NSObject {
    
     private var pairTimer:Timer?
     private let pairOutTime=60//配网超时时间
-    var PairDelegate:OznerPairDelegate!
-    var haveSuccessed = false
-    func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?,ssid:String?,password:String?) {
+  public  var PairDelegate:OznerPairDelegate!
+   public var haveSuccessed = false
+   public func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?,ssid:String?,password:String?) {
         //初始化
         let weakself=self
         haveSuccessed=false
@@ -88,7 +88,7 @@ class OznerMxChipManager: NSObject {
         }
     }
     //取消配对
-    func canclePair() {
+   public func canclePair() {
         pairTimer?.invalidate()
         pairTimer = nil
         OznerEasyLink_V1.instance.canclePair()
@@ -96,7 +96,7 @@ class OznerMxChipManager: NSObject {
     }
        
     //获取已配对的设备IO，或者设备重新连接调用
-    func getIO(deviceinfo:OznerDeviceInfo) -> OZMxChipIO? {
+   public func getIO(deviceinfo:OznerDeviceInfo) -> OZMxChipIO? {
         if let tmpIO = IODics[deviceinfo.deviceID] {
             return tmpIO
         }else{
@@ -105,14 +105,14 @@ class OznerMxChipManager: NSObject {
         }
     }
     //删除设备时解除绑定的IO
-    func deleteIO(identifier:String) {
+   public func deleteIO(identifier:String) {
         if let tmpIO = IODics[identifier] {
             tmpIO.destroySelf()
             IODics.removeValue(forKey: identifier)
         }
     }
     
-    func foundDeviceIsExist(mac:String) -> Bool {//判断设备是否已存在
+  public  func foundDeviceIsExist(mac:String) -> Bool {//判断设备是否已存在
         var isExist = false
         for (_,value) in IODics {
             if value.deviceInfo.deviceMac==mac {

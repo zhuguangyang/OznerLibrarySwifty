@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 //IO类型
-enum OZIOType{
+public enum OZIOType{
     case Ayla
     case MxChip
     case Blue
@@ -33,7 +33,7 @@ enum OZIOType{
     }
 }
 //App添加设备的列表类型
-enum OZDeviceClass:String{
+public enum OZDeviceClass:String{
     case WaterPurifier_Blue="WaterPurifier_Blue"
     case Cup="Cup"
     case TwoCup="TwoCup"
@@ -45,7 +45,7 @@ enum OZDeviceClass:String{
     case WaterReplenish="WaterReplenish"
     case Electrickettle_Blue="Electrickettle_Blue"
     case WashDush_Wifi="WashDush_Wifi"
-    static func getFromString(str:String)->OZDeviceClass{
+   public static func getFromString(str:String)->OZDeviceClass{
         return ["WaterPurifier_Blue":.WaterPurifier_Blue,"Cup":.Cup,"TwoCup":.TwoCup,"Tap":.Tap,"TDSPan":.TDSPan,"WaterPurifier_Wifi":.WaterPurifier_Wifi,"AirPurifier_Blue":.AirPurifier_Blue,"AirPurifier_Wifi":.AirPurifier_Wifi,"WaterReplenish":.WaterReplenish,"Electrickettle_Blue":.Electrickettle_Blue,"WashDush_Wifi":.WashDush_Wifi][str]!
     }
     public var ioType:OZIOType {
@@ -84,7 +84,7 @@ enum OZDeviceClass:String{
     
 }
 
-struct OznerDeviceInfo {
+public struct OznerDeviceInfo {
     var deviceID = ""//设备唯一ID
     var deviceMac = ""//设备Mac：访问服务器和接口的时候才用到这个，或者Wi-Fi协议里面会用这个，其余的都用deviceID
     var deviceType = ""
@@ -103,17 +103,17 @@ struct OznerDeviceInfo {
         return "设备ID:\(self.deviceID)\n设备Mac:\(self.deviceMac)\n设备型号:\(self.deviceType)\n产品ID:\(self.productID)\nWiFi版本:\(self.wifiVersion)"
     }
 }
-let temperature_high=50
-let temperature_low=25
-let tds_bad=200
-let tds_good=50
-class ProductInfo: NSObject {
+public let temperature_high=50
+public let temperature_low=25
+public let tds_bad=200
+public let tds_good=50
+public class ProductInfo: NSObject {
     
     static private let info:JSON=JSON(NSDictionary(contentsOfFile: Bundle.main.path(forResource: "ProductInfo", ofType: "plist")!)!) as JSON
-    static var products: [String:JSON] {
+   public static var products: [String:JSON] {
         return info["Products"].dictionaryValue
     }
-    class func getIOTypeFromProductID(productID:String)->OZIOType {
+    public class func getIOTypeFromProductID(productID:String)->OZIOType {
         var IOStr = ""
         for product in products.values {
             if IOStr != "" {
@@ -132,7 +132,7 @@ class ProductInfo: NSObject {
         }
         return OZIOType.Blue
     }
-    class func getDeviceClassFromProductID(productID:String)->OZDeviceClass {
+  public  class func getDeviceClassFromProductID(productID:String)->OZDeviceClass {
         var classStr = ""
         
         for product in products.values {
@@ -157,7 +157,7 @@ class ProductInfo: NSObject {
         }
         return OZDeviceClass.Cup
     }
-    class func getProductInfoFromProductID(productID:String)->JSON! {
+  public  class func getProductInfoFromProductID(productID:String)->JSON! {
         var tmpinfo:JSON!
         
         for product in products.values {
@@ -176,7 +176,7 @@ class ProductInfo: NSObject {
         }
         return products["0"]
     }
-    class func getNameFromProductID(productID:String)->String {
+   public class func getNameFromProductID(productID:String)->String {
         var Str = ""
         
         for product in products.values {
@@ -194,11 +194,11 @@ class ProductInfo: NSObject {
         return Str
     }
 
-    class func getCurrDeviceClass()->OZDeviceClass
+  public  class func getCurrDeviceClass()->OZDeviceClass
     {
         return ProductInfo.getDeviceClassFromProductID(productID: (OznerManager.instance.currentDevice?.deviceInfo.productID)!)
     }
-    class func getCurrDeviceMac()->String
+   public class func getCurrDeviceMac()->String
     {
         return (OznerManager.instance.currentDevice?.deviceInfo.deviceMac)!
     }

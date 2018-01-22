@@ -8,9 +8,9 @@
 
 import UIKit
 
-class BaseDeviceSetting: NSObject {
+public class BaseDeviceSetting: NSObject {
     //设备名称
-    var name:String!{
+   public var name:String!{
         set{
             
             SetValue(key: "name", value:newValue )
@@ -20,7 +20,7 @@ class BaseDeviceSetting: NSObject {
         }
     }
     //使用地点
-    var useAdress:String!{
+  public  var useAdress:String!{
         set{
             SetValue(key: "useAdress", value: newValue)
         }
@@ -29,7 +29,7 @@ class BaseDeviceSetting: NSObject {
         }
     }
     private var values:[String:String]!
-    required init(json:String?) {
+   public required init(json:String?) {
         values=[String:String]()
         if json != nil && json != "" {
             let data = json?.data(using: String.Encoding.utf8)
@@ -38,17 +38,17 @@ class BaseDeviceSetting: NSObject {
                                                             options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: String]
         }
     }
-    func GetValue(key:String,defaultValue:String) -> String {
+   public func GetValue(key:String,defaultValue:String) -> String {
         if let value=values[key] {
             return value
         }else{
             return defaultValue
         }
     }
-    func SetValue(key:String,value:String) {
+   public func SetValue(key:String,value:String) {
         values[key]=value
     }
-    func toJsonString() -> String {
+    public func toJsonString() -> String {
         //首先判断能不能转换
         if !JSONSerialization.isValidJSONObject(values) {
             print("is not a valid json object")

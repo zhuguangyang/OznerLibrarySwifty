@@ -9,11 +9,11 @@
 import UIKit
 import MQTTKit
 
-class OznerMQTT_V2: NSObject {
+public class OznerMQTT_V2: NSObject {
 
     private var mqttClient:MQTTClient!
     private static var _instance: OznerMQTT_V2! = nil
-    static var instance: OznerMQTT_V2! {
+   public static var instance: OznerMQTT_V2! {
         get {
             if _instance == nil {
                 
@@ -26,7 +26,7 @@ class OznerMQTT_V2: NSObject {
         }
     }
     private var SubscribeTopics:[String:(dataCallBack:((Data)->Void),statusCallBack:((OznerConnectStatus)->Void))]!
-    required override init() {
+  public  required override init() {
         super.init()
         SubscribeTopics=[String:(dataCallBack:((Data)->Void),statusCallBack:((OznerConnectStatus)->Void))]()
         mqttClient=MQTTClient(clientId: "v1-app-"+rndString(len: 12))
@@ -67,7 +67,7 @@ class OznerMQTT_V2: NSObject {
         }
         
     }
-    func subscribeTopic(topic:String,messageHandler:(dataCallBack:((Data)->Void),statusCallBack:((OznerConnectStatus)->Void))) {
+   public func subscribeTopic(topic:String,messageHandler:(dataCallBack:((Data)->Void),statusCallBack:((OznerConnectStatus)->Void))) {
     
         mqttClient.subscribe(topic, withQos: AtLeastOnce) { (_) in
         }
@@ -75,12 +75,12 @@ class OznerMQTT_V2: NSObject {
         SubscribeTopics[topic]=messageHandler
         
     }
-    func unSubscribeTopic(topic:String) {
+   public func unSubscribeTopic(topic:String) {
         SubscribeTopics.removeValue(forKey: topic)
         mqttClient.unsubscribe(topic) {
         }
     }
-    func sendData(data:Data,deviceid:String,callback:((Int32)->Void)!)  {
+   public func sendData(data:Data,deviceid:String,callback:((Int32)->Void)!)  {
         OznerTools.publicString(payload: data, deviceid: deviceid, callback: callback)
     }
     private func rndString(len:Int) -> String {

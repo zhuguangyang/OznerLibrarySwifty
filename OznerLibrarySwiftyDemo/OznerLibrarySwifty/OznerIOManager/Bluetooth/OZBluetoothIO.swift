@@ -8,23 +8,23 @@
 
 import UIKit
 //蓝牙读写类
-class OZBluetoothIO: OznerBaseIO {
+public class OZBluetoothIO: OznerBaseIO {
 
     private var babyBLEIO:BabyBLEIO?
     private  var uuidStr:String!
-    required init(deviceinfo:OznerDeviceInfo) {
+   public required init(deviceinfo:OznerDeviceInfo) {
         super.init(deviceinfo: deviceinfo)
         uuidStr=deviceinfo.deviceID
     }
     //发送数据
-    override func SendDataToDevice(sendData:Data,CallBack callback:((Error?)->Void)?) {
+   public override func SendDataToDevice(sendData:Data,CallBack callback:((Error?)->Void)?) {
         babyBLEIO?.sendData(toDevice: sendData) { (error) in
             if callback != nil{
                 callback!(error)
             }
         }
     }
-    override func starWork() {
+  public  override func starWork() {
         babyBLEIO=nil;
         weak var weakSelf=self
         babyBLEIO=BabyBLEIO(uuidStr, statusBlock: { (statusInt) in
@@ -49,10 +49,10 @@ class OZBluetoothIO: OznerBaseIO {
             }
         })
     }
-    override func stopWork() {// 暂停工作
+   public override func stopWork() {// 暂停工作
         babyBLEIO=nil
     }
-    func destroySelf() {//销毁自己
+  public  func destroySelf() {//销毁自己
         babyBLEIO?.destroySelf()
         babyBLEIO=nil
     }

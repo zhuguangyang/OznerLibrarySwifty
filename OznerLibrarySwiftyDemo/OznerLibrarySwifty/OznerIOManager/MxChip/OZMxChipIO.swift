@@ -9,12 +9,12 @@
 import UIKit
 
 //庆科读写类
-class OZMxChipIO: OznerBaseIO {
+public class OZMxChipIO: OznerBaseIO {
 
     //private  var deviceInfo:OznerDeviceInfo!//"type/mac"
     private var deviceID = ""
     
-    required init(deviceinfo:OznerDeviceInfo) {//此处 identifier为"type/mac"，mac去掉“:”转小写
+   public required init(deviceinfo:OznerDeviceInfo) {//此处 identifier为"type/mac"，mac去掉“:”转小写
         super.init(deviceinfo: deviceinfo)
         deviceID="d2c_hz/"+deviceinfo.deviceID+"/status"
         if deviceinfo.wifiVersion==1 {
@@ -24,7 +24,7 @@ class OZMxChipIO: OznerBaseIO {
         
     }
     //发送数据
-    override func SendDataToDevice(sendData:Data,CallBack callback:((Error?)->Void)?) {
+   public override func SendDataToDevice(sendData:Data,CallBack callback:((Error?)->Void)?) {
         if self.deviceInfo.wifiVersion==1 {
             OznerMQTT_V1.instance.sendData(data: sendData, toTopic: deviceID) { (code) in
             }
@@ -35,7 +35,7 @@ class OZMxChipIO: OznerBaseIO {
         
     }
     //开始工作
-    override func starWork() {
+   public override func starWork() {
         weak var weakSelf=self
         let dataCallBack:((Data)->Void) = { data in
             weakSelf?.delegate.OznerBaseIORecvData(recvData: data)
@@ -50,7 +50,7 @@ class OZMxChipIO: OznerBaseIO {
         }
         
     }
-    override func stopWork() {// 暂停工作
+   public override func stopWork() {// 暂停工作
         if self.deviceInfo.wifiVersion==1 {
             OznerMQTT_V1.instance.unSubscribeTopic(topic: deviceID)
         }else{
@@ -59,7 +59,7 @@ class OZMxChipIO: OznerBaseIO {
         
     }
     //删除设备时销毁自己
-    func destroySelf() {
+   public func destroySelf() {
         if self.deviceInfo.wifiVersion==1 {
             OznerMQTT_V1.instance.unSubscribeTopic(topic: deviceID)
         }else{

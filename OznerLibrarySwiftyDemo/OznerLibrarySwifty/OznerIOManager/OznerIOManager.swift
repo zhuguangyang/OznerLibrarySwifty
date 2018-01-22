@@ -9,10 +9,10 @@
 import UIKit
 
 //庆科，Ayla，蓝牙等io管理中心
-class OznerIOManager: NSObject {
+public class OznerIOManager: NSObject {
 
     private static var _instance: OznerIOManager! = nil
-    static var instance: OznerIOManager! {
+    public static var instance: OznerIOManager! {
         get {
             if _instance == nil {
                 _instance = OznerIOManager()
@@ -24,7 +24,7 @@ class OznerIOManager: NSObject {
         }
     }
     //获取已配对的设备IO，或者设备重新连接调用
-    func getIO(deviceinfo:OznerDeviceInfo) -> OznerBaseIO? {
+   public func getIO(deviceinfo:OznerDeviceInfo) -> OznerBaseIO? {
         let ioType=ProductInfo.getIOTypeFromProductID(productID: deviceinfo.productID)
         switch ioType {
         case .Ayla:
@@ -41,7 +41,7 @@ class OznerIOManager: NSObject {
     }
     //搜索新设备的IO进行配对
     private var currentPairDeviceClass:OZDeviceClass?=nil
-    func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?,ssid:String?,password:String?) {//开始配对
+ public   func starPair(deviceClass:OZDeviceClass,pairDelegate:OznerPairDelegate?,ssid:String?,password:String?) {//开始配对
         //以后需要解决Ayla和庆科的区别，目前只有庆科配对
         currentPairDeviceClass=deviceClass
         switch deviceClass.ioType {
@@ -57,7 +57,7 @@ class OznerIOManager: NSObject {
             break
         }
     }
-    func canclePair() {//取消配对
+   public func canclePair() {//取消配对
         //以后需要解决Ayla和庆科的区别，目前只有庆科配对
         
         if currentPairDeviceClass != nil {
@@ -79,7 +79,7 @@ class OznerIOManager: NSObject {
         
     }
     //删除设备时解除绑定的IO
-    func deleteIO(identifier:String) {
+   public func deleteIO(identifier:String) {
         OznerBluetoothManager.instance.deleteIO(identifier: identifier)
         OznerMxChipManager.instance.deleteIO(identifier: identifier)
         OznerAylaManager.instance.deleteIO(identifier: identifier)

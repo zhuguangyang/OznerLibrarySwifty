@@ -8,6 +8,6 @@
 
 import UIKit
 //Ayla读写类
-class OZAylaIO: OznerBaseIO {
+public class OZAylaIO: OznerBaseIO {
 
 }

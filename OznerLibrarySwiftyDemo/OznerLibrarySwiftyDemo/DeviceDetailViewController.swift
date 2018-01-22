@@ -17,29 +17,29 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
     @IBOutlet var textView: UITextView!
     @IBAction func powerClick(_ sender: Any) {
         switch true {
-        case currDevice.isKind(of: AirPurifier_Blue.classForCoder()):
-            let tmpdevice = currDevice as! AirPurifier_Blue
-//            tmpdevice.resetFilter(callBack: { (error) in
-//                print(error)
+//        case currDevice.isKind(of: AirPurifier_Blue.classForCoder()):
+//            let tmpdevice = currDevice as! AirPurifier_Blue
+////            tmpdevice.resetFilter(callBack: { (error) in
+////                print(error)
+////            })
+//            tmpdevice.setPower(power: !(tmpdevice.sensor.Power), callBack: { (error) in
+//
 //            })
-            tmpdevice.setPower(power: !(tmpdevice.sensor.Power), callBack: { (error) in
-                
-            })
         case currDevice.isKind(of: WaterPurifier_Wifi.classForCoder()):
             let deviceTmp = currDevice as! WaterPurifier_Wifi
             deviceTmp.setPower(Power: !deviceTmp.status.Power, callBack: { (_) in
                 
             })
             break
-        case currDevice.isKind(of: AirPurifier_Wifi.classForCoder()):
-            let deviceTmp = currDevice as! AirPurifier_Wifi
-            print("单机了")
-            deviceTmp.setPower(power: !deviceTmp.status.Power, callBack: { (error) in
-                print(error ?? "")
-            })
-        case currDevice.isKind(of: Electrickettle_Blue.classForCoder()):
-            let deviceTmp = currDevice as! Electrickettle_Blue
-            _ = deviceTmp.setSetting((36, 37, 38, 0, 40, 41))
+//        case currDevice.isKind(of: AirPurifier_Wifi.classForCoder()):
+//            let deviceTmp = currDevice as! AirPurifier_Wifi
+//            print("单机了")
+//            deviceTmp.setPower(power: !deviceTmp.status.Power, callBack: { (error) in
+//                print(error ?? "")
+//            })
+//        case currDevice.isKind(of: Electrickettle_Blue.classForCoder()):
+//            let deviceTmp = currDevice as! Electrickettle_Blue
+//            _ = deviceTmp.setSetting((36, 37, 38, 0, 40, 41))
 //        case currDevice.isKind(of: WashDush_Wifi.classForCoder()):
 //            let deviceTmp = currDevice as! WashDush_Wifi
             
@@ -49,10 +49,10 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
         }
     }
     @IBAction func ValueChange(_ sender: UISlider) {
-        if currDevice.isKind(of: AirPurifier_Blue.classForCoder()) {
-            (currDevice as! AirPurifier_Blue).setSpeed(speed: Int(sender.value), callBack: { (error) in
-            })
-        }
+//        if currDevice.isKind(of: AirPurifier_Blue.classForCoder()) {
+//            (currDevice as! AirPurifier_Blue).setSpeed(speed: Int(sender.value), callBack: { (error) in
+//            })
+//        }
     }
     var speedInt = 0
     
@@ -65,10 +65,10 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
                 
             })
             break
-        case currDevice.isKind(of: AirPurifier_Wifi.classForCoder()):
-            let deviceTmp = currDevice as! AirPurifier_Wifi
-            deviceTmp.setSpeed(speed: [0,4,5][speedInt], callBack: { (_) in
-            })
+//        case currDevice.isKind(of: AirPurifier_Wifi.classForCoder()):
+//            let deviceTmp = currDevice as! AirPurifier_Wifi
+//            deviceTmp.setSpeed(speed: [0,4,5][speedInt], callBack: { (_) in
+//            })
         default:
             break
         }
@@ -81,11 +81,11 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
                 
             })
             break
-        case currDevice.isKind(of: AirPurifier_Wifi.classForCoder()):
-            let deviceTmp = currDevice as! AirPurifier_Wifi
-            deviceTmp.setLock(lock: !deviceTmp.status.Lock, callBack: { (_) in
-                
-            })
+//        case currDevice.isKind(of: AirPurifier_Wifi.classForCoder()):
+//            let deviceTmp = currDevice as! AirPurifier_Wifi
+//            deviceTmp.setLock(lock: !deviceTmp.status.Lock, callBack: { (_) in
+//
+//            })
         default:
             break
         }
@@ -117,14 +117,14 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
 
     @IBAction func otaAction(_ sender: UIButton) {
         
-        let device = currDevice as! Electrickettle_Blue
-        
-//        DispatchQueue.global().async {
-
-            device.twoCupClearUpgrade()
-            device.startOTA()
-
-        
+//        let device = currDevice as! Electrickettle_Blue
+//
+////        DispatchQueue.global().async {
+//
+//            device.twoCupClearUpgrade()
+//            device.startOTA()
+//
+//
 //        }
     }
     
@@ -132,10 +132,10 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
     @IBAction func LASTAction(_ sender: Any) {
         
         
-        let device = currDevice as! TwoCup
-
-//        device.getBin()
-        device.getHistory()
+//        let device = currDevice as! TwoCup
+//
+////        device.getBin()
+//        device.getHistory()
 
         
     }
