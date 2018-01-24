@@ -29,19 +29,6 @@
 		8D72E5121F1DA4F7003A2067 /* OznerDeviceRecordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4B41F1DA4F7003A2067 /* OznerDeviceRecordHelper.swift */; };
 		8D72E5131F1DA4F7003A2067 /* OZAylaIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4B71F1DA4F7003A2067 /* OZAylaIO.swift */; };
 		8D72E5141F1DA4F7003A2067 /* OznerAylaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4B81F1DA4F7003A2067 /* OznerAylaManager.swift */; };
-		8D72E5151F1DA4F7003A2067 /* BabyBLEHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4BB1F1DA4F7003A2067 /* BabyBLEHelper.m */; };
-		8D72E5161F1DA4F7003A2067 /* BabyBLEIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4BD1F1DA4F7003A2067 /* BabyBLEIO.m */; };
-		8D72E5171F1DA4F7003A2067 /* BabyBluetooth.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4C21F1DA4F7003A2067 /* BabyBluetooth.m */; };
-		8D72E5181F1DA4F7003A2067 /* BabyCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4C41F1DA4F7003A2067 /* BabyCallback.m */; };
-		8D72E5191F1DA4F7003A2067 /* BabyCentralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4C61F1DA4F7003A2067 /* BabyCentralManager.m */; };
-		8D72E51A1F1DA4F7003A2067 /* BabyDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4C81F1DA4F7003A2067 /* BabyDefine.m */; };
-		8D72E51B1F1DA4F7003A2067 /* BabyOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4CA1F1DA4F7003A2067 /* BabyOptions.m */; };
-		8D72E51C1F1DA4F7003A2067 /* BabyPeripheralManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4CC1F1DA4F7003A2067 /* BabyPeripheralManager.m */; };
-		8D72E51D1F1DA4F7003A2067 /* BabyRhythm.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4CE1F1DA4F7003A2067 /* BabyRhythm.m */; };
-		8D72E51E1F1DA4F7003A2067 /* BabySpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4D01F1DA4F7003A2067 /* BabySpeaker.m */; };
-		8D72E51F1F1DA4F7003A2067 /* BabyToy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4D21F1DA4F7003A2067 /* BabyToy.m */; };
-		8D72E5201F1DA4F7003A2067 /* OZBluetoothIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4D31F1DA4F7003A2067 /* OZBluetoothIO.swift */; };
-		8D72E5211F1DA4F7003A2067 /* OznerBluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4D41F1DA4F7003A2067 /* OznerBluetoothManager.swift */; };
 		8D72E5221F1DA4F7003A2067 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4DA1F1DA4F7003A2067 /* GCDAsyncSocket.m */; };
 		8D72E5231F1DA4F7003A2067 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4DC1F1DA4F7003A2067 /* GCDAsyncUdpSocket.m */; };
 		8D72E5241F1DA4F7003A2067 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4DF1F1DA4F7003A2067 /* AsyncSocket.m */; };
@@ -131,30 +118,6 @@
 		8D72E4B41F1DA4F7003A2067 /* OznerDeviceRecordHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDeviceRecordHelper.swift; sourceTree = "<group>"; };
 		8D72E4B71F1DA4F7003A2067 /* OZAylaIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OZAylaIO.swift; sourceTree = "<group>"; };
 		8D72E4B81F1DA4F7003A2067 /* OznerAylaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerAylaManager.swift; sourceTree = "<group>"; };
-		8D72E4BA1F1DA4F7003A2067 /* BabyBLEHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBLEHelper.h; sourceTree = "<group>"; };
-		8D72E4BB1F1DA4F7003A2067 /* BabyBLEHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBLEHelper.m; sourceTree = "<group>"; };
-		8D72E4BC1F1DA4F7003A2067 /* BabyBLEIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBLEIO.h; sourceTree = "<group>"; };
-		8D72E4BD1F1DA4F7003A2067 /* BabyBLEIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBLEIO.m; sourceTree = "<group>"; };
-		8D72E4C11F1DA4F7003A2067 /* BabyBluetooth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyBluetooth.h; sourceTree = "<group>"; };
-		8D72E4C21F1DA4F7003A2067 /* BabyBluetooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyBluetooth.m; sourceTree = "<group>"; };
-		8D72E4C31F1DA4F7003A2067 /* BabyCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyCallback.h; sourceTree = "<group>"; };
-		8D72E4C41F1DA4F7003A2067 /* BabyCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyCallback.m; sourceTree = "<group>"; };
-		8D72E4C51F1DA4F7003A2067 /* BabyCentralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyCentralManager.h; sourceTree = "<group>"; };
-		8D72E4C61F1DA4F7003A2067 /* BabyCentralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyCentralManager.m; sourceTree = "<group>"; };
-		8D72E4C71F1DA4F7003A2067 /* BabyDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyDefine.h; sourceTree = "<group>"; };
-		8D72E4C81F1DA4F7003A2067 /* BabyDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyDefine.m; sourceTree = "<group>"; };
-		8D72E4C91F1DA4F7003A2067 /* BabyOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyOptions.h; sourceTree = "<group>"; };
-		8D72E4CA1F1DA4F7003A2067 /* BabyOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyOptions.m; sourceTree = "<group>"; };
-		8D72E4CB1F1DA4F7003A2067 /* BabyPeripheralManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyPeripheralManager.h; sourceTree = "<group>"; };
-		8D72E4CC1F1DA4F7003A2067 /* BabyPeripheralManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyPeripheralManager.m; sourceTree = "<group>"; };
-		8D72E4CD1F1DA4F7003A2067 /* BabyRhythm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyRhythm.h; sourceTree = "<group>"; };
-		8D72E4CE1F1DA4F7003A2067 /* BabyRhythm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyRhythm.m; sourceTree = "<group>"; };
-		8D72E4CF1F1DA4F7003A2067 /* BabySpeaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabySpeaker.h; sourceTree = "<group>"; };
-		8D72E4D01F1DA4F7003A2067 /* BabySpeaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabySpeaker.m; sourceTree = "<group>"; };
-		8D72E4D11F1DA4F7003A2067 /* BabyToy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BabyToy.h; sourceTree = "<group>"; };
-		8D72E4D21F1DA4F7003A2067 /* BabyToy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BabyToy.m; sourceTree = "<group>"; };
-		8D72E4D31F1DA4F7003A2067 /* OZBluetoothIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OZBluetoothIO.swift; sourceTree = "<group>"; };
-		8D72E4D41F1DA4F7003A2067 /* OznerBluetoothManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerBluetoothManager.swift; sourceTree = "<group>"; };
 		8D72E4D91F1DA4F7003A2067 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		8D72E4DA1F1DA4F7003A2067 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		8D72E4DB1F1DA4F7003A2067 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
@@ -327,7 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				8D72E4B61F1DA4F7003A2067 /* Ayla */,
-				8D72E4B91F1DA4F7003A2067 /* Bluetooth */,
 				8D72E4D51F1DA4F7003A2067 /* MxChip */,
 				8D72E4FA1F1DA4F7003A2067 /* OznerBaseIO */,
 				8D72E4FC1F1DA4F7003A2067 /* OznerIOManager.swift */,
@@ -342,61 +304,6 @@
 				8D72E4B81F1DA4F7003A2067 /* OznerAylaManager.swift */,
 			);
 			path = Ayla;
-			sourceTree = "<group>";
-		};
-		8D72E4B91F1DA4F7003A2067 /* Bluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4BA1F1DA4F7003A2067 /* BabyBLEHelper.h */,
-				8D72E4BB1F1DA4F7003A2067 /* BabyBLEHelper.m */,
-				8D72E4BC1F1DA4F7003A2067 /* BabyBLEIO.h */,
-				8D72E4BD1F1DA4F7003A2067 /* BabyBLEIO.m */,
-				8D72E4BE1F1DA4F7003A2067 /* BabyBluetooth */,
-				8D72E4D31F1DA4F7003A2067 /* OZBluetoothIO.swift */,
-				8D72E4D41F1DA4F7003A2067 /* OznerBluetoothManager.swift */,
-			);
-			path = Bluetooth;
-			sourceTree = "<group>";
-		};
-		8D72E4BE1F1DA4F7003A2067 /* BabyBluetooth */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4BF1F1DA4F7003A2067 /* Classes */,
-			);
-			path = BabyBluetooth;
-			sourceTree = "<group>";
-		};
-		8D72E4BF1F1DA4F7003A2067 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4C01F1DA4F7003A2067 /* objc */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		8D72E4C01F1DA4F7003A2067 /* objc */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4C11F1DA4F7003A2067 /* BabyBluetooth.h */,
-				8D72E4C21F1DA4F7003A2067 /* BabyBluetooth.m */,
-				8D72E4C31F1DA4F7003A2067 /* BabyCallback.h */,
-				8D72E4C41F1DA4F7003A2067 /* BabyCallback.m */,
-				8D72E4C51F1DA4F7003A2067 /* BabyCentralManager.h */,
-				8D72E4C61F1DA4F7003A2067 /* BabyCentralManager.m */,
-				8D72E4C71F1DA4F7003A2067 /* BabyDefine.h */,
-				8D72E4C81F1DA4F7003A2067 /* BabyDefine.m */,
-				8D72E4C91F1DA4F7003A2067 /* BabyOptions.h */,
-				8D72E4CA1F1DA4F7003A2067 /* BabyOptions.m */,
-				8D72E4CB1F1DA4F7003A2067 /* BabyPeripheralManager.h */,
-				8D72E4CC1F1DA4F7003A2067 /* BabyPeripheralManager.m */,
-				8D72E4CD1F1DA4F7003A2067 /* BabyRhythm.h */,
-				8D72E4CE1F1DA4F7003A2067 /* BabyRhythm.m */,
-				8D72E4CF1F1DA4F7003A2067 /* BabySpeaker.h */,
-				8D72E4D01F1DA4F7003A2067 /* BabySpeaker.m */,
-				8D72E4D11F1DA4F7003A2067 /* BabyToy.h */,
-				8D72E4D21F1DA4F7003A2067 /* BabyToy.m */,
-			);
-			path = objc;
 			sourceTree = "<group>";
 		};
 		8D72E4D51F1DA4F7003A2067 /* MxChip */ = {
@@ -776,8 +683,6 @@
 				8D72E50E1F1DA4F7003A2067 /* WaterPurifier_Wifi.swift in Sources */,
 				8D72E52F1F1DA4F7003A2067 /* OznerEasyLink_V2.swift in Sources */,
 				8D72E5251F1DA4F7003A2067 /* AsyncUdpSocket.m in Sources */,
-				8D72E51D1F1DA4F7003A2067 /* BabyRhythm.m in Sources */,
-				8D72E51B1F1DA4F7003A2067 /* BabyOptions.m in Sources */,
 				8D72E5291F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.m in Sources */,
 				8D72E5111F1DA4F7003A2067 /* OznerDataManager.swift in Sources */,
 				8D72E5281F1DA4F7003A2067 /* NSDictionary+ZBAdd.m in Sources */,
@@ -785,42 +690,31 @@
 				8D72E5081F1DA4F7003A2067 /* OznerBaseDevice.swift in Sources */,
 				8D72E5391F1DA4F7003A2067 /* Helper.m in Sources */,
 				8D72E5271F1DA4F7003A2067 /* NSData+IPAddress.m in Sources */,
-				8D72E5151F1DA4F7003A2067 /* BabyBLEHelper.m in Sources */,
-				8D72E5171F1DA4F7003A2067 /* BabyBluetooth.m in Sources */,
 				8D72E5361F1DA4F7003A2067 /* OznerManager.swift in Sources */,
 				8D72E5351F1DA4F7003A2067 /* OznerIOManager.swift in Sources */,
 				8D72E5321F1DA4F7003A2067 /* OznerMxChipManager.swift in Sources */,
 				8D72E5331F1DA4F7003A2067 /* Reachability.m in Sources */,
 				8D60675E1E27895E00C87CC0 /* AddDeviceTableViewController.swift in Sources */,
-				8D72E5211F1DA4F7003A2067 /* OznerBluetoothManager.swift in Sources */,
 				8D72E5241F1DA4F7003A2067 /* AsyncSocket.m in Sources */,
-				8D72E5191F1DA4F7003A2067 /* BabyCentralManager.m in Sources */,
 				8D72E5071F1DA4F7003A2067 /* BaseDeviceSetting.swift in Sources */,
 				8D72E5131F1DA4F7003A2067 /* OZAylaIO.swift in Sources */,
 				8D72E5121F1DA4F7003A2067 /* OznerDeviceRecordHelper.swift in Sources */,
-				8D72E5181F1DA4F7003A2067 /* BabyCallback.m in Sources */,
 				8D72E5341F1DA4F7003A2067 /* OznerBaseIO.swift in Sources */,
-				8D72E5201F1DA4F7003A2067 /* OZBluetoothIO.swift in Sources */,
 				8D72E50B1F1DA4F7003A2067 /* OznerDeviceManager.swift in Sources */,
 				8D72E52B1F1DA4F7003A2067 /* OznerBonjourDetail.m in Sources */,
 				8D72E52C1F1DA4F7003A2067 /* ZBBonjourService.m in Sources */,
-				8D72E51E1F1DA4F7003A2067 /* BabySpeaker.m in Sources */,
 				8D72E5221F1DA4F7003A2067 /* GCDAsyncSocket.m in Sources */,
 				8D72E52A1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.m in Sources */,
 				8D72E52E1F1DA4F7003A2067 /* OznerEasyLink_V1.swift in Sources */,
-				8D72E51A1F1DA4F7003A2067 /* BabyDefine.m in Sources */,
 				8D72E5381F1DA4F7003A2067 /* ProductInfo.swift in Sources */,
 				8D72E5231F1DA4F7003A2067 /* GCDAsyncUdpSocket.m in Sources */,
 				8D72E5301F1DA4F7003A2067 /* OznerMQTT_V1.swift in Sources */,
 				8D72E5311F1DA4F7003A2067 /* OznerMQTT_V2.swift in Sources */,
 				8D72E53A1F1DA4F7003A2067 /* OznerTools.swift in Sources */,
-				8D72E51C1F1DA4F7003A2067 /* BabyPeripheralManager.m in Sources */,
 				8D72E5141F1DA4F7003A2067 /* OznerAylaManager.swift in Sources */,
 				8D72E52D1F1DA4F7003A2067 /* OZMxChipIO.swift in Sources */,
 				8D6067601E27897A00C87CC0 /* DeviceDetailViewController.swift in Sources */,
 				8DD349491E0BA62200C945A2 /* ViewController.swift in Sources */,
-				8D72E5161F1DA4F7003A2067 /* BabyBLEIO.m in Sources */,
-				8D72E51F1F1DA4F7003A2067 /* BabyToy.m in Sources */,
 				8DD349471E0BA62200C945A2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

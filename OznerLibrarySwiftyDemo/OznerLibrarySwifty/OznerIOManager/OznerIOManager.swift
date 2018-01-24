@@ -32,7 +32,7 @@ public class OznerIOManager: NSObject {
         case .MxChip:
             return OznerMxChipManager.instance.getIO(deviceinfo: deviceinfo)
         case .Blue:
-            return OznerBluetoothManager.instance.getIO(deviceinfo: deviceinfo)
+            return nil
         case .BlueMxChip:
             return nil
         case .AylaMxChip:
@@ -46,7 +46,7 @@ public class OznerIOManager: NSObject {
         currentPairDeviceClass=deviceClass
         switch deviceClass.ioType {
         case .Blue://蓝牙配对
-            OznerBluetoothManager.instance.starPair(deviceClass: deviceClass, pairDelegate: pairDelegate)
+            break
         case .MxChip://Wifi配对，目前只有庆科，以后要解决庆科和Ayla区别问题
             OznerMxChipManager.instance.starPair(deviceClass: deviceClass, pairDelegate: pairDelegate,ssid: ssid,password: password)
         case .Ayla:
@@ -63,7 +63,7 @@ public class OznerIOManager: NSObject {
         if currentPairDeviceClass != nil {
             switch (currentPairDeviceClass?.ioType)! {
             case .Blue:
-                OznerBluetoothManager.instance.canclePair()
+                break
             case .MxChip:
                 OznerMxChipManager.instance.canclePair()
             case .Ayla:
@@ -80,7 +80,6 @@ public class OznerIOManager: NSObject {
     }
     //删除设备时解除绑定的IO
    public func deleteIO(identifier:String) {
-        OznerBluetoothManager.instance.deleteIO(identifier: identifier)
         OznerMxChipManager.instance.deleteIO(identifier: identifier)
         OznerAylaManager.instance.deleteIO(identifier: identifier)
         

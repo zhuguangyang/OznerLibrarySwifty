@@ -65,7 +65,7 @@ public class OznerMxChipManager: NSObject {
             OznerEasyLink_V1.instance.starPair(deviceClass: deviceClass, ssid: ssid, password: password, timeOut: weakself.pairOutTime, successBlock: { (deviceinfo) in
                 print("1.0配网成功")
                 weakself.pairSuccess(deviceInfo: deviceinfo)
-                
+
             }, failedBlock: { (error) in
                 print("1.0配网失败"+error.localizedDescription)
             })
