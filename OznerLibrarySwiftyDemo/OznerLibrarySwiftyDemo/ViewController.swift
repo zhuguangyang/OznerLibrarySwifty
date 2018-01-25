@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
@@ -17,9 +18,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         deviceArray=[OznerBaseDevice]()
-//        let filePath = Bundle.main.path(forResource: "TwoCup", ofType: "bin")
-//        print(Helper.otaCheckS/um(withFileStr: filePath!))
-        
+
+        print(ProductInfo.getProductInfoFromProductID(productID: "67ea604c-549b-11e7-9baf-00163e120d98"))
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden=true

@@ -110,11 +110,13 @@ public let tds_good=50
 public class ProductInfo: NSObject {
     
     static private let info:JSON=JSON(NSDictionary(contentsOfFile: Bundle.main.path(forResource: "ProductInfo", ofType: "plist")!)!) as JSON
+
    public static var products: [String:JSON] {
         return info["Products"].dictionaryValue
     }
     public class func getIOTypeFromProductID(productID:String)->OZIOType {
         var IOStr = ""
+        
         for product in products.values {
             if IOStr != "" {
                 break
