@@ -3,16 +3,13 @@
 //
 
 
-#import "DateTools/DateTools.h"
-
-#import "MQTTKit/MQTTKit.h"
-#import "Helper.h"
-#import "OznerBonjourDetail.h"
+#import  <OznerLib/Helper.h>
+#import  <OznerLib/OznerBonjourDetail.h>
 
 
-#import "ZBBonjourService.h"
-#import "GCDAsyncSocket.h"
-#import "EASYLINK.h"
+#import <OznerLib/ZBBonjourService.h>
+#import <OznerLib/GCDAsyncSocket.h>
+#import <OznerLib/EASYLINK.h>
 
-#import "Reachability.h"
+#import <OznerLib/Reachability.h>
 

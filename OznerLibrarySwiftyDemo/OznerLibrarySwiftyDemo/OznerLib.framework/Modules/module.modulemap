@@ -1,0 +1,11 @@
+framework module OznerLib {
+  umbrella header "OznerLib.h"
+
+  export *
+  module * { export * }
+}
+
+module OznerLib.Swift {
+    header "OznerLib-Swift.h"
+    requires objc
+}
