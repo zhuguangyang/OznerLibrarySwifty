@@ -35,24 +35,6 @@ class WaterPurifier_Wifi: OznerBaseDevice {
         }
     }
     
-    func setPower(Power:Bool,callBack:((_ error:Error?)->Void)) {
-        setStatus(data: Data.init(bytes: [UInt8(status.Hot.hashValue),UInt8(status.Cool.hashValue),UInt8(Power.hashValue),UInt8(status.Sterilization.hashValue)]))
-    }
-    func setCool(Cool:Bool,callBack:((_ error:Error?)->Void)) {
-        setStatus(data: Data.init(bytes: [UInt8(status.Hot.hashValue),UInt8(Cool.hashValue),UInt8(status.Power.hashValue),UInt8(status.Sterilization.hashValue)]))
-    }
-    func setHot(Hot:Bool,callBack:((_ error:Error?)->Void)) {
-        setStatus(data: Data.init(bytes: [UInt8(Hot.hashValue),UInt8(status.Cool.hashValue),UInt8(status.Power.hashValue),UInt8(status.Sterilization.hashValue)]))
-    }
-    func setSterilization(Sterilization:Bool,callBack:((_ error:Error?)->Void)) {
-       setStatus(data: Data.init(bytes: [UInt8(status.Hot.hashValue),UInt8(status.Cool.hashValue),UInt8(status.Power.hashValue),UInt8(Sterilization.hashValue)]))
-    }
-    private func setStatus(data:Data) {
-        let needData=self.MakeWoodyBytes(code: 0xfa, Opcode: 0x02, data: data)
-        self.SendDataToDevice(sendData: needData, CallBack: nil)
-        reqeusetStatus()
-    }
-    
     override func OznerBaseIORecvData(recvData: Data) {
         super.OznerBaseIORecvData(recvData: recvData)
         //解析数据并更新个性字段

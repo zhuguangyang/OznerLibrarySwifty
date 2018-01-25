@@ -104,45 +104,10 @@ public class OznerDataManager: NSObject {
         let  deviceClass = ProductInfo.getDeviceClassFromProductID(productID: deviceInfo.productID)
         var tmpdev:OznerBaseDevice!
         switch  deviceClass{
-//        case .Cup:
-//            tmpdev=Cup(deviceinfo: deviceInfo, Settings: setting)
-//        case .TwoCup:
-//            tmpdev = TwoCup(deviceinfo: deviceInfo, Settings: setting)
-//        case .Tap,.TDSPan:
-//            tmpdev = Tap(deviceinfo: deviceInfo, Settings: setting)
         case .WaterPurifier_Wifi:
             tmpdev = WaterPurifier_Wifi(deviceinfo: deviceInfo, Settings: setting)
-//        case .WaterPurifier_Blue:
-//            tmpdev = WaterPurifier_Blue(deviceinfo: deviceInfo, Settings: setting)
-//        case .WaterReplenish:
-//            tmpdev = WaterReplenish(deviceinfo: deviceInfo, Settings: setting)
-//        case .AirPurifier_Blue:
-//            tmpdev = AirPurifier_Blue(deviceinfo: deviceInfo, Settings: setting)
-//        case .AirPurifier_Wifi:
-//            tmpdev = AirPurifier_Wifi(deviceinfo: deviceInfo, Settings: setting)
-//        case .Electrickettle_Blue:
-//            tmpdev = Electrickettle_Blue(deviceinfo: deviceInfo, Settings: setting)
-//        case .WashDush_Wifi:
-//            tmpdev = WashDush_Wifi(deviceinfo: deviceInfo, Settings: setting)
-        case .WaterPurifier_Blue:
             break
-        case .Cup:
-            break
-        case .TwoCup:
-            break
-        case .Tap:
-            break
-        case .TDSPan:
-            break
-        case .AirPurifier_Blue:
-            break
-        case .AirPurifier_Wifi:
-            break
-        case .WaterReplenish:
-            break
-        case .Electrickettle_Blue:
-            break
-        case .WashDush_Wifi:
+        default:
             break
         }
         return tmpdev
