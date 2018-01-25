@@ -8,18 +8,18 @@
 
 import UIKit
 
-public class WaterPurifier_Wifi: OznerBaseDevice {
+class WaterPurifier_Wifi: OznerBaseDevice {
     
     //添加个性字段
     //对外只读，对内可读写
-   public private(set) var sensor:(TDS_Before:Int,TDS_After:Int,Temperature:Float)=(0,0,0.0){
+    private(set) var sensor:(TDS_Before:Int,TDS_After:Int,Temperature:Float)=(0,0,0.0){
         didSet{
             if sensor != oldValue {
                 self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
             }
         }
     }
-  public  private(set) var status:(Power:Bool,Cool:Bool,Hot:Bool,Sterilization:Bool)=(false,false,false,false){
+    private(set) var status:(Power:Bool,Cool:Bool,Hot:Bool,Sterilization:Bool)=(false,false,false,false){
         didSet{
             if status != oldValue {
                 self.delegate?.OznerDeviceStatusUpdate!(identifier: self.deviceInfo.deviceID)
@@ -27,16 +27,24 @@ public class WaterPurifier_Wifi: OznerBaseDevice {
         }
     }
     
-  public  func setPower(Power:Bool,callBack:((_ error:Error?)->Void)) {
+    private(set) var filterStates:(filterA:Int,filterB:Int,filterC:Int,TDS_Before:Int,TDS_After:Int)=(0,0,0,0,0){
+        didSet {
+            if filterStates != oldValue {
+                self.delegate?.OznerDeviceStatusUpdate!(identifier: self.deviceInfo.deviceID)
+            }
+        }
+    }
+    
+    func setPower(Power:Bool,callBack:((_ error:Error?)->Void)) {
         setStatus(data: Data.init(bytes: [UInt8(status.Hot.hashValue),UInt8(status.Cool.hashValue),UInt8(Power.hashValue),UInt8(status.Sterilization.hashValue)]))
     }
-   public func setCool(Cool:Bool,callBack:((_ error:Error?)->Void)) {
+    func setCool(Cool:Bool,callBack:((_ error:Error?)->Void)) {
         setStatus(data: Data.init(bytes: [UInt8(status.Hot.hashValue),UInt8(Cool.hashValue),UInt8(status.Power.hashValue),UInt8(status.Sterilization.hashValue)]))
     }
-   public func setHot(Hot:Bool,callBack:((_ error:Error?)->Void)) {
+    func setHot(Hot:Bool,callBack:((_ error:Error?)->Void)) {
         setStatus(data: Data.init(bytes: [UInt8(Hot.hashValue),UInt8(status.Cool.hashValue),UInt8(status.Power.hashValue),UInt8(status.Sterilization.hashValue)]))
     }
-   public func setSterilization(Sterilization:Bool,callBack:((_ error:Error?)->Void)) {
+    func setSterilization(Sterilization:Bool,callBack:((_ error:Error?)->Void)) {
        setStatus(data: Data.init(bytes: [UInt8(status.Hot.hashValue),UInt8(status.Cool.hashValue),UInt8(status.Power.hashValue),UInt8(Sterilization.hashValue)]))
     }
     private func setStatus(data:Data) {
@@ -45,14 +53,11 @@ public class WaterPurifier_Wifi: OznerBaseDevice {
         reqeusetStatus()
     }
     
-   public override func OznerBaseIORecvData(recvData: Data) {
+    override func OznerBaseIORecvData(recvData: Data) {
+        super.OznerBaseIORecvData(recvData: recvData)
         //解析数据并更新个性字段
         requestCount=0
-        if self.connectStatus != .Connected
-        {
-            self.connectStatus = .Connected
-        }
-        if (recvData.count < 10 )
+       if (recvData.count < 10 )
         {
             return
         }
@@ -62,18 +67,32 @@ public class WaterPurifier_Wifi: OznerBaseDevice {
         if group == Int(0xFB) {
             var tmpStatus = status
             var tmpSensor = sensor
+
             switch opCode {
             case 0x01://Opcode_RespondStatus
+                
                 tmpStatus.Hot = Int(recvData[12])==1
                 tmpStatus.Cool = Int(recvData[13])==1
                 tmpStatus.Power = Int(recvData[14])==1
                 tmpStatus.Sterilization = Int(recvData[15])==1
-                let tds1 = (Int(recvData[16])<0 || Int(recvData[16])==65535) ? 0:Int(recvData[16])
-                let tds2 = (Int(recvData[18])<0 || Int(recvData[18])==65535) ? 0:Int(recvData[18])
+                
+                var tds1 = recvData.subInt(starIndex: 16, count: 2)
+                tds1 = tds1<0||tds1==65535 ? 0:tds1
+                var tds2 = recvData.subInt(starIndex: 18, count: 2)
+                tds2 = tds2<0||tds2==65535 ? 0:tds2
+                
                 tmpSensor.TDS_Before = max(tds1, tds2)
                 tmpSensor.TDS_After = min(tds1, tds2)
-                tmpSensor.Temperature = Float(Int(recvData[10])+256*Int(recvData[11]))/10.0
+                tmpSensor.Temperature = Float(recvData.subInt(starIndex: 10, count: 2))/10.0
+                
             case 0x03://Opcode_DeviceInfo
+                
+                let tds1 = Int(recvData.subInt(starIndex: 71, count: 2))
+                let tds2 = Int(recvData.subInt(starIndex: 73, count: 2))
+                filterStates = (Int(recvData[116]),Int(recvData[117]),Int(recvData[118]),max(tds1, tds2),min(tds1, tds2))
+                break
+            case 0x05:
+                
                 break
             default:
                 break
@@ -82,12 +101,13 @@ public class WaterPurifier_Wifi: OznerBaseDevice {
             sensor = tmpSensor
         }
     }
-    public override func doWillInit() {
-        let needData=self.MakeWoodyBytes(code: 0xfa, Opcode: 0x01, data: Data())
+    override func doWillInit() {
+        super.doWillInit()
+        let needData=self.MakeWoodyBytes(code: 0xfa, Opcode: 0x05, data: Data())
         self.SendDataToDevice(sendData: needData, CallBack: nil)
     }
-   public var requestCount = 0//请求三次没反应代表机器断网
-   public override func repeatFunc() {
+    var requestCount = 0//请求三次没反应代表机器断网
+    override func repeatFunc() {
         if Int(arc4random()%2)==0 {
             requestCount+=1
             if requestCount>=3 {
@@ -96,7 +116,16 @@ public class WaterPurifier_Wifi: OznerBaseDevice {
             self.reqeusetStatus()
         }
     }
-   public func reqeusetStatus() {
+    func reqeusetStatus() {
+        
+        if self.deviceInfo.productID == "adf69dce-5baa-11e7-9baf-00163e120d98" {
+            
+            let needData=self.MakeWoodyBytes(code: 0xfa, Opcode: 0x03, data: Data())
+            self.SendDataToDevice(sendData: needData, CallBack: nil)
+            
+            return
+        }
+        
         let needData=self.MakeWoodyBytes(code: 0xfa, Opcode: 0x01, data: Data())
         self.SendDataToDevice(sendData: needData, CallBack: nil)
     }
@@ -106,10 +135,8 @@ public class WaterPurifier_Wifi: OznerBaseDevice {
     {
         let len = 13+data.count
         var dataNeed = Data.init(bytes: [code,UInt8(len%256),UInt8(len/256),Opcode])
-        var macData=Helper.string(toHexData: self.deviceInfo.deviceID.replacingOccurrences(of: ":", with: "").lowercased())
-        if self.deviceInfo.wifiVersion==2 {
-            macData=Helper.string(toHexData: self.deviceInfo.deviceMac.replacingOccurrences(of: ":", with: "").lowercased())
-        }
+        let macData=Helper.string(toHexData: self.deviceInfo.deviceMac.replacingOccurrences(of: ":", with: "").lowercased())
+        
         
         dataNeed.append(macData!)
         dataNeed.insert(UInt8(0), at: 10)
@@ -133,10 +160,8 @@ public class WaterPurifier_Wifi: OznerBaseDevice {
     {
         let len = 13+data.count
         var dataNeed = Data.init(bytes: [0xfa,UInt8(len%256),UInt8(len/256),0x1])
-        var macData=Helper.string(toHexData: self.deviceInfo.deviceID.replacingOccurrences(of: ":", with: "").lowercased())
-        if self.deviceInfo.wifiVersion==2 {
-            macData=Helper.string(toHexData: self.deviceInfo.deviceMac.replacingOccurrences(of: ":", with: "").lowercased())
-        }
+        let  macData=Helper.string(toHexData: self.deviceInfo.deviceMac.replacingOccurrences(of: ":", with: "").lowercased())
+        
         dataNeed.append(macData!)
         dataNeed.insert(UInt8(0), at: 10)
         dataNeed.insert(UInt8(0), at: 11)
@@ -144,7 +169,7 @@ public class WaterPurifier_Wifi: OznerBaseDevice {
         dataNeed.append(data)
         self.SendDataToDevice(sendData: dataNeed, CallBack: nil)
     }
-    public override func describe() -> String {
+    override func describe() -> String {
         return "设备名称:\(self.settings.name!)\n 连接状态:\(self.connectStatus)\n 净化前TDS:\(self.sensor.TDS_Before)\n 净化后TDS:\(self.sensor.TDS_After)\n 水温:\(self.sensor.Temperature)\n 电源:\(self.status.Power)\n 加热:\(self.status.Hot)\n 制冷:\(self.status.Cool)\n"
     }
     
