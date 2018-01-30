@@ -5,7 +5,7 @@ use_frameworks!
 target 'OznerLibrarySwiftyDemo' do
     pod 'DateTools'
     pod 'MQTTKit'
-    pod 'SQLite.swift', '~> 0.11.3'
+    pod 'SQLite.swift'
     pod 'SwiftyJSON'
 end
 

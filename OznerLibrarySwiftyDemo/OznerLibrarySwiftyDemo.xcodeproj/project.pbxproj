@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F90702BB28E42715A9D5E03 /* Pods_OznerLibrarySwiftyDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */; };
-		6865A7872019A49D00270ED3 /* WaterPurifier_Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6828F92220187EC400EB0B09 /* WaterPurifier_Wifi.swift */; };
+		6865A7982019C4B800270ED3 /* OznerLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6865A7972019C4B300270ED3 /* OznerLib.framework */; };
+		6865A7992019C4B800270ED3 /* OznerLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6865A7972019C4B300270ED3 /* OznerLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8D183CE61E28723D002E4618 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D183CE51E28723D002E4618 /* ResultViewController.swift */; };
 		8D1FB6131E5314F70075C009 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */; };
 		8D1FB6151E5315010075C009 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6141E5315010075C009 /* CoreGraphics.framework */; };
@@ -22,38 +23,6 @@
 		8D60675E1E27895E00C87CC0 /* AddDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D60675D1E27895E00C87CC0 /* AddDeviceTableViewController.swift */; };
 		8D6067601E27897A00C87CC0 /* DeviceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D60675F1E27897A00C87CC0 /* DeviceDetailViewController.swift */; };
 		8D6266281EC456B700FB46C5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D6266271EC456B700FB46C5 /* MobileCoreServices.framework */; };
-		8D72E5071F1DA4F7003A2067 /* BaseDeviceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4A31F1DA4F7003A2067 /* BaseDeviceSetting.swift */; };
-		8D72E5081F1DA4F7003A2067 /* OznerBaseDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4A41F1DA4F7003A2067 /* OznerBaseDevice.swift */; };
-		8D72E50B1F1DA4F7003A2067 /* OznerDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4A81F1DA4F7003A2067 /* OznerDeviceManager.swift */; };
-		8D72E5111F1DA4F7003A2067 /* OznerDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4B31F1DA4F7003A2067 /* OznerDataManager.swift */; };
-		8D72E5121F1DA4F7003A2067 /* OznerDeviceRecordHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4B41F1DA4F7003A2067 /* OznerDeviceRecordHelper.swift */; };
-		8D72E5131F1DA4F7003A2067 /* OZAylaIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4B71F1DA4F7003A2067 /* OZAylaIO.swift */; };
-		8D72E5141F1DA4F7003A2067 /* OznerAylaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4B81F1DA4F7003A2067 /* OznerAylaManager.swift */; };
-		8D72E5221F1DA4F7003A2067 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4DA1F1DA4F7003A2067 /* GCDAsyncSocket.m */; };
-		8D72E5231F1DA4F7003A2067 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4DC1F1DA4F7003A2067 /* GCDAsyncUdpSocket.m */; };
-		8D72E5241F1DA4F7003A2067 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4DF1F1DA4F7003A2067 /* AsyncSocket.m */; };
-		8D72E5251F1DA4F7003A2067 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4E11F1DA4F7003A2067 /* AsyncUdpSocket.m */; };
-		8D72E5261F1DA4F7003A2067 /* libEasyLink.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D72E4E41F1DA4F7003A2067 /* libEasyLink.a */; };
-		8D72E5271F1DA4F7003A2067 /* NSData+IPAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4E61F1DA4F7003A2067 /* NSData+IPAddress.m */; };
-		8D72E5281F1DA4F7003A2067 /* NSDictionary+ZBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4E81F1DA4F7003A2067 /* NSDictionary+ZBAdd.m */; };
-		8D72E5291F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4EA1F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.m */; };
-		8D72E52A1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4EC1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.m */; };
-		8D72E52B1F1DA4F7003A2067 /* OznerBonjourDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4EE1F1DA4F7003A2067 /* OznerBonjourDetail.m */; };
-		8D72E52C1F1DA4F7003A2067 /* ZBBonjourService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F01F1DA4F7003A2067 /* ZBBonjourService.m */; };
-		8D72E52D1F1DA4F7003A2067 /* OZMxChipIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F11F1DA4F7003A2067 /* OZMxChipIO.swift */; };
-		8D72E52E1F1DA4F7003A2067 /* OznerEasyLink_V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F21F1DA4F7003A2067 /* OznerEasyLink_V1.swift */; };
-		8D72E52F1F1DA4F7003A2067 /* OznerEasyLink_V2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F31F1DA4F7003A2067 /* OznerEasyLink_V2.swift */; };
-		8D72E5301F1DA4F7003A2067 /* OznerMQTT_V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F41F1DA4F7003A2067 /* OznerMQTT_V1.swift */; };
-		8D72E5311F1DA4F7003A2067 /* OznerMQTT_V2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F51F1DA4F7003A2067 /* OznerMQTT_V2.swift */; };
-		8D72E5321F1DA4F7003A2067 /* OznerMxChipManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F61F1DA4F7003A2067 /* OznerMxChipManager.swift */; };
-		8D72E5331F1DA4F7003A2067 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4F91F1DA4F7003A2067 /* Reachability.m */; };
-		8D72E5341F1DA4F7003A2067 /* OznerBaseIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4FB1F1DA4F7003A2067 /* OznerBaseIO.swift */; };
-		8D72E5351F1DA4F7003A2067 /* OznerIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4FC1F1DA4F7003A2067 /* OznerIOManager.swift */; };
-		8D72E5361F1DA4F7003A2067 /* OznerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E4FD1F1DA4F7003A2067 /* OznerManager.swift */; };
-		8D72E5371F1DA4F7003A2067 /* ProductInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D72E5001F1DA4F7003A2067 /* ProductInfo.plist */; };
-		8D72E5381F1DA4F7003A2067 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E5011F1DA4F7003A2067 /* ProductInfo.swift */; };
-		8D72E5391F1DA4F7003A2067 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E5031F1DA4F7003A2067 /* Helper.m */; };
-		8D72E53A1F1DA4F7003A2067 /* OznerTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72E5041F1DA4F7003A2067 /* OznerTools.swift */; };
 		8DD349471E0BA62200C945A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349461E0BA62200C945A2 /* AppDelegate.swift */; };
 		8DD349491E0BA62200C945A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD349481E0BA62200C945A2 /* ViewController.swift */; };
 		8DD3494C1E0BA62200C945A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DD3494A1E0BA62200C945A2 /* Main.storyboard */; };
@@ -87,6 +56,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				6865A7992019C4B800270ED3 /* OznerLib.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,7 +65,7 @@
 
 /* Begin PBXFileReference section */
 		53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OznerLibrarySwiftyDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6828F92220187EC400EB0B09 /* WaterPurifier_Wifi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterPurifier_Wifi.swift; sourceTree = "<group>"; };
+		6865A7972019C4B300270ED3 /* OznerLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OznerLib.framework; sourceTree = "<group>"; };
 		8D183CE51E28723D002E4618 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		8D1FB6141E5315010075C009 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -111,51 +81,6 @@
 		8D60675D1E27895E00C87CC0 /* AddDeviceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDeviceTableViewController.swift; sourceTree = "<group>"; };
 		8D60675F1E27897A00C87CC0 /* DeviceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetailViewController.swift; sourceTree = "<group>"; };
 		8D6266271EC456B700FB46C5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		8D72E4A31F1DA4F7003A2067 /* BaseDeviceSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDeviceSetting.swift; sourceTree = "<group>"; };
-		8D72E4A41F1DA4F7003A2067 /* OznerBaseDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerBaseDevice.swift; sourceTree = "<group>"; };
-		8D72E4A81F1DA4F7003A2067 /* OznerDeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDeviceManager.swift; sourceTree = "<group>"; };
-		8D72E4B31F1DA4F7003A2067 /* OznerDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDataManager.swift; sourceTree = "<group>"; };
-		8D72E4B41F1DA4F7003A2067 /* OznerDeviceRecordHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerDeviceRecordHelper.swift; sourceTree = "<group>"; };
-		8D72E4B71F1DA4F7003A2067 /* OZAylaIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OZAylaIO.swift; sourceTree = "<group>"; };
-		8D72E4B81F1DA4F7003A2067 /* OznerAylaManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerAylaManager.swift; sourceTree = "<group>"; };
-		8D72E4D91F1DA4F7003A2067 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
-		8D72E4DA1F1DA4F7003A2067 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
-		8D72E4DB1F1DA4F7003A2067 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
-		8D72E4DC1F1DA4F7003A2067 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
-		8D72E4DE1F1DA4F7003A2067 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
-		8D72E4DF1F1DA4F7003A2067 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
-		8D72E4E01F1DA4F7003A2067 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncUdpSocket.h; sourceTree = "<group>"; };
-		8D72E4E11F1DA4F7003A2067 /* AsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncUdpSocket.m; sourceTree = "<group>"; };
-		8D72E4E31F1DA4F7003A2067 /* EasyLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyLink.h; sourceTree = "<group>"; };
-		8D72E4E41F1DA4F7003A2067 /* libEasyLink.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEasyLink.a; sourceTree = "<group>"; };
-		8D72E4E51F1DA4F7003A2067 /* NSData+IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+IPAddress.h"; sourceTree = "<group>"; };
-		8D72E4E61F1DA4F7003A2067 /* NSData+IPAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+IPAddress.m"; sourceTree = "<group>"; };
-		8D72E4E71F1DA4F7003A2067 /* NSDictionary+ZBAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ZBAdd.h"; sourceTree = "<group>"; };
-		8D72E4E81F1DA4F7003A2067 /* NSDictionary+ZBAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ZBAdd.m"; sourceTree = "<group>"; };
-		8D72E4E91F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+ZBKeyMapping.h"; sourceTree = "<group>"; };
-		8D72E4EA1F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+ZBKeyMapping.m"; sourceTree = "<group>"; };
-		8D72E4EB1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+NilFuckOff.h"; sourceTree = "<group>"; };
-		8D72E4EC1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+NilFuckOff.m"; sourceTree = "<group>"; };
-		8D72E4ED1F1DA4F7003A2067 /* OznerBonjourDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OznerBonjourDetail.h; sourceTree = "<group>"; };
-		8D72E4EE1F1DA4F7003A2067 /* OznerBonjourDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OznerBonjourDetail.m; sourceTree = "<group>"; };
-		8D72E4EF1F1DA4F7003A2067 /* ZBBonjourService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBBonjourService.h; sourceTree = "<group>"; };
-		8D72E4F01F1DA4F7003A2067 /* ZBBonjourService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBBonjourService.m; sourceTree = "<group>"; };
-		8D72E4F11F1DA4F7003A2067 /* OZMxChipIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OZMxChipIO.swift; sourceTree = "<group>"; };
-		8D72E4F21F1DA4F7003A2067 /* OznerEasyLink_V1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerEasyLink_V1.swift; sourceTree = "<group>"; };
-		8D72E4F31F1DA4F7003A2067 /* OznerEasyLink_V2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerEasyLink_V2.swift; sourceTree = "<group>"; };
-		8D72E4F41F1DA4F7003A2067 /* OznerMQTT_V1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerMQTT_V1.swift; sourceTree = "<group>"; };
-		8D72E4F51F1DA4F7003A2067 /* OznerMQTT_V2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerMQTT_V2.swift; sourceTree = "<group>"; };
-		8D72E4F61F1DA4F7003A2067 /* OznerMxChipManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerMxChipManager.swift; sourceTree = "<group>"; };
-		8D72E4F81F1DA4F7003A2067 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		8D72E4F91F1DA4F7003A2067 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		8D72E4FB1F1DA4F7003A2067 /* OznerBaseIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerBaseIO.swift; sourceTree = "<group>"; };
-		8D72E4FC1F1DA4F7003A2067 /* OznerIOManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerIOManager.swift; sourceTree = "<group>"; };
-		8D72E4FD1F1DA4F7003A2067 /* OznerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerManager.swift; sourceTree = "<group>"; };
-		8D72E5001F1DA4F7003A2067 /* ProductInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProductInfo.plist; sourceTree = "<group>"; };
-		8D72E5011F1DA4F7003A2067 /* ProductInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
-		8D72E5021F1DA4F7003A2067 /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
-		8D72E5031F1DA4F7003A2067 /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
-		8D72E5041F1DA4F7003A2067 /* OznerTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OznerTools.swift; sourceTree = "<group>"; };
 		8DD349431E0BA62200C945A2 /* OznerLibrarySwiftyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OznerLibrarySwiftyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD349461E0BA62200C945A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DD349481E0BA62200C945A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -189,7 +114,7 @@
 				8D1FB6131E5314F70075C009 /* SystemConfiguration.framework in Frameworks */,
 				8D46A9641E13B6D90011FBAE /* CoreBluetooth.framework in Frameworks */,
 				1F90702BB28E42715A9D5E03 /* Pods_OznerLibrarySwiftyDemo.framework in Frameworks */,
-				8D72E5261F1DA4F7003A2067 /* libEasyLink.a in Frameworks */,
+				6865A7982019C4B800270ED3 /* OznerLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,191 +163,9 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8D72E49C1F1DA4F7003A2067 /* OznerLibrarySwifty */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E49D1F1DA4F7003A2067 /* DeviceManager */,
-				8D72E4B21F1DA4F7003A2067 /* OznerDataManager */,
-				8D72E4B51F1DA4F7003A2067 /* OznerIOManager */,
-				8D72E4FD1F1DA4F7003A2067 /* OznerManager.swift */,
-				8D72E4FE1F1DA4F7003A2067 /* OznerTools */,
-			);
-			path = OznerLibrarySwifty;
-			sourceTree = "<group>";
-		};
-		8D72E49D1F1DA4F7003A2067 /* DeviceManager */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4A21F1DA4F7003A2067 /* BaseDevice */,
-				8D72E4A81F1DA4F7003A2067 /* OznerDeviceManager.swift */,
-				8D72E4AD1F1DA4F7003A2067 /* WaterPurifier_Wifi */,
-			);
-			path = DeviceManager;
-			sourceTree = "<group>";
-		};
-		8D72E4A21F1DA4F7003A2067 /* BaseDevice */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4A31F1DA4F7003A2067 /* BaseDeviceSetting.swift */,
-				8D72E4A41F1DA4F7003A2067 /* OznerBaseDevice.swift */,
-			);
-			path = BaseDevice;
-			sourceTree = "<group>";
-		};
-		8D72E4AD1F1DA4F7003A2067 /* WaterPurifier_Wifi */ = {
-			isa = PBXGroup;
-			children = (
-				6828F92220187EC400EB0B09 /* WaterPurifier_Wifi.swift */,
-			);
-			path = WaterPurifier_Wifi;
-			sourceTree = "<group>";
-		};
-		8D72E4B21F1DA4F7003A2067 /* OznerDataManager */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4B31F1DA4F7003A2067 /* OznerDataManager.swift */,
-				8D72E4B41F1DA4F7003A2067 /* OznerDeviceRecordHelper.swift */,
-			);
-			path = OznerDataManager;
-			sourceTree = "<group>";
-		};
-		8D72E4B51F1DA4F7003A2067 /* OznerIOManager */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4B61F1DA4F7003A2067 /* Ayla */,
-				8D72E4D51F1DA4F7003A2067 /* MxChip */,
-				8D72E4FA1F1DA4F7003A2067 /* OznerBaseIO */,
-				8D72E4FC1F1DA4F7003A2067 /* OznerIOManager.swift */,
-			);
-			path = OznerIOManager;
-			sourceTree = "<group>";
-		};
-		8D72E4B61F1DA4F7003A2067 /* Ayla */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4B71F1DA4F7003A2067 /* OZAylaIO.swift */,
-				8D72E4B81F1DA4F7003A2067 /* OznerAylaManager.swift */,
-			);
-			path = Ayla;
-			sourceTree = "<group>";
-		};
-		8D72E4D51F1DA4F7003A2067 /* MxChip */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4D61F1DA4F7003A2067 /* CocoaAsyncSocket */,
-				8D72E4E21F1DA4F7003A2067 /* EasyLink */,
-				8D72E4F11F1DA4F7003A2067 /* OZMxChipIO.swift */,
-				8D72E4F21F1DA4F7003A2067 /* OznerEasyLink_V1.swift */,
-				8D72E4F31F1DA4F7003A2067 /* OznerEasyLink_V2.swift */,
-				8D72E4F41F1DA4F7003A2067 /* OznerMQTT_V1.swift */,
-				8D72E4F51F1DA4F7003A2067 /* OznerMQTT_V2.swift */,
-				8D72E4F61F1DA4F7003A2067 /* OznerMxChipManager.swift */,
-				8D72E4F71F1DA4F7003A2067 /* Reachability */,
-			);
-			path = MxChip;
-			sourceTree = "<group>";
-		};
-		8D72E4D61F1DA4F7003A2067 /* CocoaAsyncSocket */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4D71F1DA4F7003A2067 /* Source */,
-			);
-			path = CocoaAsyncSocket;
-			sourceTree = "<group>";
-		};
-		8D72E4D71F1DA4F7003A2067 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4D81F1DA4F7003A2067 /* GCD */,
-				8D72E4DD1F1DA4F7003A2067 /* RunLoop */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		8D72E4D81F1DA4F7003A2067 /* GCD */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4D91F1DA4F7003A2067 /* GCDAsyncSocket.h */,
-				8D72E4DA1F1DA4F7003A2067 /* GCDAsyncSocket.m */,
-				8D72E4DB1F1DA4F7003A2067 /* GCDAsyncUdpSocket.h */,
-				8D72E4DC1F1DA4F7003A2067 /* GCDAsyncUdpSocket.m */,
-			);
-			path = GCD;
-			sourceTree = "<group>";
-		};
-		8D72E4DD1F1DA4F7003A2067 /* RunLoop */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4DE1F1DA4F7003A2067 /* AsyncSocket.h */,
-				8D72E4DF1F1DA4F7003A2067 /* AsyncSocket.m */,
-				8D72E4E01F1DA4F7003A2067 /* AsyncUdpSocket.h */,
-				8D72E4E11F1DA4F7003A2067 /* AsyncUdpSocket.m */,
-			);
-			path = RunLoop;
-			sourceTree = "<group>";
-		};
-		8D72E4E21F1DA4F7003A2067 /* EasyLink */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4E31F1DA4F7003A2067 /* EasyLink.h */,
-				8D72E4E41F1DA4F7003A2067 /* libEasyLink.a */,
-				8D72E4E51F1DA4F7003A2067 /* NSData+IPAddress.h */,
-				8D72E4E61F1DA4F7003A2067 /* NSData+IPAddress.m */,
-				8D72E4E71F1DA4F7003A2067 /* NSDictionary+ZBAdd.h */,
-				8D72E4E81F1DA4F7003A2067 /* NSDictionary+ZBAdd.m */,
-				8D72E4E91F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.h */,
-				8D72E4EA1F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.m */,
-				8D72E4EB1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.h */,
-				8D72E4EC1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.m */,
-				8D72E4ED1F1DA4F7003A2067 /* OznerBonjourDetail.h */,
-				8D72E4EE1F1DA4F7003A2067 /* OznerBonjourDetail.m */,
-				8D72E4EF1F1DA4F7003A2067 /* ZBBonjourService.h */,
-				8D72E4F01F1DA4F7003A2067 /* ZBBonjourService.m */,
-			);
-			path = EasyLink;
-			sourceTree = "<group>";
-		};
-		8D72E4F71F1DA4F7003A2067 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4F81F1DA4F7003A2067 /* Reachability.h */,
-				8D72E4F91F1DA4F7003A2067 /* Reachability.m */,
-			);
-			path = Reachability;
-			sourceTree = "<group>";
-		};
-		8D72E4FA1F1DA4F7003A2067 /* OznerBaseIO */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4FB1F1DA4F7003A2067 /* OznerBaseIO.swift */,
-			);
-			path = OznerBaseIO;
-			sourceTree = "<group>";
-		};
-		8D72E4FE1F1DA4F7003A2067 /* OznerTools */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E4FF1F1DA4F7003A2067 /* DeviceConfig */,
-				8D72E5021F1DA4F7003A2067 /* Helper.h */,
-				8D72E5031F1DA4F7003A2067 /* Helper.m */,
-				8D72E5041F1DA4F7003A2067 /* OznerTools.swift */,
-			);
-			path = OznerTools;
-			sourceTree = "<group>";
-		};
-		8D72E4FF1F1DA4F7003A2067 /* DeviceConfig */ = {
-			isa = PBXGroup;
-			children = (
-				8D72E5001F1DA4F7003A2067 /* ProductInfo.plist */,
-				8D72E5011F1DA4F7003A2067 /* ProductInfo.swift */,
-			);
-			path = DeviceConfig;
-			sourceTree = "<group>";
-		};
 		8DD3493A1E0BA62200C945A2 = {
 			isa = PBXGroup;
 			children = (
-				8D72E49C1F1DA4F7003A2067 /* OznerLibrarySwifty */,
 				8D2419A61E1111D700CF9B9C /* OznerLibrarySwiftyDemo-Bridging-Header.h */,
 				8DD349451E0BA62200C945A2 /* OznerLibrarySwiftyDemo */,
 				8DD3495A1E0BA62200C945A2 /* OznerLibrarySwiftyDemoTests */,
@@ -446,6 +189,7 @@
 		8DD349451E0BA62200C945A2 /* OznerLibrarySwiftyDemo */ = {
 			isa = PBXGroup;
 			children = (
+				6865A7972019C4B300270ED3 /* OznerLib.framework */,
 				8DD349461E0BA62200C945A2 /* AppDelegate.swift */,
 				8DD349481E0BA62200C945A2 /* ViewController.swift */,
 				8DD3494A1E0BA62200C945A2 /* Main.storyboard */,
@@ -592,7 +336,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D72E5371F1DA4F7003A2067 /* ProductInfo.plist in Resources */,
 				8DD349511E0BA62200C945A2 /* LaunchScreen.storyboard in Resources */,
 				8DD3494E1E0BA62200C945A2 /* Assets.xcassets in Resources */,
 				8DD3494C1E0BA62200C945A2 /* Main.storyboard in Resources */,
@@ -680,39 +423,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6865A7872019A49D00270ED3 /* WaterPurifier_Wifi.swift in Sources */,
-				8D72E52F1F1DA4F7003A2067 /* OznerEasyLink_V2.swift in Sources */,
-				8D72E5251F1DA4F7003A2067 /* AsyncUdpSocket.m in Sources */,
-				8D72E5291F1DA4F7003A2067 /* NSDictionary+ZBKeyMapping.m in Sources */,
-				8D72E5111F1DA4F7003A2067 /* OznerDataManager.swift in Sources */,
-				8D72E5281F1DA4F7003A2067 /* NSDictionary+ZBAdd.m in Sources */,
 				8D183CE61E28723D002E4618 /* ResultViewController.swift in Sources */,
-				8D72E5081F1DA4F7003A2067 /* OznerBaseDevice.swift in Sources */,
-				8D72E5391F1DA4F7003A2067 /* Helper.m in Sources */,
-				8D72E5271F1DA4F7003A2067 /* NSData+IPAddress.m in Sources */,
-				8D72E5361F1DA4F7003A2067 /* OznerManager.swift in Sources */,
-				8D72E5351F1DA4F7003A2067 /* OznerIOManager.swift in Sources */,
-				8D72E5321F1DA4F7003A2067 /* OznerMxChipManager.swift in Sources */,
-				8D72E5331F1DA4F7003A2067 /* Reachability.m in Sources */,
 				8D60675E1E27895E00C87CC0 /* AddDeviceTableViewController.swift in Sources */,
-				8D72E5241F1DA4F7003A2067 /* AsyncSocket.m in Sources */,
-				8D72E5071F1DA4F7003A2067 /* BaseDeviceSetting.swift in Sources */,
-				8D72E5131F1DA4F7003A2067 /* OZAylaIO.swift in Sources */,
-				8D72E5121F1DA4F7003A2067 /* OznerDeviceRecordHelper.swift in Sources */,
-				8D72E5341F1DA4F7003A2067 /* OznerBaseIO.swift in Sources */,
-				8D72E50B1F1DA4F7003A2067 /* OznerDeviceManager.swift in Sources */,
-				8D72E52B1F1DA4F7003A2067 /* OznerBonjourDetail.m in Sources */,
-				8D72E52C1F1DA4F7003A2067 /* ZBBonjourService.m in Sources */,
-				8D72E5221F1DA4F7003A2067 /* GCDAsyncSocket.m in Sources */,
-				8D72E52A1F1DA4F7003A2067 /* NSMutableDictionary+NilFuckOff.m in Sources */,
-				8D72E52E1F1DA4F7003A2067 /* OznerEasyLink_V1.swift in Sources */,
-				8D72E5381F1DA4F7003A2067 /* ProductInfo.swift in Sources */,
-				8D72E5231F1DA4F7003A2067 /* GCDAsyncUdpSocket.m in Sources */,
-				8D72E5301F1DA4F7003A2067 /* OznerMQTT_V1.swift in Sources */,
-				8D72E5311F1DA4F7003A2067 /* OznerMQTT_V2.swift in Sources */,
-				8D72E53A1F1DA4F7003A2067 /* OznerTools.swift in Sources */,
-				8D72E5141F1DA4F7003A2067 /* OznerAylaManager.swift in Sources */,
-				8D72E52D1F1DA4F7003A2067 /* OZMxChipIO.swift in Sources */,
 				8D6067601E27897A00C87CC0 /* DeviceDetailViewController.swift in Sources */,
 				8DD349491E0BA62200C945A2 /* ViewController.swift in Sources */,
 				8DD349471E0BA62200C945A2 /* AppDelegate.swift in Sources */,
@@ -877,9 +589,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/OznerLibrarySwifty/OznerIOManager/MxChip",
+					"$(PROJECT_DIR)/OznerLibrarySwiftyDemo",
 				);
 				INFOPLIST_FILE = OznerLibrarySwiftyDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -921,9 +634,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/OznerLibrarySwifty/OznerIOManager/MxChip",
+					"$(PROJECT_DIR)/OznerLibrarySwiftyDemo",
 				);
 				INFOPLIST_FILE = OznerLibrarySwiftyDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

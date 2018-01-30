@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import OznerLib
 
 class ViewController: UIViewController {
 
@@ -18,8 +19,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         deviceArray=[OznerBaseDevice]()
-
         print(ProductInfo.getProductInfoFromProductID(productID: "67ea604c-549b-11e7-9baf-00163e120d98"))
+    
     }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden=true

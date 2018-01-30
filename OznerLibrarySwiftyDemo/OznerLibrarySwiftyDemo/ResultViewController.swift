@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OznerLib
 
 class ResultViewController: UIViewController,OznerPairDelegate,UITextFieldDelegate {
     var currDeviceType:OZDeviceClass!
@@ -47,6 +48,7 @@ class ResultViewController: UIViewController,OznerPairDelegate,UITextFieldDelega
         OznerManager.instance.fetchCurrentSSID { (ssid) in
             self.ssidText.text=ssid
         }
+        
         // Do any additional setup after loading the view.
     }
 

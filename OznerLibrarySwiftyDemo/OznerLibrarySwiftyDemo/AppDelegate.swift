@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import OznerLib
 var appDelegate: AppDelegate {
     return UIApplication.shared.delegate as! AppDelegate
 }
@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        OznerManager.instance.setOwner(Owner: "15026981614", UserToken: "")
+            
+            OznerManager.instance.setOwner(Owner: "15026981614", UserToken: "")
         
         return true
     }

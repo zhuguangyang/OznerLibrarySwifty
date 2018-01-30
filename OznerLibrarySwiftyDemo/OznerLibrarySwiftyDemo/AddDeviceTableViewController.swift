@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import OznerLib
 class AddDeviceTableViewController: UITableViewController {
 
     var deviceArr:[(nameStr:String,type:OZDeviceClass)]!

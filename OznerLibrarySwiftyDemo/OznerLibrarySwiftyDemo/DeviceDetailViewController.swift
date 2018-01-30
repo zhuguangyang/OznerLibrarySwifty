@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import OznerLib
 
 class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITextFieldDelegate {
 
