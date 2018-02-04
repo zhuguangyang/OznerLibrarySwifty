@@ -134,7 +134,7 @@
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
     
     //日志
-    //BabyLog(@"当扫描到设备:%@",peripheral.name);
+    BabyLog(@"当扫描到设备:%@",advertisementData);
     [self addDiscoverPeripheral:peripheral];
 //    kCBAdvDataManufacturerData
     //发出通知

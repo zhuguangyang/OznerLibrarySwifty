@@ -16,6 +16,7 @@
 		68618C541F1DAF97003855F4 /* Electrickettle_Blue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68618C531F1DAF97003855F4 /* Electrickettle_Blue.swift */; };
 		68761E021F9EEC2200759494 /* Electrickettle.bin in Resources */ = {isa = PBXBuildFile; fileRef = 68AD528B1F9D9917005EAF0C /* Electrickettle.bin */; };
 		689813D11F6B720A000551F0 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689813D01F6B720A000551F0 /* SwiftNotice.swift */; };
+		68B6F1052026C7B500E0735C /* Rocomml.BIN in Resources */ = {isa = PBXBuildFile; fileRef = 68B6F1042026C65C00E0735C /* Rocomml.BIN */; };
 		68BCF1C41F6BCD7A002F3865 /* TwoCup.bin in Resources */ = {isa = PBXBuildFile; fileRef = 68BCF1C31F6BCD7A002F3865 /* TwoCup.bin */; };
 		8D183CE61E28723D002E4618 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D183CE51E28723D002E4618 /* ResultViewController.swift */; };
 		8D1FB6131E5314F70075C009 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */; };
@@ -133,6 +134,7 @@
 		689813D01F6B720A000551F0 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 		68AD528B1F9D9917005EAF0C /* Electrickettle.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = Electrickettle.bin; sourceTree = "<group>"; };
 		68AD528F1F9DE60B005EAF0C /* ble.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = ble.bin; sourceTree = "<group>"; };
+		68B6F1042026C65C00E0735C /* Rocomml.BIN */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = Rocomml.BIN; sourceTree = "<group>"; };
 		68BCF1C31F6BCD7A002F3865 /* TwoCup.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = TwoCup.bin; sourceTree = "<group>"; };
 		8D183CE51E28723D002E4618 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		8D1FB6121E5314F70075C009 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -406,6 +408,7 @@
 		8D72E4AB1F1DA4F7003A2067 /* WaterPurifier_Blue */ = {
 			isa = PBXGroup;
 			children = (
+				68B6F1042026C65C00E0735C /* Rocomml.BIN */,
 				8D72E4AC1F1DA4F7003A2067 /* WaterPurifier_Blue.swift */,
 			);
 			path = WaterPurifier_Blue;
@@ -807,6 +810,7 @@
 				8DD349511E0BA62200C945A2 /* LaunchScreen.storyboard in Resources */,
 				6842E3661F9DF6D2009A46A5 /* ble.bin in Resources */,
 				8DD3494E1E0BA62200C945A2 /* Assets.xcassets in Resources */,
+				68B6F1052026C7B500E0735C /* Rocomml.BIN in Resources */,
 				8DD3494C1E0BA62200C945A2 /* Main.storyboard in Resources */,
 				68761E021F9EEC2200759494 /* Electrickettle.bin in Resources */,
 			);

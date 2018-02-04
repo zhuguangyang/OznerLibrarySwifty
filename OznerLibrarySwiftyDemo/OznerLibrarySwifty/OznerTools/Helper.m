@@ -15,6 +15,13 @@ static Byte findKey[]={0x23, 0x23, 0x24, 0x24, 0x40, 0x40, 0x2a, 0x2a, 0x54, 0x6
 
 @implementation Helper
 
++(int)hexToint:(NSString*)str
+{
+    int nValude = 0;
+    sscanf([[str dataUsingEncoding:NSASCIIStringEncoding] bytes],"%x",&nValude);
+    return nValude;
+}
+
 +(uint8_t)Crc8:(uint8_t*) inBuffer inLen:(uint16_t)inLen
 {
     uint8_t Crc8Table[] = { 0x00, 0x07, 0x0E,

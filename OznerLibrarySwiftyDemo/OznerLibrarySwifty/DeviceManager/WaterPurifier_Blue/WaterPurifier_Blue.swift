@@ -111,6 +111,24 @@ class WaterPurifier_Blue: OznerBaseDevice {
     }
     override func OznerBaseIORecvData(recvData: Data) {
         switch UInt8(recvData[0]) {
+        case 0x1e:
+            print(recvData)
+            break
+        case 0x30:
+            print(recvData)
+        case 0xB1:
+            print(recvData)
+            // b2 c0 1c 40
+//            let  data = Data.init(bytes: [0xb0,UInt8(178),UInt8(192),UInt8(28),UInt8(64)])
+//
+//            self.SendDataToDevice(sendData: data) { (error) in
+//                if error == nil {
+//                    print("发送成功")
+//                } else {
+//                    print(error)
+//                }
+//            }
+            
         case 0x21://opCode_respone_setting
             if recvData.count>8 {
                 let tmpStarDate=NSDate(year: Int(recvData[1])+2000, month: Int(recvData[2]), day: Int(recvData[3]), hour: Int(recvData[4]), minute: Int(recvData[5]), second: Int(recvData[6])) as Date
@@ -140,6 +158,27 @@ class WaterPurifier_Blue: OznerBaseDevice {
         default:
             break
         }
+    }
+    
+    func getMacAddress() {
+        
+//        var  data = Data.init(bytes: [0xB0])
+        
+//        data.append(calcSum(data: data))
+        
+        // b2 c0 1c 40
+        var data = Data.init(bytes: [0xb0,0xb2,0xc0,0x1c,0x40])
+//        var data = Data.init(bytes: [0xb0,0x00,0x00,0x00,UInt8(32)])
+        data.append(calcSum(data: data))
+        
+        self.SendDataToDevice(sendData: data) { (error) in
+            if error == nil {
+                print("发送成功")
+            } else {
+                print(error)
+            }
+        }
+        
     }
     
     override func doWillInit(){}
@@ -242,13 +281,13 @@ class WaterPurifier_Blue: OznerBaseDevice {
     
     func startOTA(_ isBLE:Bool) {
         
-        eraseBlock(UInt8(0))
-        eraseBlock(UInt8(1))
-        eraseBlock(UInt8(2))
-        eraseBlock(UInt8(3))
-        sleep(1)
+//        eraseBlock(UInt8(0))
+//        eraseBlock(UInt8(1))
+//        eraseBlock(UInt8(2))
+//        eraseBlock(UInt8(3))
+//        sleep(1)
         
-        let filePath = Bundle.main.path(forResource: "TwoCup", ofType: "bin")
+        let filePath = Bundle.main.path(forResource: "Rocomml", ofType: "BIN")
         
         let data = NSData(contentsOfFile: filePath!)!
         
@@ -260,6 +299,8 @@ class WaterPurifier_Blue: OznerBaseDevice {
             return
         }
         
+        
+        
         if (size % 256) != 0 {
             size = (size/256) * 256 + 256
         }
@@ -269,9 +310,52 @@ class WaterPurifier_Blue: OznerBaseDevice {
         memset(&readBuffer, 0xff, size)
         memcpy(&readBuffer, data.bytes, data.length)
         
+        var macLoc1 = 0;
+        var macLoc2 = 0
+        
+        for i in 0..<readBuffer.count {
+            
+            if (readBuffer[i] == 0x12) && (readBuffer[i+1] == 0x34) && (readBuffer[i+2] == 0x56) && (readBuffer[i+3] == 0x65)  && (readBuffer[i+4] == 0x43) && (readBuffer[i+5] == 0x21){
+                if macLoc1 == 0 {
+                    macLoc1 = i
+                }else{
+                    macLoc2 = i;
+                }
+            }
+            
+        }
+        
+        if macLoc1 != 0 {
+
+            Helper.hexToint("01");
+            
+            readBuffer[macLoc1] = UInt8(Helper.hexToint("AO"))
+            readBuffer[macLoc1+1] = UInt8(Helper.hexToint("78"))
+            readBuffer[macLoc1+2] = UInt8(Helper.hexToint("02"))
+            readBuffer[macLoc1+3] = UInt8(Helper.hexToint("14"))
+            readBuffer[macLoc1+4] = UInt8(Helper.hexToint("01"))
+            readBuffer[macLoc1+5] = UInt8(Helper.hexToint("04"))
+            
+        }
+        
+        if macLoc2 != 0 {
+            
+            readBuffer[macLoc2] = readBuffer[macLoc1];
+            readBuffer[macLoc2+1] = readBuffer[macLoc1+1];
+            readBuffer[macLoc2+2] = readBuffer[macLoc1+2];
+            readBuffer[macLoc2+3] = readBuffer[macLoc1+3];
+            readBuffer[macLoc2+4] = readBuffer[macLoc1+4];
+            readBuffer[macLoc2+5] = readBuffer[macLoc1+5];
+            
+        }
+        
+        
         let data123 = Data.init(bytes: readBuffer)
         
         sumLength = data123.count
+        
+        let lock = NSLock()
+        
         
         for  i in 0 ... size/16 {
             
@@ -286,10 +370,10 @@ class WaterPurifier_Blue: OznerBaseDevice {
             sendData.append(data123.subData(starIndex: i * 16, count: 16))
             
             var checkSum:UInt8 = 0
-            for i in 0..<19 {
-                
-                checkSum = checkSum + sendData[i] & 0x0ff
-            }
+//            for i in 0..<19 {
+//
+//                checkSum = checkSum + sendData[i] & 0x0ff
+//            }
             sendData.append(checkSum & 0xff)
             
             currenLength = i * 16
@@ -300,9 +384,25 @@ class WaterPurifier_Blue: OznerBaseDevice {
                 return
             }
             
+//            DispatchQueue.global().sync(flags: DispatchQueue.GlobalQueuePriority.high) {
+            lock.lock()
             self.SendDataToDevice(sendData: sendData, CallBack: { (error) in
-                print("============")
+                if error != nil {
+                    lock.unlock()
+                    return;
+                } else {
+                    sleep(5)
+                    print("go on")
+                    //                        continue;
+                    lock.unlock()
+                }
             })
+                
+//            }
+            
+            
+            
+            print(2)
             
             updateSensor()
         }
@@ -349,6 +449,12 @@ class WaterPurifier_Blue: OznerBaseDevice {
     func updateSensor() {
     
     }
+    
+//    func hexToint(str:String) {
+//        let nvalude = 0
+//
+//
+//    }
 
 }
 

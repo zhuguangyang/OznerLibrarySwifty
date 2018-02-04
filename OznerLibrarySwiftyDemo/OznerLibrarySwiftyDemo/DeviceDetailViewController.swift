@@ -12,6 +12,7 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
 
     @IBOutlet weak var powerBtn: UIButton!
     
+    @IBOutlet weak var macButton: UIButton!
     @IBOutlet weak var coldBtn: UIButton!
     @IBOutlet weak var hotBtn: UIButton!
     @IBOutlet var textView: UITextView!
@@ -91,6 +92,13 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
         }
     }
     
+    @IBAction func getMacAction(_ sender: UIButton) {
+        
+        let deviece = currDevice as! WaterPurifier_Blue
+        
+        deviece.getMacAddress()
+        
+    }
     
     private var currDevice:OznerBaseDevice!
     
@@ -112,20 +120,28 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
         currDevice=OznerManager.instance.currentDevice
         currDevice.delegate=self
         textView.text=currDevice.describe()
+        
+        if currDevice.isKind(of: WaterPurifier_Blue.classForCoder()) {
+            macButton.isHidden = false
+        } else {
+            macButton.isHidden = true
+        }
+        
         // Do any additional setup after loading the view.
     }
 
     @IBAction func otaAction(_ sender: UIButton) {
         
-        let device = currDevice as! Electrickettle_Blue
+        let device = currDevice as! WaterPurifier_Blue
         
 //        DispatchQueue.global().async {
 
-            device.twoCupClearUpgrade()
-            device.startOTA()
+//            device.twoCupClearUpgrade()
+//            device.startOTA()
 
         
 //        }
+        device.startOTA(true)
     }
     
     

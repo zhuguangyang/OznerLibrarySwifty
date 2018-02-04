@@ -14,6 +14,7 @@ bool StringIsNullOrEmpty(NSString* str);
 
 +(NSString*)md5:(NSString*)str;
 +(NSString*)rndString:(int)len;
++(int)hexToint:(NSString*)str;
 +(uint8_t)Crc8:(uint8_t*) inBuffer inLen:(uint16_t)inLen;
 + (NSData *) stringToHexData:(NSString*)str;
 + (NSString *) getDeviceIDFromService:(NSString*)ipAdress Login_id:(NSString*)login_id PassWord:(NSString*)passWord;

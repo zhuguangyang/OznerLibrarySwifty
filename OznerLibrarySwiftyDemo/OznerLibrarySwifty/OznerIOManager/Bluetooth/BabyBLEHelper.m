@@ -66,6 +66,10 @@ NSString* deviceName=nil;
     
     NSData *data = [macData1 subdataWithRange:NSMakeRange(0, 8)];
     
+    if (macData1.length < 18) {
+        return true;
+    }
+    
     NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF16StringEncoding];
     NSLog(@"%@",str);
     BytePtr bytes2 = (BytePtr)[[macData1 subdataWithRange:NSMakeRange(18, 1)] bytes];
@@ -104,6 +108,12 @@ NSString* deviceName=nil;
         MAC=[NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
              bytes[5],bytes[4],bytes[3],bytes[2],bytes[1],bytes[0]];
     }
+    
+    if ([name isEqualToString:@"RO Comml"] && (macData1.length < 20)) {
+        BytePtr bytes = (BytePtr)[macData1 bytes];
+        MAC = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
+               bytes[5],bytes[4],bytes[3],bytes[2],bytes[1],bytes[0]];
+    }
 
     //台式空净OAP、0x20
     //水杯、
@@ -140,7 +150,14 @@ NSString* deviceName=nil;
     [baby setBlockOnDiscoverToPeripherals:^(CBCentralManager *central, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI) {
         NSString* mac=[weakSelf getMac:advertisementData Name:peripheral.name];
         sleep(1);
-        weakSelf.babyBLEScanDataBlock(peripheral.identifier.UUIDString,peripheral.name,mac,[weakSelf calcDistByRSSI:RSSI.intValue],advertisementData);
+//        if ([peripheral.name isEqualToString:@"RO Comml"]) {
+//
+//            weakSelf.babyBLEScanDataBlock(peripheral.identifier.UUIDString,peripheral.name,mac,[weakSelf calcDistByRSSI:RSSI.intValue],advertisementData);
+//
+//        } else {
+        
+            weakSelf.babyBLEScanDataBlock(peripheral.identifier.UUIDString,peripheral.name,mac,[weakSelf calcDistByRSSI:RSSI.intValue],advertisementData);
+//        }
         NSLog(@"发现设备name:%@,距离:%d,mac:%@",peripheral.name,RSSI.intValue,mac);
     }];
     
