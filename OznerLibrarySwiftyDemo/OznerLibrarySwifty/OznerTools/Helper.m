@@ -380,4 +380,45 @@ bool StringIsNullOrEmpty(NSString* str)
         orc[i-begin] = src[i];
     }
 }
+
++(int)compareOneDay:(NSDate *)oneDay
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    NSString *oneDayStr = [dateFormatter stringFromDate:oneDay];
+//    NSString *anotherDayStr = [dateFormatter stringFromDate:anotherDay];
+    NSDate *dateA = [dateFormatter dateFromString:oneDayStr];
+    NSDate *dateB = [dateFormatter dateFromString:@"23-10-2017"];
+    NSComparisonResult result = [dateA compare:dateB];
+    if (result == NSOrderedDescending) {
+        //NSLog(@"Date1  is in the future");
+        return 1;
+    }
+    else if (result == NSOrderedAscending){
+        //NSLog(@"Date1 is in the past");
+        return -1;
+    }
+    //NSLog(@"Both dates are the same");
+    return 0;
+    
+}
+
++ (NSData *)getmd5:(NSData *)data
+{
+//    const char *str = [data bytes];
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(data.bytes, (CC_LONG)data.length, result);
+//    CC_MD5( str, (uint)strlen(str), result);
+    return [[NSData alloc] initWithBytes:result length: 16];
+    
+//    if (StringIsNullOrEmpty(str)) return nil;
+//    const char *cStr = [str UTF8String];
+//    unsigned char digest[CC_MD5_DIGEST_LENGTH];
+//    CC_MD5( cStr, (uint)strlen(cStr), digest );
+//    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+//    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+//        [output appendFormat:@"%02x", digest[i]];
+//    return output;
+}
+
 @end

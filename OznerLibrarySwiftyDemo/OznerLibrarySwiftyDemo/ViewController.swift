@@ -19,6 +19,8 @@ class ViewController: UIViewController {
         deviceArray=[OznerBaseDevice]()
 //        let filePath = Bundle.main.path(forResource: "TwoCup", ofType: "bin")
 //        print(Helper.otaCheckS/um(withFileStr: filePath!))
+//        7A68756775616E6779616E67
+       print(Helper.getmd5(Data.init(bytes: [0x7A,0x68,0x75,0x67,0x75,0x61,0x6e,0x67,0x79,0x61,0x6e,0x67])))
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +35,8 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
 
 }

@@ -72,6 +72,7 @@ class OznerTools: NSObject {
     
 }
 extension Data{
+    
     func subInt(starIndex:Int,count:Int) -> Int {
         if starIndex+count>self.count {
             return 0

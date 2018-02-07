@@ -10,6 +10,9 @@ import UIKit
 
 class WaterPurifier_Blue: OznerBaseDevice {
     
+    var requestMacData:Data = Data.init(bytes: [0xb0])
+    var isMac = false
+    private var CheckSum:Int = 0
     //对外只读，对内可读写
     private(set) var WaterSettingInfo:(rtc:Date,Ozone_WorkTime:Int,Ozone_Interval:Int,waterDate:Date)=(Date(timeIntervalSince1970: 0),0,0,Date(timeIntervalSince1970: 0)){
         didSet{
@@ -117,17 +120,14 @@ class WaterPurifier_Blue: OznerBaseDevice {
         case 0x30:
             print(recvData)
         case 0xB1:
-            print(recvData)
-            // b2 c0 1c 40
-//            let  data = Data.init(bytes: [0xb0,UInt8(178),UInt8(192),UInt8(28),UInt8(64)])
-//
-//            self.SendDataToDevice(sendData: data) { (error) in
-//                if error == nil {
-//                    print("发送成功")
-//                } else {
-//                    print(error)
-//                }
-//            }
+            
+            if !isMac {
+                requestMacData.append(recvData.subData(starIndex: 1, count: 4))
+            } else {
+                requestMacData.removeAll()
+                requestMacData.append(contentsOf: recvData.subData(starIndex: 1, count: 6))
+                
+            }
             
         case 0x21://opCode_respone_setting
             if recvData.count>8 {
@@ -162,24 +162,36 @@ class WaterPurifier_Blue: OznerBaseDevice {
     
     func getMacAddress() {
         
-//        var  data = Data.init(bytes: [0xB0])
-        
-//        data.append(calcSum(data: data))
-        
-        // b2 c0 1c 40
-        var data = Data.init(bytes: [0xb0,0xb2,0xc0,0x1c,0x40])
-//        var data = Data.init(bytes: [0xb0,0x00,0x00,0x00,UInt8(32)])
+        var data = Data.init(bytes: [0xb0])
+        let sublocation = Int(0x0122cc) + Int(0x08)
+        data.append(OznerTools.dataFromInt(number: CLongLong(sublocation), length: 4))
         data.append(calcSum(data: data))
         
         self.SendDataToDevice(sendData: data) { (error) in
             if error == nil {
+                self.isMac = false
                 print("发送成功")
             } else {
-                print(error)
+                print(error!)
             }
         }
         
     }
+    
+    func getMac() {
+        requestMacData.append(calcSum(data: requestMacData))
+        self.SendDataToDevice(sendData: requestMacData) { (error) in
+            
+            if error == nil {
+                self.isMac = true
+            } else {
+                print(error!)
+            }
+            
+        }
+    }
+    
+    
     
     override func doWillInit(){}
     override func repeatFunc() {
@@ -269,8 +281,8 @@ class WaterPurifier_Blue: OznerBaseDevice {
         
         var sendData = Data.init(bytes: [0xc0,index])
         
-        sendData.append(Data.init(bytes: [0xc0 & 0x0ff + (index & 0x0ff) & 0xff]))
-        
+//        sendData.append(UInt8((sendData[0] & 0x0ff) + (sendData[1] & 0x0ff)))
+        sendData.append(calcSum(data: sendData))
         self.SendDataToDevice(sendData: sendData) { (error) in
             if error != nil {
                 appDelegate.window?.noticeOnlyText("出错,请终止")
@@ -287,10 +299,11 @@ class WaterPurifier_Blue: OznerBaseDevice {
 //        eraseBlock(UInt8(3))
 //        sleep(1)
         
-        let filePath = Bundle.main.path(forResource: "Rocomml", ofType: "BIN")
+        
+        let filePath = Bundle.main.path(forResource: "Rocomml2", ofType: "BIN")
         
         let data = NSData(contentsOfFile: filePath!)!
-        
+        let inputStream = InputStream(fileAtPath: filePath!)
         var size = data.length
         
         if size > 127 * 1024 {
@@ -298,13 +311,12 @@ class WaterPurifier_Blue: OznerBaseDevice {
             appDelegate.window?.noticeOnlyText("OTA失败 文件过大!")
             return
         }
-        
-        
+//        size = checkFirmwareSize(data as Data)
         
         if (size % 256) != 0 {
             size = (size/256) * 256 + 256
         }
-        
+////
         var readBuffer:[UInt8] = [UInt8].init(repeating: 0xff, count: size)
         
         memset(&readBuffer, 0xff, size)
@@ -327,36 +339,45 @@ class WaterPurifier_Blue: OznerBaseDevice {
         
         if macLoc1 != 0 {
 
-            Helper.hexToint("01");
-            
-            readBuffer[macLoc1] = UInt8(Helper.hexToint("AO"))
-            readBuffer[macLoc1+1] = UInt8(Helper.hexToint("78"))
-            readBuffer[macLoc1+2] = UInt8(Helper.hexToint("02"))
-            readBuffer[macLoc1+3] = UInt8(Helper.hexToint("14"))
-            readBuffer[macLoc1+4] = UInt8(Helper.hexToint("01"))
-            readBuffer[macLoc1+5] = UInt8(Helper.hexToint("04"))
-            
+//            readBuffer[macLoc1] = UInt8(Helper.hexToint("AO"))
+//            readBuffer[macLoc1+1] = UInt8(Helper.hexToint("78"))
+//            readBuffer[macLoc1+2] = UInt8(Helper.hexToint("02"))
+//            readBuffer[macLoc1+3] = UInt8(Helper.hexToint("14"))
+//            readBuffer[macLoc1+4] = UInt8(Helper.hexToint("01"))
+//            readBuffer[macLoc1+5] = UInt8(Helper.hexToint("04"))
+            readBuffer[macLoc1] = 0xA0
+            readBuffer[macLoc1+1] = 0x78
+            readBuffer[macLoc1+2] = 0x02
+            readBuffer[macLoc1+3] = 0x14
+            readBuffer[macLoc1+4] = 0x01
+            readBuffer[macLoc1+5] = 0x04
+
         }
-        
+
         if macLoc2 != 0 {
-            
+
             readBuffer[macLoc2] = readBuffer[macLoc1];
             readBuffer[macLoc2+1] = readBuffer[macLoc1+1];
             readBuffer[macLoc2+2] = readBuffer[macLoc1+2];
             readBuffer[macLoc2+3] = readBuffer[macLoc1+3];
             readBuffer[macLoc2+4] = readBuffer[macLoc1+4];
             readBuffer[macLoc2+5] = readBuffer[macLoc1+5];
-            
+
         }
         
+        eraseBlock(UInt8(0x00))
+        eraseBlock(UInt8(0x01))
+        eraseBlock(UInt8(0x02))
+        eraseBlock(UInt8(0x03))
         
-        let data123 = Data.init(bytes: readBuffer)
+        let readBuffer2 =  md5Check(readBuffer)
+        print("开始传输数据")
+        let data123 = Data.init(bytes: readBuffer2)
         
         sumLength = data123.count
         
-        let lock = NSLock()
-        
-        
+//        let lock = NSLock()
+        print(size/16)
         for  i in 0 ... size/16 {
             
             var sendData = Data.init(bytes: [0xC1])
@@ -369,12 +390,7 @@ class WaterPurifier_Blue: OznerBaseDevice {
 //            sendData.append(Data.init(bytes: [0x10]))
             sendData.append(data123.subData(starIndex: i * 16, count: 16))
             
-            var checkSum:UInt8 = 0
-//            for i in 0..<19 {
-//
-//                checkSum = checkSum + sendData[i] & 0x0ff
-//            }
-            sendData.append(checkSum & 0xff)
+            sendData.append(calcSum(data: sendData))
             
             currenLength = i * 16
             
@@ -383,78 +399,168 @@ class WaterPurifier_Blue: OznerBaseDevice {
                 appDelegate.window?.noticeOnlyText("OTA失败 设备断开连接!")
                 return
             }
-            
-//            DispatchQueue.global().sync(flags: DispatchQueue.GlobalQueuePriority.high) {
-            lock.lock()
+//            var checksumOTA = 0
+//            for i in 0...18 {
+//
+//                checksumOTA = checksumOTA + Int(sendData[i])
+//
+//            }
+//            sendData.append(UInt8(checksumOTA&0xff))
+            sendData.append(calcSum(data: sendData))
+           
             self.SendDataToDevice(sendData: sendData, CallBack: { (error) in
                 if error != nil {
-                    lock.unlock()
                     return;
                 } else {
-                    sleep(5)
                     print("go on")
-                    //                        continue;
-                    lock.unlock()
+                    
                 }
             })
-                
-//            }
-            
-            
-            
-            print(2)
             
             updateSensor()
         }
+        inputStream?.close()
         
-        OTASuccess(isBLE)
+        OTASuccess(isBLE,size: readBuffer2.count)
     }
     
-    func OTASuccess(_ isBLE:Bool) {
+    func OTASuccess(_ isBLE:Bool,size:Int) {
         
-        let filePath = Bundle.main.path(forResource: "TwoCup", ofType: "bin")
+//        let filePath = Bundle.main.path(forResource: "TwoCup", ofType: "bin")
         
-        var sendData = Data.init(bytes: [0xC3])
+        var sendData = Data.init(bytes: [0xC5])
         
-        let data = NSData(contentsOfFile: filePath!)
+//        let data = NSData(contentsOfFile: filePath!)
         
         //0xC3
-        let sum = data?.length
         
-        if sum == nil {
-            
-            print("OTA失败 sum")
-            return
-        }
+//        if sum == nil {
+//
+//            print("OTA失败 sum")
+//            return
+//        }
         
-        sendData.append(OznerTools.dataFromInt(number: CLongLong(sum!), length: 4))
+        sendData.append(OznerTools.dataFromInt(number: CLongLong(size), length: 4))
         
-        var bleStr = "BLE"
+        let bleStr = "BLE"
         
-        if isBLE {
-            bleStr = "HOS"
-        }
+//        if isBLE {
+//            bleStr = "HOS"
+//        }
         
         sendData.append(bleStr.data(using: String.Encoding.ascii)!)
         
-        let Checksum = Helper.loadFileWithpath(filePath!)
+//        let Checksum = Helper.loadFileWithpath(filePath!)
         
-        sendData.append(OznerTools.dataFromInt(number: CLongLong(Checksum), length: 4))
+        sendData.append(OznerTools.dataFromInt(number: CLongLong(CheckSum), length: 4))
+        sendData.append(calcSum(data: sendData))
         
-        self.SendDataToDevice(sendData: sendData, CallBack: nil)
+//        var checksumT = 0;
+//        for i in 0...11 {
+//            checksumT = checksumT + Int((sendData[i]))
+//        }
+//        sendData.append(UInt8(checksumT))
+        self.SendDataToDevice(sendData: sendData) { (error) in
+            if error == nil {
+                print("传输完成")
+            }
+        }
         sleep(60)
         appDelegate.window?.noticeOnlyText("BLE传输完成")
     }
     
     func updateSensor() {
     
+         self.delegate?.OznerDeviceSensorUpdate?(identifier: self.deviceInfo.deviceID)
     }
     
-//    func hexToint(str:String) {
-//        let nvalude = 0
+    func md5Check(_ readBuffer:[UInt8]) -> [UInt8]{
+        var readBuffer = readBuffer
+        let firmwareLen =  readBuffer.count
+
+        var readBuffer2:[UInt8] = [UInt8].init(repeating: 0x00, count:firmwareLen - 256)
+
+        memset(&readBuffer2, 0x00, firmwareLen - 256)
+        memcpy(&readBuffer2, readBuffer, firmwareLen - 256)
+        let data:NSData = Helper.getmd5(Data.init(bytes: readBuffer2))! as NSData
+
+        memcpy(&(readBuffer[firmwareLen - 256 + 16]), data.bytes, 16)
+       
+        CheckSum(readBuffer)
+        print("checksum")
+        var readBuffer3:[UInt8] = [UInt8].init(repeating: 0x00, count:firmwareLen)
+
+        memset(&readBuffer3, 0x00, firmwareLen)
+        memcpy(&readBuffer3, readBuffer, firmwareLen)
+        let data2:NSData = Helper.getmd5(Data.init(bytes: readBuffer3))! as NSData
+
+        //0xC4
+        var sendData = Data.init(bytes: [0xc4])
+        sendData.append(data2 as Data)
+        sendData.append(calcSum(data: sendData))
+        self.SendDataToDevice(sendData: sendData, CallBack: nil)
+        print("md5传输;c4")
+        sleep(1)
+        
+        return readBuffer
+        
+    }
+    
+    
+    func CheckSum(_ readBuffer:[UInt8]) {
+        var readBuffer = readBuffer
+        var size = readBuffer.count
+        
+        if size > 127 * 1024 {
+            print("文件过大")
+            return
+        }
+        
+        if (size % 256) != 0 {
+            size = (size/256) * 256 + 256
+        }
+//        let data = Data.init(bytes: readBuffer)
+        
+//        let inputStream = InputStream(fileAtPath: path)
+        
+//        var readBuffer2:[UInt8] = [UInt8].init(repeating: 0xff, count: size)
+////
+//        memset(&readBuffer2, 0xff, size)
+//        memcpy(&readBuffer2, readBuffer, readBuffer.count)
+        
+        var temp:Int = 0
+        let len = size/4 - 1
+        
+        for i in 0...len {
+            
+            temp = temp + Int(Helper.getBigHost(&readBuffer, index: Int32(i * 4)))
+        }
+        var tempMask = CLongLong(0x1FFFFFFFF);
+        tempMask -= CLongLong(0x100000000)
+        
+        CheckSum = Int(CLongLong(temp) & tempMask)
+        print(CheckSum)
+        print(CheckSum & 0x7fffffff)
+        
+    }
+    
+//    override func describe() -> String {
 //
-//
+//        return super.describe() + "OTA进度:\(currenLength)/\(sumLength)  \((currenLength/sumLength)*100)%"
 //    }
+    
+    fileprivate func checkFirmwareSize(_ data:Data) -> Int {
+        
+        let size = data.count
+        
+        for i in 0..<size {
+            if data[size - i - 1] != 0 {
+                return (size - i - 1) + 2
+            }
+        }
+        return size
+    }
+    
 
 }
 

@@ -8,12 +8,36 @@
 
 #import "BabyBLEHelper.h"
 //#import "ScanData.h"
+#import "Helper.h"
+
+typedef struct _RecordTime
+{
+    UInt8 year;
+    UInt8 month;
+    UInt8 day;
+    UInt8 hour;
+    UInt8 min;
+    UInt8 sec;
+}*lpRecordTime,TRecordTime;
+
+//typedef struct _CupRawRecord
+//{
+//    TRecordTime time;
+//    short reserve;
+//    short vol;
+//    short index;
+//    short count;
+//    short temperature;
+//    short TDS;
+//}*lpCupRecord;
 
 @implementation BabyBLEHelper
 {
     BabyBluetooth *baby;
     
 }
+
+
 //单例模式
 + (instancetype)shareBabyBLEHelper {
     static BabyBLEHelper *share = nil;
@@ -72,8 +96,26 @@ NSString* deviceName=nil;
     
     NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF16StringEncoding];
     NSLog(@"%@",str);
+    //获取固件版本
+    NSString *str1 = [[NSString alloc] initWithData:[macData1 subdataWithRange:NSMakeRange(0, 3)] encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",str1);
+    
+    NSString *str3 = [[NSString alloc] initWithData:[macData1 subdataWithRange:NSMakeRange(9, 8)] encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",str3);
+    
+    //获取固件日期
+    BytePtr bytes3 = (BytePtr)[[macData1 subdataWithRange:NSMakeRange(3, 6)] bytes];
+    lpRecordTime time=(lpRecordTime)bytes3;
+    NSDateComponents* comp= [[NSDateComponents alloc]init];
+    [comp setYear:2000+time->year];
+    [comp setMonth:time->month];
+    [comp setDay:time->day];
+    [comp setHour:time->hour];
+    [comp setMinute:time->min];
+    [comp setSecond:time->sec];
+    NSCalendar *myCal = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSLog(@"%d", [Helper compareOneDay:[myCal dateFromComponents:comp] ]);
     BytePtr bytes2 = (BytePtr)[[macData1 subdataWithRange:NSMakeRange(18, 1)] bytes];
-    NSLog(@"%d",bytes2[0]);
     
     return bytes2[0] == 0 ? true : false;
 }

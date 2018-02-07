@@ -100,6 +100,13 @@ class DeviceDetailViewController: UIViewController,OznerBaseDeviceDelegate,UITex
         
     }
     
+    @IBAction func getMac(_ sender: UIButton) {
+        
+         let deviece = currDevice as! WaterPurifier_Blue
+        
+        deviece.getMac()
+        
+    }
     private var currDevice:OznerBaseDevice!
     
     override func viewDidLoad() {

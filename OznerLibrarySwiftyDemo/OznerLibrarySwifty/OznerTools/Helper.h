@@ -25,6 +25,8 @@ bool StringIsNullOrEmpty(NSString* str);
 + (int)loadFileWithpath:(NSString *)path;
 
 + (int)getBigHost:(Byte[])byte index:(int)index;
++(int)compareOneDay:(NSDate *)oneDay;
++ (NSData *)getmd5:(NSData *)data;
 
 
 @end

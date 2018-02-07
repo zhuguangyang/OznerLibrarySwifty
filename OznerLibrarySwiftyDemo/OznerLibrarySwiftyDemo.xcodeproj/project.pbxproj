@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F90702BB28E42715A9D5E03 /* Pods_OznerLibrarySwiftyDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */; };
+		6801FC2F202861E100C20EFF /* Rocomml2.BIN in Resources */ = {isa = PBXBuildFile; fileRef = 6801FC2E202861CC00C20EFF /* Rocomml2.BIN */; };
 		682B8A881F3AAC0600CBE821 /* WashDush_Wifi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682B8A871F3AAC0600CBE821 /* WashDush_Wifi.swift */; };
 		682E76C71F58FE6F0074D3A7 /* TwoCup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682E76C61F58FE6F0074D3A7 /* TwoCup.swift */; };
 		6842E3661F9DF6D2009A46A5 /* ble.bin in Resources */ = {isa = PBXBuildFile; fileRef = 68AD528F1F9DE60B005EAF0C /* ble.bin */; };
@@ -126,6 +127,7 @@
 
 /* Begin PBXFileReference section */
 		53DAA85EB8519061F5B9387D /* Pods_OznerLibrarySwiftyDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OznerLibrarySwiftyDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6801FC2E202861CC00C20EFF /* Rocomml2.BIN */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = Rocomml2.BIN; sourceTree = "<group>"; };
 		68122F681F9DF27E0095589F /* abc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = abc.txt; sourceTree = "<group>"; };
 		682B8A871F3AAC0600CBE821 /* WashDush_Wifi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WashDush_Wifi.swift; sourceTree = "<group>"; };
 		682E76C61F58FE6F0074D3A7 /* TwoCup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoCup.swift; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 		8D72E4AB1F1DA4F7003A2067 /* WaterPurifier_Blue */ = {
 			isa = PBXGroup;
 			children = (
+				6801FC2E202861CC00C20EFF /* Rocomml2.BIN */,
 				68B6F1042026C65C00E0735C /* Rocomml.BIN */,
 				8D72E4AC1F1DA4F7003A2067 /* WaterPurifier_Blue.swift */,
 			);
@@ -811,6 +814,7 @@
 				6842E3661F9DF6D2009A46A5 /* ble.bin in Resources */,
 				8DD3494E1E0BA62200C945A2 /* Assets.xcassets in Resources */,
 				68B6F1052026C7B500E0735C /* Rocomml.BIN in Resources */,
+				6801FC2F202861E100C20EFF /* Rocomml2.BIN in Resources */,
 				8DD3494C1E0BA62200C945A2 /* Main.storyboard in Resources */,
 				68761E021F9EEC2200759494 /* Electrickettle.bin in Resources */,
 			);

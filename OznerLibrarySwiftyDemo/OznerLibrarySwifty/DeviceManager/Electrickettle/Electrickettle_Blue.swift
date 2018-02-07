@@ -231,7 +231,7 @@ class Electrickettle_Blue: OznerBaseDevice {
     
     func getBin() {
         
-        let filePath = Bundle.main.path(forResource: "ble", ofType: "bin")
+        let filePath = Bundle.main.path(forResource: "Rocomml2", ofType: "bin")
         
         var sendData = Data.init(bytes: [0xC3])
         
